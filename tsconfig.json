@@ -10,13 +10,12 @@
       "moduleResolution": "node",
       "baseUrl": ".",
       "paths": {
-          "@root*": ["./src/*"],
-          "@app*": ["./src/app/*"],
-          "@pages*": ["./src/pages/*"],
-          "@widgets*": ["./src/widgets/*"],
-          "@features*": ["./src/features/*"],
-          "@entities*": ["./src/entities/*"],
-          "@shared*": ["./src/shared/*"],
+          "@app*": ["./src/app*"],
+          "@pages*": ["./src/pages*"],
+          "@widgets*": ["./src/widgets*"],
+          "@features*": ["./src/features*"],
+          "@entities*": ["./src/entities*"],
+          "@shared*": ["./src/shared*"],
       },
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
@@ -30,6 +29,7 @@
   "include": [
       "./config/jest/setupTests.ts",
       "./src/**/*.ts",
-      "./src/**/*.tsx"
+      "./src/**/*.tsx",
+      "./src/app/types/global.d.ts"
   ]
 }

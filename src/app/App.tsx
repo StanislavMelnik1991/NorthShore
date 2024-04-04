@@ -1,7 +1,14 @@
-import { memo } from "react";
+import { Suspense, memo } from "react";
+import { AppRouter } from "./providers/router";
 
 const App = memo(() => {
-  return <div>app</div>;
+  return (
+    <Suspense fallback="">
+      <div className="content-page">
+        <AppRouter />
+      </div>
+    </Suspense>
+  );
 });
 
 export default App;
