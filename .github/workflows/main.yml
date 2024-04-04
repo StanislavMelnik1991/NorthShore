@@ -18,9 +18,12 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install Dependencies
-      run: npm ci --force
+    - name: Install pnpm
+      run: npm install -g pnpm
 
-    - name: Run Next.js Lint
-      run: npm run lint
+    - name: Install Dependencies
+      run: pnpm install --force
+
+    - name: Run eslint
+      run: pnpm run lint
       if: always()
