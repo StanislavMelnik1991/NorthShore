@@ -1,5 +1,7 @@
 import { NewsPage } from "@pages/admin";
+import { ForbiddenPage } from "@pages/Forbidden";
 import { MainPage } from "@pages/Main";
+import { NotFoundPage } from "@pages/NotFound";
 import {
   AppRoutes,
   getRouteMain,
@@ -67,11 +69,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
 
   [AppRoutes.FORBIDDEN]: {
     path: getRouteForbidden(),
-    element: <MainPage />,
+    element: <ForbiddenPage />,
   },
 
   [AppRoutes.NOT_FOUND]: {
     path: "*",
-    element: <MainPage />,
+    element: <NotFoundPage />,
   },
 };

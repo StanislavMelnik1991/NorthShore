@@ -1,0 +1,15 @@
+:root {
+  //primary
+  --primary-100-rgb: 147, 107, 24;
+  --primary-60-rgb: 190, 166, 116;
+  --primary-30-rgb: 205, 193, 168;
+  --primary-20-rgb: 235, 227, 211;
+  --primary-10-rgb: 245, 241, 232;
+
+  //primary
+  --primary-100: rgb(var(--primary-100-rgb));
+  --primary-60: rgb(var(--primary-60-rgb));
+  --primary-30: rgb(var(--primary-30-rgb));
+  --primary-20: rgb(var(--primary-20-rgb));
+  --primary-10: rgb(var(--primary-10-rgb));
+}

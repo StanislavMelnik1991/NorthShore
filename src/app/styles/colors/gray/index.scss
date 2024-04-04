@@ -1,0 +1,11 @@
+:root {
+  --gray-50-rgb: 189, 189, 189;
+  --gray-30-rgb: 234, 234, 234;
+  --gray-20-rgb: 237, 237, 237;
+  --gray-10-rgb: 244, 244, 244;
+
+  --gray-50: rgb(var(--gray-50-rgb));
+  --gray-30: rgb(var(--gray-30-rgb));
+  --gray-20: rgb(var(--gray-20-rgb));
+  --gray-10: rgb(var(--gray-10-rgb));
+}

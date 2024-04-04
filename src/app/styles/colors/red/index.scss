@@ -1,0 +1,7 @@
+:root {
+  --red-100-rgb: 185, 33, 33;
+  --red-10-rgb: 248, 233, 233;
+
+  --red-100: rgb(var(--red-100-rgb));
+  --red-10: rgb(var(--red-10-rgb));
+}

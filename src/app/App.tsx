@@ -4,7 +4,7 @@ import { AppRouter } from "./providers/router";
 const App = memo(() => {
   return (
     <Suspense fallback="">
-      <div className="content-page">
+      <div className="app">
         <AppRouter />
       </div>
     </Suspense>

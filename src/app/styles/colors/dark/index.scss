@@ -1,0 +1,19 @@
+:root {
+  --dark-100-rgb: 32, 22, 0;
+  --dark-80-rgb: 51, 51, 51;
+  --dark-70-rgb: 90, 87, 78;
+  --dark-60-rgb: 135, 129, 117;
+  --dark-50-rgb: 128, 128, 128;
+  --dark-30-rgb: 189, 186, 183;
+  --dark-20-rgb: 228, 225, 221;
+  --dark-10-rgb: 247, 246, 245;
+
+  --dark-100: rgb(var(--dark-100-rgb));
+  --dark-80: rgb(var(--dark-80-rgb));
+  --dark-70: rgb(var(--dark-70-rgb));
+  --dark-60: rgb(var(--dark-60-rgb));
+  --dark-50: rgb(var(--dark-50-rgb));
+  --dark-30: rgb(var(--dark-30-rgb));
+  --dark-20: rgb(var(--dark-20-rgb));
+  --dark-10: rgb(var(--dark-10-rgb));
+}

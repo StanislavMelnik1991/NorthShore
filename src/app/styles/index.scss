@@ -1,51 +1,42 @@
 @import "reset";
-@import "variables/global";
-@import "themes/normal";
+@import "variables/";
+@import "colors/";
 
 .app {
-    font: var(--font-m);
-    color: var(--primary-color);
-    background: var(--bg-color);
+    font-size: 14px;
+    line-height: 16px;
+    font-family: "Inter", sans-serif;
+    color: var(--dark-100);
+    background: var(--background-color);
     min-height: 100vh;
-}
-
-.app_redesigned {
-    background: var(--bg-redesigned);
-    min-height: 100vh;
-    font: var(--font-m-redesigned);
-    color: var(--text-redesigned);
-}
-
-.content-page {
-    display: flex;
 }
 
 *::-webkit-scrollbar {
-    width: 12px;          
+    width: 12px;
     height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--light-bg-redesigned);        
+    background: var(--light-bg-redesigned);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--icon-redesigned); 
-    border-radius: 20px;      
-    border: 1px solid var(--accent-redesigned);  
+    background-color: var(--icon-redesigned);
+    border-radius: 20px;
+    border: 1px solid var(--accent-redesigned);
 }
 
 .app *::-webkit-scrollbar {
-    width: 12px;               
+    width: 12px;
     height: 8px;
 }
 
 .app *::-webkit-scrollbar-track {
-    background: var(--card-bg);       
+    background: var(--card-bg);
 }
 
 .app *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);    
-    border-radius: 20px;     
-    border: 2px solid var(--primary-color);  
+    background-color: var(--inverted-primary-color);
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
 }
