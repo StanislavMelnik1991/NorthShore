@@ -1,6 +1,10 @@
+build/*
+node_modules/*
+
 *.config.js
 *.config.ts
 *.setup.js
 *.setup.ts
 *.test.js
 *.test.ts
+*.d.ts

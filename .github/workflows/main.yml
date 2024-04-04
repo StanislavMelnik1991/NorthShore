@@ -25,5 +25,5 @@ jobs:
       run: pnpm install --force
 
     - name: Run eslint
-      run: pnpm run lint
+      run: pnpm run lint:ts
       if: always()

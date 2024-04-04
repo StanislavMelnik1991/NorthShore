@@ -11,6 +11,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:@conarti/feature-sliced/recommended",
+    "prettier",
   ],
   root: true,
   env: {
@@ -31,5 +32,8 @@ module.exports = {
       },
     },
   ],
-  rules: {},
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/display-name': 'off',
+  },
 };
