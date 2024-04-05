@@ -16,15 +16,15 @@
   }
 
   &.error {
-    border-color: rgb(var(--warning-rgb));
+    border-color: var(--red-100);
   }
 
 }
 
 .error {
-  color: rgb(var(--warning-rgb));
+  color:  var(--red-100);
 
   &::placeholder{
-    color: rgb(var(--warning-rgb));
+    color: var(--red-10);
   }
 }

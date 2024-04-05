@@ -15,10 +15,12 @@ const config: Config = {
         __API__: '',
         __PROJECT__: 'jest',
     },
+    // setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
     moduleDirectories: ['node_modules'],
     modulePaths: ['<rootDir>src'],
+    
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),

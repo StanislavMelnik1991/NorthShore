@@ -7,3 +7,4 @@ node_modules
 .loki/report.json
 /reports/unit
 .env
+*storybook.log

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { Loader } from "../Loader";
 import styles from "./Button.module.scss";
 
 interface Props
@@ -10,6 +11,7 @@ interface Props
   size?: "small" | "large";
   width?: string | number;
   height?: string | number;
+  loading?: boolean;
 }
 
 export const Button = ({
@@ -19,6 +21,8 @@ export const Button = ({
   style,
   width,
   height,
+  loading = false,
+  children,
   ...props
 }: Props) => {
   return (
@@ -31,6 +35,8 @@ export const Button = ({
       )}
       style={{ width, height, ...style }}
       {...props}
-    ></button>
+    >
+      {loading ? <Loader size={24} /> : children}
+    </button>
   );
 };
