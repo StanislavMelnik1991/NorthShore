@@ -5,15 +5,34 @@
   border-radius: var(--radius-sm);
   border: none;
   padding: 10px 16px;
+  cursor: pointer;
+  transition: all var(--animation-duration) ease;
 }
 .primary {
   background-color: var(--primary-100);
   color: var(--light-color);
+
+  &:active {
+    background-color: var(--primary-dark);
+  }
+
+  &:disabled {
+    background-color: var(--gray-50);
+  }
 }
 
 .secondary {
   background-color: var(--primary-10);
   color: var(--primary-100);
+
+  &:active {
+    background-color: var(--primary-20);
+  }
+
+  &:disabled {
+    background-color: var(--gray-30);
+    color: var(--gray-50);
+  }
 }
 
 .danger {

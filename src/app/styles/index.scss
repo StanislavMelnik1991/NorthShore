@@ -3,12 +3,13 @@
 @import "colors/";
 
 .app {
+    display: flex;
     font-size: 14px;
     line-height: 16px;
     font-family: "Inter", sans-serif;
     color: var(--dark-100);
     background: var(--background-color);
-    min-height: 100vh;
+    height: 100vh;
 }
 
 *::-webkit-scrollbar {

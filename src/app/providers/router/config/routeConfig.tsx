@@ -15,6 +15,7 @@ import {
   getRouteAdminNotifications,
   getRouteAdminVoting,
   getRouteAdminLoyalty,
+  getRouteAdminTechnicalWorks,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
@@ -58,6 +59,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.ADMIN_NOTIFICATIONS]: {
     path: getRouteAdminNotifications(),
+    element: <MainPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ADMIN_TECHNICAL_WORKS]: {
+    path: getRouteAdminTechnicalWorks(),
     element: <MainPage />,
     authOnly: true,
   },

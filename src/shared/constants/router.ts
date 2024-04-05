@@ -9,6 +9,7 @@ export enum AppRoutes {
   ADMIN_EVENTS = "admin_events",
   ADMIN_MEETINGS = "admin_meetings",
   ADMIN_NOTIFICATIONS = "admin_notifications",
+  ADMIN_TECHNICAL_WORKS = "admin_technical_works",
   ADMIN_VOTING = "admin_voting",
   ADMIN_LOYALTY = "admin_loyalty",
 }
@@ -19,10 +20,12 @@ export const getRouteAbout = () => "/about";
 export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteForbidden = () => "/forbidden";
 
+export const getRouteAdmin = () => "/admin";
 export const getRouteAdminNews = () => "/admin/news";
 export const getRouteAdminEvents = () => "/admin/events";
 export const getRouteAdminMeetings = () => "/admin/meetings";
 export const getRouteAdminNotifications = () => "/admin/notifications";
+export const getRouteAdminTechnicalWorks = () => "/admin/technical_works";
 export const getRouteAdminVoting = () => "/admin/voting";
 export const getRouteAdminLoyalty = () => "/admin/loyalty";
 
