@@ -12,9 +12,7 @@ export interface BuildPaths {
     features: string;
     entities: string;
     shared: string;
-  };
-  locales: string;
-  buildLocales: string;
+  }
 }
 
 export interface BuildEnv {

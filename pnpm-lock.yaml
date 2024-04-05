@@ -19,6 +19,18 @@ dependencies:
     version: 6.22.3(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
+  '@babel/core':
+    specifier: ^7.17.5
+    version: 7.24.4
+  '@babel/preset-env':
+    specifier: ^7.16.11
+    version: 7.24.4(@babel/core@7.24.4)
+  '@babel/preset-react':
+    specifier: ^7.16.7
+    version: 7.24.1(@babel/core@7.24.4)
+  '@babel/preset-typescript':
+    specifier: ^7.16.7
+    version: 7.24.1(@babel/core@7.24.4)
   '@chromatic-com/storybook':
     specifier: 1.3.1
     version: 1.3.1(react@18.2.0)
@@ -103,6 +115,12 @@ devDependencies:
   '@webpack-cli/generators':
     specifier: ^3.0.7
     version: 3.0.7(prettier@3.2.5)(webpack-cli@5.1.4)(webpack@5.91.0)
+  babel-loader:
+    specifier: ^8.2.3
+    version: 8.3.0(@babel/core@7.24.4)(webpack@5.91.0)
+  babel-plugin-i18next-extract:
+    specifier: ^0.8.3
+    version: 0.8.3
   circular-dependency-plugin:
     specifier: ^5.2.2
     version: 5.2.2(webpack@5.91.0)
@@ -171,7 +189,7 @@ devDependencies:
     version: 14.1.1(sass@1.74.1)(webpack@5.91.0)
   storybook:
     specifier: ^8.0.6
-    version: 8.0.6(react-dom@18.2.0)(react@18.2.0)
+    version: 8.0.6(@babel/preset-env@7.24.4)(react-dom@18.2.0)(react@18.2.0)
   style-loader:
     specifier: ^3.3.4
     version: 3.3.4(webpack@5.91.0)
@@ -1579,6 +1597,14 @@ packages:
     dependencies:
       '@babel/helper-string-parser': 7.24.1
       '@babel/helper-validator-identifier': 7.22.20
+      to-fast-properties: 2.0.0
+    dev: true
+
+  /@babel/types@7.9.6:
+    resolution: {integrity: sha512-qxXzvBO//jO9ZnoasKF1uJzHd2+M6Q2ZPIVfnFps8JJvXy0ZBbwbNOmE6SGIY5XOY6d1Bo5lb9d9RJ8nv3WSeA==}
+    dependencies:
+      '@babel/helper-validator-identifier': 7.22.20
+      lodash: 4.17.21
       to-fast-properties: 2.0.0
     dev: true
 
@@ -3063,7 +3089,7 @@ packages:
       tiny-invariant: 1.3.3
     dev: true
 
-  /@storybook/cli@8.0.6(react-dom@18.2.0)(react@18.2.0):
+  /@storybook/cli@8.0.6(@babel/preset-env@7.24.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-gAnl9soQUu1BtB4sANaqaaeTZAt/ThBSwCdzSLut5p21fP4ovi3FeP7hcDCJbyJZ/AvnD4k6leDrqRQxMVPr0A==}
     hasBin: true
     dependencies:
@@ -5299,6 +5325,34 @@ packages:
       chalk: 4.1.2
       graceful-fs: 4.2.11
       slash: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /babel-loader@8.3.0(@babel/core@7.24.4)(webpack@5.91.0):
+    resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
+    engines: {node: '>= 8.9'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+      webpack: '>=2'
+    dependencies:
+      '@babel/core': 7.24.4
+      find-cache-dir: 3.3.2
+      loader-utils: 2.0.4
+      make-dir: 3.1.0
+      schema-utils: 2.7.1
+      webpack: 5.91.0(@swc/core@1.4.12)(esbuild@0.20.2)(webpack-cli@5.1.4)
+    dev: true
+
+  /babel-plugin-i18next-extract@0.8.3:
+    resolution: {integrity: sha512-ZBhGjP2nLF3pGJO/X6s8DlyUo8zkuPQ09sGZK4XGqtJit/ccj8zocO5JI/F+oFZgKVH1tN8pAQT4fm0JWk2SIQ==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      '@babel/core': 7.24.4
+      '@babel/types': 7.9.6
+      deepmerge: 4.3.1
+      i18next: 19.9.2
+      json-stable-stringify: 1.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8464,6 +8518,12 @@ packages:
     hasBin: true
     dev: true
 
+  /i18next@19.9.2:
+    resolution: {integrity: sha512-0i6cuo6ER6usEOtKajUUDj92zlG+KArFia0857xxiEHAQcUwh/RtOQocui1LPJwunSYT574Pk64aNva1kwtxZg==}
+    dependencies:
+      '@babel/runtime': 7.24.4
+    dev: true
+
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -9651,6 +9711,16 @@ packages:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
 
+  /json-stable-stringify@1.1.1:
+    resolution: {integrity: sha512-SU/971Kt5qVQfJpyDveVhQ/vya+5hvrjClFOcr8c0Fq5aODJjMwutrOfCU+eCnVD5gpx1Q3fEqkyom77zH1iIg==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.7
+      isarray: 2.0.5
+      jsonify: 0.0.1
+      object-keys: 1.1.1
+    dev: true
+
   /json-stringify-nice@1.1.4:
     resolution: {integrity: sha512-5Z5RFW63yxReJ7vANgW6eZFGWaQvnPE3WNmZoOJrSkGju2etKA2L5rrOa1sm877TVTFt57A80BH1bArcmlLfPw==}
     dev: true
@@ -9674,6 +9744,10 @@ packages:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+    dev: true
+
+  /jsonify@0.0.1:
+    resolution: {integrity: sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==}
     dev: true
 
   /jsonparse@1.3.1:
@@ -12036,6 +12110,15 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
+  /schema-utils@2.7.1:
+    resolution: {integrity: sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==}
+    engines: {node: '>= 8.9.0'}
+    dependencies:
+      '@types/json-schema': 7.0.15
+      ajv: 6.12.6
+      ajv-keywords: 3.5.2(ajv@6.12.6)
+    dev: true
+
   /schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
     engines: {node: '>= 10.13.0'}
@@ -12475,11 +12558,11 @@ packages:
     resolution: {integrity: sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==}
     dev: true
 
-  /storybook@8.0.6(react-dom@18.2.0)(react@18.2.0):
+  /storybook@8.0.6(@babel/preset-env@7.24.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-QcQl8Sj77scGl0s9pw+cSPFmXK9DPogEkOceG12B2PqdS23oGkaBt24292Y3W5TTMVNyHtRTRB/FqPwK3FOdmA==}
     hasBin: true
     dependencies:
-      '@storybook/cli': 8.0.6(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/cli': 8.0.6(@babel/preset-env@7.24.4)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@babel/preset-env'
       - bufferutil
