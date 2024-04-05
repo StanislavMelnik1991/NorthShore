@@ -41,6 +41,7 @@
   color: var(--dark-100);
   border-right: 4px solid var(--dark-100);
 
+  /* stylelint-disable-next-line no-descending-specificity */
   & path {
     fill: var(--dark-100);
   }

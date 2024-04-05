@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+  border: var(--border-width) solid var(--dark-20);
+  border-radius:  var(--radius-sm);
+  background-color: var(--white-100);
+  padding: 10px 12px;
+  outline: none;
+
+  &::placeholder{
+    color: var(--dark-50);
+  }
+
+  &.error {
+    border-color: rgb(var(--warning-rgb));
+  }
+
+}
+
+.error {
+  color: rgb(var(--warning-rgb));
+
+  &::placeholder{
+    color: rgb(var(--warning-rgb));
+  }
+}

@@ -27,3 +27,7 @@ jobs:
     - name: Run eslint
       run: pnpm run lint:ts
       if: always()
+
+    - name: Run stylelint
+      run: pnpm run lint:scss
+      if: always()

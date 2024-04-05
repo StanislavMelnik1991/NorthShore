@@ -1,3 +1,4 @@
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -8,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--nav_bar-width);
+  width: var(--nav-bar-width);
   border-right: var(--border-width) solid var(--dark-20);
   border-bottom: var(--border-width) solid var(--dark-10);
   height: 100%;
