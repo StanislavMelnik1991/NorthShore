@@ -31,3 +31,7 @@ jobs:
     - name: Run stylelint
       run: pnpm run lint:scss
       if: always()
+
+    - name: Run jest
+      run: pnpm run test:unit
+      if: always()
