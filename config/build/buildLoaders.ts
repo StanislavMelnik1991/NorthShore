@@ -15,13 +15,13 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                plugins: [],
             },
         },
     };
 
     const cssLoader = buildCssLoader(isDev);
 
+    // Если не используем тайпскрипт - нужен babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
