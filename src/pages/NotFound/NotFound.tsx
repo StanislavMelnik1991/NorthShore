@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { PageLoader } from "@widgets/PageLoader";
-import { ContentQuillEditor } from "@entities/QuillEditor/ContentQuillEditor";
+import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
 import { Button, Text, Title } from "@shared/ui";
 import styles from "./NotFound.module.scss";
 
@@ -13,7 +13,7 @@ const NotFoundPage = ({ className }: Props) => {
   const [val, setVal] = useState("");
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <ContentQuillEditor
+      <QuillEditor
         uploadImage={async () => {
           return [{ url: "" }];
         }}

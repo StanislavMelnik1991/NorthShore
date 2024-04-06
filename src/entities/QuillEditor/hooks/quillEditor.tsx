@@ -51,16 +51,28 @@ export const useQuillEditor = ({
       const contentEditor = reactQuillRef.current.getEditor();
       const data = delta.ops[delta.ops.length - 1];
       if (data && contentEditor) {
-        const text = data.insert as string;
+        const content = data.insert as string;
         const contentText = editor.getText();
-        const position = contentText.indexOf(text) || 0;
-        if (text?.startsWith("https://")) {
+        const position = contentText.indexOf(content as string) || 0;
+        if ((content as unknown as { image: string })?.image) {
+          uploadImage((content as unknown as { image: string }).image).then(
+            ([{ url }]) => {
+              (
+                contentEditor as unknown as { history: { undo: () => void } }
+              ).history.undo();
+              contentEditor.insertText(position, "\n");
+              insertLink(contentEditor, url, position);
+            },
+          );
+          return;
+        }
+        if (content?.startsWith("https://")) {
           (
             contentEditor as unknown as { history: { undo: () => void } }
           ).history.undo();
           contentEditor.insertText(position, "\n");
           setShowSideToolbar(true);
-          insertLink(contentEditor, text, position);
+          insertLink(contentEditor, content, position);
           return;
         } else {
           setValue(value);

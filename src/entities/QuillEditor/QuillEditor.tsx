@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FocusEventHandler, RefObject, useRef } from "react";
 import ReactQuill from "react-quill";
-import styles from "./ContentQuillEditor.module.scss";
 import { useQuillEditor } from "./hooks/quillEditor";
+import styles from "./QuillEditor.module.scss";
 import "./hooks/helpers/block";
 
 type Props = {
@@ -22,7 +22,7 @@ type Props = {
   hideSpinner: () => void;
 };
 
-export const ContentQuillEditor = ({
+export const QuillEditor = ({
   placeholder,
   initialValue,
   className,
@@ -54,7 +54,7 @@ export const ContentQuillEditor = ({
 
   const MODULES = {
     toolbar: [
-      [{ header: [1, 2, false] }],
+      [{ header: [2, 3, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [
         { list: "ordered" },
