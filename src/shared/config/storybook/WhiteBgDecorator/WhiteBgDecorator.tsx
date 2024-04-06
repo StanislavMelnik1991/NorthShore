@@ -1,8 +1,9 @@
 import { StoryFn } from "@storybook/react";
+import { Card } from "../../../ui";
 import styles from "./WhiteBgDecorator.module.scss";
 
 export const WhiteBgDecorator = (StoryComponent: StoryFn) => (
-  <div className={styles.wrapper}>
+  <Card radius={0} padding={20} className={styles.wrapper}>
     <StoryComponent />
-  </div>
+  </Card>
 );

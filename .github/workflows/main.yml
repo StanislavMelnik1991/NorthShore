@@ -1,4 +1,4 @@
-name: Next.js Lint
+name: Lint
 
 on:
   push:
@@ -18,20 +18,20 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install pnpm
-      run: npm install -g pnpm
+    - name: Install yarn
+      run: npm install -g yarn
 
     - name: Install Dependencies
-      run: pnpm install --force
+      run: yarn install --force
 
     - name: Run eslint
-      run: pnpm run lint:ts
+      run: yarn run lint:ts
       if: always()
 
     - name: Run stylelint
-      run: pnpm run lint:scss
+      run: yarn run lint:scss
       if: always()
 
     - name: Run jest
-      run: pnpm run test:unit
+      run: yarn run test:unit
       if: always()

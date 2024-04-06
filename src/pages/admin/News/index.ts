@@ -1,1 +1,2 @@
-export { NewsPageAsync as NewsPage } from "./NewsPage.async";
+export * from "./List";
+export * from "./Create";

@@ -1,13 +1,23 @@
 {
-    "extends": [
-        "stylelint-config-standard-scss",
-        "stylelint-config-prettier-scss"
-      ],
-    "rules": {
-        "selector-class-pattern": null,
-        "number-max-precision": [5, {
-            "ignoreUnits": ["em"],
-            "severity": "warning"
-          }]
-    }
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "font-family-no-duplicate-names": true,
+    "no-duplicate-selectors": true,
+    "block-no-empty": true,
+    "selector-class-pattern": null,
+    "scss/dollar-variable-pattern": "^foo",
+    "number-max-precision": [
+      5,
+      {
+        "ignoreUnits": [
+          "em"
+        ],
+        "severity": "warning"
+      }
+    ]
+  }
 }

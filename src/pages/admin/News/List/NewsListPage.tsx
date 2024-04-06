@@ -1,22 +1,23 @@
 import classNames from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PageHeader } from "@entities/PageHeader";
 import { IconLoupe } from "@shared/icons";
-import { Button, TextField, Title } from "@shared/ui";
-import styles from "./NewsPage.module.scss";
+import { Button, Card, TextField } from "@shared/ui";
+import styles from "./NewsListPage.module.scss";
 
 interface Props {
   className?: string;
 }
 
-const NewsPage = ({ className }: Props) => {
+const Page = ({ className }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <Title fontWeight="bold" variant="h1">
-        Новости
-      </Title>
-      <div className={styles.header}>
+      <PageHeader
+        breadcrumbs={[{ href: location.pathname, title: "Новости" }]}
+      />
+      <Card padding={12} gap={20}>
         <Button
           onClick={() => {
             navigate(`${location.pathname}/create`);
@@ -24,15 +25,15 @@ const NewsPage = ({ className }: Props) => {
         >
           Создать
         </Button>
-        <Button variant="secondary">Перейти в архив </Button>
+        <Button variant="light">Перейти в архив </Button>
         <TextField
           wrapperClassName={styles.input}
           placeholder={"Поиск"}
           leftItem={<IconLoupe width={20} height={20} />}
         />
-      </div>
+      </Card>
     </div>
   );
 };
 
-export default NewsPage;
+export default Page;

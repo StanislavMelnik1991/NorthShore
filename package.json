@@ -23,9 +23,14 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-dropzone": "^14.2.3",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.22.3",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",

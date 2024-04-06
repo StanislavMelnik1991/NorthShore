@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+.errorText {
+  visibility: hidden;
+  padding-left: 20px;
+}
+
+.error {
+  border-color: var(--red-100);
+  color: var(--red-100);
+  visibility: visible;
+}

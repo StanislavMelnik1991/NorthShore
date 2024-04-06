@@ -11,6 +11,7 @@ interface Props
   wrapperClassName?: string;
   inputClassName?: string;
   className?: undefined;
+  label?: string;
   error?: string;
   leftItem?: JSX.Element;
   rightItem?: JSX.Element;
@@ -20,12 +21,18 @@ export const TextField = ({
   wrapperClassName,
   inputClassName,
   error,
+  label,
   leftItem,
   rightItem,
   ...props
 }: Props) => {
   return (
     <label className={classNames(styles.wrapper, wrapperClassName)}>
+      {label && (
+        <p className={classNames(styles.label, { [styles.error]: !!error })}>
+          {label}
+        </p>
+      )}
       <div
         className={classNames(styles.border, {
           [styles.error]: !!error,

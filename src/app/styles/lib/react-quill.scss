@@ -1,0 +1,18 @@
+.quill {
+  background-color: var(--white-100);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--dark-20);
+
+}
+
+.ql-toolbar, .ql-container {
+  border: none !important;
+}
+
+.ql-toolbar {
+  border-bottom: var(--border-width) solid var(--dark-20) !important;
+}
+
+.ql-container {
+  font: inherit
+}

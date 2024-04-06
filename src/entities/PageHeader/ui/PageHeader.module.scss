@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.breadcrumbs {
+  display: inline-flex;
+  gap: 3px;
+
+  
+}
+
+.link {
+  color: var(--dark-50);
+
+  &:nth-last-child(2){
+    color: var(--dark-100);
+  }
+}
+
+.separator {
+  &:last-child{
+    display: none;
+  }
+}

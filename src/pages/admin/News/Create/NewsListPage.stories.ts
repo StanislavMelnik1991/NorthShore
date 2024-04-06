@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import NewsPage from "./NewsPage";
+import { PageDecorator } from "@shared/config/storybook";
+import Page from "./CreateNewsPage";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/NewsPage",
-  component: NewsPage,
+  title: "Example/CreationNews",
+  component: Page,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   args: {},
-} satisfies Meta<typeof NewsPage>;
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,4 +17,9 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const News: Story = {
   args: {},
+};
+
+export const OnPage: Story = {
+  args: {},
+  decorators: [PageDecorator],
 };

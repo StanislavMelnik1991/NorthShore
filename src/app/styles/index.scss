@@ -1,6 +1,7 @@
 @import "reset";
 @import "variables/";
 @import "colors/";
+@import "lib/";
 
 .app {
     display: flex;
@@ -13,31 +14,16 @@
 }
 
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
     height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--light-bg-redesigned);
+    background: var(--background-color);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--icon-redesigned);
+    background-color: var(--primary-50);
     border-radius: 20px;
-    border: 1px solid var(--accent-redesigned);
-}
-
-.app *::-webkit-scrollbar {
-    width: 12px;
-    height: 8px;
-}
-
-.app *::-webkit-scrollbar-track {
-    background: var(--card-bg);
-}
-
-.app *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);
-    border-radius: 20px;
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-30);
 }

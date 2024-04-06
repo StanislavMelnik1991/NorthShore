@@ -6,6 +6,7 @@ export enum AppRoutes {
   FORBIDDEN = "forbidden",
   NOT_FOUND = "not_found",
   ADMIN_NEWS = "admin_news",
+  CREATE_NEWS = "create_news",
   ADMIN_EVENTS = "admin_events",
   ADMIN_MEETINGS = "admin_meetings",
   ADMIN_NOTIFICATIONS = "admin_notifications",
@@ -21,7 +22,10 @@ export const getRouteProfile = (id: string) => `/profile/${id}`;
 export const getRouteForbidden = () => "/forbidden";
 
 export const getRouteAdmin = () => "/admin";
+
 export const getRouteAdminNews = () => "/admin/news";
+export const getRouteCreateNews = () => "/admin/news/create";
+
 export const getRouteAdminEvents = () => "/admin/events";
 export const getRouteAdminMeetings = () => "/admin/meetings";
 export const getRouteAdminNotifications = () => "/admin/notifications";

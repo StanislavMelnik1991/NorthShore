@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { WhiteBgDecorator } from "../../config/storybook";
+import { PageDecorator, WhiteBgDecorator } from "../../config/storybook";
 import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -10,37 +10,23 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   args: { onClick: fn() },
-  decorators: [WhiteBgDecorator],
+  decorators: [],
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    variant: "primary",
-    children: "Button",
+    children: "badge text",
   },
+  decorators: [WhiteBgDecorator],
 };
 
-export const Secondary: Story = {
+export const OnPage: Story = {
   args: {
-    variant: "secondary",
-    children: "Button",
+    children: "badge text",
   },
-};
-
-export const Large: Story = {
-  args: {
-    size: "large",
-    children: "Button",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    children: "Button",
-  },
+  decorators: [PageDecorator],
 };

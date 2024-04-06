@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { WhiteBgDecorator } from "../../config/storybook";
+import { PageDecorator, WhiteBgDecorator } from "../../config/storybook";
 import { Title } from "./Title";
 
 const defaultText =
@@ -9,7 +9,7 @@ const defaultText =
 const meta = {
   title: "Example/Title",
   component: Title,
-  decorators: [WhiteBgDecorator],
+  decorators: [],
   tags: ["autodocs"],
   args: {},
 } satisfies Meta<typeof Title>;
@@ -17,51 +17,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Header1: Story = {
+export const Default: Story = {
   args: {
-    variant: "h1",
     children: defaultText,
   },
+  decorators: [WhiteBgDecorator],
 };
 
-export const Header2: Story = {
+export const OnPage: Story = {
   args: {
-    variant: "h2",
     children: defaultText,
   },
-};
-
-export const Header3: Story = {
-  args: {
-    variant: "h3",
-    children: defaultText,
-  },
-};
-
-export const Header4: Story = {
-  args: {
-    variant: "h4",
-    children: defaultText,
-  },
-};
-
-export const WeightBold: Story = {
-  args: {
-    fontWeight: "bold",
-    children: defaultText,
-  },
-};
-
-export const WeightRNormal: Story = {
-  args: {
-    fontWeight: "normal",
-    children: defaultText,
-  },
-};
-
-export const WeightSemibold: Story = {
-  args: {
-    fontWeight: "semibold",
-    children: defaultText,
-  },
+  decorators: [PageDecorator],
 };
