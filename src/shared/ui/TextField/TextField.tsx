@@ -26,7 +26,11 @@ export const TextField = ({
 }: Props) => {
   return (
     <label className={classNames(styles.wrapper, wrapperClassName)}>
-      <div className={styles.border}>
+      <div
+        className={classNames(styles.border, {
+          [styles.error]: !!error,
+        })}
+      >
         {leftItem}
         <input
           {...props}
