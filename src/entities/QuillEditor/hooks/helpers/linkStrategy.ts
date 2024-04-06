@@ -1,4 +1,4 @@
-import { Quill } from "quill";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   imageLinkParser,
   tiktokLinkParser,
@@ -17,11 +17,7 @@ export type LinkData = {
   sourceType: LinkType;
   link: string;
 };
-type LinkStrategy = (
-  editor: Quill,
-  linkData: LinkData,
-  position: number,
-) => void;
+type LinkStrategy = (editor: any, linkData: LinkData, position: number) => void;
 
 class LinkStrategyService {
   private defaultStategy: LinkStrategy = (editor, { link }, position) => {

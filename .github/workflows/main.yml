@@ -18,11 +18,11 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install yarn
-      run: npm install -g yarn
+    - name: Install pnpm
+      run: npm install -g pnpm
 
     - name: Install Dependencies
-      run: yarn install --force
+      run: pnpm install --force
 
     - name: Run eslint
       run: npm run lint:ts

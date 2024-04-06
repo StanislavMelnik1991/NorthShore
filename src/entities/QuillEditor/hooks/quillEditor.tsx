@@ -1,4 +1,4 @@
-import { DeltaStatic, Sources } from "quill";
+// import { DeltaStatic, Sources } from "quill";
 import { useState, useCallback, KeyboardEventHandler, useEffect } from "react";
 import { RefObject } from "react";
 import type ReactQuill from "react-quill";
@@ -35,8 +35,10 @@ export const useQuillEditor = ({
 
   const onchangeHandler = (
     value: string,
-    delta: DeltaStatic,
-    source: Sources,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    delta: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    source: any,
     editor: ReactQuill.UnprivilegedEditor,
   ) => {
     // console.log('source', source)
@@ -71,7 +73,7 @@ export const useQuillEditor = ({
 
   const onChangeSelectionHandler = (
     selection: ReactQuill.Range,
-    source: Sources,
+    source: unknown,
     editor: ReactQuill.UnprivilegedEditor,
   ) => {
     handleShowSideToolbar(editor);
