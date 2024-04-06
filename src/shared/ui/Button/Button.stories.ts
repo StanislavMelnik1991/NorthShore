@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import { WhiteBgDecorator } from "../../config/storybook";
 import { Button } from "./Button";
 
@@ -8,7 +9,7 @@ const meta = {
   component: Button,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  args: {},
+  args: { onClick: fn() },
   decorators: [WhiteBgDecorator],
 } satisfies Meta<typeof Button>;
 

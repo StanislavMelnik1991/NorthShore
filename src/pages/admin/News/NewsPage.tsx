@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useLocation, useNavigate } from "react-router-dom";
+import { IconLoupe } from "@shared/icons";
 import { Button, TextField, Title } from "@shared/ui";
 import styles from "./NewsPage.module.scss";
 
@@ -24,7 +25,11 @@ const NewsPage = ({ className }: Props) => {
           Создать
         </Button>
         <Button variant="secondary">Перейти в архив </Button>
-        <TextField wrapperClassName={styles.input} placeholder="Поиск" />
+        <TextField
+          wrapperClassName={styles.input}
+          placeholder={"Поиск"}
+          leftItem={<IconLoupe width={20} height={20} />}
+        />
       </div>
     </div>
   );

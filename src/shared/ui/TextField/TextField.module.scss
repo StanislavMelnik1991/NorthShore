@@ -5,11 +5,8 @@
 
 .input {
   display: flex;
-  border: var(--border-width) solid var(--dark-20);
-  border-radius:  var(--radius-sm);
-  background-color: var(--white-100);
-  padding: 10px 12px;
   outline: none;
+  border: none;
 
   &::placeholder{
     color: var(--dark-50);
@@ -27,4 +24,15 @@
   &::placeholder{
     color: var(--red-10);
   }
+}
+
+.border {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 8px;
+  border: var(--border-width) solid var(--dark-20);
+  border-radius: var(--radius-sm);
+  background-color: var(--white-100);
+  overflow: hidden;
 }

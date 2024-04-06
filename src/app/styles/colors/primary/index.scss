@@ -1,6 +1,7 @@
 :root {
   // primary
   --primary-dark-rgb: 122, 89, 20;
+  --primary-semi-dark-rgb: 125, 89, 13;
   --primary-100-rgb: 147, 107, 24;
   --primary-60-rgb: 190, 166, 116;
   --primary-50-rgb: 165, 144, 123;
@@ -10,6 +11,7 @@
 
   // primary
   --primary-dark: rgb(var(--primary-dark-rgb));
+  --primary-semi-dark: rgb(var(--primary-semi-dark-rgb));
   --primary-100: rgb(var(--primary-100-rgb));
   --primary-60: rgb(var(--primary-60-rgb));
   --primary-50: rgb(var(--primary-50-rgb));
