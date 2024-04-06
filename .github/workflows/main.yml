@@ -25,13 +25,13 @@ jobs:
       run: yarn install --force
 
     - name: Run eslint
-      run: yarn run lint:ts
+      run: npm run lint:ts
       if: always()
 
     - name: Run stylelint
-      run: yarn run lint:scss
+      run: npm run lint:scss
       if: always()
 
     - name: Run jest
-      run: yarn run test:unit
+      run: npm run test:unit
       if: always()
