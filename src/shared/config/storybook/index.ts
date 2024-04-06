@@ -1,3 +1,4 @@
 export * from "./RouterDecorator/RouterDecorator";
 export * from "./SuspenseDecorator/SuspenseDecorator";
-export * from "./StyledDecorator/StyledDecorator";
+export * from "./WhiteBgDecorator/WhiteBgDecorator";
+export * from "./PageDecorator/PageDecorator";

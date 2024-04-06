@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WhiteBgDecorator } from "../../config/storybook";
 import { TextField } from "./TextField";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -8,6 +9,7 @@ const meta = {
 
   tags: ["autodocs"],
   args: {},
+  decorators: [WhiteBgDecorator],
 } satisfies Meta<typeof TextField>;
 
 export default meta;

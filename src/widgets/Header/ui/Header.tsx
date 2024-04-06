@@ -16,7 +16,7 @@ export const Header = ({ className }: Props) => {
           <IconLogo width={140} />
         </Link>
       </div>
-      <div className={styles.header}>header</div>
+      <div className={styles.header}> </div>
     </header>
   );
 };

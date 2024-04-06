@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { WhiteBgDecorator } from "../../config/storybook";
 import { Text } from "./Text";
 
 const defaultText =
@@ -11,6 +12,7 @@ const meta = {
 
   tags: ["autodocs"],
   args: {},
+  decorators: [WhiteBgDecorator],
 } satisfies Meta<typeof Text>;
 
 export default meta;
