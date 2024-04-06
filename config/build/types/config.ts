@@ -4,6 +4,8 @@ export interface BuildPaths {
   entry: string;
   build: string;
   html: string;
+  assets: string;
+  buildAssets: string;
   src: {
     root: string;
     app: string;

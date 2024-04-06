@@ -8,6 +8,8 @@ export default (env: BuildEnv) => {
     entry: path.resolve(__dirname, "src", "index.tsx"),
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
+    assets: path.resolve(__dirname, "public", "assets"),
+    buildAssets: path.resolve(__dirname, "build", "assets"),
     src: {
       root: path.resolve(__dirname, "src"),
       app: path.resolve(__dirname, "src", "app"),
