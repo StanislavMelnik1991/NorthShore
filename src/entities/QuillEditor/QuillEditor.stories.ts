@@ -18,6 +18,40 @@ const text = `<p>some text</p><p>normal</p><h1>header</h1><h2>header2</h2><p><st
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
   args: {
+    initialValue: "",
+    setValue: fn(),
+    hideSpinner: fn(),
+    showSpinner: fn(),
+    uploadImage: fn(),
+  },
+  decorators: [WhiteBgDecorator],
+};
+export const WithLabel: Story = {
+  args: {
+    label: "Label text",
+    initialValue: "",
+    setValue: fn(),
+    hideSpinner: fn(),
+    showSpinner: fn(),
+    uploadImage: fn(),
+  },
+  decorators: [WhiteBgDecorator],
+};
+export const WithError: Story = {
+  args: {
+    label: "Label text",
+    error: "error text",
+    initialValue: "",
+    setValue: fn(),
+    hideSpinner: fn(),
+    showSpinner: fn(),
+    uploadImage: fn(),
+  },
+  decorators: [WhiteBgDecorator],
+};
+
+export const TextExample: Story = {
+  args: {
     initialValue: text,
     setValue: fn(),
     hideSpinner: fn(),

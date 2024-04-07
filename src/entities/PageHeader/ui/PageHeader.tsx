@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Text, Title } from "@shared/ui";
 import styles from "./PageHeader.module.scss";
@@ -18,16 +19,12 @@ export const PageHeader = ({ className, breadcrumbs }: Props) => {
         <div className={styles.breadcrumbs}>
           {breadcrumbs.map(({ href, title }, index) => {
             return (
-              <>
-                <Link
-                  className={styles.link}
-                  to={href}
-                  key={`page-header-breadcrumbs-${href}-${index}`}
-                >
+              <React.Fragment key={`page-header-breadcrumbs-${href}-${index}`}>
+                <Link className={styles.link} to={href}>
                   <Text>{title}</Text>
                 </Link>
                 <Text className={styles.separator}>/</Text>
-              </>
+              </React.Fragment>
             );
           })}
         </div>

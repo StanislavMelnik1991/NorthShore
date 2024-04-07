@@ -32,6 +32,7 @@ const Page = ({ className }: Props) => {
           Изображение обложки
         </Button>
         <QuillEditor
+          label="Текст новости"
           initialValue={val}
           setValue={setText}
           hideSpinner={() => {}}

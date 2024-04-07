@@ -7,11 +7,10 @@ import { insertImage, insertLink } from "./helpers";
 
 type Props = {
   reactQuillRef: RefObject<ReactQuill>;
-  wrapperRef: RefObject<HTMLDivElement>;
+  wrapperRef: RefObject<HTMLLabelElement>;
   value: string;
   setValue: (val: string) => void;
   isActive: boolean;
-  scrollingRef?: RefObject<HTMLDivElement>;
   uploadImage: (
     image: string | ArrayBuffer | Array<string | ArrayBuffer>,
   ) => Promise<{ url: string }[]>;
@@ -150,10 +149,19 @@ export const useQuillEditor = ({
     }
   }, [handlePasteContent, wrapperRef]);
 
+  const handleLabelClick: React.MouseEventHandler<HTMLLabelElement> =
+    useCallback((ev) => {
+      ev.stopPropagation();
+      if (reactQuillRef && reactQuillRef.current) {
+        reactQuillRef.current.focus();
+      }
+    }, []);
+
   return {
     onDrop,
     onChange: onchangeHandler,
     value,
     handlePasteContent,
+    handleLabelClick,
   };
 };

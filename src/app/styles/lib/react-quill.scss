@@ -1,8 +1,6 @@
 .quill {
   background-color: var(--white-100);
   border-radius: var(--radius-sm);
-  border: var(--border-width) solid var(--dark-20);
-
 }
 
 .ql-toolbar, .ql-container {
@@ -10,9 +8,101 @@
 }
 
 .ql-toolbar {
+  padding: 10px 12px !important;
   border-bottom: var(--border-width) solid var(--dark-20) !important;
 }
 
 .ql-container {
-  font: inherit
+  font: inherit;
+}
+
+.ql-editor {
+  min-height: 400px;
+  padding: 10px 12px !important;
+
+  p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  h1 {
+    font-size: 32px !important;
+    line-height: 36px;
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: 24px !important;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  
+  h3 {
+    font-size: 20px !important;
+    line-height: 28px;
+    font-weight: 600;
+  }
+  
+  h4 {
+    font-size: 18px !important;
+    line-height: 26px;
+    font-weight: 600;
+  }
+}
+
+.ql-picker-item {
+  transition: all var(--animation-duration) ease;
+  color: var(--dark-60) !important;
+
+  &:hover {
+    color: var(--dark-100) !important;
+  }
+
+}
+
+.ql-tooltip-arrow {
+  border-bottom: 6px solid var(--dark-60) !important;
+}
+
+.ql-stroke {
+  transition: all var(--animation-duration) ease;
+  stroke: var(--dark-60) !important;
+}
+
+.ql-fill {
+  transition: all var(--animation-duration) ease;
+  fill: var(--dark-60) !important;
+}
+
+.ql-picker-label {
+  color: var(--dark-60) !important;
+
+  &:active {
+    color: var(--primary-100) !important;
+  }
+}
+
+.ql-formats {
+  button {
+    &:hover {
+      .ql-stroke {
+        stroke: var(--dark-100) !important;
+      }
+
+      .ql-fill {
+        fill: var(--dark-100) !important;
+      }
+    }
+  }
+}
+
+.ql-active {
+  color: var(--primary-100) !important;
+  .ql-stroke {
+    stroke: var(--primary-100) !important;
+  }
+
+  .ql-fill {
+    fill: var(--primary-100) !important;
+  }
 }
