@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import ReactQuill from "react-quill";
 import {
   imageLinkParser,
   tiktokLinkParser,
@@ -13,11 +13,18 @@ export enum LinkType {
   IMAGE = "image",
   IS_NOT_LINK = "isNotLink",
 }
+
+type Editor = Required<ReactQuill["editor"]>;
+
 export type LinkData = {
   sourceType: LinkType;
   link: string;
 };
-type LinkStrategy = (editor: any, linkData: LinkData, position: number) => void;
+type LinkStrategy = (
+  editor: NonNullable<Editor>,
+  linkData: LinkData,
+  position: number,
+) => void;
 
 class LinkStrategyService {
   private defaultStategy: LinkStrategy = (editor, { link }, position) => {

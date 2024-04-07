@@ -22,14 +22,12 @@ class VideoBlot extends BlockEmbed {
     video.setAttribute("frameBorder", "0");
     if (value.sourceType === LinkType.TIKTOK) {
       video.style.width = "323px";
-      /* video.style.height = '740px' */
       video.style.aspectRatio = "323 / 740";
       video.style.margin = "0 auto 0 0";
       video.style.overflow = "hidden";
     }
     if (value.sourceType === LinkType.YOUTUBE) {
       video.style.width = "100%";
-      /* video.style.height = '740px' */
       video.style.aspectRatio = "800 / 450";
       video.style.margin = "0 auto";
       video.style.overflow = "hidden";

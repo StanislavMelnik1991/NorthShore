@@ -39,18 +39,17 @@ export const QuillEditor = ({
   const reactQuillRef = useRef<ReactQuill>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const { onChange, value, onChangeSelection, onKeyDown, onFocus } =
-    useQuillEditor({
-      reactQuillRef,
-      value: initialValue,
-      setValue,
-      wrapperRef,
-      isActive: focused,
-      scrollingRef,
-      hideSpinner,
-      showSpinner,
-      uploadImage,
-    });
+  const { onChange, value } = useQuillEditor({
+    reactQuillRef,
+    value: initialValue,
+    setValue,
+    wrapperRef,
+    isActive: focused,
+    scrollingRef,
+    hideSpinner,
+    showSpinner,
+    uploadImage,
+  });
 
   const MODULES = {
     toolbar: [
@@ -83,14 +82,10 @@ export const QuillEditor = ({
 
   return (
     <div className={classNames(styles.wrapper, className)} ref={wrapperRef}>
-      {/* <SideToolbar top={sideBarTop} onAddImage={onDrop} /> */}
       <ReactQuill
         theme={theme}
         className={classNames(styles.quill, quillClassName)}
-        onFocus={onFocus}
         onChange={onChange}
-        onChangeSelection={onChangeSelection}
-        onKeyDown={onKeyDown}
         value={value}
         placeholder={placeholder}
         modules={MODULES}

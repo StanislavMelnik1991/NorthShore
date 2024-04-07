@@ -1,7 +1,7 @@
-// import { DeltaStatic, Sources } from "quill";
-import { useState, useCallback, KeyboardEventHandler, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { RefObject } from "react";
 import type ReactQuill from "react-quill";
+import type { ReactQuillProps } from "react-quill";
 import { toast } from "react-toastify";
 import { insertImage, insertLink } from "./helpers";
 
@@ -25,25 +25,16 @@ export const useQuillEditor = ({
   setValue,
   isActive,
   wrapperRef,
-  scrollingRef,
   hideSpinner,
   showSpinner,
   uploadImage,
 }: Props) => {
-  const [sideBarTop, setSideBarTop] = useState(16);
-  const [showSideToolbar, setShowSideToolbar] = useState(false);
-
-  const onchangeHandler = (
-    value: string,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    delta: any,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    source: any,
-    editor: ReactQuill.UnprivilegedEditor,
+  const onchangeHandler: ReactQuillProps["onChange"] = (
+    value,
+    delta,
+    source,
+    editor,
   ) => {
-    // console.log('source', source)
-    // console.log('value', value)
-    // console.log('delta', delta)
     if (source === "user" && delta.ops && delta.ops.length) {
       if (!reactQuillRef.current) {
         return;
@@ -71,7 +62,6 @@ export const useQuillEditor = ({
             contentEditor as unknown as { history: { undo: () => void } }
           ).history.undo();
           contentEditor.insertText(position, "\n");
-          setShowSideToolbar(true);
           insertLink(contentEditor, content, position);
           return;
         } else {
@@ -83,34 +73,7 @@ export const useQuillEditor = ({
     setValue(value);
   };
 
-  const onChangeSelectionHandler = (
-    selection: ReactQuill.Range,
-    source: unknown,
-    editor: ReactQuill.UnprivilegedEditor,
-  ) => {
-    handleShowSideToolbar(editor);
-  };
-
-  const handleShowSideToolbar = (editor: ReactQuill.UnprivilegedEditor) => {
-    const range = editor.getSelection();
-    if (range) {
-      const { top } = editor.getBounds(range.index);
-      scrollToContentHand(top);
-      setSideBarTop(top);
-    }
-  };
-
-  const scrollToContentHand = (contentTop: number) => {
-    if (!scrollingRef || !scrollingRef.current) {
-      return;
-    }
-    const { scrollTop, clientHeight } = scrollingRef.current;
-    if (scrollTop > contentTop || scrollTop + clientHeight < contentTop) {
-      scrollingRef.current.scrollTo({ top: contentTop, behavior: "smooth" });
-    }
-  };
-
-  const addEmojiHandler = useCallback(
+  /* const addEmojiHandler = useCallback(
     (val: string) => {
       if (!reactQuillRef.current) {
         return;
@@ -120,7 +83,7 @@ export const useQuillEditor = ({
       editor.insertText(cursorPosition, val, "silent");
     },
     [reactQuillRef],
-  );
+  ); */
 
   const onDrop = useCallback(
     async (files: File[]) => {
@@ -165,17 +128,6 @@ export const useQuillEditor = ({
     [onDrop, reactQuillRef],
   );
 
-  const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (ev) => {
-    if (ev.code === "Enter") {
-      setShowSideToolbar(true);
-    } else {
-      setShowSideToolbar(false);
-    }
-  };
-  const onFocus = () => {
-    setShowSideToolbar(true);
-  };
-
   useEffect(() => {
     if (isActive && reactQuillRef && reactQuillRef.current) {
       reactQuillRef.current.focus();
@@ -199,15 +151,9 @@ export const useQuillEditor = ({
   }, [handlePasteContent, wrapperRef]);
 
   return {
-    sideBarTop,
-    addEmojiHandler,
     onDrop,
     onChange: onchangeHandler,
-    onChangeSelection: onChangeSelectionHandler,
     value,
-    showSideToolbar,
-    onKeyDown,
-    onFocus,
     handlePasteContent,
   };
 };
