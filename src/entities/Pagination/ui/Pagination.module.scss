@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+.element {
+  display: flex;
+  border-radius: var(--radius-sm);
+  background-color: var(--dark-10);
+  cursor: pointer;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.active {
+  background-color: var(--dark-20);
+}
+
+.disabled {
+  color: var(--gray-50);
+}
+
+.icon {
+  padding: 0;
+}

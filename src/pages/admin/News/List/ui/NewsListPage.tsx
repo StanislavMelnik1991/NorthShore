@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import { PageHeader } from "@entities/PageHeader";
+import { Pagination } from "@entities/Pagination";
+import { PerPage } from "@entities/PerPageSelect";
 import { IconLoupe } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
@@ -13,8 +15,17 @@ interface Props {
 }
 
 const Page = ({ className }: Props) => {
-  const { location, data, handleCreateClick, search, setSearch } =
-    useNewsList();
+  const {
+    location,
+    data,
+    handleCreateClick,
+    search,
+    setSearch,
+    total,
+    setPage,
+    perPage,
+    setPerPage,
+  } = useNewsList();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <PageHeader
@@ -31,8 +42,12 @@ const Page = ({ className }: Props) => {
           leftItem={<IconLoupe width={20} height={20} />}
         />
       </Card>
-      <Card padding={0}>
+      <Card padding={0} flexDirection="column">
         <Table config={tableConfig} items={dataFormatHelper(data)} />
+        <div className={styles.controls}>
+          <PerPage active={perPage} setActive={setPerPage} />
+          <Pagination total={total} onChange={setPage} />
+        </div>
       </Card>
     </div>
   );

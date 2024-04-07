@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--dark-10);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding-top: 2px;
+  padding-right: 1px;
+}
+
+.active {
+  border-color: var(--dark-30);
+}
