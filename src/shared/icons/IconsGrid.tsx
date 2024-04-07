@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { toast } from "react-toastify";
 import styles from "./IconsGrid.module.scss";
 import {
   IconArrow,
@@ -53,6 +54,7 @@ const Item = ({ children, name }: ItemProps) => {
       className={styles.item}
       onClick={() => {
         navigator.clipboard.writeText(name);
+        toast.info(`"${name}" copied to clipboard`);
       }}
       title={"Copy icon name"}
     >
