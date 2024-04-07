@@ -4,7 +4,7 @@ import { IconsGrid } from "./IconsGrid";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Icons",
+  title: "Icons",
   component: IconsGrid,
 
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs

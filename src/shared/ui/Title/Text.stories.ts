@@ -7,7 +7,7 @@ const defaultText =
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Title",
+  title: "Shared/Title",
   component: Title,
   decorators: [],
   tags: ["autodocs"],

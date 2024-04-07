@@ -1,34 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator, WhiteBgDecorator } from "../../config/storybook";
-import { Loader } from "./Loader";
+import { fn } from "@storybook/test";
+import { PageDecorator, WhiteBgDecorator } from "@shared/config/storybook";
+import { PerPage } from "./PerPage";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Shared/Loader",
-  component: Loader,
-
+  title: "Entity/PerPageSelection",
+  component: PerPage,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-  decorators: [],
-} satisfies Meta<typeof Loader>;
+} satisfies Meta<typeof PerPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default: Story = {
+export const News: Story = {
   args: {
-    size: 80,
+    active: 10,
+    setActive: fn(),
   },
   decorators: [WhiteBgDecorator],
 };
 
 export const OnPage: Story = {
   args: {
-    size: 120,
+    active: 10,
+    setActive: fn(),
   },
   decorators: [PageDecorator],
 };
