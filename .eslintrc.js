@@ -4,7 +4,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/eslint-plugin", "react"],
+  plugins: ["@typescript-eslint", "@typescript-eslint/eslint-plugin", "react", "react-hooks"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -33,6 +33,8 @@ module.exports = {
     },
   ],
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
   },

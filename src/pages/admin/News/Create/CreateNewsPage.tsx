@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { PageHeader } from "@entities/PageHeader";
 import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
 import { getRouteAdminNews } from "@shared/constants";
+import { IconStaple } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import styles from "./CreateNewsPage.module.scss";
 
@@ -29,6 +30,7 @@ const Page = ({ className }: Props) => {
           placeholder="Заголовок новости"
         />
         <Button variant={"light"} className={styles.downloadButton}>
+          <IconStaple width={24} height={24} />
           Изображение обложки
         </Button>
         <QuillEditor
