@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { PageHeader } from "@entities/PageHeader";
 import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
 import { getRouteAdminNews } from "@shared/constants";
@@ -48,7 +49,13 @@ const Page = ({ className }: Props) => {
           }}
         />
         <div className={styles.submitBlock}>
-          <Button size="large" variant="primary">
+          <Button
+            size="large"
+            variant="primary"
+            onClick={() => {
+              toast("some text");
+            }}
+          >
             Опубликовать
           </Button>
           <Button size="large" variant="secondary">
