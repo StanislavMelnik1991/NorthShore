@@ -9,6 +9,7 @@ import {
   IconLogo,
   IconLoupe,
   IconStaple,
+  IconPlus,
 } from ".";
 
 interface Props {
@@ -38,6 +39,9 @@ export const IconsGrid = ({ size }: Props) => {
       </Item>
       <Item name="IconStaple">
         <IconStaple width={size} height={size} />
+      </Item>
+      <Item name="IconPlus">
+        <IconPlus width={size} height={size} />
       </Item>
     </div>
   );

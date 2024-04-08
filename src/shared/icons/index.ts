@@ -5,3 +5,4 @@ export * from "./Arrow";
 export * from "./Dot";
 export * from "./Loupe";
 export * from "./Staple";
+export * from "./Plus";

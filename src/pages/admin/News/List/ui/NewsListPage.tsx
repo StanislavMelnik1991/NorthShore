@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { PageHeader } from "@entities/PageHeader";
 import { Pagination } from "@entities/Pagination";
 import { PerPage } from "@entities/PerPageSelect";
-import { IconLoupe } from "@shared/icons";
+import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
 import { tableConfig } from "../constants";
@@ -32,8 +32,14 @@ const Page = ({ className }: Props) => {
         breadcrumbs={[{ href: location.pathname, title: "Новости" }]}
       />
       <Card padding={12} gap={20}>
-        <Button onClick={handleCreateClick}>Создать</Button>
-        <Button variant="light">Перейти в архив </Button>
+        <Button onClick={handleCreateClick}>
+          <IconPlus width={24} height={24} />
+          Создать
+        </Button>
+        <Button variant="light">
+          <IconBriefcase width={24} height={24} />
+          Перейти в архив
+        </Button>
         <TextField
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
