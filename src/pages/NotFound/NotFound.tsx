@@ -1,18 +1,13 @@
-import classNames from "classnames";
 import { useState } from "react";
 import { PageLoader } from "@widgets/PageLoader";
 import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
+import { PageLayout } from "@shared/layouts";
 import { Button, Text, Title } from "@shared/ui";
-import styles from "./NotFound.module.scss";
 
-interface Props {
-  className?: string;
-}
-
-const NotFoundPage = ({ className }: Props) => {
+const NotFoundPage = () => {
   const [val, setVal] = useState("");
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <PageLayout>
       <QuillEditor
         uploadImage={async () => {
           return [{ url: "" }];
@@ -252,7 +247,7 @@ const NotFoundPage = ({ className }: Props) => {
         Опубликовать
       </Button>
       <PageLoader />
-    </div>
+    </PageLayout>
   );
 };
 

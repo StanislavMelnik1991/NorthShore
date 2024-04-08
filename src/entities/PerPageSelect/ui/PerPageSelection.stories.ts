@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { PageDecorator, WhiteBgDecorator } from "@shared/config/storybook";
+import { PageDecorator, WhiteBgDecorator } from "@shared/config";
 import { PerPage } from "./PerPage";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

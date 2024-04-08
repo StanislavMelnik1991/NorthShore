@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator } from "@shared/config/storybook";
+import { PageDecorator } from "@shared/config";
 import Page from "./NewsListPage";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

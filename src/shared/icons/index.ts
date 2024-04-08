@@ -6,3 +6,6 @@ export * from "./Dot";
 export * from "./Loupe";
 export * from "./Staple";
 export * from "./Plus";
+export * from "./Human";
+export * from "./EyeClose";
+export * from "./EyeOpen";

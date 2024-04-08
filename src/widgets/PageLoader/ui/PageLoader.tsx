@@ -8,6 +8,6 @@ interface PageLoaderProps {
 
 export const PageLoader = ({ className }: PageLoaderProps) => (
   <div className={classNames(styles.PageLoader, className)}>
-    <Loader />
+    <Loader size={140} />
   </div>
 );

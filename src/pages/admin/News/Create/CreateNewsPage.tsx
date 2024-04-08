@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,18 +5,15 @@ import { PageHeader } from "@entities/PageHeader";
 import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
 import { getRouteAdminNews } from "@shared/constants";
 import { IconStaple } from "@shared/icons";
+import { PageLayout } from "@shared/layouts";
 import { Button, Card, TextField } from "@shared/ui";
 import styles from "./CreateNewsPage.module.scss";
 
-interface Props {
-  className?: string;
-}
-
-const Page = ({ className }: Props) => {
+const Page = () => {
   const [val, setText] = useState("");
   const location = useLocation();
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <PageLayout>
       <PageHeader
         breadcrumbs={[
           { href: getRouteAdminNews(), title: "Новости" },
@@ -63,7 +59,7 @@ const Page = ({ className }: Props) => {
           </Button>
         </div>
       </Card>
-    </div>
+    </PageLayout>
   );
 };
 

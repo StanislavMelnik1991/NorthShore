@@ -1,12 +1,7 @@
-import classNames from "classnames";
-import styles from "./MainPage.module.scss";
+import { PageLayout } from "@shared/layouts";
 
-interface Props {
-  className?: string;
-}
-
-const MainPage = ({ className }: Props) => {
-  return <div className={classNames(styles.wrapper, className)}>main</div>;
+const MainPage = () => {
+  return <PageLayout>main</PageLayout>;
 };
 
 export default MainPage;

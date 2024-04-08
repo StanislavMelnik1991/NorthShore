@@ -12,7 +12,14 @@ const SvgComponent = (
     ref={ref}
     {...props}
   >
-    <rect x={8} y={7.59961} width={4} height={4} rx={2} fill="#2B271F" />
+    <rect
+      x={8}
+      y={7.59961}
+      width={4}
+      height={4}
+      rx={2}
+      fill="var(--dark-100)"
+    />
   </svg>
 );
 const ForwardRef = forwardRef(SvgComponent);

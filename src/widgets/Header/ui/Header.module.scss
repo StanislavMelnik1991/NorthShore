@@ -22,4 +22,12 @@
   width: 100%;
   height: 100%;
   border-bottom: var(--border-width) solid var(--dark-20);
+  padding: 0 32px;
+}
+
+.auth{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  height: 100%;
 }

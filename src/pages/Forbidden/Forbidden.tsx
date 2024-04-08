@@ -1,12 +1,7 @@
-import classNames from "classnames";
-import styles from "./Forbidden.module.scss";
+import { PageLayout } from "@shared/layouts";
 
-interface Props {
-  className?: string;
-}
-
-const ForbiddenPage = ({ className }: Props) => {
-  return <div className={classNames(styles.wrapper, className)}>Forbidden</div>;
+const ForbiddenPage = () => {
+  return <PageLayout>Forbidden</PageLayout>;
 };
 
 export default ForbiddenPage;

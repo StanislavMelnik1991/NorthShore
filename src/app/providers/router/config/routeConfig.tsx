@@ -1,4 +1,5 @@
 import { NewsListPage, CreateNewsPage } from "@pages/admin";
+import { LoginPage, RegistrationPage } from "@pages/Auth";
 import { ForbiddenPage } from "@pages/Forbidden";
 import { MainPage } from "@pages/Main";
 import { NotFoundPage } from "@pages/NotFound";
@@ -17,10 +18,32 @@ import {
   getRouteAdminLoyalty,
   getRouteAdminTechnicalWorks,
   getRouteCreateNews,
+  getRouteLogin,
+  getRouteRegistration,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
+  [AppRoutes.ADMIN_NEWS]: {
+    path: getRouteAdminNews(),
+    element: <NewsListPage />,
+    authOnly: true,
+  },
+  [AppRoutes.CREATE_NEWS]: {
+    path: getRouteCreateNews(),
+    element: <CreateNewsPage />,
+    authOnly: true,
+  },
+  [AppRoutes.LOGIN]: {
+    path: getRouteLogin(),
+    element: <LoginPage />,
+    authOnly: true,
+  },
+  [AppRoutes.REGISTRATION]: {
+    path: getRouteRegistration(),
+    element: <RegistrationPage />,
+    authOnly: true,
+  },
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
     element: <MainPage />,
@@ -41,16 +64,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ADMIN_EVENTS]: {
     path: getRouteAdminEvents(),
     element: <MainPage />,
-    authOnly: true,
-  },
-  [AppRoutes.ADMIN_NEWS]: {
-    path: getRouteAdminNews(),
-    element: <NewsListPage />,
-    authOnly: true,
-  },
-  [AppRoutes.CREATE_NEWS]: {
-    path: getRouteCreateNews(),
-    element: <CreateNewsPage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_LOYALTY]: {

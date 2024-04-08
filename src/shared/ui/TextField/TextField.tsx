@@ -7,7 +7,6 @@ interface Props
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  type?: undefined;
   wrapperClassName?: string;
   inputClassName?: string;
   className?: undefined;
@@ -44,7 +43,6 @@ export const TextField = ({
           className={classNames(styles.input, inputClassName, {
             [styles.error]: !!error,
           })}
-          type={"text"}
         />
         {rightItem}
       </div>
