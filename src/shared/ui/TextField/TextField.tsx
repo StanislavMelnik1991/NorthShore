@@ -49,7 +49,9 @@ export const TextField = ({
         {rightItem}
       </div>
       {error && (
-        <p className={classNames(styles.error, styles.label)}>{error}</p>
+        <p className={classNames(styles.error, styles.label, styles.errorText)}>
+          {error}
+        </p>
       )}
     </label>
   );

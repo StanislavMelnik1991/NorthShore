@@ -5,13 +5,18 @@ import styles from "./Text.module.scss";
 interface Props {
   text: string;
   className?: string;
+  fontWeight?: "medium" | "regular" | "semibold";
 }
 
-export const TableText = ({ text, className }: Props) => {
+export const TableText = ({
+  text,
+  className,
+  fontWeight = "regular",
+}: Props) => {
   return (
     <Text
       className={classNames(styles.wrapper, className)}
-      fontWeight="regular"
+      fontWeight={fontWeight}
       variant="body14"
     >
       {text}

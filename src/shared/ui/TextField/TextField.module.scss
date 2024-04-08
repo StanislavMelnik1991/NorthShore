@@ -48,9 +48,16 @@
 }
 
 .error {
+
   color: var(--red-100);
 
   &::placeholder {
     color: var(--red-10);
   }
+}
+
+.errorText {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
 }

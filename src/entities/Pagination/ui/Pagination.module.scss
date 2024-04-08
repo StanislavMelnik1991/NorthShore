@@ -7,6 +7,10 @@
   border-radius: var(--radius-sm);
   background-color: var(--dark-10);
   cursor: pointer;
+
+  &:hover {
+    background-color: var(--dark-20);
+  }
 }
 
 .link {
@@ -17,7 +21,7 @@
   height: 32px;
   padding: 0;
   margin: 0;
-  padding-top: 2px;
+
 }
 
 .active {
@@ -26,6 +30,8 @@
 
 .disabled {
   color: var(--gray-50);
+
+  pointer-events: none;
 }
 
 .icon {

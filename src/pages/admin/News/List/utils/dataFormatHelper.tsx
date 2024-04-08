@@ -8,7 +8,7 @@ export const dataFormatHelper = (data: Array<NewsType>) => {
     return {
       id: <TableText text={String(id)} />,
       status: <TableBadge is_draft={!!is_draft} />,
-      title: <TableText text={title} />,
+      title: <TableText text={title} fontWeight="medium" />,
       date: <TableText text={new Date(published_at).toLocaleString()} />,
       text: <TableText text={extractTextFromHtml(html_content)} />,
     };

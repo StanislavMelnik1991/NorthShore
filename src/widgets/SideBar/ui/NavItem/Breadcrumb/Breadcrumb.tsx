@@ -26,7 +26,7 @@ export const Breadcrumb = ({ className, href, title, pathname }: Props) => {
         to={href}
       >
         <IconDot />
-        <Text fontWeight="medium" variant="body13">
+        <Text fontWeight={isActive ? "semibold" : "medium"} variant="body13">
           {title}
         </Text>
       </NavLink>
