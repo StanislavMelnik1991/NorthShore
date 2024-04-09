@@ -1,1 +1,1 @@
-export * from "./news.type";
+export * from "./news.interface";

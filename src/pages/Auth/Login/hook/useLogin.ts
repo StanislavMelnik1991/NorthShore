@@ -1,15 +1,17 @@
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { z } from "zod";
+import { useUser } from "@features/User/hook";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, ILoginResponse } from "@entities/api";
 import { TOKEN_LOCAL_STORAGE_KEY } from "@shared/constants";
 
 export const useLogin = () => {
+  const { setUser } = useUser();
   const schema = z
     .object({
       email: z.string().email("Некорректный email"),
-      password: z.string().min(8),
+      password: z.string().min(4),
     })
     .required();
 
@@ -32,12 +34,16 @@ export const useLogin = () => {
     onSubmit: async (body) => {
       try {
         const {
-          data: { data },
+          data: {
+            data: { token, ...user },
+          },
         } = await axiosApi.post<BaseResponse<ILoginResponse>>(
           "/auth/login",
           body,
         );
-        localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, data.token);
+        setUser?.(user);
+        toast.success(`Добро пожаловать, ${user.name}`);
+        localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.log(error);
         toast.error("Ошибка авторизации");
