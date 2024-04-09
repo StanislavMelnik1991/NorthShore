@@ -1,4 +1,5 @@
 import { NewsListPage, CreateNewsPage } from "@pages/admin";
+import { UpdateNewsPage } from "@pages/admin/News/Update";
 import { LoginPage, RegistrationPage } from "@pages/Auth";
 import { ForbiddenPage } from "@pages/Forbidden";
 import { MainPage } from "@pages/Main";
@@ -20,6 +21,7 @@ import {
   getRouteCreateNews,
   getRouteLogin,
   getRouteRegistration,
+  getRouteUpdateNews,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
@@ -27,6 +29,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ADMIN_NEWS]: {
     path: getRouteAdminNews(),
     element: <NewsListPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ADMIN_NEWS_CURRENT]: {
+    path: getRouteUpdateNews(":id"),
+    element: <UpdateNewsPage />,
     authOnly: true,
   },
   [AppRoutes.CREATE_NEWS]: {

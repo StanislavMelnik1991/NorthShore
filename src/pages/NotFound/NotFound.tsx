@@ -8,15 +8,7 @@ const NotFoundPage = () => {
   const [val, setVal] = useState("");
   return (
     <PageLayout>
-      <QuillEditor
-        uploadImage={async () => {
-          return [{ url: "" }];
-        }}
-        showSpinner={() => {}}
-        hideSpinner={() => {}}
-        initialValue={val}
-        setValue={setVal}
-      />
+      <QuillEditor initialValue={val} setValue={setVal} />
       {val}
       <Title fontWeight="semibold" variant="h1">
         Not found

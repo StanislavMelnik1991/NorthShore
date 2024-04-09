@@ -4,11 +4,15 @@ import {
   RouterDecorator,
   SuspenseDecorator,
 } from "../../src/shared/config";
+import { mockNews } from "./mockData";
 
 const preview: Preview = {
   parameters: {
     layout: "fullscreen",
     class: "app",
+    mockAddonConfigs: {
+      globalMockData: [mockNews],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

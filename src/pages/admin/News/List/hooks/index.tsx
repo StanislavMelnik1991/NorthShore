@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
-import { NewsType } from "@entities/types";
+import { axiosApi } from "@entities/api";
+import { BaseResponse, NewsType } from "@entities/types";
 import { INITIAL_PER_PAGE, getRouteCreateNews } from "@shared/constants";
-import { mockNews } from "../constants";
 
 export const useNewsList = () => {
   const [search, setSearch] = useState("");
@@ -16,14 +17,21 @@ export const useNewsList = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleGetData = useCallback(() => {
+  const handleGetData = useCallback(async () => {
     setIsLoading(true);
-    const newData = mockNews;
-    setData(newData);
     // ToDo: from server
     setTotal(100);
-    setIsLoading(false);
-    // ToDo: update when complete fetch
+    try {
+      const {
+        data: { data },
+      } = await axiosApi.get<BaseResponse<Array<NewsType>>>("/news");
+      setData(data);
+    } catch (error) {
+      toast.error("Не удалось получить список новостей");
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced, page, perPage]);
 

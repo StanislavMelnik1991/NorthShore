@@ -15,7 +15,9 @@ export enum AppRoutes {
   REGISTRATION = "registration",
   // Admin news
   ADMIN_NEWS = "admin_news",
+  ADMIN_NEWS_CURRENT = "admin_news_current",
   CREATE_NEWS = "create_news",
+
   // not found
   NOT_FOUND = "not_found",
 }
@@ -26,6 +28,7 @@ export const getRouteRegistration = () => "/registration";
 // Ready
 export const getRouteAdminNews = () => "/admin/news";
 export const getRouteCreateNews = () => "/admin/news/create";
+export const getRouteUpdateNews = (id: number | string) => `/admin/news/${id}`;
 
 export const getRouteMain = () => "/";
 export const getRouteSettings = () => "/settings";

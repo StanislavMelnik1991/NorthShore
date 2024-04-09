@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { z } from "zod";
 import { useUser } from "@features/User/hook";
 import { axiosApi } from "@entities/api";
-import { BaseResponse, ILoginResponse } from "@entities/api";
+import { BaseResponse, ILoginResponse } from "@entities/types";
 import { TOKEN_LOCAL_STORAGE_KEY } from "@shared/constants";
 
 export const useLogin = () => {

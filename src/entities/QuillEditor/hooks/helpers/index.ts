@@ -23,4 +23,5 @@ export const insertImage = (editor: NonNullable<Editor>, url: string): void => {
   const cursorPosition = editor.getSelection()?.index ?? 1;
   editor.insertText(cursorPosition, "\n");
   editor.insertEmbed(cursorPosition, "image", url);
+  editor.insertText(cursorPosition, "\n");
 };

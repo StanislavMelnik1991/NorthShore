@@ -20,6 +20,10 @@
   min-height: 400px;
   padding: 10px 12px !important;
 
+  img {
+    border-radius: var(--radius-sm);
+  }
+
   p {
     font-size: 14px;
     line-height: 16px;

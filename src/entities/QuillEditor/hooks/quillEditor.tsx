@@ -11,11 +11,6 @@ type Props = {
   value: string;
   setValue: (val: string) => void;
   isActive: boolean;
-  uploadImage: (
-    image: string | ArrayBuffer | Array<string | ArrayBuffer>,
-  ) => Promise<{ url: string }[]>;
-  showSpinner: () => void;
-  hideSpinner: () => void;
 };
 
 export const useQuillEditor = ({
@@ -24,9 +19,6 @@ export const useQuillEditor = ({
   setValue,
   isActive,
   wrapperRef,
-  hideSpinner,
-  showSpinner,
-  uploadImage,
 }: Props) => {
   const onchangeHandler: ReactQuillProps["onChange"] = (
     value,
@@ -44,7 +36,7 @@ export const useQuillEditor = ({
         const content = data.insert as string;
         const contentText = editor.getText();
         const position = contentText.indexOf(content as string) || 0;
-        if ((content as unknown as { image: string })?.image) {
+        /* if ((content as unknown as { image: string })?.image) {
           uploadImage((content as unknown as { image: string }).image).then(
             ([{ url }]) => {
               (
@@ -55,8 +47,8 @@ export const useQuillEditor = ({
             },
           );
           return;
-        }
-        if (content?.startsWith("https://")) {
+        } */
+        if (typeof content === "string" && content?.startsWith("https://")) {
           (
             contentEditor as unknown as { history: { undo: () => void } }
           ).history.undo();
@@ -86,7 +78,6 @@ export const useQuillEditor = ({
 
   const onDrop = useCallback(
     async (files: File[]) => {
-      showSpinner();
       if (files.length) {
         const reader = new FileReader();
         reader.readAsDataURL(files[0]);
@@ -97,17 +88,16 @@ export const useQuillEditor = ({
             }
             const editor = reactQuillRef.current.getEditor();
             editor.focus();
-            const { url } = (await uploadImage(reader.result as string))[0];
-            insertImage(editor, url);
+            // const { url } = (await uploadImage(reader.result as string))[0];
+            insertImage(editor, reader.result as string);
           } catch (error) {
             toast.error("error");
             console.error(error);
           }
         };
-        hideSpinner();
       }
     },
-    [hideSpinner, reactQuillRef, showSpinner, uploadImage],
+    [reactQuillRef],
   );
 
   const handlePasteContent = useCallback(
@@ -161,10 +151,10 @@ export const useQuillEditor = ({
     );
 
   return {
-    onDrop,
+    // onDrop,
+    // handlePasteContent,
     onChange: onchangeHandler,
     value,
-    handlePasteContent,
     handleLabelClick,
   };
 };

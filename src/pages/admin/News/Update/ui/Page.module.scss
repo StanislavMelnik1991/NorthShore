@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.textField {
+  width: 100%;
+}
+
+.downloadButton {
+  width: fit-content;
+  gap: 10px;
+}
+
+.submitBlock {
+  display: flex;
+  gap: 24px;
+}
+
+.card {
+  padding: 32px 24px;
+}

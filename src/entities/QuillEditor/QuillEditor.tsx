@@ -14,11 +14,6 @@ type Props = {
   onBlur?: FocusEventHandler<HTMLInputElement>;
   theme?: "snow" | "bubble";
   focused?: boolean;
-  uploadImage: (
-    image: string | ArrayBuffer | Array<string | ArrayBuffer>,
-  ) => Promise<{ url: string }[]>;
-  showSpinner: () => void;
-  hideSpinner: () => void;
   label?: string;
   error?: string;
 };
@@ -30,9 +25,7 @@ export const QuillEditor = ({
   theme = "snow",
   setValue,
   focused = false,
-  hideSpinner,
-  showSpinner,
-  uploadImage,
+
   error,
   label,
   inputClassName,
@@ -45,11 +38,8 @@ export const QuillEditor = ({
     reactQuillRef,
     value: initialValue,
     setValue,
-    wrapperRef,
     isActive: focused,
-    hideSpinner,
-    showSpinner,
-    uploadImage,
+    wrapperRef,
   });
 
   const MODULES = {
