@@ -1,4 +1,4 @@
-export type NewsType = {
+export type INews = {
   id: number;
   user: {
     id: number;

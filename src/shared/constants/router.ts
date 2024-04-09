@@ -10,6 +10,8 @@ export enum AppRoutes {
   ADMIN_TECHNICAL_WORKS = "admin_technical_works",
   ADMIN_VOTING = "admin_voting",
   ADMIN_LOYALTY = "admin_loyalty",
+  // News
+  NEWS_CURRENT = "news_current",
   // Auth
   LOGIN = "login",
   REGISTRATION = "registration",
@@ -22,10 +24,11 @@ export enum AppRoutes {
   NOT_FOUND = "not_found",
 }
 
+export const getCurrentNews = (id: number | string) => `/news/${id}`;
+
 export const getRouteLogin = () => "/login";
 export const getRouteRegistration = () => "/registration";
 
-// Ready
 export const getRouteAdminNews = () => "/admin/news";
 export const getRouteCreateNews = () => "/admin/news/create";
 export const getRouteUpdateNews = (id: number | string) => `/admin/news/${id}`;

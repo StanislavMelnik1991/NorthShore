@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
 import { axiosApi } from "@entities/api";
-import { BaseResponse, NewsType } from "@entities/types";
+import { BaseResponse, INews } from "@entities/types";
 import { INITIAL_PER_PAGE, getRouteCreateNews } from "@shared/constants";
 
 export const useNewsList = () => {
@@ -11,7 +11,7 @@ export const useNewsList = () => {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
-  const [data, setData] = useState<Array<NewsType>>([]);
+  const [data, setData] = useState<Array<INews>>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [debounced] = useDebounce(search, 500);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const useNewsList = () => {
     try {
       const {
         data: { data },
-      } = await axiosApi.get<BaseResponse<Array<NewsType>>>("/news");
+      } = await axiosApi.get<BaseResponse<Array<INews>>>("/news");
       setData(data);
     } catch (error) {
       toast.error("Не удалось получить список новостей");

@@ -46,14 +46,14 @@ const Page = () => {
           >
             Опубликовать
           </Button>
-          <Button
+          {/* <Button
             loading={isLoading}
             size="large"
             variant="secondary"
             onClick={handleSubmit(0)}
           >
             Сохранить черновик
-          </Button>
+          </Button> */}
         </div>
       </Card>
     </PageLayout>

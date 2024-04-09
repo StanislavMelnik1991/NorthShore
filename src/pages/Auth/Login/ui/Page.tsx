@@ -2,7 +2,7 @@ import { PageHeader } from "@entities/PageHeader";
 import { PasswordField } from "@entities/PasswordField";
 import { PageLayout } from "@shared/layouts";
 import { Button, Card, TextField } from "@shared/ui";
-import { useLogin } from "../hook/useLogin";
+import { useLogin } from "../hook";
 
 export default () => {
   const { errors, handleSubmit, setFieldValue, values } = useLogin();

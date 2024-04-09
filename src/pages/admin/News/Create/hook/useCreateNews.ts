@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
 import { axiosApi } from "@entities/api";
-import { BaseResponse, NewsType } from "@entities/types";
+import { BaseResponse, INews } from "@entities/types";
 import { getRouteUpdateNews } from "@shared/constants";
 
 export const useCreateNews = () => {
@@ -13,6 +13,7 @@ export const useCreateNews = () => {
     .object({
       title: z
         .string()
+        .min(1, "Поле обязательно для заполнения")
         .max(256, "Заголовок должен быть не длиннее 256 символов"),
       html_content: z.string(),
       is_draft: z.number().int().min(0).max(1),
@@ -40,7 +41,7 @@ export const useCreateNews = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.put<BaseResponse<NewsType>>("/news", body);
+        } = await axiosApi.put<BaseResponse<INews>>("/news", body);
         toast.success("Новость создана успешно");
         navigate(getRouteUpdateNews(data.id));
       } catch (error) {

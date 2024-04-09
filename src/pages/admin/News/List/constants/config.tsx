@@ -46,4 +46,8 @@ export const tableConfig: Array<ConfigItemType> = [
     ),
     width: 107,
   },
+  {
+    name: "controls",
+    width: 52,
+  },
 ];

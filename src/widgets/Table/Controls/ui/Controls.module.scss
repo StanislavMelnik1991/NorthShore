@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+
+  &:hover {
+    background-color: var(--dark-20);
+  }
+}

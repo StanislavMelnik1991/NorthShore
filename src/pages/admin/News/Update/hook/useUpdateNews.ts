@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
 import { axiosApi } from "@entities/api";
-import { BaseResponse, NewsType } from "@entities/types";
+import { BaseResponse, INews } from "@entities/types";
 import { getRouteUpdateNews } from "@shared/constants";
 
 export const useCreateNews = () => {
@@ -16,6 +16,7 @@ export const useCreateNews = () => {
     .object({
       title: z
         .string()
+        .min(1, "Поле обязательно для заполнения")
         .max(256, "Заголовок должен быть не длиннее 256 символов"),
       html_content: z.string(),
       is_draft: z.number().int().min(0).max(1),
@@ -24,7 +25,7 @@ export const useCreateNews = () => {
 
   type ValuesType = z.infer<typeof schema>;
   const initialValues: ValuesType = {
-    title: "",
+    title: " ",
     html_content: "",
     is_draft: 0,
   };
@@ -35,7 +36,6 @@ export const useCreateNews = () => {
         schema.parse(values);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
-        console.log(error);
         return error.formErrors.fieldErrors;
       }
     },
@@ -43,11 +43,11 @@ export const useCreateNews = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.post<BaseResponse<NewsType>>(`/news/${id}`, body);
+        } = await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, body);
         toast.success("Новость обновлена успешно");
         navigate(getRouteUpdateNews(data.id));
       } catch (error) {
-        console.log(error);
+        console.error(error);
         toast.error("Не удалось обновить новость");
       }
     },
@@ -56,7 +56,7 @@ export const useCreateNews = () => {
   useEffect(() => {
     setIsLoading(true);
     axiosApi
-      .get<BaseResponse<NewsType>>(`/news/${id}`)
+      .get<BaseResponse<INews>>(`/news/${id}`)
       .then(({ data: { data } }) => {
         setFieldValue("title", data.title);
         setFieldValue("html_content", data.html_content);
