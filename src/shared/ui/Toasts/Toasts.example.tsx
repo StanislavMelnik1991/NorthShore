@@ -37,7 +37,7 @@ export const ToastsExample = ({
             toast.success(message, { autoClose: autoclose ? 5000 : false })
           }
         >
-          success success
+          success toast
         </Button>
         <Button
           width={200}
