@@ -1,8 +1,8 @@
+import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { Pagination } from "@entities/Pagination";
 import { PerPage } from "@entities/PerPageSelect";
 import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
-import { PageLayout } from "@shared/layouts";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
 import { tableConfig } from "../constants";

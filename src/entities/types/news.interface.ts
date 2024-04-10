@@ -1,5 +1,6 @@
 export type INews = {
   id: number;
+  cover?: string;
   user: {
     id: number;
     name: string;
@@ -15,7 +16,7 @@ export type INews = {
   };
   title: string;
   user_id: number;
-  is_draft: number;
+  is_draft: 0 | 1;
   created_at: number;
   updated_at: number;
   html_content: string;

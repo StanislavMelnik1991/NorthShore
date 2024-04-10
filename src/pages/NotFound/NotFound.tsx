@@ -1,5 +1,5 @@
+import { PageLayout } from "@widgets/layouts";
 import { PageLoader } from "@widgets/PageLoader";
-import { PageLayout } from "@shared/layouts";
 import { Button, Text, Title } from "@shared/ui";
 
 const NotFoundPage = () => {

@@ -1,21 +1,73 @@
+import { PageLayout } from "@widgets/layouts";
+import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
-import { QuillEditor } from "@entities/QuillEditor";
 import { getRouteAdminNews } from "@shared/constants";
-import { IconStaple } from "@shared/icons";
-import { PageLayout } from "@shared/layouts";
-import { Button, Card, TextField } from "@shared/ui";
+import { Button } from "@shared/ui";
 import { useCreateNews } from "../hook/useUpdateNews";
 import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
+    handleUploadImage,
+    isDraft,
+    // isLoading,
+    navigate,
     errors,
     handleSubmit,
     setFieldValue,
     values,
-    isLoading,
-    handleUploadImage,
   } = useCreateNews();
+
+  const controls = isDraft ? (
+    <div className={styles.submitBlock}>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="primary"
+        type="button"
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Опубликовать
+      </Button>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="secondary"
+        type="button"
+        onClick={() => {
+          handleSubmit(0);
+        }}
+      >
+        Обновить
+      </Button>
+    </div>
+  ) : (
+    <div className={styles.submitBlock}>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="primary"
+        type="button"
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Обновить
+      </Button>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="secondary"
+        type="button"
+        onClick={() => navigate(-1)}
+      >
+        Отмена
+      </Button>
+    </div>
+  );
+
   return (
     <PageLayout>
       <PageHeader
@@ -24,45 +76,13 @@ const Page = () => {
           { href: "", title: "Редактирование новости" },
         ]}
       />
-      <Card className={styles.card} radius={24} flexDirection="column" gap={24}>
-        <TextField
-          value={values.title}
-          error={errors.title}
-          onChange={(ev) => setFieldValue("title", ev.target.value)}
-          wrapperClassName={styles.textField}
-          label="Заголовок"
-          placeholder="Заголовок новости"
-        />
-        <Button variant={"light"} className={styles.downloadButton}>
-          <IconStaple width={24} height={24} />
-          Изображение обложки
-        </Button>
-        <QuillEditor
-          uploadImage={handleUploadImage}
-          error={errors.html_content}
-          label="Текст новости"
-          initialValue={values.html_content}
-          setValue={(val) => setFieldValue("html_content", val)}
-        />
-        <div className={styles.submitBlock}>
-          <Button
-            loading={isLoading}
-            size="large"
-            variant="primary"
-            onClick={handleSubmit(1)}
-          >
-            Опубликовать
-          </Button>
-          {/* <Button
-            loading={isLoading}
-            size="large"
-            variant="secondary"
-            onClick={handleSubmit(0)}
-          >
-            Сохранить черновик
-          </Button> */}
-        </div>
-      </Card>
+      <NewsEditor
+        handleUploadImage={handleUploadImage}
+        errors={errors}
+        setFieldValue={setFieldValue}
+        values={values}
+        controls={controls}
+      />
     </PageLayout>
   );
 };

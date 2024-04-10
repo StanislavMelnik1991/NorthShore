@@ -1,4 +1,4 @@
-import { PageLayout } from "@shared/layouts";
+import { PageLayout } from "@widgets/layouts";
 
 const MainPage = () => {
   return <PageLayout>main</PageLayout>;

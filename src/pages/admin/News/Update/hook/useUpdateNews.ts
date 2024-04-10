@@ -6,10 +6,107 @@ import { z } from "zod";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
-import { getRouteUpdateNews } from "@shared/constants";
+import { getRouteAdminNews } from "@shared/constants";
+
+const schema = z
+  .object({
+    title: z
+      .string()
+      .min(1, "Поле обязательно для заполнения")
+      .max(256, "Заголовок должен быть не длиннее 256 символов"),
+    html_content: z.string(),
+    cover: z.string().url(),
+  })
+  .required();
+
+type ValuesType = z.infer<typeof schema>;
 
 export const useCreateNews = () => {
+  const { id } = useParams<{ id: string }>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDraft, setIsDraft] = useState<0 | 1>(0);
+  const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
+
+  const initialValues: ValuesType = {
+    title: " ",
+    html_content: "",
+    cover: "",
+  };
+  const { values, errors, setFieldValue } = useFormik({
+    initialValues,
+    validate: (values) => {
+      try {
+        schema.parse(values);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        return error.formErrors.fieldErrors;
+      }
+    },
+    onSubmit: async () => {
+      try {
+        await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
+          ...values,
+          is_draft: isDraft,
+        });
+        toast.success("Новость обновлена успешно");
+        navigate(getRouteAdminNews());
+      } catch (error) {
+        console.log(error);
+        toast.error("Не удалось обновлена новость");
+      }
+    },
+  });
+
+  const handleSubmit = useCallback(
+    async (is_draft: 0 | 1 = isDraft) => {
+      try {
+        await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
+          ...values,
+          is_draft,
+        });
+        toast.success("Новость обновлена успешно");
+        navigate(getRouteAdminNews());
+      } catch (error) {
+        console.log(error);
+        toast.error("Не удалось обновлена новость");
+      }
+    },
+    [id, isDraft, navigate, values],
+  );
+
+  useEffect(() => {
+    setIsLoading(true);
+    axiosApi
+      .get<BaseResponse<INews>>(`/news/${id}`)
+      .then(({ data: { data } }) => {
+        setFieldValue("title", data.title);
+        setFieldValue("html_content", data.html_content);
+        setFieldValue("cover", data.cover);
+        setIsDraft(data.is_draft);
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error("не удалось получить новость");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [id, setFieldValue]);
+
+  return {
+    handleUploadImage,
+    setIsDraft,
+    isDraft,
+    isLoading,
+    navigate,
+    values,
+    errors,
+    setFieldValue,
+    handleSubmit,
+  };
+
+  /* const { handleUploadImage } = useUploadImage();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
 
@@ -55,23 +152,7 @@ export const useCreateNews = () => {
     },
   });
 
-  useEffect(() => {
-    setIsLoading(true);
-    axiosApi
-      .get<BaseResponse<INews>>(`/news/${id}`)
-      .then(({ data: { data } }) => {
-        setFieldValue("title", data.title);
-        setFieldValue("html_content", data.html_content);
-        setFieldValue("is_draft", data.is_draft);
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error("не удалось получить новость");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [id, setFieldValue]);
+  
 
   const handleCreateNews = useCallback(
     (is_draft: 0 | 1) => () => {
@@ -88,5 +169,5 @@ export const useCreateNews = () => {
     setFieldValue,
     handleSubmit: handleCreateNews,
     handleUploadImage,
-  };
+  }; */
 };

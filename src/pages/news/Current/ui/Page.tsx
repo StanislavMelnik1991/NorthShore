@@ -1,11 +1,11 @@
 import sanitizeHtml from "sanitize-html";
+import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import {
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
 } from "@shared/constants";
-import { PageLayout } from "@shared/layouts";
 import { Badge, Card, Loader, Title } from "@shared/ui";
 import { useCurrentNews } from "../hook";
 

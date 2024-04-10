@@ -1,6 +1,6 @@
+import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { PasswordField } from "@entities/PasswordField";
-import { PageLayout } from "@shared/layouts";
 import { Button, Card, TextField } from "@shared/ui";
 import { useLogin } from "../hook";
 

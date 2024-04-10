@@ -3,7 +3,7 @@ import styles from "./Card.module.scss";
 
 interface Props {
   className?: string;
-  children: JSX.Element | Array<JSX.Element> | string;
+  children: JSX.Element | Array<JSX.Element | string> | string;
   padding?: number;
   radius?: number;
   flexDirection?:

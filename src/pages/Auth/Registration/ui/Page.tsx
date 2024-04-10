@@ -1,5 +1,5 @@
+import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
-import { PageLayout } from "@shared/layouts";
 import { Card, TextField } from "@shared/ui";
 
 export default () => {

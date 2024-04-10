@@ -1,4 +1,4 @@
-import { PageLayout } from "@shared/layouts";
+import { PageLayout } from "@widgets/layouts";
 
 const ForbiddenPage = () => {
   return <PageLayout>Forbidden</PageLayout>;
