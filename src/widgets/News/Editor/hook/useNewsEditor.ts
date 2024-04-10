@@ -1,5 +1,5 @@
 import { FormikErrors } from "formik";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { IMAGE_TYPES, MAX_IMAGE_SIZE } from "@shared/constants";
 
@@ -21,14 +21,17 @@ interface Props {
 }
 
 export const useCreateNews = ({ handleUploadImage, setFieldValue }: Props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const onDrop = useCallback(
     async (files: File[]) => {
+      setIsLoading(true);
       if (files.length) {
         const url = await handleUploadImage(files[0]);
         if (url) {
           setFieldValue("cover", url);
         }
       }
+      setIsLoading(false);
     },
     [handleUploadImage, setFieldValue],
   );
@@ -43,5 +46,6 @@ export const useCreateNews = ({ handleUploadImage, setFieldValue }: Props) => {
   return {
     getInputProps,
     open,
+    isLoading,
   };
 };

@@ -44,7 +44,7 @@ export const NewsEditor = ({
   setFieldValue,
   values,
 }: Props) => {
-  const { getInputProps, open } = useCreateNews({
+  const { getInputProps, open, isLoading } = useCreateNews({
     handleUploadImage,
     setFieldValue,
   });
@@ -69,6 +69,7 @@ export const NewsEditor = ({
           variant={"light"}
           className={styles.downloadButton}
           onClick={open}
+          loading={isLoading}
         >
           <IconStaple width={24} height={24} />
           Изображение обложки
