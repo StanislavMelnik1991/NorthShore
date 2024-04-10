@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { FormikErrors } from "formik";
+import { Cover } from "@entities/Cover";
 import { QuillEditor } from "@entities/QuillEditor";
 import { IconStaple } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
@@ -63,14 +64,18 @@ export const NewsEditor = ({
         label="Заголовок"
         placeholder="Заголовок новости"
       />
-      <Button
-        variant={"light"}
-        className={styles.downloadButton}
-        onClick={open}
-      >
-        <IconStaple width={24} height={24} />
-        Изображение обложки
-      </Button>
+      {values.cover === "" ? (
+        <Button
+          variant={"light"}
+          className={styles.downloadButton}
+          onClick={open}
+        >
+          <IconStaple width={24} height={24} />
+          Изображение обложки
+        </Button>
+      ) : (
+        <Cover src={values.cover} onRemove={() => setFieldValue("cover", "")} />
+      )}
       <QuillEditor
         error={errors.html_content}
         label="Текст новости"

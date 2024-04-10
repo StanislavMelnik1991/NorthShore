@@ -10,3 +10,4 @@ export * from "./Human";
 export * from "./EyeClose";
 export * from "./EyeOpen";
 export * from "./DottedLine";
+export * from "./Close";

@@ -14,6 +14,7 @@ import {
   IconEyeClose,
   IconEyeOpen,
   IconDottedLine,
+  IconClose,
 } from ".";
 
 interface Props {
@@ -58,6 +59,9 @@ export const IconsGrid = ({ size }: Props) => {
       </Item>
       <Item name="IconDottedLine">
         <IconDottedLine width={size} height={size} />
+      </Item>
+      <Item name="IconClose">
+        <IconClose width={size} height={size} />
       </Item>
     </div>
   );

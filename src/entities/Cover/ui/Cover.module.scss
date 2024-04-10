@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  
+  width: 307px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  &:hover {
+    .remove {
+      visibility: visible;
+    }
+  }
+}
+
+.image {
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.remove {
+  visibility: hidden;;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background-color: var(--white-100);
+  border-radius: 50%;
+  cursor: pointer;
+}

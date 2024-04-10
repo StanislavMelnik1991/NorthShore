@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
-import { PageLayout } from "../../layouts";
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { PageLayout } from "@widgets/layouts";
 import { Button } from "../Button";
 import { Card } from "../Card";
 
