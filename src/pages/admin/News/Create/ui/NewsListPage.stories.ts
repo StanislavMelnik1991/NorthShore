@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PageDecorator } from "@shared/config";
-import Page from "./CreateNewsPage";
+import Page from "./Page";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

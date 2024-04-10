@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
@@ -7,6 +8,7 @@ import { BaseResponse, INews } from "@entities/types";
 import { INITIAL_PER_PAGE, getRouteCreateNews } from "@shared/constants";
 
 export const useNewsList = () => {
+  const { t } = useTranslation("news");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -27,7 +29,7 @@ export const useNewsList = () => {
       } = await axiosApi.get<BaseResponse<Array<INews>>>("/news");
       setData(data);
     } catch (error) {
-      toast.error("Не удалось получить список новостей");
+      toast.error(t("toast.listError"));
       console.error(error);
     } finally {
       setIsLoading(false);
@@ -60,5 +62,6 @@ export const useNewsList = () => {
     perPage,
     setPerPage,
     total,
+    t,
   };
 };

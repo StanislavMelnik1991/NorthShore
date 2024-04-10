@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
@@ -8,25 +9,26 @@ import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
 import { getRouteAdminNews } from "@shared/constants";
 
-const schema = z
-  .object({
-    title: z
-      .string()
-      .min(1, "Поле обязательно для заполнения")
-      .max(256, "Заголовок должен быть не длиннее 256 символов"),
-    html_content: z.string(),
-    cover: z.string().url(),
-  })
-  .required();
-
-type ValuesType = z.infer<typeof schema>;
-
 export const useCreateNews = () => {
+  const { t } = useTranslation("news");
   const { id } = useParams<{ id: string }>();
   const [isLoading, setIsLoading] = useState(false);
   const [isDraft, setIsDraft] = useState<0 | 1>(0);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
+
+  const schema = z
+    .object({
+      title: z
+        .string()
+        .min(1, t("errors.required"))
+        .max(256, t("errors.max256")),
+      html_content: z.string(),
+      cover: z.string().url(),
+    })
+    .required();
+
+  type ValuesType = z.infer<typeof schema>;
 
   const initialValues: ValuesType = {
     title: " ",
@@ -49,11 +51,11 @@ export const useCreateNews = () => {
           ...values,
           is_draft: isDraft,
         });
-        toast.success("Новость обновлена успешно");
+        toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminNews());
       } catch (error) {
         console.log(error);
-        toast.error("Не удалось обновлена новость");
+        toast.error(t("toast.updateError"));
       }
     },
   });
@@ -65,14 +67,14 @@ export const useCreateNews = () => {
           ...values,
           is_draft,
         });
-        toast.success("Новость обновлена успешно");
+        toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminNews());
       } catch (error) {
         console.log(error);
-        toast.error("Не удалось обновлена новость");
+        toast.error(t("toast.updateError"));
       }
     },
-    [id, isDraft, navigate, values],
+    [id, isDraft, navigate, t, values],
   );
 
   useEffect(() => {
@@ -87,16 +89,15 @@ export const useCreateNews = () => {
       })
       .catch((err) => {
         console.error(err);
-        toast.error("не удалось получить новость");
+        toast.error(t("toast.notFound"));
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [id, setFieldValue]);
+  }, [id, setFieldValue, t]);
 
   return {
     handleUploadImage,
-    setIsDraft,
     isDraft,
     isLoading,
     navigate,
@@ -104,70 +105,6 @@ export const useCreateNews = () => {
     errors,
     setFieldValue,
     handleSubmit,
+    t,
   };
-
-  /* const { handleUploadImage } = useUploadImage();
-  const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams<{ id: string }>();
-
-  const navigate = useNavigate();
-  const schema = z
-    .object({
-      title: z
-        .string()
-        .min(1, "Поле обязательно для заполнения")
-        .max(256, "Заголовок должен быть не длиннее 256 символов"),
-      html_content: z.string(),
-      is_draft: z.number().int().min(0).max(1),
-    })
-    .required();
-
-  type ValuesType = z.infer<typeof schema>;
-  const initialValues: ValuesType = {
-    title: " ",
-    html_content: "",
-    is_draft: 0,
-  };
-  const { values, errors, setFieldValue, handleSubmit } = useFormik({
-    initialValues,
-    validate: (values) => {
-      try {
-        schema.parse(values);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (error: any) {
-        return error.formErrors.fieldErrors;
-      }
-    },
-    onSubmit: async (body) => {
-      try {
-        const {
-          data: { data },
-        } = await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, body);
-        toast.success("Новость обновлена успешно");
-        navigate(getRouteUpdateNews(data.id));
-      } catch (error) {
-        console.error(error);
-        toast.error("Не удалось обновить новость");
-      }
-    },
-  });
-
-  
-
-  const handleCreateNews = useCallback(
-    (is_draft: 0 | 1) => () => {
-      setFieldValue("is_draft", is_draft);
-      handleSubmit();
-    },
-    [handleSubmit, setFieldValue],
-  );
-
-  return {
-    isLoading,
-    values,
-    errors,
-    setFieldValue,
-    handleSubmit: handleCreateNews,
-    handleUploadImage,
-  }; */
 };

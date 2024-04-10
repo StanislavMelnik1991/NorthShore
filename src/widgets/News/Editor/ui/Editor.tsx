@@ -4,7 +4,7 @@ import { Cover } from "@entities/Cover";
 import { QuillEditor } from "@entities/QuillEditor";
 import { IconStaple } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
-import { useCreateNews } from "../hook/useNewsEditor";
+import { useCreateNews } from "../hook/useCreateNews";
 import styles from "./Editor.module.scss";
 
 interface Props {
@@ -44,7 +44,7 @@ export const NewsEditor = ({
   setFieldValue,
   values,
 }: Props) => {
-  const { getInputProps, open, isLoading } = useCreateNews({
+  const { getInputProps, open, isLoading, t } = useCreateNews({
     handleUploadImage,
     setFieldValue,
   });
@@ -61,8 +61,8 @@ export const NewsEditor = ({
         error={errors.title}
         onChange={(ev) => setFieldValue("title", ev.target.value)}
         wrapperClassName={styles.textField}
-        label="Заголовок"
-        placeholder="Заголовок новости"
+        label={t("editor.title.label")}
+        placeholder={t("editor.title.placeholder")}
       />
       {values.cover === "" ? (
         <Button
@@ -72,14 +72,14 @@ export const NewsEditor = ({
           loading={isLoading}
         >
           <IconStaple width={24} height={24} />
-          Изображение обложки
+          {t("editor.cover.label")}
         </Button>
       ) : (
         <Cover src={values.cover} onRemove={() => setFieldValue("cover", "")} />
       )}
       <QuillEditor
         error={errors.html_content}
-        label="Текст новости"
+        label={t("editor.content.label")}
         initialValue={values.html_content}
         setValue={(val) => setFieldValue("html_content", val)}
         uploadImage={handleUploadImage}

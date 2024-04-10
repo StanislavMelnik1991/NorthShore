@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useUser } from "@features/User/hook";
 import { getRouteLogin, getRouteMain } from "@shared/constants";
@@ -12,6 +13,7 @@ interface Props {
 
 export const Header = ({ className }: Props) => {
   const { user, isLoading } = useUser();
+  const { t } = useTranslation("main");
   return (
     <header className={classNames(styles.wrapper, className)}>
       <div className={styles.logo}>
@@ -29,7 +31,7 @@ export const Header = ({ className }: Props) => {
             <Link to={getRouteLogin()}>
               <Button size="small" variant="primary">
                 <IconHuman width={20} />
-                Войти
+                {t("header.login")})
               </Button>
             </Link>
           )}

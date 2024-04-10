@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useLocation } from "react-router-dom";
-import { navBarItems } from "../config";
+import { useNavBarItems } from "../config";
 import { NavItem } from "./NavItem";
 import styles from "./SideBar.module.scss";
 
@@ -10,7 +10,7 @@ interface Props {
 
 export const SideBar = ({ className }: Props) => {
   const location = useLocation();
-
+  const navBarItems = useNavBarItems();
   return (
     <div className={classNames(styles.wrapper, className)}>
       {navBarItems.map(({ href, icon, title, breadcrumbs }, index) => {

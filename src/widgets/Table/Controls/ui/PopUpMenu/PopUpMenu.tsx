@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { getCurrentNews, getRouteUpdateNews } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export const PopUpMenu = ({ className, id }: Props) => {
+  const { t } = useTranslation("table");
   const naigate = useNavigate();
   return (
     <Card
@@ -26,7 +28,7 @@ export const PopUpMenu = ({ className, id }: Props) => {
       >
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          Просмотр
+          {t("popup.preview")}
         </Text>
       </div>
       <div
@@ -37,13 +39,13 @@ export const PopUpMenu = ({ className, id }: Props) => {
       >
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          Редактировать
+          {t("popup.edit")}
         </Text>
       </div>
       <div className={styles.item}>
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          В архив
+          {t("popup.archive")}
         </Text>
       </div>
     </Card>

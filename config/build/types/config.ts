@@ -6,6 +6,8 @@ export interface BuildPaths {
   html: string;
   assets: string;
   buildAssets: string;
+  locales: string;
+  buildLocales: string;
   src: {
     root: string;
     app: string;

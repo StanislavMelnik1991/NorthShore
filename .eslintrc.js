@@ -4,7 +4,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/eslint-plugin", "react", "react-hooks"],
+  plugins: ["@typescript-eslint", "@typescript-eslint/eslint-plugin", "react", "react-hooks", 'i18next'],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -37,5 +37,28 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
+    'i18next/no-literal-string': [
+      'error',
+      {
+          markupOnly: true,
+          ignoreAttribute: [
+              'as',
+              'role',
+              'data-testid',
+              'to',
+              'target',
+              'justify',
+              'align',
+              'border',
+              'direction',
+              'gap',
+              'feature',
+              'color',
+              'variant',
+              'size',
+              'wrap',
+          ],
+      },
+  ],
   },
 };

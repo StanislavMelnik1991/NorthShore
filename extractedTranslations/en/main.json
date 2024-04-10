@@ -1,0 +1,17 @@
+{
+  "header": {
+    "login": ""
+  },
+  "sidebar": {
+    "admin": "",
+    "events": "",
+    "loyalty": "",
+    "main": "",
+    "maina": "",
+    "meetings": "",
+    "news": "",
+    "notifications": "",
+    "technicalWorks": "",
+    "voting": ""
+  }
+}

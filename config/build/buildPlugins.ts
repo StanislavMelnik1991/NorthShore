@@ -6,15 +6,12 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev, apiUrl, port }: BuildOptions): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
         new CopyPlugin({
             patterns: [
               { from: paths.assets, to: paths.buildAssets  },
@@ -31,6 +28,18 @@ export function buildPlugins({ paths, isDev, apiUrl, port }: BuildOptions): webp
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
             analyzerPort: (port + 1)
+        }));
+    }
+
+    if (isProd) {
+        plugins.push(new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
+        }));
+        plugins.push(new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buildLocales },
+            ],
         }));
     }
 

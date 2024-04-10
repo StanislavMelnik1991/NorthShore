@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
   args: {
-    src: "https://northwaterfront.evocontrols.com/files/f6b5bfc85d33b8b0.jpg",
+    src: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
     onRemove: fn(),
   },
   decorators: [WhiteBgDecorator],
@@ -25,7 +25,7 @@ export const Main: Story = {
 
 export const OnPage: Story = {
   args: {
-    src: "https://northwaterfront.evocontrols.com/files/f6b5bfc85d33b8b0.jpg",
+    src: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
     onRemove: fn(),
   },
   decorators: [PageDecorator],

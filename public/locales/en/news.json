@@ -1,0 +1,47 @@
+{
+  "routes": {
+    "news": "News",
+    "edit": "News Editing",
+    "create": "News Creation"
+  },
+  "editor": {
+    "title": {
+      "label": "Title",
+      "placeholder": "News Title"
+    },
+    "cover": {
+      "label": "Cover Image"
+    },
+    "content": {
+      "label": "News Text"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "find": "Search"
+  },
+  "errors": {
+    "required": "Field is required",
+    "max256": "Title must not be longer than 256 characters"
+  },
+  "toast": {
+    "updateSuccess": "News updated successfully",
+    "updateError": "Failed to update news",
+    "createSuccess": "News created successfully",
+    "createError": "Failed to create news",
+    "notFound": "Failed to get news",
+    "listError": "Failed to get news list"
+  },
+  "table": {
+    "index": "№",
+    "status": "status",
+    "title": "title",
+    "text": "text",
+    "date": "date"
+  }
+}

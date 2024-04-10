@@ -5,7 +5,7 @@ import { PerPage } from "@entities/PerPageSelect";
 import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
-import { tableConfig } from "../constants";
+import { useTableConfig } from "../constants";
 import { useNewsList } from "../hooks";
 import { dataFormatHelper } from "../utils/dataFormatHelper";
 import styles from "./NewsListPage.module.scss";
@@ -21,26 +21,28 @@ const Page = () => {
     setPage,
     perPage,
     setPerPage,
+    t,
   } = useNewsList();
+  const tableConfig = useTableConfig();
   return (
     <PageLayout>
       <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: "Новости" }]}
+        breadcrumbs={[{ href: location.pathname, title: t("routes.news") }]}
       />
       <Card padding={12} gap={20}>
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
-          Создать
+          {t("controls.create")}
         </Button>
         <Button variant="light">
           <IconBriefcase width={24} height={24} />
-          Перейти в архив
+          {t("controls.archive")}
         </Button>
         <TextField
           value={search}
           onChange={(ev) => setSearch(ev.target.value)}
           wrapperClassName={styles.input}
-          placeholder={"Поиск"}
+          placeholder={t("controls.find")}
           leftItem={<IconLoupe width={20} height={20} />}
         />
       </Card>

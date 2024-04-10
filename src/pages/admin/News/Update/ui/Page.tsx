@@ -16,6 +16,7 @@ const Page = () => {
     handleSubmit,
     setFieldValue,
     values,
+    t,
   } = useCreateNews();
 
   const controls = isDraft ? (
@@ -29,7 +30,7 @@ const Page = () => {
           handleSubmit();
         }}
       >
-        Опубликовать
+        {t("controls.publish")}
       </Button>
       <Button
         className={styles.submitButton}
@@ -40,7 +41,7 @@ const Page = () => {
           handleSubmit(0);
         }}
       >
-        Обновить
+        {t("controls.refresh")}
       </Button>
     </div>
   ) : (
@@ -54,7 +55,7 @@ const Page = () => {
           handleSubmit();
         }}
       >
-        Обновить
+        {t("controls.refresh")}
       </Button>
       <Button
         className={styles.submitButton}
@@ -63,7 +64,7 @@ const Page = () => {
         type="button"
         onClick={() => navigate(-1)}
       >
-        Отмена
+        {t("controls.cancel")}
       </Button>
     </div>
   );
@@ -72,8 +73,8 @@ const Page = () => {
     <PageLayout>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminNews(), title: "Новости" },
-          { href: "", title: "Редактирование новости" },
+          { href: getRouteAdminNews(), title: t("routes.news") },
+          { href: "", title: t("routes.edit") },
         ]}
       />
       <NewsEditor

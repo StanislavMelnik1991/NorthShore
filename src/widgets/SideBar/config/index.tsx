@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   getRouteAdmin,
   getRouteAdminEvents,
@@ -12,45 +13,48 @@ import {
 import { IconHome, IconBriefcase } from "@shared/icons";
 import { NavItemProps } from "../types";
 
-export const navBarItems: Array<NavItemProps> = [
-  {
-    title: "Главная",
-    icon: IconHome,
-    href: getRouteMain(),
-  },
-  {
-    title: "Администрирование",
-    icon: IconBriefcase,
-    href: getRouteAdmin(),
-    breadcrumbs: [
-      {
-        href: getRouteAdminNews(),
-        title: "Новости",
-      },
-      {
-        href: getRouteAdminEvents(),
-        title: "События",
-      },
-      {
-        href: getRouteAdminMeetings(),
-        title: "Собрания",
-      },
-      {
-        href: getRouteAdminNotifications(),
-        title: "Уведомления",
-      },
-      {
-        href: getRouteAdminVoting(),
-        title: "Голосования",
-      },
-      {
-        href: getRouteAdminTechnicalWorks(),
-        title: "Технические работы",
-      },
-      {
-        href: getRouteAdminLoyalty(),
-        title: "Программы лояльности",
-      },
-    ],
-  },
-];
+export const useNavBarItems: () => Array<NavItemProps> = () => {
+  const { t } = useTranslation("main");
+  return [
+    {
+      title: t("sidebar.main"),
+      icon: IconHome,
+      href: getRouteMain(),
+    },
+    {
+      title: t("sidebar.admin"),
+      icon: IconBriefcase,
+      href: getRouteAdmin(),
+      breadcrumbs: [
+        {
+          href: getRouteAdminNews(),
+          title: t("sidebar.news"),
+        },
+        {
+          href: getRouteAdminEvents(),
+          title: t("sidebar.events"),
+        },
+        {
+          href: getRouteAdminMeetings(),
+          title: t("sidebar.meetings"),
+        },
+        {
+          href: getRouteAdminNotifications(),
+          title: t("sidebar.notifications"),
+        },
+        {
+          href: getRouteAdminVoting(),
+          title: t("sidebar.voting"),
+        },
+        {
+          href: getRouteAdminTechnicalWorks(),
+          title: t("sidebar.technicalWorks"),
+        },
+        {
+          href: getRouteAdminLoyalty(),
+          title: t("sidebar.loyalty"),
+        },
+      ],
+    },
+  ];
+};

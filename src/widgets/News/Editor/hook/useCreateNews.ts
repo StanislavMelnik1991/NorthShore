@@ -1,6 +1,7 @@
 import { FormikErrors } from "formik";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { useTranslation } from "react-i18next";
 import { IMAGE_TYPES, MAX_IMAGE_SIZE } from "@shared/constants";
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export const useCreateNews = ({ handleUploadImage, setFieldValue }: Props) => {
+  const { t } = useTranslation("news");
   const [isLoading, setIsLoading] = useState(false);
   const onDrop = useCallback(
     async (files: File[]) => {
@@ -47,5 +49,6 @@ export const useCreateNews = ({ handleUploadImage, setFieldValue }: Props) => {
     getInputProps,
     open,
     isLoading,
+    t,
   };
 };

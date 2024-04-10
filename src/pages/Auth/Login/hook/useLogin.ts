@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { z } from "zod";
 import { useUser } from "@features/User/hook";
@@ -7,10 +8,11 @@ import { BaseResponse, ILoginResponse } from "@entities/types";
 import { TOKEN_LOCAL_STORAGE_KEY } from "@shared/constants";
 
 export const useLogin = () => {
+  const { t } = useTranslation("auth");
   const { setUser } = useUser();
   const schema = z
     .object({
-      email: z.string().email("Некорректный email"),
+      email: z.string().email(t("error.emailInvalid")),
       password: z.string().min(4),
     })
     .required();
@@ -42,11 +44,11 @@ export const useLogin = () => {
           body,
         );
         setUser?.(user);
-        toast.success(`Добро пожаловать, ${user.name}`);
+        toast.success(`${t("toast.loginSuccess")} ${user.name}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.log(error);
-        toast.error("Ошибка авторизации");
+        toast.error(t("toast.loginError"));
       }
     },
   });
@@ -56,5 +58,6 @@ export const useLogin = () => {
     errors,
     setFieldValue,
     handleSubmit,
+    t,
   };
 };

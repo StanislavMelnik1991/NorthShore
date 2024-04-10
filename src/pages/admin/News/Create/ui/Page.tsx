@@ -4,7 +4,7 @@ import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminNews } from "@shared/constants";
 import { Button } from "@shared/ui";
 import { useCreateNews } from "../hook/useCreateNews";
-import styles from "./CreateNewsPage.module.scss";
+import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
@@ -14,13 +14,15 @@ const Page = () => {
     handleSubmit,
     setFieldValue,
     values,
+    t,
   } = useCreateNews();
   return (
     <PageLayout>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminNews(), title: "Новости" },
-          { href: "", title: "Создание новости" },
+          { href: getRouteAdminNews(), title: t("routes.news") },
+
+          { href: "", title: t("routes.create") },
         ]}
       />
       <form onSubmit={handleSubmit}>
@@ -38,7 +40,7 @@ const Page = () => {
                 type="submit"
                 onClick={() => setIsDraft(1)}
               >
-                Опубликовать
+                {t("controls.publish")}
               </Button>
               <Button
                 className={styles.submitButton}
@@ -47,7 +49,7 @@ const Page = () => {
                 type="submit"
                 onClick={() => setIsDraft(0)}
               >
-                Сохранить черновик
+                {t("controls.draft")}
               </Button>
             </div>
           }

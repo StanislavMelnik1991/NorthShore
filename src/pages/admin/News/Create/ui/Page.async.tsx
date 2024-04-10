@@ -1,3 +1,3 @@
 import { lazy } from "react";
 
-export default lazy(() => import("./CreateNewsPage"));
+export default lazy(() => import("./Page"));

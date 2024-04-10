@@ -1,0 +1,16 @@
+{
+  "sidebar": {
+    "main": "Main",
+    "admin": "Administration",
+    "news": "News",
+    "events": "Events",
+    "meetings": "Meetings",
+    "notifications": "Notifications",
+    "voting": "Voting",
+    "technicalWorks": "Technical Works",
+    "loyalty": "Loyalty Programs"
+  },
+  "header": {
+    "login": "Log in"
+  }
+}
