@@ -13,7 +13,11 @@ interface Props {
 
 export const Header = ({ className }: Props) => {
   const { user, isLoading } = useUser();
-  const { t } = useTranslation("main");
+  const { t, i18n } = useTranslation("main");
+  // i18n.changeLanguage()
+  const toggle = async () => {
+    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+  };
   return (
     <header className={classNames(styles.wrapper, className)}>
       <div className={styles.logo}>
@@ -23,6 +27,9 @@ export const Header = ({ className }: Props) => {
       </div>
       <div className={styles.header}>
         <div className={styles.auth}>
+          <Button onClick={toggle} variant="light">
+            {i18n.language}
+          </Button>
           {isLoading ? (
             <Loader size={40} />
           ) : user ? (
@@ -31,7 +38,7 @@ export const Header = ({ className }: Props) => {
             <Link to={getRouteLogin()}>
               <Button size="small" variant="primary">
                 <IconHuman width={20} />
-                {t("header.login")})
+                {t("header.login")}
               </Button>
             </Link>
           )}
