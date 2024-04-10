@@ -8,9 +8,7 @@ export const axiosApi = axios.create({
 axiosApi.interceptors.request.use((config) => {
   const token = localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY);
   if (config.headers) {
-    (config.headers["Content-Type"] = "application/json"),
-      (config.headers["Accept"] = "application/json"),
-      (config.headers.Authorization = token ? `Bearer ${token}` : "");
+    config.headers.Authorization = token ? `Bearer ${token}` : "";
   }
   return config;
 });

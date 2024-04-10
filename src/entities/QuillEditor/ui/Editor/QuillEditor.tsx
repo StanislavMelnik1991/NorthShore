@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { FocusEventHandler, useRef } from "react";
 import ReactQuill from "react-quill";
-import { useQuillEditor } from "./hooks/quillEditor";
+import { useQuillEditor } from "../../hooks";
 import styles from "./QuillEditor.module.scss";
-import "./hooks/helpers/block";
 
 type Props = {
   initialValue: string;
@@ -16,6 +15,7 @@ type Props = {
   focused?: boolean;
   label?: string;
   error?: string;
+  uploadImage(file: File): Promise<string | undefined>;
 };
 
 export const QuillEditor = ({
@@ -25,7 +25,7 @@ export const QuillEditor = ({
   theme = "snow",
   setValue,
   focused = false,
-
+  uploadImage,
   error,
   label,
   inputClassName,
@@ -40,9 +40,10 @@ export const QuillEditor = ({
     setValue,
     isActive: focused,
     wrapperRef,
+    uploadImage,
   });
 
-  const MODULES = {
+  const modules = {
     toolbar: [
       [{ header: [2, 3, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
@@ -62,7 +63,7 @@ export const QuillEditor = ({
       ["clean"],
     ],
   };
-  const FORMATS = [
+  const formats = [
     "header",
     "bold",
     "italic",
@@ -100,8 +101,8 @@ export const QuillEditor = ({
           onChange={onChange}
           value={value}
           placeholder={placeholder}
-          modules={MODULES}
-          formats={FORMATS}
+          modules={modules}
+          formats={formats}
           preserveWhitespace
           onBlur={() => onBlur}
           ref={reactQuillRef}

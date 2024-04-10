@@ -3,12 +3,14 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
+import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
 import { getRouteUpdateNews } from "@shared/constants";
 
 export const useCreateNews = () => {
   const navigate = useNavigate();
+  const { handleUploadImage } = useUploadImage();
   const schema = z
     .object({
       title: z
@@ -33,7 +35,6 @@ export const useCreateNews = () => {
         schema.parse(values);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
-        console.log(error);
         return error.formErrors.fieldErrors;
       }
     },
@@ -64,5 +65,6 @@ export const useCreateNews = () => {
     errors,
     setFieldValue,
     handleSubmit: handleCreateNews,
+    handleUploadImage,
   };
 };

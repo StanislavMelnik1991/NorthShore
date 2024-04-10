@@ -1,15 +1,10 @@
-import { useState } from "react";
 import { PageLoader } from "@widgets/PageLoader";
-import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
 import { PageLayout } from "@shared/layouts";
 import { Button, Text, Title } from "@shared/ui";
 
 const NotFoundPage = () => {
-  const [val, setVal] = useState("");
   return (
     <PageLayout>
-      <QuillEditor initialValue={val} setValue={setVal} />
-      {val}
       <Title fontWeight="semibold" variant="h1">
         Not found
       </Title>

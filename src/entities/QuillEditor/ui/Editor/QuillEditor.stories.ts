@@ -20,6 +20,7 @@ export const Main: Story = {
   args: {
     initialValue: "",
     setValue: fn(),
+    uploadImage: fn(),
   },
   decorators: [WhiteBgDecorator],
 };
@@ -28,6 +29,7 @@ export const WithLabel: Story = {
     label: "Label text",
     initialValue: "",
     setValue: fn(),
+    uploadImage: fn(),
   },
   decorators: [WhiteBgDecorator],
 };
@@ -37,6 +39,7 @@ export const WithError: Story = {
     error: "error text",
     initialValue: "",
     setValue: fn(),
+    uploadImage: fn(),
   },
   decorators: [WhiteBgDecorator],
 };
@@ -45,6 +48,7 @@ export const TextExample: Story = {
   args: {
     initialValue: text,
     setValue: fn(),
+    uploadImage: fn(),
   },
   decorators: [WhiteBgDecorator],
 };
@@ -53,6 +57,7 @@ export const OnPage: Story = {
   args: {
     initialValue: text,
     setValue: fn(),
+    uploadImage: fn(),
   },
   decorators: [PageDecorator],
 };

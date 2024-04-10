@@ -1,5 +1,5 @@
 import { PageHeader } from "@entities/PageHeader";
-import { QuillEditor } from "@entities/QuillEditor/QuillEditor";
+import { QuillEditor } from "@entities/QuillEditor";
 import { getRouteAdminNews } from "@shared/constants";
 import { IconStaple } from "@shared/icons";
 import { PageLayout } from "@shared/layouts";
@@ -8,8 +8,14 @@ import { useCreateNews } from "../hook/useUpdateNews";
 import styles from "./Page.module.scss";
 
 const Page = () => {
-  const { errors, handleSubmit, setFieldValue, values, isLoading } =
-    useCreateNews();
+  const {
+    errors,
+    handleSubmit,
+    setFieldValue,
+    values,
+    isLoading,
+    handleUploadImage,
+  } = useCreateNews();
   return (
     <PageLayout>
       <PageHeader
@@ -32,6 +38,7 @@ const Page = () => {
           Изображение обложки
         </Button>
         <QuillEditor
+          uploadImage={handleUploadImage}
           error={errors.html_content}
           label="Текст новости"
           initialValue={values.html_content}

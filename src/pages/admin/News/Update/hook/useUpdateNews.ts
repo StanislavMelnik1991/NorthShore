@@ -3,11 +3,13 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { z } from "zod";
+import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
 import { getRouteUpdateNews } from "@shared/constants";
 
 export const useCreateNews = () => {
+  const { handleUploadImage } = useUploadImage();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
 
@@ -85,5 +87,6 @@ export const useCreateNews = () => {
     errors,
     setFieldValue,
     handleSubmit: handleCreateNews,
+    handleUploadImage,
   };
 };
