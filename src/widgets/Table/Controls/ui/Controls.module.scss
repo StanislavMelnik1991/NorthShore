@@ -4,8 +4,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  padding: 6px;
+
+  path {
+    fill: var(--dark-50);
+  }
 
   &:hover {
     background-color: var(--dark-20);

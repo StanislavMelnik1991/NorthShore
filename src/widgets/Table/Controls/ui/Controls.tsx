@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { Text } from "@shared/ui";
+import { IconDottedLine } from "@shared/icons";
 import styles from "./Controls.module.scss";
 import { PopUpMenu } from "./PopUpMenu/PopUpMenu";
 
@@ -18,9 +18,7 @@ export const TableControls = ({ className, id }: Props) => {
         setIsShow((val) => !val);
       }}
     >
-      <Text fontWeight="regular" variant="body14">
-        ...
-      </Text>
+      <IconDottedLine width={20} height={20} />
       {isShow && <PopUpMenu id={id} />}
     </div>
   );

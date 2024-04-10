@@ -10,7 +10,7 @@ export const dataFormatHelper = (data: Array<INews>) => {
       id: <TableText text={String(id)} />,
       status: <TableBadge is_draft={!!is_draft} />,
       title: <TableText text={title} fontWeight="medium" />,
-      date: <TableText text={new Date(published_at).toLocaleString()} />,
+      date: <TableText text={new Date(published_at).toLocaleDateString()} />,
       text: <TableText text={extractTextFromHtml(html_content)} />,
       controls: <TableControls id={id} />,
     };

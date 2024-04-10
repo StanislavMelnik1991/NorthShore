@@ -39,7 +39,6 @@ export const useQuillEditor = ({
         const contentText = editor.getText();
         const position = contentText.indexOf(content as string) || 0;
         if (content?.image) {
-          console.log(delta);
           const file = dataURLtoFile(content.image);
           uploadImage(file).then((url) => {
             (
@@ -48,8 +47,7 @@ export const useQuillEditor = ({
             if (!url) {
               return;
             }
-            contentEditor.insertText(position, "\n");
-            insertLink(contentEditor, url, position);
+            insertImage(contentEditor, url);
           });
           return;
         }
@@ -90,7 +88,7 @@ export const useQuillEditor = ({
     while (n--) {
       u8arr[n] = bstr.charCodeAt(n);
     }
-    return new File([u8arr], "Image.jpg", { type: mime });
+    return new File([u8arr], "Image", { type: mime });
   }
 
   const onDrop = useCallback(
