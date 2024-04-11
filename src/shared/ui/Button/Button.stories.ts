@@ -11,6 +11,13 @@ const meta = {
   tags: ["autodocs"],
   args: { onClick: fn() },
   decorators: [],
+  argTypes: {
+    children: { name: "text", defaultValue: "Button text", type: "string" },
+    disabled: { name: "disabled", defaultValue: false, type: "boolean" },
+    loading: { name: "loading", defaultValue: false, type: "boolean" },
+    width: { name: "width", type: "number" },
+    height: { name: "height", type: "number" },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -19,14 +26,18 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
-    children: "badge text",
+    children: "Button text",
+    disabled: false,
+    loading: false,
   },
   decorators: [WhiteBgDecorator],
 };
 
 export const OnPage: Story = {
   args: {
-    children: "badge text",
+    children: "Button text",
+    disabled: false,
+    loading: false,
   },
   decorators: [PageDecorator],
 };

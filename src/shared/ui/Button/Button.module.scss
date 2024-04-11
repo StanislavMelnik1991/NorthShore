@@ -10,6 +10,10 @@
   transition: all var(--animation-duration) ease;
   height: fit-content;
   gap: 10px;
+
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 .primary {
@@ -100,6 +104,22 @@
 
   path {
     fill: var(--red-100);
+  }
+
+  &:hover {
+    background-color: var(--red-20);
+  }
+
+  &:active {
+    background-color: var(--red-30);
+  }
+
+  &:disabled {
+    background-color: var(--gray-30);
+    color: var(--gray-50);
+    path {
+      fill: var(--gray-50);
+    }
   }
 }
 
