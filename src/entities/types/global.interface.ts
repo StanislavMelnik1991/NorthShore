@@ -4,3 +4,11 @@ export interface BaseResponse<T> {
   success: boolean;
   timestamp: number;
 }
+
+export interface ListParams<Sort, Filter> {
+  page?: number;
+  perPage?: number;
+  searchValue?: string;
+  sort: Sort;
+  filter: Filter;
+}

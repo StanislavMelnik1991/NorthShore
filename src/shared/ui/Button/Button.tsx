@@ -31,6 +31,7 @@ export const Button = ({
         styles.wrapper,
         styles[size],
         styles[variant],
+        { [styles.loading]: loading },
         className,
       )}
       style={{ width, height, ...style }}

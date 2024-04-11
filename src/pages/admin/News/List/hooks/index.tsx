@@ -4,8 +4,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
 import { axiosApi } from "@entities/api";
-import { BaseResponse, INews } from "@entities/types";
+import { BaseResponse, INews, ListParams } from "@entities/types";
 import { INITIAL_PER_PAGE, getRouteCreateNews } from "@shared/constants";
+import { SortOrder } from "@shared/types";
+
+interface INewsFilter {
+  is_draft: 0 | 1;
+}
+
+type INewsSort = { created_at: SortOrder } | { status: SortOrder };
 
 export const useNewsList = () => {
   const { t } = useTranslation("news");
@@ -21,12 +28,23 @@ export const useNewsList = () => {
 
   const handleGetData = useCallback(async () => {
     setIsLoading(true);
+    const params: ListParams<INewsSort, INewsFilter> = {
+      page,
+      perPage,
+      searchValue: debounced,
+      filter: {
+        is_draft: 1,
+      },
+      sort: {
+        created_at: "asc",
+      },
+    };
     // ToDo: from server
     setTotal(100);
     try {
       const {
         data: { data },
-      } = await axiosApi.get<BaseResponse<Array<INews>>>("/news");
+      } = await axiosApi.get<BaseResponse<Array<INews>>>("/news", { params });
       setData(data);
     } catch (error) {
       toast.error(t("toast.listError"));
@@ -34,8 +52,7 @@ export const useNewsList = () => {
     } finally {
       setIsLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debounced, page, perPage]);
+  }, [debounced, page, perPage, t]);
 
   useEffect(() => {
     handleGetData();
