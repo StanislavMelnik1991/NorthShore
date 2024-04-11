@@ -37,6 +37,7 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
+    "react-hooks/exhaustive-deps": ["error"],
     'i18next/no-literal-string': [
       'error',
       {

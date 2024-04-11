@@ -21,6 +21,7 @@ const Page = () => {
     setPage,
     perPage,
     setPerPage,
+    isLoading,
     t,
   } = useNewsList();
   const tableConfig = useTableConfig();
@@ -29,7 +30,7 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t("routes.news") }]}
       />
-      <Card padding={12} gap={20}>
+      <Card padding={12} gap={20} loading={isLoading} loaderSize={32}>
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
           {t("controls.create")}
@@ -46,7 +47,7 @@ const Page = () => {
           leftItem={<IconLoupe width={20} height={20} />}
         />
       </Card>
-      <Card padding={0} flexDirection="column">
+      <Card padding={0} flexDirection="column" loading={isLoading}>
         <Table config={tableConfig} items={dataFormatHelper(data)} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />

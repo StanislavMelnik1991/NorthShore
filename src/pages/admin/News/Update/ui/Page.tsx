@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { PageLayout } from "@widgets/layouts";
 import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
@@ -10,11 +11,12 @@ const Page = () => {
   const {
     handleUploadImage,
     isDraft,
-    // isLoading,
+    isLoading,
     navigate,
     errors,
     handleSubmit,
     setFieldValue,
+    handleDelete,
     values,
     t,
   } = useCreateNews();
@@ -43,6 +45,15 @@ const Page = () => {
       >
         {t("controls.refresh")}
       </Button>
+      <Button
+        className={classNames(styles.submitButton, styles.deleteBtn)}
+        size="large"
+        variant="danger"
+        type="button"
+        onClick={handleDelete}
+      >
+        {t("controls.delete")}
+      </Button>
     </div>
   ) : (
     <div className={styles.submitBlock}>
@@ -66,6 +77,15 @@ const Page = () => {
       >
         {t("controls.cancel")}
       </Button>
+      <Button
+        className={classNames(styles.submitButton, styles.deleteBtn)}
+        size="large"
+        variant="danger"
+        type="button"
+        onClick={handleDelete}
+      >
+        {t("controls.delete")}
+      </Button>
     </div>
   );
 
@@ -78,6 +98,7 @@ const Page = () => {
         ]}
       />
       <NewsEditor
+        loading={isLoading}
         handleUploadImage={handleUploadImage}
         errors={errors}
         setFieldValue={setFieldValue}

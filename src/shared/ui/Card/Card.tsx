@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { Loader } from "../Loader";
 import styles from "./Card.module.scss";
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
     | "row"
     | "row-reverse";
   gap?: number;
+  loading?: boolean;
+  loaderSize?: number;
 }
 
 export const Card = ({
@@ -25,12 +28,17 @@ export const Card = ({
   radius,
   flexDirection,
   gap,
+  loading,
+  loaderSize = 64,
 }: Props) => {
   return (
     <main
       style={{ padding, borderRadius: radius, flexDirection, gap }}
       className={classNames(styles.wrapper, className)}
     >
+      <div className={classNames(styles.loader, { [styles.show]: loading })}>
+        <Loader size={loaderSize} />
+      </div>
       {children}
     </main>
   );

@@ -9,6 +9,7 @@ import styles from "./Editor.module.scss";
 
 interface Props {
   className?: string;
+  loading?: boolean;
   handleUploadImage(file: File): Promise<string>;
   controls?: JSX.Element;
   values: {
@@ -42,6 +43,7 @@ export const NewsEditor = ({
   controls,
   errors,
   setFieldValue,
+  loading,
   values,
 }: Props) => {
   const { getInputProps, open, isLoading, t } = useCreateNews({
@@ -50,6 +52,7 @@ export const NewsEditor = ({
   });
   return (
     <Card
+      loading={loading}
       className={classNames(styles.wrapper, className)}
       radius={24}
       flexDirection="column"

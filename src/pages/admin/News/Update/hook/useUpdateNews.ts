@@ -77,6 +77,17 @@ export const useCreateNews = () => {
     [id, isDraft, navigate, t, values],
   );
 
+  const handleDelete = useCallback(async () => {
+    try {
+      await axiosApi.delete(`/news/${id}`);
+      navigate(getRouteAdminNews());
+      toast.success(t("toast.deleteSuccess"));
+    } catch (error) {
+      console.log(error);
+      toast.error(t("toast.deleteError"));
+    }
+  }, [id, navigate, t]);
+
   useEffect(() => {
     setIsLoading(true);
     axiosApi
@@ -105,6 +116,7 @@ export const useCreateNews = () => {
     errors,
     setFieldValue,
     handleSubmit,
+    handleDelete,
     t,
   };
 };
