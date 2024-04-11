@@ -23,13 +23,16 @@
     "draft": "Save Draft",
     "create": "Create",
     "archive": "Go to Archive",
-    "find": "Search"
+    "find": "Search",
+    "delete": "Delete"
   },
   "errors": {
     "required": "Field is required",
     "max256": "Title must not be longer than 256 characters"
   },
   "toast": {
+    "deleteSuccess": "News deleted successfully",
+    "deleteError": "Failed to delete news",
     "updateSuccess": "News updated successfully",
     "updateError": "Failed to update news",
     "createSuccess": "News created successfully",
