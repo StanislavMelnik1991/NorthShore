@@ -101,9 +101,11 @@ export const useCreateNews = () => {
     axiosApi
       .get<BaseResponse<INews>>(`/news/${id}`)
       .then(({ data: { data } }) => {
-        setFieldValue("title", data.title);
-        setFieldValue("html_content", data.html_content);
-        setFieldValue("cover", data.cover);
+        setFieldValue("title_ru", data.title.ru);
+        setFieldValue("title_en", data.title.en);
+        setFieldValue("html_content_en", data.html_content.en);
+        setFieldValue("html_content_ru", data.html_content.ru);
+        setFieldValue("cover", data.cover || "");
         setIsDraft(data.is_draft);
       })
       .catch((err) => {

@@ -11,7 +11,7 @@ import { getRouteAdminNews } from "@shared/constants";
 
 export const useCreateNews = () => {
   const { t } = useTranslation("news");
-  const [isDraft, setIsDraft] = useState<0 | 1>(0);
+  const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
@@ -55,7 +55,7 @@ export const useCreateNews = () => {
       try {
         await axiosApi.put<BaseResponse<INews>>("/news", {
           ...body,
-          is_draft: isDraft,
+          status,
         });
         toast.success(t("toast.createSuccess"));
         navigate(getRouteAdminNews());
@@ -68,7 +68,7 @@ export const useCreateNews = () => {
 
   return {
     handleUploadImage,
-    setIsDraft,
+    setIsDraft: setStatus,
     values,
     errors,
     setFieldValue,

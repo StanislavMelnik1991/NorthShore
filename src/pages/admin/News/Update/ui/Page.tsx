@@ -10,7 +10,7 @@ import styles from "./Page.module.scss";
 const Page = () => {
   const {
     handleUploadImage,
-    isDraft,
+    status,
     isLoading,
     navigate,
     errors,
@@ -20,8 +20,8 @@ const Page = () => {
     values,
     t,
   } = useCreateNews();
-
-  const controls = isDraft ? (
+  console.log(status);
+  const controls = status ? (
     <div className={styles.submitBlock}>
       <Button
         className={styles.submitButton}
@@ -29,41 +29,7 @@ const Page = () => {
         variant="primary"
         type="button"
         onClick={() => {
-          handleSubmit();
-        }}
-      >
-        {t("controls.publish")}
-      </Button>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="secondary"
-        type="button"
-        onClick={() => {
-          handleSubmit(0);
-        }}
-      >
-        {t("controls.refresh")}
-      </Button>
-      <Button
-        className={classNames(styles.submitButton, styles.deleteBtn)}
-        size="large"
-        variant="danger"
-        type="button"
-        onClick={handleDelete}
-      >
-        {t("controls.delete")}
-      </Button>
-    </div>
-  ) : (
-    <div className={styles.submitBlock}>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="primary"
-        type="button"
-        onClick={() => {
-          handleSubmit();
+          handleSubmit(status);
         }}
       >
         {t("controls.refresh")}
@@ -87,6 +53,40 @@ const Page = () => {
         {t("controls.delete")}
       </Button>
     </div>
+  ) : (
+    <div className={styles.submitBlock}>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="primary"
+        type="button"
+        onClick={() => {
+          handleSubmit(1);
+        }}
+      >
+        {t("controls.publish")}
+      </Button>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="secondary"
+        type="button"
+        onClick={() => {
+          handleSubmit(status);
+        }}
+      >
+        {t("controls.refresh")}
+      </Button>
+      <Button
+        className={classNames(styles.submitButton, styles.deleteBtn)}
+        size="large"
+        variant="danger"
+        type="button"
+        onClick={handleDelete}
+      >
+        {t("controls.delete")}
+      </Button>
+    </div>
   );
 
   return (
@@ -97,6 +97,7 @@ const Page = () => {
           { href: "", title: t("routes.edit") },
         ]}
       />
+      {}
       <NewsEditor
         loading={isLoading}
         handleUploadImage={handleUploadImage}

@@ -13,7 +13,7 @@ export const useCreateNews = () => {
   const { t } = useTranslation("news");
   const { id } = useParams<{ id: string }>();
   const [isLoading, setIsLoading] = useState(false);
-  const [isDraft, setIsDraft] = useState<0 | 1>(0);
+  const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
@@ -57,7 +57,7 @@ export const useCreateNews = () => {
       try {
         await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
           ...values,
-          is_draft: isDraft,
+          is_draft: status,
         });
         toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminNews());
@@ -69,11 +69,11 @@ export const useCreateNews = () => {
   });
 
   const handleSubmit = useCallback(
-    async (is_draft: 0 | 1 = isDraft) => {
+    async (status: 0 | 1 | 2) => {
       try {
         await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
           ...values,
-          is_draft,
+          status,
         });
         toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminNews());
@@ -82,7 +82,7 @@ export const useCreateNews = () => {
         toast.error(t("toast.updateError"));
       }
     },
-    [id, isDraft, navigate, t, values],
+    [id, navigate, t, values],
   );
 
   const handleDelete = useCallback(async () => {
@@ -103,10 +103,10 @@ export const useCreateNews = () => {
       .then(({ data: { data } }) => {
         setFieldValue("title_ru", data.title.ru);
         setFieldValue("title_en", data.title.en);
-        setFieldValue("html_content_.en", data.html_content.en);
-        setFieldValue("html_content_.ru", data.html_content.ru);
+        setFieldValue("html_content_en", data.html_content.en);
+        setFieldValue("html_content_ru", data.html_content.ru);
         setFieldValue("cover", data.cover || "");
-        setIsDraft(data.is_draft);
+        setStatus(data.status || 0);
       })
       .catch((err) => {
         console.error(err);
@@ -119,7 +119,7 @@ export const useCreateNews = () => {
 
   return {
     handleUploadImage,
-    isDraft,
+    status,
     isLoading,
     navigate,
     values,
