@@ -1,3 +1,5 @@
+import { StatusEnum } from "@shared/constants";
+
 export type INews = {
   id: number;
   cover?: string;
@@ -14,11 +16,18 @@ export type INews = {
       name: string;
     };
   };
-  title: string;
+  title: {
+    en: string;
+    ru: string;
+  };
   user_id: number;
   is_draft: 0 | 1;
+  status: keyof typeof StatusEnum;
   created_at: number;
   updated_at: number;
-  html_content: string;
+  html_content: {
+    en: string;
+    ru: string;
+  };
   published_at: number;
 };

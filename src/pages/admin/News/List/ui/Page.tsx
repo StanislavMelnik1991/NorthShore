@@ -7,8 +7,8 @@ import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
 import { useTableConfig } from "../constants";
 import { useNewsList } from "../hooks";
-import { dataFormatHelper } from "../utils/dataFormatHelper";
-import styles from "./NewsListPage.module.scss";
+import { useDataFormatHelper } from "../utils/dataFormatHelper";
+import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
@@ -48,7 +48,7 @@ const Page = () => {
         />
       </Card>
       <Card padding={0} flexDirection="column" loading={isLoading}>
-        <Table config={tableConfig} items={dataFormatHelper(data)} />
+        <Table config={tableConfig} items={useDataFormatHelper(data)} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
           <Pagination total={total} onChange={setPage} />

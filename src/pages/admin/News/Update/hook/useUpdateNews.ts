@@ -19,11 +19,16 @@ export const useCreateNews = () => {
 
   const schema = z
     .object({
-      title: z
+      title_en: z
         .string()
         .min(1, t("errors.required"))
         .max(256, t("errors.max256")),
-      html_content: z.string(),
+      title_ru: z
+        .string()
+        .min(1, t("errors.required"))
+        .max(256, t("errors.max256")),
+      html_content_en: z.string(),
+      html_content_ru: z.string(),
       cover: z.string().url(),
     })
     .required();
@@ -31,10 +36,13 @@ export const useCreateNews = () => {
   type ValuesType = z.infer<typeof schema>;
 
   const initialValues: ValuesType = {
-    title: " ",
-    html_content: "",
+    title_en: " ",
+    html_content_ru: "",
+    title_ru: " ",
+    html_content_en: "",
     cover: "",
   };
+
   const { values, errors, setFieldValue } = useFormik({
     initialValues,
     validate: (values) => {
@@ -93,9 +101,11 @@ export const useCreateNews = () => {
     axiosApi
       .get<BaseResponse<INews>>(`/news/${id}`)
       .then(({ data: { data } }) => {
-        setFieldValue("title", data.title);
-        setFieldValue("html_content", data.html_content);
-        setFieldValue("cover", data.cover);
+        setFieldValue("title_ru", data.title.ru);
+        setFieldValue("title_en", data.title.en);
+        setFieldValue("html_content_.en", data.html_content.en);
+        setFieldValue("html_content_.ru", data.html_content.ru);
+        setFieldValue("cover", data.cover || "");
         setIsDraft(data.is_draft);
       })
       .catch((err) => {

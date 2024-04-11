@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
 
 export const useCurrentNews = () => {
+  const { t, i18n } = useTranslation("news");
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [news, setNews] = useState<INews>();
@@ -24,5 +26,5 @@ export const useCurrentNews = () => {
         setIsLoading(false);
       });
   }, [id]);
-  return { news, isLoading };
+  return { news, isLoading, t, i18n };
 };

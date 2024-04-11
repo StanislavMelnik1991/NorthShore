@@ -17,11 +17,16 @@ export const useCreateNews = () => {
 
   const schema = z
     .object({
-      title: z
+      title_en: z
         .string()
         .min(1, t("errors.required"))
         .max(256, t("errors.max256")),
-      html_content: z.string(),
+      title_ru: z
+        .string()
+        .min(1, t("errors.required"))
+        .max(256, t("errors.max256")),
+      html_content_en: z.string(),
+      html_content_ru: z.string(),
       cover: z.string().url(),
     })
     .required();
@@ -29,8 +34,10 @@ export const useCreateNews = () => {
   type ValuesType = z.infer<typeof schema>;
 
   const initialValues: ValuesType = {
-    title: "",
-    html_content: "",
+    title_en: "",
+    html_content_ru: "",
+    title_ru: "",
+    html_content_en: "",
     cover: "",
   };
 

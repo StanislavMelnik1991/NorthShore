@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "events": "Events",
+    "edit": "Event Editing",
+    "create": "Event Creation"
+  },
+  "editor": {
+    "versions": {
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Event Title"
+    },
+    "cover": {
+      "label": "Cover Image"
+    },
+    "content": {
+      "label": "Event Text"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "find": "Search",
+    "delete": "Delete"
+  },
+  "errors": {
+    "required": "Field is required",
+    "max256": "Title must not be longer than 256 characters"
+  },
+  "toast": {
+    "deleteSuccess": "Event deleted successfully",
+    "deleteError": "Failed to delete event",
+    "updateSuccess": "Event updated successfully",
+    "updateError": "Failed to update event",
+    "createSuccess": "Event created successfully",
+    "createError": "Failed to create event",
+    "notFound": "Failed to get event",
+    "listError": "Failed to get event list"
+  },
+  "table": {
+    "index": "№",
+    "status": "status",
+    "title": "title",
+    "text": "text",
+    "date": "date"
+  }
+}

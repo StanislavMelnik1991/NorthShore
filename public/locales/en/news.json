@@ -5,6 +5,10 @@
     "create": "News Creation"
   },
   "editor": {
+    "versions": {
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
     "title": {
       "label": "Title",
       "placeholder": "News Title"

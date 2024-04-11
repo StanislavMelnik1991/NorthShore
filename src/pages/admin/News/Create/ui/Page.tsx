@@ -38,7 +38,7 @@ const Page = () => {
                 size="large"
                 variant="primary"
                 type="submit"
-                onClick={() => setIsDraft(1)}
+                onClick={() => setIsDraft(0)}
               >
                 {t("controls.publish")}
               </Button>
@@ -47,7 +47,7 @@ const Page = () => {
                 size="large"
                 variant="secondary"
                 type="submit"
-                onClick={() => setIsDraft(0)}
+                onClick={() => setIsDraft(1)}
               >
                 {t("controls.draft")}
               </Button>

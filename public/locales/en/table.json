@@ -3,5 +3,10 @@
     "preview": "Preview",
     "edit": "Edit",
     "archive": "To Archive"
+  },
+  "badges": {
+    "drafts": "Draft",
+    "publish": "Posted",
+    "archive": "Archive"
   }
 }

@@ -2,6 +2,7 @@ import sanitizeHtml from "sanitize-html";
 import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import {
+  LanguageEnum,
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
@@ -10,13 +11,13 @@ import { Badge, Card, Loader, Title } from "@shared/ui";
 import { useCurrentNews } from "../hook";
 
 export default () => {
-  const { isLoading, news } = useCurrentNews();
+  const { isLoading, news, i18n, t } = useCurrentNews();
   return (
     <PageLayout>
       <PageHeader
         breadcrumbs={[
-          { href: "", title: "Новости" },
-          { href: "", title: news?.title || "" },
+          { href: "", title: t("routes.news") },
+          { href: "", title: news?.title[i18n.language as LanguageEnum] || "" },
         ]}
       />
       <Card padding={40} gap={10} flexDirection="column">
@@ -27,16 +28,19 @@ export default () => {
             {news && (
               <>
                 <Badge color="dark">
-                  {new Date(news.created_at).toLocaleDateString()}
+                  {new Date(news.created_at * 1000).toLocaleDateString()}
                 </Badge>
-                <Title>{news.title}</Title>
+                <Title>{news.title[i18n.language as LanguageEnum]}</Title>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(news.html_content, {
-                      allowedTags: allowedTagsSanitizer,
-                      allowedAttributes: allowedAttributesSchema,
-                      allowedIframeHostnames: allowedIframeHostnamesSchema,
-                    }),
+                    __html: sanitizeHtml(
+                      news.html_content[i18n.language as LanguageEnum],
+                      {
+                        allowedTags: allowedTagsSanitizer,
+                        allowedAttributes: allowedAttributesSchema,
+                        allowedIframeHostnames: allowedIframeHostnamesSchema,
+                      },
+                    ),
                   }}
                 />
               </>
