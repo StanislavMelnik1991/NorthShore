@@ -37,7 +37,11 @@ export const Button = ({
       style={{ width, height, ...style }}
       {...props}
     >
-      {loading ? <Loader size={24} /> : children}
+      <Loader
+        className={classNames(styles.loader, { [styles.show]: loading })}
+        size={24}
+      />
+      {children}
     </button>
   );
 };

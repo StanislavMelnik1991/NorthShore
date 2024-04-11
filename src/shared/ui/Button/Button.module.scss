@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +18,10 @@
 
   path {
     fill: var(--light-color);
+  }
+
+  .loader {
+    color: var(--light-color);
   }
 
   &:hover {
@@ -38,6 +43,10 @@
 
   path {
     fill: var(--primary-100);
+  }
+
+  .loader {
+    color: var(--primary-100);
   }
 
   &:hover {
@@ -62,6 +71,10 @@
     fill: var(--dark-80);
   }
 
+  .loader {
+    color: var(--dark-80);
+  }
+
   &:hover {
     background-color: var(--gray-20);
   }
@@ -81,6 +94,10 @@
   background-color: var(--red-10);
   color: var(--red-100);
 
+  .loader {
+    color: var(--red-100);
+  }
+
   path {
     fill: var(--red-100);
   }
@@ -99,6 +116,15 @@
 }
 
 .loading {
-  padding-left: 32px;
-  padding-right: 32px;
+  color: transparent;
+}
+
+.loader {
+  opacity: 0;
+  position: absolute;
+  transition: all var(--animation-duration) ease;
+}
+
+.show {
+  opacity: 1;
 }
