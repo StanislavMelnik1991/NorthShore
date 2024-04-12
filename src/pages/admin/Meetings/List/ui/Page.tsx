@@ -6,7 +6,7 @@ import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
 import { useTableConfig } from "../constants";
-import { useEventsList } from "../hooks";
+import { useMeetingsList } from "../hooks";
 import { useDataFormatHelper } from "../utils/dataFormatHelper";
 import styles from "./Page.module.scss";
 
@@ -25,12 +25,12 @@ const Page = () => {
     status,
     toggleStatusFilter,
     t,
-  } = useEventsList();
+  } = useMeetingsList();
   const tableConfig = useTableConfig();
   return (
     <PageLayout>
       <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: t("routes.events") }]}
+        breadcrumbs={[{ href: location.pathname, title: t("routes.meetings") }]}
       />
       <Card padding={12} gap={20} loading={isLoading} loaderSize={32}>
         <Button onClick={handleCreateClick}>

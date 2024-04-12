@@ -1,0 +1,67 @@
+{
+  "routes": {
+    "meetings": "Meetings",
+    "edit": "Meeting Editing",
+    "create": "Meeting Creation"
+  },
+  "editor": {
+    "versions": {
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Meeting Title"
+    },
+    "date": {
+      "label": "Meeting Date and Time"
+    },
+    "cover": {
+      "label": "Cover Image"
+    },
+    "content": {
+      "label": "Meeting Text"
+    },
+    "link": {
+      "label": "Link to Online Meeting",
+      "placeholder": "Enter the link to the online meeting"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete"
+  },
+  "errors": {
+    "required": "Field is required",
+    "max256": "Title must not be longer than 256 characters"
+  },
+  "toast": {
+    "deleteSuccess": "Meeting deleted successfully",
+    "deleteError": "Failed to delete meeting",
+    "updateSuccess": "Meeting updated successfully",
+    "updateError": "Failed to update meeting",
+    "createSuccess": "Meeting created successfully",
+    "createError": "Failed to create meeting",
+    "notFound": "Failed to get meeting",
+    "listError": "Failed to get meeting list"
+  },
+  "table": {
+    "index": "№",
+    "status": "status",
+    "title": "title",
+    "text": "text",
+    "date": "date"
+  },
+  "content": {
+    "date": "Date of the meeting",
+    "time": "Time of the meeting",
+    "link": "Link for online participation"
+  }
+}

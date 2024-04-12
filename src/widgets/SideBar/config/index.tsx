@@ -3,7 +3,7 @@ import {
   getRouteAdmin,
   getRouteAdminEvents,
   getRouteAdminLoyalty,
-  getRouteAdminMeetings,
+  getRouteAdminMeeting,
   getRouteAdminNews,
   getRouteAdminNotifications,
   getRouteAdminTechnicalWorks,
@@ -35,7 +35,7 @@ export const useNavBarItems: () => Array<NavItemProps> = () => {
           title: t("sidebar.events"),
         },
         {
-          href: getRouteAdminMeetings(),
+          href: getRouteAdminMeeting(),
           title: t("sidebar.meetings"),
         },
         {

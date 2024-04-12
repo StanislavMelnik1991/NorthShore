@@ -1,6 +1,8 @@
 import { NewsListPage, CreateNewsPage } from "@pages/admin";
 import { CreateEventPage, EventsListPage } from "@pages/admin/Events";
 import { UpdateEventPage } from "@pages/admin/Events/Update";
+import { CreateMeetingPage, MeetingsListPage } from "@pages/admin/Meetings";
+import { UpdateMeetingPage } from "@pages/admin/Meetings/Update";
 import { UpdateNewsPage } from "@pages/admin/News/Update";
 import { LoginPage, RegistrationPage } from "@pages/Auth";
 import { CurrentEventPage } from "@pages/events";
@@ -17,7 +19,6 @@ import {
   getRouteForbidden,
   getRouteAdminNews,
   getRouteAdminEvents,
-  getRouteAdminMeetings,
   getRouteAdminNotifications,
   getRouteAdminVoting,
   getRouteAdminLoyalty,
@@ -30,6 +31,10 @@ import {
   getRouteCreateEvent,
   getRouteUpdateEvent,
   getCurrentEvent,
+  getRouteAdminMeeting,
+  getRouteUpdateMeeting,
+  getRouteCreateMeeting,
+  getCurrentMeeting,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
@@ -41,6 +46,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.EVENT_CURRENT]: {
     path: getCurrentEvent(":id"),
+    element: <CurrentEventPage />,
+    authOnly: true,
+  },
+  [AppRoutes.MEETINGS_CURRENT]: {
+    path: getCurrentMeeting(":id"),
     element: <CurrentEventPage />,
     authOnly: true,
   },
@@ -74,6 +84,21 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <CreateEventPage />,
     authOnly: true,
   },
+  [AppRoutes.ADMIN_MEETINGS]: {
+    path: getRouteAdminMeeting(),
+    element: <MeetingsListPage />,
+    authOnly: true,
+  },
+  [AppRoutes.UPDATE_MEETINGS]: {
+    path: getRouteUpdateMeeting(":id"),
+    element: <UpdateMeetingPage />,
+    authOnly: true,
+  },
+  [AppRoutes.CREATE_MEETINGS]: {
+    path: getRouteCreateMeeting(),
+    element: <CreateMeetingPage />,
+    authOnly: true,
+  },
   [AppRoutes.LOGIN]: {
     path: getRouteLogin(),
     element: <LoginPage />,
@@ -103,11 +128,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.ADMIN_LOYALTY]: {
     path: getRouteAdminLoyalty(),
-    element: <MainPage />,
-    authOnly: true,
-  },
-  [AppRoutes.ADMIN_MEETINGS]: {
-    path: getRouteAdminMeetings(),
     element: <MainPage />,
     authOnly: true,
   },

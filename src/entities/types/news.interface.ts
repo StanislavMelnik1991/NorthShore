@@ -23,7 +23,6 @@ export type INews = {
   user_id: number;
   is_draft: 0 | 1;
   status: keyof typeof StatusEnum;
-  target_date: number; //number of !!!SECONDS!!! since midnight, January 1, 1970 UTC
   created_at: number;
   updated_at: number;
   html_content: {
@@ -31,4 +30,6 @@ export type INews = {
     ru: string;
   };
   published_at: number;
+  target_date: number; //number of !!!SECONDS!!! since midnight, January 1, 1970 UTC
+  meeting_link: string;
 };

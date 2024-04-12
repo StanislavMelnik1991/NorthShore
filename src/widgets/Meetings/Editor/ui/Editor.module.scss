@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 32px 24px;
+}
+
+.downloadButton {
+  width: fit-content;
+}
+
+.cover {
+  margin-bottom: 8px;
+}
+
+.divider {
+  content: " ";
+  border-bottom: var(--border-width) solid var(--dark-20);
+}

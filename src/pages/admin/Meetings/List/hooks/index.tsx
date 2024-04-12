@@ -8,7 +8,7 @@ import { BaseResponse, INews, ListParams } from "@entities/types";
 import {
   INITIAL_PER_PAGE,
   StatusEnum,
-  getRouteCreateEvent,
+  getRouteCreateMeeting,
 } from "@shared/constants";
 import { SortOrder } from "@shared/types";
 
@@ -18,8 +18,8 @@ interface INewsFilter {
 
 type INewsSort = { created_at: SortOrder } | { status: SortOrder };
 
-export const useEventsList = () => {
-  const { t } = useTranslation("events");
+export const useMeetingsList = () => {
+  const { t } = useTranslation("meetings");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -49,7 +49,9 @@ export const useEventsList = () => {
     try {
       const {
         data: { data },
-      } = await axiosApi.get<BaseResponse<Array<INews>>>("/events", { params });
+      } = await axiosApi.get<BaseResponse<Array<INews>>>("/meetings", {
+        params,
+      });
       setData(data);
     } catch (error) {
       toast.error(t("toast.listError"));
@@ -64,7 +66,7 @@ export const useEventsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(getRouteCreateEvent());
+    navigate(getRouteCreateMeeting());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =
