@@ -56,10 +56,12 @@ export const useCreateNews = () => {
       }
     },
     onSubmit: async () => {
+      const target_date = new Date(values.target_date).getTime();
       try {
         await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
           ...values,
           is_draft: isDraft,
+          target_date,
         });
         toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminEvents());
@@ -72,10 +74,14 @@ export const useCreateNews = () => {
 
   const handleSubmit = useCallback(
     async (is_draft: 0 | 1 = isDraft) => {
+      const target_date = Math.ceil(
+        new Date(values.target_date).getTime() / 1000,
+      );
       try {
         await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
           ...values,
           is_draft,
+          target_date,
         });
         toast.success(t("toast.updateSuccess"));
         navigate(getRouteAdminEvents());
@@ -108,6 +114,7 @@ export const useCreateNews = () => {
         setFieldValue("html_content_en", data.html_content.en);
         setFieldValue("html_content_ru", data.html_content.ru);
         setFieldValue("cover", data.cover || "");
+        setFieldValue("target_date", new Date(data.target_date * 1000));
         setIsDraft(data.is_draft);
       })
       .catch((err) => {

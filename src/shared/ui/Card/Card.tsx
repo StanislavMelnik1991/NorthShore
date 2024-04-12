@@ -4,7 +4,7 @@ import styles from "./Card.module.scss";
 
 interface Props {
   className?: string;
-  children: JSX.Element | Array<JSX.Element | string> | string;
+  children?: JSX.Element | Array<JSX.Element | string> | string | false;
   padding?: number;
   radius?: number;
   flexDirection?:

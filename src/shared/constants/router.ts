@@ -11,6 +11,7 @@ export enum AppRoutes {
   ADMIN_LOYALTY = "admin_loyalty",
   // News
   NEWS_CURRENT = "news_current",
+  EVENT_CURRENT = "event_current",
   // Auth
   LOGIN = "login",
   REGISTRATION = "registration",

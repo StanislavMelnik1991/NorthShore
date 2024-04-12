@@ -7,7 +7,7 @@ import {
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
 } from "@shared/constants";
-import { Badge, Card, Loader, Title } from "@shared/ui";
+import { Badge, Card, Title } from "@shared/ui";
 import { useCurrentNews } from "../hook";
 import styles from "./Page.module.scss";
 
@@ -22,34 +22,28 @@ export default () => {
           { href: "", title: news?.title[i18n.language as LanguageEnum] || "" },
         ]}
       />
-      <Card className={styles.card} flexDirection="column">
-        {isLoading ? (
-          <Loader />
-        ) : (
+      <Card className={styles.card} loading={isLoading} flexDirection="column">
+        {news && (
           <>
-            {news && (
-              <>
-                <Badge color="dark">
-                  {new Date(news.created_at * 1000).toLocaleDateString()}
-                </Badge>
-                <Title fontWeight="semibold" variant="h2">
-                  {news.title[i18n.language as LanguageEnum]}
-                </Title>
-                <div
-                  className={styles.htmlContent}
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(
-                      news.html_content[i18n.language as LanguageEnum],
-                      {
-                        allowedTags: allowedTagsSanitizer,
-                        allowedAttributes: allowedAttributesSchema,
-                        allowedIframeHostnames: allowedIframeHostnamesSchema,
-                      },
-                    ),
-                  }}
-                />
-              </>
-            )}
+            <Badge color="dark">
+              {new Date(news.created_at * 1000).toLocaleDateString()}
+            </Badge>
+            <Title fontWeight="semibold" variant="h2">
+              {news.title[i18n.language as LanguageEnum]}
+            </Title>
+            <div
+              className={styles.htmlContent}
+              dangerouslySetInnerHTML={{
+                __html: sanitizeHtml(
+                  news.html_content[i18n.language as LanguageEnum],
+                  {
+                    allowedTags: allowedTagsSanitizer,
+                    allowedAttributes: allowedAttributesSchema,
+                    allowedIframeHostnames: allowedIframeHostnamesSchema,
+                  },
+                ),
+              }}
+            />
           </>
         )}
       </Card>

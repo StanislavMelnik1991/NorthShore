@@ -49,7 +49,7 @@ export const useNewsList = () => {
     try {
       const {
         data: { data },
-      } = await axiosApi.get<BaseResponse<Array<INews>>>("/news", { params });
+      } = await axiosApi.get<BaseResponse<Array<INews>>>("/events", { params });
       setData(data);
     } catch (error) {
       toast.error(t("toast.listError"));

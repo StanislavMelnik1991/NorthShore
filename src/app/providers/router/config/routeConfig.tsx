@@ -3,6 +3,7 @@ import { CreateEventPage, EventsListPage } from "@pages/admin/Events";
 import { UpdateEventPage } from "@pages/admin/Events/Update";
 import { UpdateNewsPage } from "@pages/admin/News/Update";
 import { LoginPage, RegistrationPage } from "@pages/Auth";
+import { CurrentEventPage } from "@pages/events";
 import { ForbiddenPage } from "@pages/Forbidden";
 import { MainPage } from "@pages/Main";
 import { CurrentNewsPage } from "@pages/news";
@@ -28,6 +29,7 @@ import {
   getCurrentNews,
   getRouteCreateEvent,
   getRouteUpdateEvent,
+  getCurrentEvent,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
@@ -35,6 +37,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.NEWS_CURRENT]: {
     path: getCurrentNews(":id"),
     element: <CurrentNewsPage />,
+    authOnly: true,
+  },
+  [AppRoutes.EVENT_CURRENT]: {
+    path: getCurrentEvent(":id"),
+    element: <CurrentEventPage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_NEWS]: {
