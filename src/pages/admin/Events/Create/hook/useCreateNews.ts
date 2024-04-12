@@ -11,7 +11,7 @@ import { getRouteAdminNews } from "@shared/constants";
 
 export const useCreateNews = () => {
   const { t } = useTranslation("events");
-  const [status, setStatus] = useState<0 | 1>(0);
+  const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
