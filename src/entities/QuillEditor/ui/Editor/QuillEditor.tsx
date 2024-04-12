@@ -83,10 +83,12 @@ export const QuillEditor = ({
     <label
       className={classNames(styles.wrapper, wrapperClassName)}
       ref={wrapperRef}
-      onClick={handleLabelClick}
     >
       {label && (
-        <p className={classNames(styles.label, { [styles.error]: !!error })}>
+        <p
+          className={classNames(styles.label, { [styles.error]: !!error })}
+          onClick={handleLabelClick}
+        >
           {label}
         </p>
       )}

@@ -28,6 +28,7 @@ export const useCreateNews = () => {
       html_content_en: z.string(),
       html_content_ru: z.string(),
       cover: z.string().url(),
+      target_date: z.date(),
     })
     .required();
 
@@ -39,6 +40,7 @@ export const useCreateNews = () => {
     title_ru: "",
     html_content_en: "",
     cover: "",
+    target_date: new Date(),
   };
 
   const { values, errors, setFieldValue, handleSubmit } = useFormik({
@@ -51,10 +53,11 @@ export const useCreateNews = () => {
         return error.formErrors.fieldErrors;
       }
     },
-    onSubmit: async (body) => {
+    onSubmit: async ({ target_date, ...body }) => {
       try {
         await axiosApi.put<BaseResponse<INews>>("/news", {
           ...body,
+          target_date: target_date.getTime(),
           status,
         });
         toast.success(t("toast.createSuccess"));

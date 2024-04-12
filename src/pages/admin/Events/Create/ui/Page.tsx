@@ -1,5 +1,5 @@
+import { EventEditor } from "@widgets/Events";
 import { PageLayout } from "@widgets/layouts";
-import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminEvents } from "@shared/constants";
 import { Button } from "@shared/ui";
@@ -25,7 +25,7 @@ const Page = () => {
         ]}
       />
       <form onSubmit={handleSubmit}>
-        <NewsEditor
+        <EventEditor
           handleUploadImage={handleUploadImage}
           errors={errors}
           setFieldValue={setFieldValue}

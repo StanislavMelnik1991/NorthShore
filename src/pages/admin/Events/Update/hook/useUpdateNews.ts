@@ -30,17 +30,19 @@ export const useCreateNews = () => {
       html_content_en: z.string(),
       html_content_ru: z.string(),
       cover: z.string().url(),
+      target_date: z.date(),
     })
     .required();
 
   type ValuesType = z.infer<typeof schema>;
 
   const initialValues: ValuesType = {
-    title_en: "",
+    title_en: " ",
     html_content_ru: "",
-    title_ru: "",
+    title_ru: " ",
     html_content_en: "",
     cover: "",
+    target_date: new Date(),
   };
 
   const { values, errors, setFieldValue } = useFormik({

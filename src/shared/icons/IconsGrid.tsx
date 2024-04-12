@@ -16,6 +16,7 @@ import {
   IconDottedLine,
   IconClose,
   IconBurger,
+  IconCalendar,
 } from ".";
 
 interface Props {
@@ -66,6 +67,9 @@ export const IconsGrid = ({ size }: Props) => {
       </Item>
       <Item name="IconBurger">
         <IconBurger width={size} height={size} />
+      </Item>
+      <Item name="IconCalendar">
+        <IconCalendar width={size} height={size} />
       </Item>
     </div>
   );

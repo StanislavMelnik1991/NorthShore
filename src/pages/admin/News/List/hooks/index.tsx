@@ -5,11 +5,15 @@ import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews, ListParams } from "@entities/types";
-import { INITIAL_PER_PAGE, getRouteCreateNews } from "@shared/constants";
+import {
+  INITIAL_PER_PAGE,
+  StatusEnum,
+  getRouteCreateNews,
+} from "@shared/constants";
 import { SortOrder } from "@shared/types";
 
 interface INewsFilter {
-  is_draft: 0 | 1;
+  status?: keyof typeof StatusEnum;
 }
 
 type INewsSort = { created_at: SortOrder } | { status: SortOrder };
@@ -21,6 +25,7 @@ export const useNewsList = () => {
   const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<Array<INews>>([]);
+  const [status, setStatus] = useState<keyof typeof StatusEnum>();
   const [isLoading, setIsLoading] = useState(true);
   const [debounced] = useDebounce(search, 500);
   const navigate = useNavigate();
@@ -33,7 +38,7 @@ export const useNewsList = () => {
       perPage,
       searchValue: debounced,
       filter: {
-        is_draft: 1,
+        status,
       },
       sort: {
         created_at: "asc",
@@ -52,7 +57,7 @@ export const useNewsList = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [debounced, page, perPage, t]);
+  }, [debounced, page, perPage, status, t]);
 
   useEffect(() => {
     handleGetData();
@@ -67,6 +72,10 @@ export const useNewsList = () => {
       setPage(selected + 1);
     }, []);
 
+  const handleToggleStatusFilter = useCallback(() => {
+    setStatus((val) => (val ? undefined : 2));
+  }, []);
+
   return {
     location,
     data,
@@ -80,5 +89,7 @@ export const useNewsList = () => {
     setPerPage,
     total,
     t,
+    status,
+    toggleStatusFilter: handleToggleStatusFilter,
   };
 };

@@ -1,48 +1,42 @@
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { getCurrentNews, getRouteUpdateNews } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Card, Text } from "@shared/ui";
 import styles from "./PopUpMenu.module.scss";
 
 interface Props {
   className?: string;
-  id: number;
+  handleArchive(): void;
+  handleGoToDetails(): void;
+  handleGoToUpdate(): void;
 }
 
-export const PopUpMenu = ({ className, id }: Props) => {
+export const PopUpMenu = ({
+  className,
+  handleArchive,
+  handleGoToDetails,
+  handleGoToUpdate,
+}: Props) => {
   const { t } = useTranslation("table");
-  const naigate = useNavigate();
   return (
     <Card
       padding={6}
       flexDirection="column"
       className={classNames(styles.wrapper, className)}
     >
-      <div
-        className={styles.item}
-        onClick={() => {
-          naigate(getCurrentNews(id));
-        }}
-      >
+      <div className={styles.item} onClick={handleGoToDetails}>
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
           {t("popup.preview")}
         </Text>
       </div>
-      <div
-        className={styles.item}
-        onClick={() => {
-          naigate(getRouteUpdateNews(id));
-        }}
-      >
+      <div className={styles.item} onClick={handleGoToUpdate}>
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
           {t("popup.edit")}
         </Text>
       </div>
-      <div className={styles.item}>
+      <div className={styles.item} onClick={handleArchive}>
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
           {t("popup.archive")}

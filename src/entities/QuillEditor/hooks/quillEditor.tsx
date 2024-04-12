@@ -144,16 +144,15 @@ export const useQuillEditor = ({
     }
   }, [handlePasteContent, wrapperRef]);
 
-  const handleLabelClick: React.MouseEventHandler<HTMLLabelElement> =
-    useCallback(
-      (ev) => {
-        ev.stopPropagation();
-        if (reactQuillRef && reactQuillRef.current) {
-          reactQuillRef.current.focus();
-        }
-      },
-      [reactQuillRef],
-    );
+  const handleLabelClick: React.MouseEventHandler = useCallback(
+    (ev) => {
+      ev.stopPropagation();
+      if (reactQuillRef && reactQuillRef.current) {
+        reactQuillRef.current.focus();
+      }
+    },
+    [reactQuillRef],
+  );
 
   return {
     onChange: onchangeHandler,

@@ -22,6 +22,8 @@ const Page = () => {
     perPage,
     setPerPage,
     isLoading,
+    status,
+    toggleStatusFilter,
     t,
   } = useNewsList();
   const tableConfig = useTableConfig();
@@ -35,9 +37,9 @@ const Page = () => {
           <IconPlus width={24} height={24} />
           {t("controls.create")}
         </Button>
-        <Button variant="light">
+        <Button variant="light" onClick={toggleStatusFilter}>
           <IconBriefcase width={24} height={24} />
-          {t("controls.archive")}
+          {t(status === 2 ? "controls.actual" : "controls.archive")}
         </Button>
         <TextField
           value={search}

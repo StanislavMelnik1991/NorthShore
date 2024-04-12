@@ -28,6 +28,7 @@ export enum AppRoutes {
 }
 
 export const getCurrentNews = (id: number | string) => `/news/${id}`;
+export const getCurrentEvent = (id: number | string) => `/event/${id}`;
 
 export const getRouteLogin = () => "/login";
 export const getRouteRegistration = () => "/registration";
