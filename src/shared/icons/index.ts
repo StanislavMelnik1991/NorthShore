@@ -11,3 +11,4 @@ export * from "./EyeClose";
 export * from "./EyeOpen";
 export * from "./DottedLine";
 export * from "./Close";
+export * from "./Burger";

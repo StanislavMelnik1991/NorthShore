@@ -1,0 +1,9 @@
+.wrapper {
+  rect {
+    transition: all var(--animation-duration) ease;
+  }
+}
+
+.hideAnimation {
+  transition: all 0s ease !important;
+}
