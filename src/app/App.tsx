@@ -11,7 +11,7 @@ const App = memo(() => {
       <ToastContainer />
       <Suspense fallback="">
         <MainLayout
-          header={<Header />}
+          header={<Header burgerMenu={<SideBar />} />}
           content={<AppRouter />}
           sidebar={<SideBar />}
         />
