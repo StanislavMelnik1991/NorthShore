@@ -27,6 +27,7 @@
     "draft": "Save Draft",
     "create": "Create",
     "archive": "Go to Archive",
+    "actual": "Go to Actual",
     "find": "Search",
     "delete": "Delete"
   },
