@@ -3,7 +3,7 @@ import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminEvents } from "@shared/constants";
 import { Button } from "@shared/ui";
-import { useCreateNews } from "../hook/useCreateNews";
+import { useCreateEvents } from "../hook/useCreateEvents";
 import styles from "./Page.module.scss";
 
 const Page = () => {
@@ -15,7 +15,7 @@ const Page = () => {
     setFieldValue,
     values,
     t,
-  } = useCreateNews();
+  } = useCreateEvents();
   return (
     <PageLayout>
       <PageHeader

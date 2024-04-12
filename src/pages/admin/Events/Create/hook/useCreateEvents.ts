@@ -7,9 +7,9 @@ import { z } from "zod";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
 import { BaseResponse, INews } from "@entities/types";
-import { getRouteAdminNews } from "@shared/constants";
+import { getRouteAdminEvents } from "@shared/constants";
 
-export const useCreateNews = () => {
+export const useCreateEvents = () => {
   const { t } = useTranslation("events");
   const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ export const useCreateNews = () => {
           status,
         });
         toast.success(t("toast.createSuccess"));
-        navigate(getRouteAdminNews());
+        navigate(getRouteAdminEvents());
       } catch (error) {
         console.log(error);
         toast.error(t("toast.createError"));
