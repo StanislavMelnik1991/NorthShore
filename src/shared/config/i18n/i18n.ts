@@ -18,7 +18,7 @@ i18n
     },
     detection: {
       convertDetectedLanguage: (lng: string) => {
-        return lng.split("-")[0] || "ru";
+        return lng.split("-")[0].toLowerCase() || "ru";
       },
     },
   });
