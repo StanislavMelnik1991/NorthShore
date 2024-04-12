@@ -4,26 +4,26 @@
 @import "lib/";
 
 .app {
-    display: flex;
-    font-size: 14px;
-    line-height: 16px;
-    font-family: Inter, sans-serif;
-    color: var(--dark-100);
-    background: var(--background-color);
-    height: 100vh;
+  display: flex;
+  font-size: 14px;
+  line-height: 16px;
+  font-family: Inter, sans-serif;
+  color: var(--dark-100);
+  background: var(--background-color);
+  height: 100vh;
 }
 
 *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--background-color);
+  background: var(--background-color);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--primary-50);
-    border-radius: 20px;
-    border: 1px solid var(--primary-30);
+  background-color: var(--primary-50);
+  border-radius: 20px;
+  border: 1px solid var(--primary-30);
 }

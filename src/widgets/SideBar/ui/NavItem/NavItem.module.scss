@@ -15,7 +15,8 @@
   cursor: pointer;
   color: var(--dark-60);
 
-  & path, rect {
+  & path,
+  rect {
     transition: fill var(--animation-duration) ease;
     fill: var(--dark-60);
   }
@@ -26,12 +27,12 @@
   background-color: var(--white-100);
   z-index: 2;
 
-
   &:hover {
     background-color: var(--dark-10);
     color: var(--dark-100);
 
-    & path, rect {
+    & path,
+    rect {
       fill: var(--dark-100);
     }
   }
@@ -43,7 +44,8 @@
   border-right: 4px solid var(--dark-100);
 
   /* stylelint-disable-next-line no-descending-specificity */
-  & path, rect {
+  & path,
+  rect {
     fill: var(--dark-100);
   }
 }

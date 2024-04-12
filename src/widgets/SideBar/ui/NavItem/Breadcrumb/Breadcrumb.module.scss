@@ -3,14 +3,14 @@
 
   &:active {
     color: var(--dark-100);
-    
   }
 
   &:hover {
     background-color: var(--dark-10);
     color: var(--dark-100);
 
-    & path, rect {
+    & path,
+    rect {
       fill: var(--dark-100);
     }
   }
@@ -20,8 +20,9 @@
   color: var(--dark-100) !important;
 
   /* stylelint-disable-next-line no-descending-specificity */
-  & path, rect {
+  & path,
+  rect {
     fill: var(--dark-100) !important;
-    transform: scale(1.5)translate(-12.5%, -12.5%);
+    transform: scale(1.5) translate(-12.5%, -12.5%);
   }
 }

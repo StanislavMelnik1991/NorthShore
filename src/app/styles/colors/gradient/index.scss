@@ -1,6 +1,9 @@
 :root {
-  --gradient-light: linear-gradient(to right,
+  --gradient-light:
+    linear-gradient(
+      to right,
       rgb(55 124 120 / 100%),
       rgb(110 168 162 / 100%),
-      rgb(159 197 195 / 100%));
+      rgb(159 197 195 / 100%)
+    );
 }

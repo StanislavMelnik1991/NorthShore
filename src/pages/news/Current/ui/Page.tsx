@@ -9,6 +9,7 @@ import {
 } from "@shared/constants";
 import { Badge, Card, Loader, Title } from "@shared/ui";
 import { useCurrentNews } from "../hook";
+import styles from "./Page.module.scss";
 
 export default () => {
   const { isLoading, news, i18n, t } = useCurrentNews();
@@ -20,7 +21,7 @@ export default () => {
           { href: "", title: news?.title[i18n.language as LanguageEnum] || "" },
         ]}
       />
-      <Card padding={40} gap={10} flexDirection="column">
+      <Card className={styles.card} flexDirection="column">
         {isLoading ? (
           <Loader />
         ) : (
@@ -32,6 +33,7 @@ export default () => {
                 </Badge>
                 <Title>{news.title[i18n.language as LanguageEnum]}</Title>
                 <div
+                  className={styles.htmlContent}
                   dangerouslySetInnerHTML={{
                     __html: sanitizeHtml(
                       news.html_content[i18n.language as LanguageEnum],

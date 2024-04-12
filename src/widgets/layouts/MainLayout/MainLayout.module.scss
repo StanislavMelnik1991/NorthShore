@@ -17,6 +17,10 @@
   background: var(--white-100);
   width: var(--nav-bar-width);
   border-right: var(--border-width) solid var(--dark-20);
+
+  @media (width < 1280px) {
+    display: none;
+  }
 }
 
 .content {
@@ -26,6 +30,18 @@
   padding: 40px 32px;
   height: 100%;
   overflow: auto;
+
+  @media (width < 1280px) {
+    padding: 16px;
+  }
+
+  @media (width < 980px) {
+    padding: 8px;
+  }
+
+  @media (width < 740px) {
+    padding: 4px;
+  }
 }
 
 .hide {

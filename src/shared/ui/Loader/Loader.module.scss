@@ -19,47 +19,57 @@
 
 .wrapper div:nth-child(1) {
   animation-delay: 0s;
-  top: 50%; 
+  top: 50%;
   left: 100%;
 }
 
 .wrapper div:nth-child(2) {
   animation-delay: -0.1s;
-  top: 85.36%; left: 85.36%;
+  top: 85.36%;
+  left: 85.36%;
 }
 
 .wrapper div:nth-child(3) {
   animation-delay: -0.2s;
-  top: 100%; left: 50%;
+  top: 100%;
+  left: 50%;
 }
 
 .wrapper div:nth-child(4) {
   animation-delay: -0.3s;
-  top: 85.36%; left: 14.64%;
+  top: 85.36%;
+  left: 14.64%;
 }
 
 .wrapper div:nth-child(5) {
   animation-delay: -0.4s;
-  top: 50%; left: 0%;
+  top: 50%;
+  left: 0%;
 }
 
 .wrapper div:nth-child(6) {
   animation-delay: -0.5s;
-  top: 14.64%; left: 14.64%;
+  top: 14.64%;
+  left: 14.64%;
 }
 
 .wrapper div:nth-child(7) {
   animation-delay: -0.6s;
-  top: 0%; left: 50%;
+  top: 0%;
+  left: 50%;
 }
 
 .wrapper div:nth-child(8) {
   animation-delay: -0.7s;
-  top: 14.64%; left: 85.36%;
+  top: 14.64%;
+  left: 85.36%;
 }
 
 @keyframes spin {
-  0%, 20%, 80%, 100% {
+  0%,
+  20%,
+  80%,
+  100% {
     transform: scale(1);
   }
 
@@ -67,4 +77,3 @@
     transform: scale(1.5);
   }
 }
-

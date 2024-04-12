@@ -2,4 +2,19 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "stylelint.snippet": [
+    "css",
+    "postcss",
+    "scss"
+  ],
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "scss"
+  ],
+  "stylelint.packageManager": "pnpm",
+  "stylelint.ignoreDisables": true,
+  "stylelint.reportDescriptionlessDisables": true,
+  "stylelint.reportInvalidScopeDisables": true,
+  "stylelint.reportNeedlessDisables": true,
 }

@@ -1,11 +1,9 @@
-@import 'react-toastify/dist/ReactToastify.css';
+@import "react-toastify/dist/ReactToastify.css";
 
 :root {
   --toastify-icon-color-success: var(--green-100);
   --toastify-color-progress-success: var(--green-100);
-
   --toastify-icon-color-error: var(--red-100);
   --toastify-color-progress-error: var(--red-100);
-
   --toastify-color-progress-light: var(--gradient-light);
 }

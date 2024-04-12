@@ -1,14 +1,17 @@
 {
-  "plugins": ["stylelint-scss"],
+  "extends": "stylelint-config-standard-scss",
   "rules": {
-    "at-rule-no-unknown": null,
+    "indentation": [
+      2
+    ],
+    "media-feature-range-notation": "context",
+    "selector-class-pattern": null,
     "scss/at-rule-no-unknown": true,
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "font-family-no-duplicate-names": true,
     "no-duplicate-selectors": true,
     "block-no-empty": true,
-    "selector-class-pattern": null,
     "scss/dollar-variable-pattern": "^foo",
     "number-max-precision": [
       5,
