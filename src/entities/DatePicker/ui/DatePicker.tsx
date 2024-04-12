@@ -1,7 +1,11 @@
 import classNames from "classnames";
+import { ru } from "date-fns/locale/ru";
 import DatePicker from "react-datepicker";
+import { registerLocale } from "react-datepicker";
+import { useTranslation } from "react-i18next";
 import { IconCalendar } from "@shared/icons";
 import styles from "./DatePicker.module.scss";
+registerLocale("ru", ru);
 
 interface Props {
   className?: string;
@@ -18,6 +22,7 @@ export const CustomDatePicker = ({
   error,
   label,
 }: Props) => {
+  const { i18n } = useTranslation();
   return (
     <label className={classNames(styles.wrapper)}>
       {label && (
@@ -33,8 +38,9 @@ export const CustomDatePicker = ({
         <DatePicker
           wrapperClassName={classNames(styles.wrapper, className)}
           showIcon
+          locale={i18n.language}
           timeFormat="HH:mm"
-          dateFormat="MM dd yyyy, HH:mm"
+          dateFormat="dd MM yyyy, HH:mm"
           selected={startDate}
           showTimeSelect
           icon={<IconCalendar width={20} height={20} />}

@@ -13,6 +13,9 @@
       "label": "Title",
       "placeholder": "Event Title"
     },
+    "date": {
+      "label": "Date and time of the event"
+    },
     "cover": {
       "label": "Cover Image"
     },

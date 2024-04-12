@@ -62,7 +62,7 @@ export const EventEditor = ({
     >
       <input {...getInputProps()} />
       <CustomDatePicker
-        label=""
+        label={t("editor.date.label")}
         error={errors.target_date as string}
         startDate={values.target_date}
         setStartDate={(val) => setFieldValue("target_date", val)}
@@ -103,6 +103,7 @@ export const EventEditor = ({
         setValue={(val) => setFieldValue("html_content_ru", val)}
         uploadImage={handleUploadImage}
       />
+      <div className={styles.divider}></div>
       <Title fontWeight="bold" variant="h2">
         {t("editor.versions.en")}
       </Title>

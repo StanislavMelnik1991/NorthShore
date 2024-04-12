@@ -9,3 +9,8 @@
 .cover {
   margin-bottom: 8px;
 }
+
+.divider {
+  content: " ";
+  border-bottom: var(--border-width) solid var(--dark-20);
+}
