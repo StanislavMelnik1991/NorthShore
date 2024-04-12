@@ -5,12 +5,17 @@
 
 .app {
   display: flex;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: Inter, sans-serif;
   color: var(--dark-100);
   background: var(--background-color);
   height: 100vh;
+
+  @media (width < 980px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 *::-webkit-scrollbar {

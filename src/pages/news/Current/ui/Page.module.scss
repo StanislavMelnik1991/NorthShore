@@ -1,6 +1,8 @@
 .card {
   padding: 40px;
   gap: 16px;
+  max-width: 1280px;
+  border-radius: var(--radius-xl);
 
   @media (width < 1280px) {
     padding: 16px;
@@ -13,6 +15,11 @@
 }
 
 .htmlContent {
+  h2,
+  h3 {
+    font-weight: 600;
+  }
+
   img {
     max-width: 100%;
     border-radius: var(--radius-sm);

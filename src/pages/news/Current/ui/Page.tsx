@@ -16,6 +16,7 @@ export default () => {
   return (
     <PageLayout>
       <PageHeader
+        hideTitle
         breadcrumbs={[
           { href: "", title: t("routes.news") },
           { href: "", title: news?.title[i18n.language as LanguageEnum] || "" },
@@ -31,7 +32,9 @@ export default () => {
                 <Badge color="dark">
                   {new Date(news.created_at * 1000).toLocaleDateString()}
                 </Badge>
-                <Title>{news.title[i18n.language as LanguageEnum]}</Title>
+                <Title fontWeight="semibold" variant="h2">
+                  {news.title[i18n.language as LanguageEnum]}
+                </Title>
                 <div
                   className={styles.htmlContent}
                   dangerouslySetInnerHTML={{

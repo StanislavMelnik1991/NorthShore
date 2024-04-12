@@ -7,11 +7,16 @@ import styles from "./PageHeader.module.scss";
 interface Props {
   className?: string;
   breadcrumbs: AtLeastOne<{ href: string; title: string }>;
+  hideTitle?: boolean;
 }
 
 type AtLeastOne<T> = [T, ...T[]];
 
-export const PageHeader = ({ className, breadcrumbs }: Props) => {
+export const PageHeader = ({
+  className,
+  breadcrumbs,
+  hideTitle = false,
+}: Props) => {
   const last = breadcrumbs[breadcrumbs.length - 1];
   return (
     <header className={classNames(styles.wrapper, className)}>
@@ -29,7 +34,11 @@ export const PageHeader = ({ className, breadcrumbs }: Props) => {
           })}
         </div>
       )}
-      <Title fontWeight="bold" variant="h1">
+      <Title
+        fontWeight="bold"
+        variant="h1"
+        className={classNames({ [styles.hide]: hideTitle })}
+      >
         {last.title}
       </Title>
     </header>
