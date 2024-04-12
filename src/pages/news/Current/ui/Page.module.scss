@@ -5,12 +5,12 @@
   border-radius: var(--radius-xl);
 
   @media (width < 1280px) {
-    padding: 16px;
+    padding: 20px;
     gap: 8px;
   }
 
   @media (width < 980px) {
-    padding: 16px 8px;
+    padding: 20px 12px;
   }
 }
 

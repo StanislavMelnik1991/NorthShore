@@ -15,7 +15,7 @@
   inset: 0;
   position: absolute;
   transition: all var(--animation-duration) ease;
-  background-color: rgb(var(--white-100-rgb) 0.7);
+  background-color: rgba(var(--white-100-rgb), 70%);
 }
 
 .show {
