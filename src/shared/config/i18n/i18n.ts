@@ -16,6 +16,22 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
+    detection: {
+      order: [
+        "querystring",
+        "cookie",
+        "localStorage",
+        "sessionStorage",
+        "navigator",
+        "htmlTag",
+        "path",
+        "subdomain",
+      ],
+      lookupQuerystring: "lng",
+      caches: ["cookie"],
+      checkWhitelist: true,
+      whitelist: ["en", "ru"],
+    },
   });
 
 export default i18n;
