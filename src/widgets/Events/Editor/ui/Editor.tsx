@@ -9,7 +9,7 @@ import { useCreateEvent } from "../hook/useCreateEvent";
 import styles from "./Editor.module.scss";
 
 type News = {
-  cover: string;
+  cover: string | null;
   title_ru: string;
   title_en: string;
   html_content_ru: string;
@@ -68,7 +68,7 @@ export const EventEditor = ({
         setStartDate={(val) => setFieldValue("target_date", val)}
       />
       <div className={styles.cover}>
-        {values.cover === "" ? (
+        {!values.cover ? (
           <Button
             variant={"light"}
             className={styles.downloadButton}

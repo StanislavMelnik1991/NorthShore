@@ -1,25 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useDebounce } from "use-debounce";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, INews, ListParams } from "@entities/types";
+import { useGetEventsList } from "@features/Admin";
+import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
 import {
   INITIAL_PER_PAGE,
   StatusEnum,
   getRouteCreateEvent,
 } from "@shared/constants";
-import { SortOrder } from "@shared/types";
-
-interface INewsFilter {
-  status?: keyof typeof StatusEnum;
-}
-
-type INewsSort = { created_at: SortOrder } | { status: SortOrder };
 
 export const useEventsList = () => {
   const { t } = useTranslation("events");
+  const { getData } = useGetEventsList();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -44,20 +37,15 @@ export const useEventsList = () => {
         created_at: "asc",
       },
     };
-    // ToDo: from server
     setTotal(100);
-    try {
-      const {
-        data: { data },
-      } = await axiosApi.get<BaseResponse<Array<INews>>>("/events", { params });
-      setData(data);
-    } catch (error) {
-      toast.error(t("toast.listError"));
-      console.error(error);
-    } finally {
-      setIsLoading(false);
+    const news = await getData(params);
+    setIsLoading(false);
+    if (news) {
+      setData(news);
+    } else {
+      navigate(-1);
     }
-  }, [debounced, page, perPage, status, t]);
+  }, [debounced, getData, navigate, page, perPage, status]);
 
   useEffect(() => {
     handleGetData();

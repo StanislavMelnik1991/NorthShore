@@ -4,7 +4,7 @@ import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminNews } from "@shared/constants";
 import { Button } from "@shared/ui";
-import { useCreateNews } from "../hook/useUpdateNews";
+import { useUpdateNewsPage } from "../hook/useUpdateNews";
 import styles from "./Page.module.scss";
 
 const Page = () => {
@@ -17,20 +17,17 @@ const Page = () => {
     handleSubmit,
     setFieldValue,
     handleDelete,
+    setStatus,
     values,
     t,
-  } = useCreateNews();
-  console.log(status);
+  } = useUpdateNewsPage();
   const controls = status ? (
     <div className={styles.submitBlock}>
       <Button
         className={styles.submitButton}
         size="large"
         variant="primary"
-        type="button"
-        onClick={() => {
-          handleSubmit(status);
-        }}
+        type="submit"
       >
         {t("controls.refresh")}
       </Button>
@@ -59,9 +56,9 @@ const Page = () => {
         className={styles.submitButton}
         size="large"
         variant="primary"
-        type="button"
+        type="submit"
         onClick={() => {
-          handleSubmit(1);
+          setStatus(1);
         }}
       >
         {t("controls.publish")}
@@ -70,10 +67,7 @@ const Page = () => {
         className={styles.submitButton}
         size="large"
         variant="secondary"
-        type="button"
-        onClick={() => {
-          handleSubmit(status);
-        }}
+        type="submit"
       >
         {t("controls.refresh")}
       </Button>
@@ -97,15 +91,16 @@ const Page = () => {
           { href: "", title: t("routes.edit") },
         ]}
       />
-      {}
-      <NewsEditor
-        loading={isLoading}
-        handleUploadImage={handleUploadImage}
-        errors={errors}
-        setFieldValue={setFieldValue}
-        values={values}
-        controls={controls}
-      />
+      <form onSubmit={handleSubmit}>
+        <NewsEditor
+          loading={isLoading}
+          handleUploadImage={handleUploadImage}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          values={values}
+          controls={controls}
+        />
+      </form>
     </PageLayout>
   );
 };

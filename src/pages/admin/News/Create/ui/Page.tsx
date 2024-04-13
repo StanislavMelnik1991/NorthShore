@@ -3,7 +3,7 @@ import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminNews } from "@shared/constants";
 import { Button } from "@shared/ui";
-import { useCreateNews } from "../hook/useCreateNews";
+import { useCreateNewsPage } from "../hook/useCreateNews";
 import styles from "./Page.module.scss";
 
 const Page = () => {
@@ -14,8 +14,9 @@ const Page = () => {
     handleSubmit,
     setFieldValue,
     values,
+    isValid,
     t,
-  } = useCreateNews();
+  } = useCreateNewsPage();
   return (
     <PageLayout>
       <PageHeader
@@ -38,6 +39,7 @@ const Page = () => {
                 size="large"
                 variant="primary"
                 type="submit"
+                disabled={!isValid}
                 onClick={() => setIsDraft(1)}
               >
                 {t("controls.publish")}
@@ -47,6 +49,7 @@ const Page = () => {
                 size="large"
                 variant="secondary"
                 type="submit"
+                disabled={!isValid}
                 onClick={() => setIsDraft(0)}
               >
                 {t("controls.draft")}

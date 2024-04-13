@@ -1,4 +1,5 @@
 import { StatusEnum } from "@shared/constants";
+import { SortOrder } from "@shared/types";
 
 export type INews = {
   id: number;
@@ -33,3 +34,9 @@ export type INews = {
   target_date: number; //number of !!!SECONDS!!! since midnight, January 1, 1970 UTC
   meeting_link: string;
 };
+
+export interface INewsFilter {
+  status?: keyof typeof StatusEnum;
+}
+
+export type INewsSort = { created_at: SortOrder } | { status: SortOrder };

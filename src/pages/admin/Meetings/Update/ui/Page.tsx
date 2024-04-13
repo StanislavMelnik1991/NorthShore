@@ -4,67 +4,30 @@ import { MeetingEditor } from "@widgets/Meetings";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminEvents } from "@shared/constants";
 import { Button } from "@shared/ui";
-import { useCreateNews } from "../hook/useUpdateNews";
+import { useUpdateMeetingPage } from "../hook/useUpdateMeetingPage";
 import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
     handleUploadImage,
-    isDraft,
+    status,
     isLoading,
     navigate,
     errors,
     handleSubmit,
     setFieldValue,
     handleDelete,
+    setStatus,
     values,
     t,
-  } = useCreateNews();
-
-  const controls = isDraft ? (
+  } = useUpdateMeetingPage();
+  const controls = status ? (
     <div className={styles.submitBlock}>
       <Button
         className={styles.submitButton}
         size="large"
         variant="primary"
-        type="button"
-        onClick={() => {
-          handleSubmit();
-        }}
-      >
-        {t("controls.publish")}
-      </Button>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="secondary"
-        type="button"
-        onClick={() => {
-          handleSubmit(0);
-        }}
-      >
-        {t("controls.refresh")}
-      </Button>
-      <Button
-        className={classNames(styles.submitButton, styles.deleteBtn)}
-        size="large"
-        variant="danger"
-        type="button"
-        onClick={handleDelete}
-      >
-        {t("controls.delete")}
-      </Button>
-    </div>
-  ) : (
-    <div className={styles.submitBlock}>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="primary"
-        type="button"
-        onClick={() => {
-          handleSubmit();
-        }}
+        type="submit"
       >
         {t("controls.refresh")}
       </Button>
@@ -87,6 +50,37 @@ const Page = () => {
         {t("controls.delete")}
       </Button>
     </div>
+  ) : (
+    <div className={styles.submitBlock}>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="primary"
+        type="submit"
+        onClick={() => {
+          setStatus(1);
+        }}
+      >
+        {t("controls.publish")}
+      </Button>
+      <Button
+        className={styles.submitButton}
+        size="large"
+        variant="secondary"
+        type="submit"
+      >
+        {t("controls.refresh")}
+      </Button>
+      <Button
+        className={classNames(styles.submitButton, styles.deleteBtn)}
+        size="large"
+        variant="danger"
+        type="button"
+        onClick={handleDelete}
+      >
+        {t("controls.delete")}
+      </Button>
+    </div>
   );
 
   return (
@@ -97,14 +91,16 @@ const Page = () => {
           { href: "", title: t("routes.edit") },
         ]}
       />
-      <MeetingEditor
-        loading={isLoading}
-        handleUploadImage={handleUploadImage}
-        errors={errors}
-        setFieldValue={setFieldValue}
-        values={values}
-        controls={controls}
-      />
+      <form onSubmit={handleSubmit}>
+        <MeetingEditor
+          loading={isLoading}
+          handleUploadImage={handleUploadImage}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          values={values}
+          controls={controls}
+        />
+      </form>
     </PageLayout>
   );
 };

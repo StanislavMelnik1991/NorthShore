@@ -9,7 +9,7 @@ import { useCreateMeeting } from "../hook/useCreateMeeting";
 import styles from "./Editor.module.scss";
 
 type News = {
-  cover: string;
+  cover: string | null;
   title_ru: string;
   title_en: string;
   html_content_ru: string;
@@ -78,7 +78,7 @@ export const MeetingEditor = ({
         placeholder={t("editor.link.placeholder")}
       />
       <div className={styles.cover}>
-        {values.cover === "" ? (
+        {!values.cover ? (
           <Button
             variant={"light"}
             className={styles.downloadButton}

@@ -3,16 +3,19 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useGetCurrentNews, useUpdateNews } from "@features/Admin";
+import {
+  useGetCurrentMeeting,
+  useUpdateMeeting,
+} from "@features/Admin/Meetings";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
-import { getRouteAdminNews } from "@shared/constants";
+import { getRouteAdminMeeting } from "@shared/constants";
 
-export const useUpdateNewsPage = () => {
-  const { t } = useTranslation("news");
+export const useUpdateMeetingPage = () => {
+  const { t } = useTranslation("meetings");
   const { id } = useParams<{ id: string }>();
-  const { create, validate } = useUpdateNews(id as string);
-  const { getData } = useGetCurrentNews(id as string);
+  const { create, validate } = useUpdateMeeting(id as string);
+  const { getData } = useGetCurrentMeeting(id as string);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
@@ -24,6 +27,8 @@ export const useUpdateNewsPage = () => {
     title_ru: " ",
     html_content_en: " ",
     cover: null,
+    target_date: new Date(),
+    meeting_link: "",
   };
 
   const { values, errors, setFieldValue, handleSubmit } = useFormik({
@@ -32,7 +37,7 @@ export const useUpdateNewsPage = () => {
     onSubmit: async (body) => {
       const data = await create({ ...body, status });
       if (data) {
-        navigate(getRouteAdminNews());
+        navigate(getRouteAdminMeeting());
       }
     },
   });
@@ -40,7 +45,7 @@ export const useUpdateNewsPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(getRouteAdminNews());
+      navigate(getRouteAdminMeeting());
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);
@@ -58,6 +63,8 @@ export const useUpdateNewsPage = () => {
           setFieldValue("html_content_en", data.html_content.en);
           setFieldValue("html_content_ru", data.html_content.ru);
           setFieldValue("cover", data.cover || null);
+          setFieldValue("target_date", new Date(data.target_date * 1000));
+          setFieldValue("meeting_link", data.meeting_link);
           setStatus(data.status || 0);
         }
       })

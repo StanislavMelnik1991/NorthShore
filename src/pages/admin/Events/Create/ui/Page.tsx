@@ -3,7 +3,7 @@ import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { getRouteAdminEvents } from "@shared/constants";
 import { Button } from "@shared/ui";
-import { useCreateEvents } from "../hook/useCreateEvents";
+import { useCreateEventsPage } from "../hook";
 import styles from "./Page.module.scss";
 
 const Page = () => {
@@ -14,8 +14,9 @@ const Page = () => {
     handleSubmit,
     setFieldValue,
     values,
+    isValid,
     t,
-  } = useCreateEvents();
+  } = useCreateEventsPage();
   return (
     <PageLayout>
       <PageHeader
@@ -37,6 +38,7 @@ const Page = () => {
                 size="large"
                 variant="primary"
                 type="submit"
+                disabled={!isValid}
                 onClick={() => setIsDraft(1)}
               >
                 {t("controls.publish")}
@@ -46,6 +48,7 @@ const Page = () => {
                 size="large"
                 variant="secondary"
                 type="submit"
+                disabled={!isValid}
                 onClick={() => setIsDraft(0)}
               >
                 {t("controls.draft")}
