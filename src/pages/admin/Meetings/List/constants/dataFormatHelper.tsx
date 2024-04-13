@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
 import { TableText } from "@entities/Table";
@@ -18,11 +19,9 @@ export const useDataFormatHelper = (data: Array<INews>) => {
         />
       ),
       date: (
-        <TableText text={new Date(target_date * 1000).toLocaleDateString()} />
+        <TableText text={format(target_date * 1000, "dd.MM.yyyy, HH:mm")} />
       ),
-      published: (
-        <TableText text={new Date(published_at * 1000).toLocaleDateString()} />
-      ),
+      published: <TableText text={format(published_at * 1000, "dd.MM.yyyy")} />,
       controls: (
         <TableControls
           genDetailsRoute={getCurrentEvent}
