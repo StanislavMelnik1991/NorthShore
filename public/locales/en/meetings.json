@@ -57,7 +57,8 @@
     "status": "status",
     "title": "title",
     "text": "text",
-    "date": "date"
+    "date": "date and time",
+    "published": "posted"
   },
   "content": {
     "date": "Date of the meeting",

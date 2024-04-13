@@ -1,14 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
-import { extractTextFromHtml } from "@features/utils/sanitazeHtml";
 import { TableText } from "@entities/Table";
 import { TableBadge } from "@entities/Table/Badge/Badge";
 import { INews } from "@entities/types";
-import { getCurrentMeeting, getRouteUpdateMeeting } from "@shared/constants";
+import { getCurrentEvent, getRouteUpdateEvent } from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
-  return data.map(({ id, title, html_content, published_at, status }) => {
+  return data.map(({ id, title, published_at, status, target_date }) => {
     return {
       id: <TableText text={String(id)} />,
       status: <TableBadge status={status || 0} />,
@@ -19,17 +18,15 @@ export const useDataFormatHelper = (data: Array<INews>) => {
         />
       ),
       date: (
-        <TableText text={new Date(published_at * 1000).toLocaleDateString()} />
+        <TableText text={new Date(target_date * 1000).toLocaleDateString()} />
       ),
-      text: (
-        <TableText
-          text={extractTextFromHtml(html_content[i18n.language as "en" | "ru"])}
-        />
+      published: (
+        <TableText text={new Date(published_at * 1000).toLocaleDateString()} />
       ),
       controls: (
         <TableControls
-          genDetailsRoute={getCurrentMeeting}
-          genUpdateRoute={getRouteUpdateMeeting}
+          genDetailsRoute={getCurrentEvent}
+          genUpdateRoute={getRouteUpdateEvent}
           id={id}
         />
       ),

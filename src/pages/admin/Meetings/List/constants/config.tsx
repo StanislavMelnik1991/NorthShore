@@ -3,7 +3,7 @@ import { Text } from "@shared/ui";
 import { ConfigItemType } from "@shared/ui/Table";
 
 export const useTableConfig: () => Array<ConfigItemType> = () => {
-  const { t } = useTranslation("news");
+  const { t } = useTranslation("events");
   return [
     {
       name: "id",
@@ -24,27 +24,27 @@ export const useTableConfig: () => Array<ConfigItemType> = () => {
       width: 121,
     },
     {
+      name: "date",
+      label: (
+        <Text fontWeight="regular" variant="body14">
+          {t("table.date")}
+        </Text>
+      ),
+      width: 176,
+    },
+    {
       name: "title",
       label: (
         <Text fontWeight="regular" variant="body14">
           {t("table.title")}
         </Text>
       ),
-      width: 215,
     },
     {
-      name: "text",
+      name: "published",
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.text")}
-        </Text>
-      ),
-    },
-    {
-      name: "date",
-      label: (
-        <Text fontWeight="regular" variant="body14">
-          {t("table.date")}
+          {t("table.published")}
         </Text>
       ),
       width: 107,

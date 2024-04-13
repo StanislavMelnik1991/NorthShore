@@ -5,9 +5,8 @@ import { PerPage } from "@entities/PerPageSelect";
 import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
-import { useTableConfig } from "../constants";
+import { useTableConfig, useDataFormatHelper } from "../constants";
 import { useNewsList } from "../hooks";
-import { useDataFormatHelper } from "../utils/dataFormatHelper";
 import styles from "./Page.module.scss";
 
 const Page = () => {
