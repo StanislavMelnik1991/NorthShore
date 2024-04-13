@@ -4,7 +4,7 @@ import { TableControls } from "@widgets/Table";
 import { TableText } from "@entities/Table";
 import { TableBadge } from "@entities/Table/Badge/Badge";
 import { INews } from "@entities/types";
-import { getCurrentEvent, getRouteUpdateEvent } from "@shared/constants";
+import { getCurrentMeeting, getRouteUpdateMeeting } from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
@@ -22,8 +22,8 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       published: <TableText text={format(published_at * 1000, "dd.MM.yyyy")} />,
       controls: (
         <TableControls
-          genDetailsRoute={getCurrentEvent}
-          genUpdateRoute={getRouteUpdateEvent}
+          genDetailsRoute={getCurrentMeeting}
+          genUpdateRoute={getRouteUpdateMeeting}
           id={id}
         />
       ),
