@@ -18,9 +18,7 @@ export const useDataFormatHelper = (data: Array<INews>) => {
           fontWeight="medium"
         />
       ),
-      date: (
-        <TableText text={format(target_date * 1000, "dd.MM.yyyy, HH:mm")} />
-      ),
+      date: <TableText text={format(target_date * 1000, "dd.MM.yyyy HH:mm")} />,
       published: <TableText text={format(published_at * 1000, "dd.MM.yyyy")} />,
       controls: (
         <TableControls
