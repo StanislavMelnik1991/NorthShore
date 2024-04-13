@@ -52,3 +52,10 @@
     fill: var(--dark-60);
   }
 }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: -5px;
+}

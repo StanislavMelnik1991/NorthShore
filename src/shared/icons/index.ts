@@ -14,3 +14,4 @@ export * from "./Close";
 export * from "./Burger";
 export * from "./Calendar";
 export * from "./Clock";
+export * from "./Chain";

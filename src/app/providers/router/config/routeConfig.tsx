@@ -8,6 +8,7 @@ import { LoginPage, RegistrationPage } from "@pages/Auth";
 import { CurrentEventPage } from "@pages/events";
 import { ForbiddenPage } from "@pages/Forbidden";
 import { MainPage } from "@pages/Main";
+import { CurrentMeetingPage } from "@pages/meetings";
 import { CurrentNewsPage } from "@pages/news";
 import { NotFoundPage } from "@pages/NotFound";
 import {
@@ -51,7 +52,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.MEETINGS_CURRENT]: {
     path: getCurrentMeeting(":id"),
-    element: <CurrentEventPage />,
+    element: <CurrentMeetingPage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_NEWS]: {

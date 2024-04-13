@@ -1,3 +1,3 @@
 import Page from "./Page.async";
 
-export { Page as CurrentEventPage };
+export { Page as CurrentMeetingPage };

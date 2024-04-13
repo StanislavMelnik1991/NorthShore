@@ -8,7 +8,7 @@ import {
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
 } from "@shared/constants";
-import { IconCalendar, IconClock } from "@shared/icons";
+import { IconCalendar, IconChain, IconClock } from "@shared/icons";
 import { Badge, Card, Text, Title } from "@shared/ui";
 import { useCurrentMeeting } from "../hook";
 import styles from "./Page.module.scss";
@@ -70,14 +70,19 @@ export default () => {
                 </div>
               </div>
             )}
-            <Text
-              className={styles.label}
-              variant="body14"
-              fontWeight="regular"
-            >
-              {t("content.time")}
-            </Text>
-            <a href={event.meeting_link}>{event.meeting_link}</a>
+            <div className={styles.dateCard}>
+              <Text
+                className={styles.label}
+                variant="body14"
+                fontWeight="regular"
+              >
+                {t("content.link")}
+              </Text>
+              <a className={styles.link} href={event.meeting_link}>
+                <IconChain width={20} height={20} />
+                {event.meeting_link}
+              </a>
+            </div>
             <div
               className={styles.htmlContent}
               dangerouslySetInnerHTML={{
