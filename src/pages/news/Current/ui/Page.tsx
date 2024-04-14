@@ -33,6 +33,8 @@ export default () => {
         created_at={news && new Date(news.created_at * 1000)}
         isLoading={isLoading}
         title={news?.title[i18n.language as LanguageEnum]}
+        date={news?.target_date ? new Date(news.target_date * 1000) : undefined}
+        link={news?.meeting_link}
       />
     </PageSkeleton>
   );
