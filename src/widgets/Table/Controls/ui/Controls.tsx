@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useRef } from "react";
 import { IconDottedLine } from "@shared/icons";
 import { useTableControls } from "../hook";
 import styles from "./Controls.module.scss";
@@ -17,6 +18,7 @@ export const TableControls = ({
   genDetailsRoute,
   genUpdateRoute,
 }: Props) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const {
     handleArchive,
     handleGoToDetails,
@@ -27,6 +29,7 @@ export const TableControls = ({
     id,
     genDetailsRoute,
     genUpdateRoute,
+    wrapperRef,
   });
   return (
     <div
@@ -34,6 +37,7 @@ export const TableControls = ({
       onClick={() => {
         setIsShow((val) => !val);
       }}
+      ref={wrapperRef}
     >
       <IconDottedLine width={20} height={20} />
       {isShow && (

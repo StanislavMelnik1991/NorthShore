@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,12 +9,14 @@ interface Props {
   id: number;
   genUpdateRoute(id: number): string;
   genDetailsRoute(id: number): string;
+  wrapperRef: RefObject<HTMLDivElement>;
 }
 
 export const useTableControls = ({
   genDetailsRoute,
   genUpdateRoute,
   id,
+  wrapperRef,
 }: Props) => {
   const navigate = useNavigate();
   const { t } = useTranslation("table");
@@ -40,6 +42,22 @@ export const useTableControls = ({
   const handleGoToDetails = useCallback(async () => {
     navigate(genDetailsRoute(id));
   }, [genDetailsRoute, id, navigate]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef &&
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setIsShow(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [wrapperRef]);
 
   return {
     handleArchive,
