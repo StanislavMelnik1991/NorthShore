@@ -36,11 +36,13 @@
     "archive": "Go to Archive",
     "actual": "Go to Current",
     "find": "Search",
-    "delete": "Delete"
+    "delete": "Delete",
+    "preview": "Preview"
   },
   "errors": {
     "required": "Field is required",
-    "max256": "Title must not be longer than 256 characters"
+    "max256": "Title must not be longer than 256 characters",
+    "invalidFormat": "Incorrect format"
   },
   "toast": {
     "deleteSuccess": "Meeting deleted successfully",

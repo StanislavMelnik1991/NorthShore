@@ -10,6 +10,7 @@ export const useCreateMeetingPage = () => {
   const { t } = useTranslation("meetings");
   const { create, validate } = useCreateMeeting();
   const [status, setStatus] = useState<0 | 1 | 2>(0);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
@@ -42,6 +43,8 @@ export const useCreateMeetingPage = () => {
     setFieldValue,
     handleSubmit,
     isValid,
+    open,
+    setOpen,
     t,
   };
 };

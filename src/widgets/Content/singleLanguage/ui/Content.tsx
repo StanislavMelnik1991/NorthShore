@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { format } from "date-fns";
 import { DateDetails, LinkDetails } from "@entities/Details";
 import { CurrentSkeleton } from "@entities/skeletons";
 import { Badge, Title } from "@shared/ui";
@@ -7,7 +8,7 @@ import styles from "./Content.module.scss";
 interface Props {
   className?: string;
   isLoading?: boolean;
-  created_at?: string;
+  created_at?: Date;
   title?: string;
   html?: string;
   date?: Date;
@@ -28,7 +29,9 @@ export const ContentWidget = ({
       className={classNames(styles.wrapper, className)}
       isLoading={isLoading}
     >
-      <Badge color="dark">{created_at}</Badge>
+      {created_at && (
+        <Badge color="dark">{format(created_at, "dd.MM.yyyy")}</Badge>
+      )}
       <Title fontWeight="semibold" variant="h2">
         {title}
       </Title>

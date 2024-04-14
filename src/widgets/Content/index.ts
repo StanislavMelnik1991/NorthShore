@@ -1,1 +1,2 @@
-export * from "./ui";
+export * from "./singleLanguage";
+export * from "./selectLanguage";

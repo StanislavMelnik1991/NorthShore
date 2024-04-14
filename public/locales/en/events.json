@@ -32,7 +32,8 @@
     "archive": "Go to Archive",
     "actual": "Go to Actual",
     "find": "Search",
-    "delete": "Delete"
+    "delete": "Delete",
+    "preview": "Preview"
   },
   "errors": {
     "required": "Field is required",

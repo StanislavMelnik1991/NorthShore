@@ -8,6 +8,7 @@ interface Props {
   className?: string;
   breadcrumbs: AtLeastOne<{ href: string; title: string }>;
   hideTitle?: boolean;
+  controls?: JSX.Element;
 }
 
 type AtLeastOne<T> = [T, ...T[]];
@@ -16,6 +17,7 @@ export const PageHeader = ({
   className,
   breadcrumbs,
   hideTitle = false,
+  controls,
 }: Props) => {
   const last = breadcrumbs[breadcrumbs.length - 1];
   return (
@@ -34,13 +36,16 @@ export const PageHeader = ({
           })}
         </div>
       )}
-      <Title
-        fontWeight="bold"
-        variant="h1"
-        className={classNames({ [styles.hide]: hideTitle })}
-      >
-        {last.title}
-      </Title>
+      <div className={styles.main}>
+        <Title
+          fontWeight="bold"
+          variant="h1"
+          className={classNames({ [styles.hide]: hideTitle })}
+        >
+          {last.title}
+        </Title>
+        {controls}
+      </div>
     </header>
   );
 };

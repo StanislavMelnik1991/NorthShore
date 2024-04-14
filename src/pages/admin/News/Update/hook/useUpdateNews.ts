@@ -14,11 +14,20 @@ export const useUpdateNewsPage = () => {
   const { create, validate } = useUpdateNews(id as string);
   const { getData } = useGetCurrentNews(id as string);
   const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<0 | 1 | 2>(0);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
-  const initialValues = {
+  type Values = {
+    title_en: string;
+    html_content_ru: string;
+    title_ru: string;
+    html_content_en: string;
+    cover: string | null;
+  };
+
+  const initialValues: Values = {
     title_en: " ",
     html_content_ru: " ",
     title_ru: " ",
@@ -26,16 +35,17 @@ export const useUpdateNewsPage = () => {
     cover: null,
   };
 
-  const { values, errors, setFieldValue, handleSubmit } = useFormik({
-    initialValues,
-    validate: (val) => validate({ ...val, status }),
-    onSubmit: async (body) => {
-      const data = await create({ ...body, status });
-      if (data) {
-        navigate(getRouteAdminNews());
-      }
-    },
-  });
+  const { values, errors, setFieldValue, handleSubmit, isValid, setValues } =
+    useFormik<Values>({
+      initialValues,
+      validate: (val) => validate({ ...val, status }),
+      onSubmit: async (body) => {
+        const data = await create({ ...body, status });
+        if (data) {
+          navigate(getRouteAdminNews());
+        }
+      },
+    });
 
   const handleDelete = useCallback(async () => {
     try {
@@ -53,18 +63,23 @@ export const useUpdateNewsPage = () => {
     getData()
       .then((data) => {
         if (data) {
-          setFieldValue("title_ru", data.title.ru);
-          setFieldValue("title_en", data.title.en);
-          setFieldValue("html_content_en", data.html_content.en);
-          setFieldValue("html_content_ru", data.html_content.ru);
-          setFieldValue("cover", data.cover || null);
+          const newValues = {
+            cover: data.cover || null,
+            html_content_en: data.html_content.en,
+            html_content_ru: data.html_content.ru,
+            meeting_link: data.meeting_link,
+            target_date: new Date(data.target_date * 1000),
+            title_en: data.title.en,
+            title_ru: data.title.ru,
+          };
+          setValues(newValues);
           setStatus(data.status || 0);
         }
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [getData, id, setFieldValue, t]);
+  }, [getData, setValues]);
 
   return {
     handleUploadImage,
@@ -77,6 +92,9 @@ export const useUpdateNewsPage = () => {
     handleSubmit,
     handleDelete,
     setStatus,
+    open,
+    setOpen,
+    isValid,
     t,
   };
 };

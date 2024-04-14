@@ -10,6 +10,7 @@ export const useCreateEventsPage = () => {
   const { create, validate } = useCreateEvent();
   const { t } = useTranslation("events");
   const [status, setStatus] = useState<0 | 1 | 2>(0);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
@@ -41,6 +42,8 @@ export const useCreateEventsPage = () => {
     setFieldValue,
     handleSubmit,
     isValid,
+    open,
+    setOpen,
     t,
   };
 };

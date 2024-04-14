@@ -7,7 +7,7 @@ import { AppRouter } from "./providers/router";
 
 const App = memo(() => {
   return (
-    <div className="app">
+    <div className="app" id="app">
       <ToastContainer />
       <Suspense fallback="">
         <MainLayout

@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import sanitizeHtml from "sanitize-html";
 import { ContentWidget } from "@widgets/Content";
 import { PageHeader } from "@entities/PageHeader";
@@ -34,7 +33,7 @@ export default () => {
             allowedIframeHostnames: allowedIframeHostnamesSchema,
           })
         }
-        created_at={event && format(event.created_at * 1000, "dd.MM.yyyy")}
+        created_at={event && new Date(event.created_at * 1000)}
         isLoading={isLoading}
         title={event?.title[i18n.language as LanguageEnum]}
         date={date}

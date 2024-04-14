@@ -99,6 +99,32 @@
   }
 }
 
+.white {
+  background-color: var(--white-100);
+  color: var(--dark-80);
+
+  path {
+    fill: var(--dark-80);
+  }
+
+  .loader {
+    color: var(--dark-80);
+  }
+
+  &:hover {
+    background-color: var(--gray-20);
+  }
+
+  &:active {
+    background-color: var(--gray-50);
+  }
+
+  &:disabled {
+    background-color: var(--gray-30);
+    color: var(--gray-50);
+  }
+}
+
 .danger {
   background-color: var(--red-10);
   color: var(--red-100);

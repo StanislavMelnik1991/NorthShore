@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { ReactNode } from "react";
 import { Loader } from "../Loader";
 import styles from "./Card.module.scss";
 
@@ -8,7 +9,8 @@ interface Props {
     | JSX.Element
     | Array<JSX.Element | string | undefined>
     | string
-    | false;
+    | false
+    | ReactNode;
   padding?: number;
   radius?: number;
   flexDirection?:

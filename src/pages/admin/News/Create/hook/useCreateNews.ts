@@ -10,6 +10,7 @@ export const useCreateNewsPage = () => {
   const { create, validate } = useCreateNews();
   const { t } = useTranslation("news");
   const [status, setStatus] = useState<0 | 1 | 2>(0);
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
@@ -40,6 +41,8 @@ export const useCreateNewsPage = () => {
     setFieldValue,
     handleSubmit,
     isValid,
+    open,
+    setOpen,
     t,
   };
 };

@@ -1,0 +1,61 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.shadow {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(var(--dark-100-rgb), 0.2);
+}
+
+.card {
+  position: relative;
+  padding: 40px;
+}
+
+.content {
+  margin: auto 0;
+  transition: var(--animation-duration) transform;
+  transform: scale(0.5);
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--white-100);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.opened {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: 100;
+
+  .content {
+    transform: scale(1);
+  }
+}
+
+.isClosing {
+  .content {
+    transform: scale(0.2);
+  }
+}
