@@ -59,10 +59,5 @@
     "text": "text",
     "date": "date and time",
     "published": "posted"
-  },
-  "content": {
-    "date": "Date of the meeting",
-    "time": "Time of the meeting",
-    "link": "Link for online participation"
   }
 }

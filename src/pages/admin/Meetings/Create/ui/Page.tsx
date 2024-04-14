@@ -1,6 +1,6 @@
-import { PageLayout } from "@widgets/layouts";
 import { MeetingEditor } from "@widgets/Meetings";
 import { PageHeader } from "@entities/PageHeader";
+import { PageSkeleton } from "@entities/skeletons";
 import { getRouteAdminMeeting } from "@shared/constants";
 import { Button } from "@shared/ui";
 import { useCreateMeetingPage } from "../hook";
@@ -18,7 +18,7 @@ const Page = () => {
     t,
   } = useCreateMeetingPage();
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader
         breadcrumbs={[
           { href: getRouteAdminMeeting(), title: t("routes.meetings") },
@@ -57,7 +57,7 @@ const Page = () => {
           }
         />
       </form>
-    </PageLayout>
+    </PageSkeleton>
   );
 };
 

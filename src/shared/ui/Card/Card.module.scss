@@ -16,6 +16,7 @@
   position: absolute;
   transition: all var(--animation-duration) ease;
   background-color: rgba(var(--white-100-rgb), 70%);
+  border-radius: var(--radius-xl);
 }
 
 .show {

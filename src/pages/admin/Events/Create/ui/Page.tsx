@@ -1,6 +1,6 @@
 import { EventEditor } from "@widgets/Events";
-import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
+import { PageSkeleton } from "@entities/skeletons";
 import { getRouteAdminEvents } from "@shared/constants";
 import { Button } from "@shared/ui";
 import { useCreateEventsPage } from "../hook";
@@ -18,7 +18,7 @@ const Page = () => {
     t,
   } = useCreateEventsPage();
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader
         breadcrumbs={[
           { href: getRouteAdminEvents(), title: t("routes.events") },
@@ -57,7 +57,7 @@ const Page = () => {
           }
         />
       </form>
-    </PageLayout>
+    </PageSkeleton>
   );
 };
 

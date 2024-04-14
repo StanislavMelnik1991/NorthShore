@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { PageLayout } from "@widgets/layouts";
+import { PageSkeleton } from "@entities/skeletons";
 import { Button } from "../Button";
 import { Card } from "../Card";
 
@@ -14,7 +14,7 @@ export const ToastsExample = ({
   autoclose = true,
 }: Props) => {
   return (
-    <PageLayout>
+    <PageSkeleton>
       <Card flexDirection="column" gap={10}>
         <Button
           width={200}
@@ -70,6 +70,6 @@ export const ToastsExample = ({
           dark toast
         </Button>
       </Card>
-    </PageLayout>
+    </PageSkeleton>
   );
 };

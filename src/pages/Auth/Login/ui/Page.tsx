@@ -1,13 +1,13 @@
-import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { PasswordField } from "@entities/PasswordField";
+import { PageSkeleton } from "@entities/skeletons";
 import { Button, Card, TextField } from "@shared/ui";
 import { useLogin } from "../hook";
 
 export default () => {
   const { errors, handleSubmit, setFieldValue, values, t } = useLogin();
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader breadcrumbs={[{ href: "", title: t("route") }]} />
       <form onSubmit={handleSubmit}>
         <Card padding={12} gap={20} flexDirection="column">
@@ -26,6 +26,6 @@ export default () => {
           <Button type="submit">{t("controls.login")}</Button>
         </Card>
       </form>
-    </PageLayout>
+    </PageSkeleton>
   );
 };

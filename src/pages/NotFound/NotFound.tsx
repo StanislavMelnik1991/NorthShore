@@ -1,16 +1,16 @@
 /* eslint-disable i18next/no-literal-string */
-import { PageLayout } from "@widgets/layouts";
 import { PageLoader } from "@widgets/PageLoader";
+import { PageSkeleton } from "@entities/skeletons";
 import { Title } from "@shared/ui";
 
 const NotFoundPage = () => {
   return (
-    <PageLayout>
+    <PageSkeleton>
       <Title fontWeight="semibold" variant="h1">
         Not found
       </Title>
       <PageLoader />
-    </PageLayout>
+    </PageSkeleton>
   );
 };
 

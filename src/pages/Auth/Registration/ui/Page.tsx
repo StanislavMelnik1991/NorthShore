@@ -1,15 +1,15 @@
-import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
+import { PageSkeleton } from "@entities/skeletons";
 import { Card, TextField } from "@shared/ui";
 
 export default () => {
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader breadcrumbs={[{ href: "", title: "Регистрация" }]} />
       <Card padding={12} gap={20} flexDirection="column">
         <TextField label="email" />
         <TextField label="пароль" />
       </Card>
-    </PageLayout>
+    </PageSkeleton>
   );
 };

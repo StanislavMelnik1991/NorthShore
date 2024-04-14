@@ -4,7 +4,11 @@ import styles from "./Card.module.scss";
 
 interface Props {
   className?: string;
-  children?: JSX.Element | Array<JSX.Element | string> | string | false;
+  children?:
+    | JSX.Element
+    | Array<JSX.Element | string | undefined>
+    | string
+    | false;
   padding?: number;
   radius?: number;
   flexDirection?:
@@ -36,7 +40,10 @@ export const Card = ({
       style={{ padding, borderRadius: radius, flexDirection, gap }}
       className={classNames(styles.wrapper, className)}
     >
-      <div className={classNames(styles.loader, { [styles.show]: loading })}>
+      <div
+        className={classNames(styles.loader, { [styles.show]: loading })}
+        style={{ borderRadius: radius }}
+      >
         <Loader size={loaderSize} />
       </div>
       {children}

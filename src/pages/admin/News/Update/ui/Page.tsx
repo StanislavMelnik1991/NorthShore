@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { PageLayout } from "@widgets/layouts";
 import { NewsEditor } from "@widgets/News";
 import { PageHeader } from "@entities/PageHeader";
+import { PageSkeleton } from "@entities/skeletons";
 import { getRouteAdminNews } from "@shared/constants";
 import { Button } from "@shared/ui";
 import { useUpdateNewsPage } from "../hook/useUpdateNews";
@@ -84,7 +84,7 @@ const Page = () => {
   );
 
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader
         breadcrumbs={[
           { href: getRouteAdminNews(), title: t("routes.news") },
@@ -101,7 +101,7 @@ const Page = () => {
           controls={controls}
         />
       </form>
-    </PageLayout>
+    </PageSkeleton>
   );
 };
 

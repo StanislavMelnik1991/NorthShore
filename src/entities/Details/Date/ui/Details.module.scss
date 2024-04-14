@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.dateCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  color: var(--dark-70);
+}
+
+.icon {
+  margin-right: 4px;
+
+  path {
+    fill: var(--dark-60);
+  }
+}

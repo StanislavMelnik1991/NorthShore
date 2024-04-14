@@ -1,8 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import { PageLayout } from "@widgets/layouts";
+import { PageSkeleton } from "@entities/skeletons";
 
 const MainPage = () => {
-  return <PageLayout>main</PageLayout>;
+  return <PageSkeleton>main</PageSkeleton>;
 };
 
 export default MainPage;

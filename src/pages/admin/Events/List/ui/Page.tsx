@@ -1,7 +1,7 @@
-import { PageLayout } from "@widgets/layouts";
 import { PageHeader } from "@entities/PageHeader";
 import { Pagination } from "@entities/Pagination";
 import { PerPage } from "@entities/PerPageSelect";
+import { PageSkeleton } from "@entities/skeletons";
 import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";
@@ -27,7 +27,7 @@ const Page = () => {
   } = useEventsList();
   const tableConfig = useTableConfig();
   return (
-    <PageLayout>
+    <PageSkeleton>
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t("routes.events") }]}
       />
@@ -55,7 +55,7 @@ const Page = () => {
           <Pagination total={total} onChange={setPage} />
         </div>
       </Card>
-    </PageLayout>
+    </PageSkeleton>
   );
 };
 

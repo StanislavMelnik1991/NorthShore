@@ -1,8 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import { PageLayout } from "@widgets/layouts";
+import { PageSkeleton } from "@entities/skeletons";
 
 const ForbiddenPage = () => {
-  return <PageLayout>Forbidden</PageLayout>;
+  return <PageSkeleton>Forbidden</PageSkeleton>;
 };
 
 export default ForbiddenPage;

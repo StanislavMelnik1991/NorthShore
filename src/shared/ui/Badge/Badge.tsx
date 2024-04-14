@@ -3,7 +3,7 @@ import styles from "./Badge.module.scss";
 
 interface Props {
   className?: string;
-  children: JSX.Element | string;
+  children?: JSX.Element | string;
   color?: "blue" | "dark" | "green" | "orange" | "red" | "violet";
 }
 
