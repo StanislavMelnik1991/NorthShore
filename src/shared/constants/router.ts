@@ -31,9 +31,9 @@ export enum AppRoutes {
   NOT_FOUND = "not_found",
 }
 
-export const getCurrentNews = (id: number | string) => `/news/${id}`;
-export const getCurrentEvent = (id: number | string) => `/event/${id}`;
-export const getCurrentMeeting = (id: number | string) => `/meeting/${id}`;
+export const getRouteCurrentNews = (id: number | string) => `/news/${id}`;
+export const getRouteCurrentEvent = (id: number | string) => `/event/${id}`;
+export const getRouteCurrentMeeting = (id: number | string) => `/meeting/${id}`;
 
 export const getRouteLogin = () => "/login";
 export const getRouteRegistration = () => "/registration";

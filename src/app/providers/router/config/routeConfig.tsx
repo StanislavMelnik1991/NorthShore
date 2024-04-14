@@ -28,30 +28,30 @@ import {
   getRouteLogin,
   getRouteRegistration,
   getRouteUpdateNews,
-  getCurrentNews,
+  getRouteCurrentNews,
   getRouteCreateEvent,
   getRouteUpdateEvent,
-  getCurrentEvent,
+  getRouteCurrentEvent,
   getRouteAdminMeeting,
   getRouteUpdateMeeting,
   getRouteCreateMeeting,
-  getCurrentMeeting,
+  getRouteCurrentMeeting,
 } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.NEWS_CURRENT]: {
-    path: getCurrentNews(":id"),
+    path: getRouteCurrentNews(":id"),
     element: <CurrentNewsPage />,
     authOnly: true,
   },
   [AppRoutes.EVENT_CURRENT]: {
-    path: getCurrentEvent(":id"),
+    path: getRouteCurrentEvent(":id"),
     element: <CurrentEventPage />,
     authOnly: true,
   },
   [AppRoutes.MEETINGS_CURRENT]: {
-    path: getCurrentMeeting(":id"),
+    path: getRouteCurrentMeeting(":id"),
     element: <CurrentMeetingPage />,
     authOnly: true,
   },

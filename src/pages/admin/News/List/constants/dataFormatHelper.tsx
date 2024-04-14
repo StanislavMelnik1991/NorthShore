@@ -4,7 +4,7 @@ import { extractTextFromHtml } from "@features/utils/sanitazeHtml";
 import { TableText } from "@entities/Table";
 import { TableBadge } from "@entities/Table/Badge/Badge";
 import { INews } from "@entities/types";
-import { getCurrentNews, getRouteUpdateNews } from "@shared/constants";
+import { getRouteCurrentNews, getRouteUpdateNews } from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
@@ -28,7 +28,7 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       ),
       controls: (
         <TableControls
-          genDetailsRoute={getCurrentNews}
+          genDetailsRoute={getRouteCurrentNews}
           genUpdateRoute={getRouteUpdateNews}
           id={id}
         />
