@@ -1,13 +1,15 @@
-import { ContentWithLanguageSelection } from "@widgets/Content";
-import { EventEditor } from "@widgets/Events";
-import { Modal } from "@widgets/Modal";
+import {
+  ContentCreateActions,
+  ContentEditor,
+  ContentWithLanguageSelection,
+} from "@widgets/Content";
+import { Modal } from "@entities/modal";
 import { PageHeader } from "@entities/PageHeader";
 import { PageSkeleton } from "@entities/skeletons";
 import { getRouteAdminEvents } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useCreateEventsPage } from "../hook";
-import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
@@ -66,34 +68,13 @@ const Page = () => {
         >
           <ContentWithLanguageSelection config={modalConfig} />
         </Modal>
-        <EventEditor
+        <ContentEditor
           handleUploadImage={handleUploadImage}
           errors={errors}
           setFieldValue={setFieldValue}
           values={values}
           controls={
-            <div className={styles.submitBlock}>
-              <Button
-                className={styles.submitButton}
-                size="large"
-                variant="primary"
-                type="submit"
-                disabled={!isValid}
-                onClick={() => setIsDraft(1)}
-              >
-                {t("controls.publish")}
-              </Button>
-              <Button
-                className={styles.submitButton}
-                size="large"
-                variant="secondary"
-                type="submit"
-                disabled={!isValid}
-                onClick={() => setIsDraft(0)}
-              >
-                {t("controls.draft")}
-              </Button>
-            </div>
+            <ContentCreateActions isValid={isValid} setStatus={setIsDraft} />
           }
         />
       </form>

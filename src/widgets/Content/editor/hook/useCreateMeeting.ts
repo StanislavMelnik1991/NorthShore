@@ -7,22 +7,23 @@ import { IMAGE_TYPES, MAX_IMAGE_SIZE } from "@shared/constants";
 interface Props {
   handleUploadImage(file: File): Promise<string>;
   setFieldValue: (
-    field: string,
+    field: "cover",
     value: string,
     shouldValidate?: boolean | undefined,
   ) =>
     | Promise<void>
     | Promise<
         FormikErrors<{
-          title: string;
-          html_content: string;
           cover: string;
         }>
       >;
 }
 
-export const useCreateEvent = ({ handleUploadImage, setFieldValue }: Props) => {
-  const { t } = useTranslation("events");
+export const useCreateMeeting = ({
+  handleUploadImage,
+  setFieldValue,
+}: Props) => {
+  const { t } = useTranslation("meetings");
   const [isLoading, setIsLoading] = useState(false);
   const onDrop = useCallback(
     async (files: File[]) => {

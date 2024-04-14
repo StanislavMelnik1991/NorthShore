@@ -28,7 +28,7 @@ export const useCreateMeeting = () => {
       cover: z.string().url().nullable(),
       status: z.number().int().min(0).max(2),
       target_date: z.date(),
-      meeting_link: z.string().url(),
+      meeting_link: z.string().url(t("errors.invalidFormat")),
     })
     .required();
 

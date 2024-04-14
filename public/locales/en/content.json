@@ -5,5 +5,21 @@
   "versions": {
     "ru": "Russian Version",
     "en": "English Version"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete this news item?",
+    "text": "This action cannot be undone"
   }
 }

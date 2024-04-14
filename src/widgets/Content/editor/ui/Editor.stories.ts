@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { PageDecorator } from "@shared/config";
-import { EventEditor } from "./Editor";
+import { ContentEditor } from "./Editor";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Widgets/EventEditor",
-  component: EventEditor,
+  title: "Widgets/ContentEditor",
+  component: ContentEditor,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   args: {},
-} satisfies Meta<typeof EventEditor>;
+} satisfies Meta<typeof ContentEditor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -29,6 +29,7 @@ export const Editor: Story = {
       html_content_en: "",
       html_content_ru: "",
       target_date: new Date(),
+      meeting_link: "",
     },
   },
 };
@@ -45,6 +46,7 @@ export const Loading: Story = {
       html_content_en: "",
       html_content_ru: "",
       target_date: new Date(),
+      meeting_link: "",
     },
   },
 };
@@ -63,6 +65,7 @@ export const OnPage: Story = {
       html_content_en: "",
       html_content_ru: "",
       target_date: new Date(),
+      meeting_link: "",
     },
   },
   decorators: [PageDecorator],

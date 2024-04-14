@@ -1,21 +1,18 @@
-import classNames from "classnames";
-import { ContentWithLanguageSelection } from "@widgets/Content";
-import { MeetingEditor } from "@widgets/Meetings";
-import { Modal } from "@widgets/Modal";
+import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
+import { ContentUpdateActions } from "@widgets/Content/actions/Update";
+import { Modal } from "@entities/modal";
 import { PageHeader } from "@entities/PageHeader";
 import { PageSkeleton } from "@entities/skeletons";
 import { getRouteAdminEvents } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useUpdateMeetingPage } from "../hook/useUpdateMeetingPage";
-import styles from "./Page.module.scss";
 
 const Page = () => {
   const {
     handleUploadImage,
     status,
     isLoading,
-    navigate,
     errors,
     handleSubmit,
     setFieldValue,
@@ -45,68 +42,6 @@ const Page = () => {
     },
   };
 
-  const controls = status ? (
-    <div className={styles.submitBlock}>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="primary"
-        type="submit"
-      >
-        {t("controls.refresh")}
-      </Button>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="secondary"
-        type="button"
-        onClick={() => navigate(-1)}
-      >
-        {t("controls.cancel")}
-      </Button>
-      <Button
-        className={classNames(styles.submitButton, styles.deleteBtn)}
-        size="large"
-        variant="danger"
-        type="button"
-        onClick={handleDelete}
-      >
-        {t("controls.delete")}
-      </Button>
-    </div>
-  ) : (
-    <div className={styles.submitBlock}>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="primary"
-        type="submit"
-        onClick={() => {
-          setStatus(1);
-        }}
-      >
-        {t("controls.publish")}
-      </Button>
-      <Button
-        className={styles.submitButton}
-        size="large"
-        variant="secondary"
-        type="submit"
-      >
-        {t("controls.refresh")}
-      </Button>
-      <Button
-        className={classNames(styles.submitButton, styles.deleteBtn)}
-        size="large"
-        variant="danger"
-        type="button"
-        onClick={handleDelete}
-      >
-        {t("controls.delete")}
-      </Button>
-    </div>
-  );
-
   return (
     <PageSkeleton>
       <PageHeader
@@ -135,13 +70,20 @@ const Page = () => {
         >
           <ContentWithLanguageSelection config={modalConfig} />
         </Modal>
-        <MeetingEditor
+        <ContentEditor
           loading={isLoading}
           handleUploadImage={handleUploadImage}
           errors={errors}
           setFieldValue={setFieldValue}
           values={values}
-          controls={controls}
+          controls={
+            <ContentUpdateActions
+              handleDelete={handleDelete}
+              isValid={isValid}
+              setStatus={setStatus}
+              status={status}
+            />
+          }
         />
       </form>
     </PageSkeleton>

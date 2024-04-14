@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { ReactNode } from "react";
-import { useModal } from "@features/modal";
-import { Portal } from "@entities/Portal";
 import { IconClose } from "@shared/icons";
 import { Card } from "@shared/ui";
+import { useModal } from "../hook";
+import { Portal } from "../Portal";
 import styles from "./Modal.module.scss";
 
 interface ModalProps {

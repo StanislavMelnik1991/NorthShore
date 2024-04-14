@@ -67,8 +67,6 @@ export const useUpdateNewsPage = () => {
             cover: data.cover || null,
             html_content_en: data.html_content.en,
             html_content_ru: data.html_content.ru,
-            meeting_link: data.meeting_link,
-            target_date: new Date(data.target_date * 1000),
             title_en: data.title.en,
             title_ru: data.title.ru,
           };
@@ -85,16 +83,15 @@ export const useUpdateNewsPage = () => {
     handleUploadImage,
     status,
     isLoading,
-    navigate,
-    values,
     errors,
-    setFieldValue,
     handleSubmit,
+    setFieldValue,
     handleDelete,
     setStatus,
+    values,
     open,
-    setOpen,
     isValid,
+    setOpen,
     t,
   };
 };

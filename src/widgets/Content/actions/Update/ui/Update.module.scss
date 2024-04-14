@@ -1,0 +1,34 @@
+.submitBlock {
+  display: flex;
+  gap: 24px;
+}
+
+.submitButton {
+  width: 207px;
+}
+
+.deleteBtn {
+  margin-left: auto;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 16px 0;
+  width: 320px;
+  gap: 12px;
+  text-align: center;
+}
+
+.dark {
+  color: var(--dark-70);
+}
+
+.modalButtons {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
