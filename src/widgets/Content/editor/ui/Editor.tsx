@@ -15,7 +15,7 @@ type News = {
   html_content_ru?: string;
   html_content_en?: string;
   target_date?: Date;
-  meeting_link?: string;
+  meeting_link?: string | null;
 };
 
 interface Props {
@@ -73,9 +73,12 @@ export const ContentEditor = ({
 
       {Object.keys(values).includes("meeting_link") && (
         <TextField
-          value={values.meeting_link}
+          value={values.meeting_link || ""}
           error={errors.meeting_link}
-          onChange={(ev) => setFieldValue("meeting_link", ev.target.value)}
+          onChange={(ev) => {
+            const value = ev.target.value === "" ? null : ev.target.value;
+            setFieldValue("meeting_link", value);
+          }}
           wrapperClassName={styles.textField}
           label={t("editor.link.label")}
           placeholder={t("editor.link.placeholder")}

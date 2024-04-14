@@ -14,26 +14,37 @@ export const useCreateMeetingPage = () => {
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
-  const initialValues = {
+  type Values = {
+    title_en: string;
+    html_content_ru: string;
+    title_ru: string;
+    html_content_en: string;
+    cover: string;
+    target_date: Date;
+    meeting_link: string;
+  };
+
+  const initialValues: Values = {
     title_en: "",
     html_content_ru: "",
     title_ru: "",
     html_content_en: "",
-    cover: null,
+    cover: null as unknown as string,
     target_date: new Date(),
-    meeting_link: "",
+    meeting_link: null as unknown as string,
   };
 
-  const { values, errors, setFieldValue, handleSubmit, isValid } = useFormik({
-    initialValues,
-    validate: (values) => validate({ ...values, status }),
-    onSubmit: async (body) => {
-      const data = await create({ ...body, status });
-      if (data) {
-        navigate(getRouteAdminMeeting());
-      }
-    },
-  });
+  const { values, errors, setFieldValue, handleSubmit, isValid } =
+    useFormik<Values>({
+      initialValues,
+      validate: (values) => validate({ ...values, status }),
+      onSubmit: async (body) => {
+        const data = await create({ ...body, status });
+        if (data) {
+          navigate(getRouteAdminMeeting());
+        }
+      },
+    });
 
   return {
     handleUploadImage,
