@@ -24,14 +24,14 @@ export const NewsCard = ({ className, image, text, title, link }: Props) => {
         </div>
         <div className={styles.text}>
           <Text className={styles.title} fontWeight="semibold" variant="body16">
-            {text}
+            {title}
           </Text>
           <Text
             className={styles.textContent}
             fontWeight="regular"
             variant="body14"
           >
-            {title}
+            {text}
           </Text>
         </div>
       </Card>
