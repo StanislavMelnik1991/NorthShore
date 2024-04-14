@@ -11,7 +11,7 @@ import {
 import { useCurrentEvent } from "../hook";
 
 export default () => {
-  const { isLoading, event, i18n, t, date } = useCurrentEvent();
+  const { isLoading, event, i18n, t } = useCurrentEvent();
   return (
     <PageSkeleton>
       <PageHeader
@@ -36,7 +36,10 @@ export default () => {
         created_at={event && new Date(event.created_at * 1000)}
         isLoading={isLoading}
         title={event?.title[i18n.language as LanguageEnum]}
-        date={date}
+        date={
+          event?.target_date ? new Date(event.target_date * 1000) : undefined
+        }
+        link={event?.meeting_link}
       />
     </PageSkeleton>
   );

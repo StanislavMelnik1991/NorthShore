@@ -10,7 +10,6 @@ export const useCurrentMeeting = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [meeting, setMeeting] = useState<INews>();
-  const [date, setDate] = useState<Date>();
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +18,6 @@ export const useCurrentMeeting = () => {
       .then(({ data }) => {
         if (data.data) {
           setMeeting(data.data);
-          setDate(new Date(data.data.target_date * 1000));
         } else {
           toast.error(t("toast.notFound"));
         }
@@ -32,5 +30,5 @@ export const useCurrentMeeting = () => {
         setIsLoading(false);
       });
   }, [id, t]);
-  return { event: meeting, isLoading, t, i18n, date };
+  return { meeting, isLoading, t, i18n };
 };

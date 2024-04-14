@@ -11,7 +11,7 @@ import {
 import { useCurrentMeeting } from "../hook";
 
 export default () => {
-  const { isLoading, event, i18n, t, date } = useCurrentMeeting();
+  const { isLoading, meeting: meeting, i18n, t } = useCurrentMeeting();
   return (
     <PageSkeleton>
       <PageHeader
@@ -20,24 +20,28 @@ export default () => {
           { href: "", title: t("routes.meetings") },
           {
             href: "",
-            title: event?.title[i18n.language as LanguageEnum] || "",
+            title: meeting?.title[i18n.language as LanguageEnum] || "",
           },
         ]}
       />
       <ContentWidget
         html={
-          event &&
-          sanitizeHtml(event.html_content[i18n.language as LanguageEnum], {
+          meeting &&
+          sanitizeHtml(meeting.html_content[i18n.language as LanguageEnum], {
             allowedTags: allowedTagsSanitizer,
             allowedAttributes: allowedAttributesSchema,
             allowedIframeHostnames: allowedIframeHostnamesSchema,
           })
         }
-        created_at={event && new Date(event.created_at * 1000)}
+        created_at={meeting && new Date(meeting.created_at * 1000)}
         isLoading={isLoading}
-        title={event?.title[i18n.language as LanguageEnum]}
-        date={date}
-        link={event?.meeting_link}
+        title={meeting?.title[i18n.language as LanguageEnum]}
+        date={
+          meeting?.target_date
+            ? new Date(meeting.target_date * 1000)
+            : undefined
+        }
+        link={meeting?.meeting_link}
       />
     </PageSkeleton>
   );

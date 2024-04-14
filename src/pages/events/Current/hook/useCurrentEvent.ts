@@ -10,7 +10,6 @@ export const useCurrentEvent = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams<{ id: string }>();
   const [event, setEvent] = useState<INews>();
-  const [date, setDate] = useState<Date>();
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +18,6 @@ export const useCurrentEvent = () => {
       .then(({ data }) => {
         if (data.data) {
           setEvent(data.data);
-          setDate(new Date(data.data.target_date * 1000));
         } else {
           toast.error(t("toast.notFound"));
         }
@@ -32,5 +30,5 @@ export const useCurrentEvent = () => {
         setIsLoading(false);
       });
   }, [id, t]);
-  return { event, isLoading, t, i18n, date };
+  return { event, isLoading, t, i18n };
 };
