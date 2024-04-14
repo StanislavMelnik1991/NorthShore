@@ -4,7 +4,10 @@ import { TableControls } from "@widgets/Table";
 import { TableText } from "@entities/Table";
 import { TableBadge } from "@entities/Table/Badge/Badge";
 import { INews } from "@entities/types";
-import { getRouteCurrentMeeting, getRouteUpdateMeeting } from "@shared/constants";
+import {
+  getRouteCurrentMeeting,
+  getRouteUpdateMeeting,
+} from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
