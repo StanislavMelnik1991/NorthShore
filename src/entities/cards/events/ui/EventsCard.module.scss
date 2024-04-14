@@ -1,0 +1,50 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  height: 120px;
+  gap: 4px;
+}
+
+.imageWrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 307 / 180;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  width: 100%;
+}
+
+.title {
+  max-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-80);
+}
+
+.textContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}
+
+.icon {
+  path {
+    fill: var(--dark-60);
+  }
+
+  &:nth-last-child(1) {
+    margin-left: 10px;
+  }
+}
