@@ -21,6 +21,7 @@ export const Main: Story = {
   args: {
     text: defaultText,
     title: defaultText,
+    published_date: new Date(),
     image: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
   },
   decorators: [WhiteBgDecorator],
@@ -30,6 +31,7 @@ export const OnPage: Story = {
   args: {
     text: defaultText,
     title: defaultText,
+    published_date: new Date(),
     image: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
   },
   decorators: [PageDecorator],

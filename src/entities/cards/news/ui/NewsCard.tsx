@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { Card, Text } from "@shared/ui";
+import { format } from "date-fns";
+import { Badge, Card, Text } from "@shared/ui";
 import styles from "./NewsCard.module.scss";
 
 interface Props {
@@ -8,9 +9,17 @@ interface Props {
   title: string;
   text: string;
   link?: string;
+  published_date: Date;
 }
 
-export const NewsCard = ({ className, image, text, title, link }: Props) => {
+export const NewsCard = ({
+  className,
+  image,
+  text,
+  title,
+  link,
+  published_date,
+}: Props) => {
   return (
     <a href={link}>
       <Card
@@ -21,6 +30,9 @@ export const NewsCard = ({ className, image, text, title, link }: Props) => {
       >
         <div className={styles.imageWrapper}>
           <img className={styles.image} src={image} alt={title} />
+          <Badge color="dark" className={styles.timeStamp}>
+            {format(published_date, "dd.MM.yyyy")}
+          </Badge>
         </div>
         <div className={styles.text}>
           <Text className={styles.title} fontWeight="semibold" variant="body16">

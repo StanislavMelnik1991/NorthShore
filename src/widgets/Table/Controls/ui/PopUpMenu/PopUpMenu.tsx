@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { IconEyeOpen } from "@shared/icons";
+import { IconDrawer, IconEyeOpen, IconPencil } from "@shared/icons";
 import { Card, Text } from "@shared/ui";
 import styles from "./PopUpMenu.module.scss";
 
@@ -31,13 +31,13 @@ export const PopUpMenu = ({
         </Text>
       </div>
       <div className={styles.item} onClick={handleGoToUpdate}>
-        <IconEyeOpen width={20} hanging={20} />
+        <IconPencil width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
           {t("popup.edit")}
         </Text>
       </div>
       <div className={styles.item} onClick={handleArchive}>
-        <IconEyeOpen width={20} hanging={20} />
+        <IconDrawer width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
           {t("popup.archive")}
         </Text>

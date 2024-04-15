@@ -4,6 +4,7 @@
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   height: 100%;
+  min-height: 100vh;
 }
 
 .header {
@@ -13,6 +14,7 @@
 }
 
 .sidebar {
+  position: relative;
   grid-row: 2;
   background: var(--white-100);
   width: var(--nav-bar-width);
@@ -42,4 +44,15 @@
 
 .hide {
   display: none;
+}
+
+.footer {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  position: relative;
+  background-color: var(--dark-80);
+
+  @media (width < 1280px) {
+    display: none;
+  }
 }

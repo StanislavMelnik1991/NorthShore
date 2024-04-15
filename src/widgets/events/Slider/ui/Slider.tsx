@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { imageParser } from "@features/utils/imageParser";
 import { EventsCard } from "@entities/cards";
 import { getRouteCurrentNews } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
@@ -23,12 +24,13 @@ export const EventsSlider = ({
     defaultSlide,
   });
   const newsSlides = events.map((el) => {
+    const cover = el.cover || imageParser(el.html_content[lang])[0];
     return (
       <EventsCard
         link={getRouteCurrentNews(el.id)}
         title={el.title[lang]}
         date={new Date(el.target_date * 1000)}
-        image={el.cover}
+        image={cover}
         key={`news-card-${el.id}`}
       />
     );

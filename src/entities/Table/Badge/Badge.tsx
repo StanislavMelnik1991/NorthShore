@@ -14,11 +14,11 @@ export const TableBadge = ({ className, status }: Props) => {
 
   const ColorEnum: Record<
     keyof typeof StatusEnum,
-    "violet" | "green" | "dark" | "blue" | "orange" | "red"
+    "violet" | "green" | "dark" | "blue" | "orange" | "red" | "white"
   > = {
     0: "violet",
     1: "green",
-    2: "dark",
+    2: "white",
   };
 
   return (

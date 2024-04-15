@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { extractTextFromHtml } from "@features/utils/sanitazeHtml";
+import { extractTextFromHtml } from "@features/utils/html";
+import { imageParser } from "@features/utils/imageParser";
 import { NewsCard } from "@entities/cards";
 import { getRouteCurrentNews } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
@@ -24,13 +25,15 @@ export const NewsSlider = ({
     defaultSlide,
   });
   const newsSlides = news.map((el) => {
+    const cover = el.cover || imageParser(el.html_content[lang])[0];
     return (
       <NewsCard
         link={getRouteCurrentNews(el.id)}
         title={el.title[lang]}
         text={extractTextFromHtml(el.html_content[lang])}
-        image={el.cover}
+        image={cover}
         key={`news-card-${el.id}`}
+        published_date={new Date(el.published_at * 1000)}
       />
     );
   });

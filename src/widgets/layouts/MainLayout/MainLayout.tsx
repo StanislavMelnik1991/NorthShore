@@ -8,10 +8,11 @@ interface MainLayoutProps {
   header: ReactElement;
   content: ReactElement;
   sidebar: ReactElement;
+  footer: ReactElement;
 }
 
 export const MainLayout = memo(
-  ({ className, content, header, sidebar }: MainLayoutProps) => {
+  ({ className, content, header, sidebar, footer }: MainLayoutProps) => {
     const location = useLocation();
     const isWebView =
       new URLSearchParams(location.search).get("mobile_view") === "true";
@@ -28,6 +29,7 @@ export const MainLayout = memo(
           {sidebar}
         </div>
         <div className={styles.content}>{content}</div>
+        <div className={styles.footer}>{footer}</div>
       </div>
     );
   },

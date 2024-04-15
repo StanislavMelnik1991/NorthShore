@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
-import { extractTextFromHtml } from "@features/utils/sanitazeHtml";
+import { extractTextFromHtml } from "@features/utils/html";
 import { TableText } from "@entities/Table";
 import { TableBadge } from "@entities/Table/Badge/Badge";
 import { INews } from "@entities/types";

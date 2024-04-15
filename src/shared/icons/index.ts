@@ -15,3 +15,5 @@ export * from "./Burger";
 export * from "./Calendar";
 export * from "./Clock";
 export * from "./Chain";
+export * from "./Pencil";
+export * from "./Drawer";
