@@ -1,0 +1,22 @@
+.wrapper {
+  gap: 0;
+}
+
+.card {
+  margin: 0 -32px;
+  padding: 32px;
+
+  @media (width < 1280px) {
+    padding: 16px;
+    margin: 0 -16px;
+  }
+
+  @media (width < 980px) {
+    padding: 8px;
+    margin: 0 -16px;
+  }
+}
+
+.transparent {
+  background-color: transparent;
+}
