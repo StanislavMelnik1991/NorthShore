@@ -40,7 +40,11 @@ export const Card = ({
   return (
     <main
       style={{ padding, borderRadius: radius, flexDirection, gap }}
-      className={classNames(styles.wrapper, className)}
+      className={classNames(
+        styles.wrapper,
+        { [styles.loading]: loading },
+        className,
+      )}
     >
       <div
         className={classNames(styles.loader, { [styles.show]: loading })}

@@ -13,6 +13,7 @@
     "font-family-no-duplicate-names": true,
     "no-duplicate-selectors": true,
     "block-no-empty": true,
+    "no-descending-specificity": null,
     "scss/dollar-variable-pattern": "^foo",
     "number-max-precision": [
       5,

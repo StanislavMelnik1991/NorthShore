@@ -17,9 +17,14 @@
   transition: all var(--animation-duration) ease;
   background-color: rgba(var(--white-100-rgb), 70%);
   border-radius: var(--radius-xl);
+  color: var(--primary-100);
 }
 
 .show {
   opacity: 1;
   display: flex;
+}
+
+.loading {
+  min-height: 500px;
 }
