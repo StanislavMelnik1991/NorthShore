@@ -12,13 +12,13 @@
   width: 100%;
   height: auto;
   aspect-ratio: 307 / 180;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 .image {
   object-fit: cover;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: var(--radius-md);
   width: 100%;
 }
 
