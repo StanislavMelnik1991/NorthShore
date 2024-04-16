@@ -22,7 +22,6 @@ export const SideBar = ({ className, config }: Props) => {
             pathname={location.pathname}
             title={title}
             breadcrumbs={breadcrumbs}
-            isEqualPath={index === 0}
           />
         );
       })}

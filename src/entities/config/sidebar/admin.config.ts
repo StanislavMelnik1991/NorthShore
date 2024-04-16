@@ -1,6 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconHome, IconBriefcase } from "@shared/icons";
+import {
+  IconHome,
+  IconBriefcase,
+  IconTable,
+  IconDiagram,
+  IconLock,
+  IconWrench,
+  IconDocumentHolder,
+  IconLoudspeaker,
+  IconPassport,
+  IconPeople,
+  IconGear,
+} from "@shared/icons";
 import { NavItemProps } from "./types";
 
 export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
@@ -12,9 +24,34 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       href: AppRoutes[AppRoutesEnum.ADMIN](),
     },
     {
+      title: t("sidebar.accounting"),
+      icon: IconTable,
+      href: AppRoutes[AppRoutesEnum.ACCOUNTING](),
+    },
+    {
+      title: t("sidebar.statistic"),
+      icon: IconDiagram,
+      href: AppRoutes[AppRoutesEnum.STATISTIC](),
+    },
+    {
+      title: t("sidebar.security"),
+      icon: IconLock,
+      href: AppRoutes[AppRoutesEnum.SECURITY](),
+    },
+    {
+      title: t("sidebar.engineering"),
+      icon: IconWrench,
+      href: AppRoutes[AppRoutesEnum.ENGINEERING](),
+    },
+    {
+      title: t("sidebar.invocation"),
+      icon: IconDocumentHolder,
+      href: AppRoutes[AppRoutesEnum.INVOCATION](),
+    },
+    {
       title: t("sidebar.admin"),
       icon: IconBriefcase,
-      href: "/admin",
+      href: AppRoutes[AppRoutesEnum.ADMIN](),
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
@@ -45,6 +82,26 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
           title: t("sidebar.loyalty"),
         },
       ],
+    },
+    {
+      title: t("sidebar.inform"),
+      icon: IconLoudspeaker,
+      href: AppRoutes[AppRoutesEnum.INFORM](),
+    },
+    {
+      title: t("sidebar.passport"),
+      icon: IconPassport,
+      href: AppRoutes[AppRoutesEnum.PASSPORT](),
+    },
+    {
+      title: t("sidebar.users"),
+      icon: IconPeople,
+      href: AppRoutes[AppRoutesEnum.USERS](),
+    },
+    {
+      title: t("sidebar.settings"),
+      icon: IconGear,
+      href: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
     },
   ];
 };

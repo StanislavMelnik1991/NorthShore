@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { NavItemProps } from "@entities/config";
 import { IconArrow } from "@shared/icons";
@@ -9,7 +9,6 @@ import styles from "./NavItem.module.scss";
 
 interface Props extends NavItemProps {
   pathname: string;
-  isEqualPath?: boolean;
 }
 
 export const NavItem = ({
@@ -18,11 +17,12 @@ export const NavItem = ({
   icon: Icon,
   title,
   breadcrumbs,
-  isEqualPath,
 }: Props) => {
-  const isActive = isEqualPath
-    ? pathname === href
-    : pathname.startsWith(href) && pathname !== href;
+  const breadcrumbsRef = useRef<HTMLUListElement>(null);
+  const breadcrumbsPathArr = breadcrumbs?.map(({ href }) => href);
+  const isActive = breadcrumbsPathArr?.length
+    ? breadcrumbsPathArr.includes(pathname)
+    : pathname === href;
   const [isExpanded, setIsExpanded] = useState(!isActive);
 
   return (
@@ -54,7 +54,10 @@ export const NavItem = ({
         </NavLink>
       )}
       {breadcrumbs && (
-        <ul className={classNames(styles.list, { [styles.hide]: isExpanded })}>
+        <ul
+          className={classNames(styles.list, { [styles.hide]: isExpanded })}
+          ref={breadcrumbsRef}
+        >
           {breadcrumbs.map((el, index) => {
             return (
               <Breadcrumb

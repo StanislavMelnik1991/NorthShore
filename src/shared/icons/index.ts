@@ -25,3 +25,8 @@ export * from "./DocumentHolder";
 export * from "./CalendarX";
 export * from "./Question";
 export * from "./Gear";
+export * from "./Table";
+export * from "./Diagram";
+export * from "./Lock";
+export * from "./Passport";
+export * from "./People";

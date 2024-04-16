@@ -15,6 +15,17 @@ export enum AppRoutesEnum {
   SETTINGS,
 
   ADMIN,
+
+  ACCOUNTING,
+  STATISTIC,
+  SECURITY,
+  ENGINEERING,
+  INVOCATION,
+  INFORM,
+  PASSPORT,
+  USERS,
+  ADMIN_SETTINGS,
+
   ADMIN_NOTIFICATIONS,
   ADMIN_TECHNICAL_WORKS,
   ADMIN_VOTING,
@@ -54,6 +65,16 @@ export const AppRoutes = {
   [AppRoutesEnum.SHUTDOWNS]: () => "/shutdowns",
   [AppRoutesEnum.KNOWLEDGE]: () => "/knowledge",
   [AppRoutesEnum.SETTINGS]: () => "/settings",
+
+  [AppRoutesEnum.ADMIN_SETTINGS]: () => "/admin/settings",
+  [AppRoutesEnum.USERS]: () => "/admin/users",
+  [AppRoutesEnum.PASSPORT]: () => "/admin/passport",
+  [AppRoutesEnum.INFORM]: () => "/admin/inform",
+  [AppRoutesEnum.INVOCATION]: () => "/admin/invocation",
+  [AppRoutesEnum.ENGINEERING]: () => "/admin/engineering",
+  [AppRoutesEnum.SECURITY]: () => "/admin/security",
+  [AppRoutesEnum.STATISTIC]: () => "/admin/statistic",
+  [AppRoutesEnum.ACCOUNTING]: () => "/admin/accounting",
 
   [AppRoutesEnum.ADMIN_NEWS]: () => "/admin/news",
   [AppRoutesEnum.ADMIN_EVENTS]: () => "/admin/events",

@@ -157,6 +157,51 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <NotFoundPage />,
     authOnly: false,
   },
+  [AppRoutesEnum.ADMIN_SETTINGS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.USERS]: {
+    path: AppRoutes[AppRoutesEnum.USERS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.PASSPORT]: {
+    path: AppRoutes[AppRoutesEnum.PASSPORT](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.INFORM]: {
+    path: AppRoutes[AppRoutesEnum.INFORM](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.INVOCATION]: {
+    path: AppRoutes[AppRoutesEnum.INVOCATION](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ENGINEERING]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.SECURITY]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.STATISTIC]: {
+    path: AppRoutes[AppRoutesEnum.STATISTIC](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.ACCOUNTING]: {
+    path: AppRoutes[AppRoutesEnum.ACCOUNTING](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
 
   [AppRoutesEnum.FORBIDDEN]: {
     path: AppRoutes[AppRoutesEnum.FORBIDDEN](),
