@@ -28,11 +28,7 @@ export default (env: BuildEnv) => {
 
   const mode = env?.mode || "development";
   const PORT = Number(process.env.PORT);
-  const apiUrl = process.env.API_URL;
-
-  if (!apiUrl) {
-    throw new Error("incorrect env");
-  }
+  const apiUrl = process.env.API_URL as string;
 
   const isDev = mode === "development";
 
