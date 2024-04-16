@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 import { IconCalendar, IconClock } from "@shared/icons";
 import { Card, Text } from "@shared/ui";
 import styles from "./EventsCard.module.scss";
@@ -12,9 +13,15 @@ interface Props {
   date: Date;
 }
 
-export const EventsCard = ({ className, image, title, link, date }: Props) => {
+export const EventsCard = ({
+  className,
+  image,
+  title,
+  link = "",
+  date,
+}: Props) => {
   return (
-    <a href={link}>
+    <Link to={link}>
       <Card
         padding={0}
         flexDirection="column"
@@ -40,6 +47,6 @@ export const EventsCard = ({ className, image, title, link, date }: Props) => {
           </Text>
         </div>
       </Card>
-    </a>
+    </Link>
   );
 };

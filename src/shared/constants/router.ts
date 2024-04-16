@@ -19,6 +19,10 @@ export enum AppRoutesEnum {
   ACCOUNTING,
   STATISTIC,
   SECURITY,
+  SECURITY_ACCESS,
+  SECURITY_INTERCOM,
+  SECURITY_VIDEO,
+
   ENGINEERING,
   INVOCATION,
   INFORM,
@@ -72,7 +76,12 @@ export const AppRoutes = {
   [AppRoutesEnum.INFORM]: () => "/admin/inform",
   [AppRoutesEnum.INVOCATION]: () => "/admin/invocation",
   [AppRoutesEnum.ENGINEERING]: () => "/admin/engineering",
+
   [AppRoutesEnum.SECURITY]: () => "/admin/security",
+  [AppRoutesEnum.SECURITY_ACCESS]: () => "/admin/security/access",
+  [AppRoutesEnum.SECURITY_INTERCOM]: () => "/admin/security/intercom",
+  [AppRoutesEnum.SECURITY_VIDEO]: () => "/admin/security/video",
+
   [AppRoutesEnum.STATISTIC]: () => "/admin/statistic",
   [AppRoutesEnum.ACCOUNTING]: () => "/admin/accounting",
 

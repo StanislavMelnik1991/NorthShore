@@ -13,6 +13,7 @@ import { CurrentMeetingPage } from "@pages/meetings";
 import { CurrentNewsPage } from "@pages/news";
 import { NewsListPage } from "@pages/news/List";
 import { NotFoundPage } from "@pages/NotFound";
+import { SecurityPage } from "@pages/Security";
 import { AppRoutesEnum, AppRoutes } from "@shared/constants";
 import { AppRoutesProps } from "@shared/types";
 
@@ -189,9 +190,25 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SECURITY]: {
     path: AppRoutes[AppRoutesEnum.SECURITY](),
+    element: <SecurityPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.SECURITY_ACCESS]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
     element: <NotFoundPage />,
     authOnly: true,
   },
+  [AppRoutesEnum.SECURITY_INTERCOM]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.SECURITY_VIDEO]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
+    element: <NotFoundPage />,
+    authOnly: true,
+  },
+
   [AppRoutesEnum.STATISTIC]: {
     path: AppRoutes[AppRoutesEnum.STATISTIC](),
     element: <NotFoundPage />,

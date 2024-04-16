@@ -1,0 +1,8 @@
+{
+  "title": "Security",
+  "modules": {
+    "access": "Access Control",
+    "intercom": "Intercom",
+    "video": "Video Surveillance"
+  }
+}

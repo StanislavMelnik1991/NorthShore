@@ -17,7 +17,7 @@ export type NavItemProps = {
     >
   >;
   breadcrumbs?: Array<{
-    title: string;
+    title?: string;
     href: string;
   }>;
 };

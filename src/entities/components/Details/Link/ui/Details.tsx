@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { IconChain } from "@shared/icons";
 import { Text } from "@shared/ui";
 import styles from "./Details.module.scss";
@@ -16,10 +17,10 @@ export const LinkDetails = ({ className, href }: Props) => {
       <Text className={styles.label} variant="body14" fontWeight="regular">
         {t("link")}
       </Text>
-      <a className={styles.link} href={href}>
+      <Link className={styles.link} to={href}>
         <IconChain width={20} height={20} />
         {href}
-      </a>
+      </Link>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 import { Badge, Card, Text } from "@shared/ui";
 import styles from "./NewsCard.module.scss";
 
@@ -17,11 +18,11 @@ export const NewsCard = ({
   image,
   text,
   title,
-  link,
+  link = "",
   published_date,
 }: Props) => {
   return (
-    <a href={link}>
+    <Link to={link}>
       <Card
         padding={0}
         flexDirection="column"
@@ -47,6 +48,6 @@ export const NewsCard = ({
           </Text>
         </div>
       </Card>
-    </a>
+    </Link>
   );
 };

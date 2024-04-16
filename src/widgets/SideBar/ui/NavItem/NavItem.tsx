@@ -25,9 +25,26 @@ export const NavItem = ({
     : pathname === href;
   const [isExpanded, setIsExpanded] = useState(!isActive);
 
+  const breadcrumbElementArr = breadcrumbs
+    ?.map((el, index) => {
+      if (!el.title) {
+        return;
+      }
+      return (
+        <Breadcrumb
+          className={styles.item}
+          href={el.href}
+          title={el.title}
+          pathname={pathname}
+          key={`navigation-breadcrumbs-${index}`}
+        />
+      );
+    })
+    .filter((val) => !!val);
+
   return (
     <div className={styles.wrapper}>
-      {breadcrumbs ? (
+      {breadcrumbElementArr && !!breadcrumbElementArr.length ? (
         <div
           onClick={() => setIsExpanded((val) => !val)}
           className={classNames(styles.item, styles.navLink, {
@@ -53,22 +70,12 @@ export const NavItem = ({
           </Text>
         </NavLink>
       )}
-      {breadcrumbs && (
+      {breadcrumbElementArr && !!breadcrumbElementArr.length && (
         <ul
           className={classNames(styles.list, { [styles.hide]: isExpanded })}
           ref={breadcrumbsRef}
         >
-          {breadcrumbs.map((el, index) => {
-            return (
-              <Breadcrumb
-                className={styles.item}
-                href={el.href}
-                title={el.title}
-                pathname={pathname}
-                key={`navigation-breadcrumbs-${index}`}
-              />
-            );
-          })}
+          {breadcrumbElementArr}
         </ul>
       )}
     </div>

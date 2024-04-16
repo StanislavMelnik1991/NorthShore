@@ -23,7 +23,10 @@
     "invocation": "Requests and Appeals",
     "inform": "Informing",
     "passport": "Passport Desk",
-    "users": "Users"
+    "users": "Users",
+    "access": "Access Control",
+    "intercom": "Intercom",
+    "video": "Video Surveillance"
   },
   "header": {
     "login": "Log In"

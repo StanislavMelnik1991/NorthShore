@@ -37,6 +37,20 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t("sidebar.security"),
       icon: IconLock,
       href: AppRoutes[AppRoutesEnum.SECURITY](),
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.SECURITY](),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
+        },
+      ],
     },
     {
       title: t("sidebar.engineering"),
