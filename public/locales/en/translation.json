@@ -15,7 +15,15 @@
     "requests": "Requests and Appeals",
     "shutdowns": "Shutdown Schedules",
     "knowledge": "Knowledge Base",
-    "settings": "Settings"
+    "settings": "Settings",
+    "accounting": "Accounting",
+    "statistic": "Reporting and Statistics",
+    "security": "Security",
+    "engineering": "Engineering Systems",
+    "invocation": "Requests and Appeals",
+    "inform": "Informing",
+    "passport": "Passport Desk",
+    "users": "Users"
   },
   "header": {
     "login": "Log In"
