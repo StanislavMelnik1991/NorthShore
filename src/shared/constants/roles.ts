@@ -1,1 +1,1 @@
-export const rolesAdminId: Array<number> = [1];
+export const rolesAdminId: Array<number> = [1, 10];
