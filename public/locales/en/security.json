@@ -4,5 +4,13 @@
     "access": "Access Control",
     "intercom": "Intercom",
     "video": "Video Surveillance"
+  },
+  "toast": {
+    "listError": "Failed to retrieve the list of access points",
+    "openError": "Failed to open the access point: ",
+    "openSuccess": "It's open"
+  },
+  "actions": {
+    "open": "Open"
   }
 }

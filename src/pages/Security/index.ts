@@ -1,1 +1,2 @@
-export * from "./ui";
+export * from "./Main";
+export * from "./Access";

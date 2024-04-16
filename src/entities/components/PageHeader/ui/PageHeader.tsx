@@ -6,7 +6,7 @@ import styles from "./PageHeader.module.scss";
 
 interface Props {
   className?: string;
-  breadcrumbs: AtLeastOne<{ href: string; title: string }>;
+  breadcrumbs: AtLeastOne<{ href?: string; title: string }>;
   hideTitle?: boolean;
   controls?: JSX.Element;
 }
@@ -27,7 +27,7 @@ export const PageHeader = ({
           {breadcrumbs.map(({ href, title }, index) => {
             return (
               <React.Fragment key={`page-header-breadcrumbs-${href}-${index}`}>
-                <Link className={styles.link} to={href}>
+                <Link className={styles.link} to={href || ""}>
                   <Text>{title}</Text>
                 </Link>
                 <Text className={styles.separator}>/</Text>
