@@ -53,7 +53,7 @@ export const useNewsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS](""));
+    navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS]());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

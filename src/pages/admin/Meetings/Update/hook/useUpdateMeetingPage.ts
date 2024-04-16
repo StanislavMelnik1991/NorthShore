@@ -49,7 +49,7 @@ export const useUpdateMeetingPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
         }
       },
     });
@@ -57,7 +57,7 @@ export const useUpdateMeetingPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);

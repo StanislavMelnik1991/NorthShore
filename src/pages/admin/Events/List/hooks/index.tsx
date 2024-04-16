@@ -53,7 +53,7 @@ export const useEventsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(AppRoutes[AppRoutesEnum.CREATE_EVENT](""));
+    navigate(AppRoutes[AppRoutesEnum.CREATE_EVENT]());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

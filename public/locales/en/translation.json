@@ -13,5 +13,9 @@
   "header": {
     "login": "Log in"
   },
-  "poster": "Poster"
+  "poster": "Poster",
+  "not_found": {
+    "title": "Page not found",
+    "back": "Go back"
+  }
 }

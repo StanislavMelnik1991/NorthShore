@@ -25,7 +25,7 @@ export const Header = ({ className, burgerMenu }: Props) => {
     <>
       <header className={classNames(styles.wrapper, className)}>
         <div className={styles.logo}>
-          <Link to={AppRoutes[AppRoutesEnum.MAIN]("")}>
+          <Link to={AppRoutes[AppRoutesEnum.MAIN]()}>
             <IconLogo width={140} />
           </Link>
         </div>
@@ -39,7 +39,7 @@ export const Header = ({ className, burgerMenu }: Props) => {
             ) : user ? (
               <p>{user.name}</p>
             ) : (
-              <Link to={AppRoutes[AppRoutesEnum.LOGIN]("")}>
+              <Link to={AppRoutes[AppRoutesEnum.LOGIN]()}>
                 <Button size="small" variant="primary">
                   <IconHuman width={20} />
                   {t("header.login")}

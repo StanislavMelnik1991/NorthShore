@@ -28,59 +28,32 @@ export enum AppRoutesEnum {
   NOT_FOUND,
 }
 
-const getRouteCurrentNews = (id: number | string) => `/news/${id}`;
-const getRouteCurrentEvent = (id: number | string) => `/event/${id}`;
-const getRouteCurrentMeeting = (id: number | string) => `/meeting/${id}`;
+export const AppRoutes = {
+  [AppRoutesEnum.MAIN]: () => "/",
+  [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
+  [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
+  [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
+  [AppRoutesEnum.LOGIN]: () => "/login",
+  [AppRoutesEnum.REGISTRATION]: () => "/registration",
 
-const getRouteLogin = () => "/login";
-const getRouteRegistration = () => "/registration";
+  [AppRoutesEnum.ADMIN_NEWS]: () => "/admin/news",
+  [AppRoutesEnum.ADMIN_EVENTS]: () => "/admin/events",
+  [AppRoutesEnum.ADMIN_MEETINGS]: () => "/admin/meeting",
+  [AppRoutesEnum.ADMIN_LOYALTY]: () => "/admin/loyalty",
+  [AppRoutesEnum.ADMIN_NOTIFICATIONS]: () => "/admin/notifications",
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: () => "/admin/technical_works",
+  [AppRoutesEnum.ADMIN_VOTING]: () => "/admin/voting",
 
-const getRouteAdminNews = () => "/admin/news";
-const getRouteCreateNews = () => "/admin/news/create";
-const getRouteUpdateNews = (id: number | string) => `/admin/news/${id}`;
+  [AppRoutesEnum.CREATE_EVENT]: () => "/admin/events/create",
+  [AppRoutesEnum.CREATE_MEETINGS]: () => "/admin/meeting/create",
+  [AppRoutesEnum.CREATE_NEWS]: () => "/admin/news/create",
 
-const getRouteAdminEvents = () => "/admin/events";
-const getRouteCreateEvent = () => "/admin/events/create";
-const getRouteUpdateEvent = (id: number | string) => `/admin/events/${id}`;
+  [AppRoutesEnum.UPDATE_EVENT]: (id: number | string) => `/admin/events/${id}`,
+  [AppRoutesEnum.UPDATE_MEETINGS]: (id: number | string) =>
+    `/admin/meeting/${id}`,
+  [AppRoutesEnum.UPDATE_NEWS]: (id: number | string) => `/admin/news/${id}`,
 
-const getRouteAdminMeeting = () => "/admin/meeting";
-const getRouteCreateMeeting = () => "/admin/meeting/create";
-const getRouteUpdateMeeting = (id: number | string) => `/admin/meeting/${id}`;
-
-const getRouteMain = () => "/";
-const getRouteForbidden = () => "/forbidden";
-
-const getRouteAdminNotifications = () => "/admin/notifications";
-const getRouteAdminTechnicalWorks = () => "/admin/technical_works";
-const getRouteAdminVoting = () => "/admin/voting";
-const getRouteAdminLoyalty = () => "/admin/loyalty";
-
-type GetRoute = ((id: number | string) => string) | (() => string);
-
-export const AppRoutes: Record<AppRoutesEnum, GetRoute> = {
-  [AppRoutesEnum.MAIN]: getRouteMain,
-  [AppRoutesEnum.NEWS_CURRENT]: getRouteCurrentNews,
-  [AppRoutesEnum.EVENT_CURRENT]: getRouteCurrentEvent,
-  [AppRoutesEnum.MEETINGS_CURRENT]: getRouteCurrentMeeting,
-  [AppRoutesEnum.LOGIN]: getRouteLogin,
-  [AppRoutesEnum.REGISTRATION]: getRouteRegistration,
-
-  [AppRoutesEnum.ADMIN_NEWS]: getRouteAdminNews,
-  [AppRoutesEnum.ADMIN_EVENTS]: getRouteAdminEvents,
-  [AppRoutesEnum.ADMIN_MEETINGS]: getRouteAdminMeeting,
-  [AppRoutesEnum.ADMIN_LOYALTY]: getRouteAdminLoyalty,
-  [AppRoutesEnum.ADMIN_NOTIFICATIONS]: getRouteAdminNotifications,
-  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: getRouteAdminTechnicalWorks,
-  [AppRoutesEnum.ADMIN_VOTING]: getRouteAdminVoting,
-
-  [AppRoutesEnum.CREATE_EVENT]: getRouteCreateEvent,
-  [AppRoutesEnum.CREATE_MEETINGS]: getRouteCreateMeeting,
-  [AppRoutesEnum.CREATE_NEWS]: getRouteCreateNews,
-  [AppRoutesEnum.UPDATE_EVENT]: getRouteUpdateEvent,
-  [AppRoutesEnum.UPDATE_MEETINGS]: getRouteUpdateMeeting,
-  [AppRoutesEnum.UPDATE_NEWS]: getRouteUpdateNews,
-
-  [AppRoutesEnum.FORBIDDEN]: getRouteForbidden,
+  [AppRoutesEnum.FORBIDDEN]: () => "/forbidden",
 
   [AppRoutesEnum.NOT_FOUND]: () => "*",
 };

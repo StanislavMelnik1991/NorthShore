@@ -41,7 +41,7 @@ export const useCreateMeetingPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
         }
       },
     });

@@ -44,7 +44,7 @@ export const useCreateEventPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS]());
         }
       },
     });
@@ -52,7 +52,7 @@ export const useCreateEventPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS]());
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);

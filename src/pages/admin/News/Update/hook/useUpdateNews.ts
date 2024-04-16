@@ -42,7 +42,7 @@ export const useUpdateNewsPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS](""));
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
         }
       },
     });
@@ -50,7 +50,7 @@ export const useUpdateNewsPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS](""));
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);

@@ -13,7 +13,7 @@ export function RequireAuth({ children }: RequireAuthProps) {
   if (!auth) {
     return (
       <Navigate
-        to={AppRoutes[AppRoutesEnum.MAIN]("")}
+        to={AppRoutes[AppRoutesEnum.MAIN]()}
         state={{ from: location }}
         replace
       />

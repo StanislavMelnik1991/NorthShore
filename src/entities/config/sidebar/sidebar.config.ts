@@ -29,7 +29,7 @@ export const useSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t("sidebar.main"),
       icon: IconHome,
-      href: AppRoutes[AppRoutesEnum.MAIN](""),
+      href: AppRoutes[AppRoutesEnum.MAIN](),
     },
     {
       title: t("sidebar.admin"),
@@ -37,31 +37,31 @@ export const useSidebarConfig: () => Array<NavItemProps> = () => {
       href: "/admin",
       breadcrumbs: [
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
           title: t("sidebar.news"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
           title: t("sidebar.events"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](),
           title: t("sidebar.meetings"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS](),
           title: t("sidebar.notifications"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_VOTING](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_VOTING](),
           title: t("sidebar.voting"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](),
           title: t("sidebar.technicalWorks"),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](""),
+          href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
           title: t("sidebar.loyalty"),
         },
       ],

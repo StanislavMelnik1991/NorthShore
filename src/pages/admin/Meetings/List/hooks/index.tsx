@@ -53,7 +53,7 @@ export const useMeetingsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(AppRoutes[AppRoutesEnum.CREATE_MEETINGS](""));
+    navigate(AppRoutes[AppRoutesEnum.CREATE_MEETINGS]());
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

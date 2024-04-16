@@ -43,7 +43,7 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""),
+            href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
             title: t("routes.events"),
           },
           { href: "", title: t("routes.edit") },

@@ -29,7 +29,7 @@ export const useCreateEventsPage = () => {
     onSubmit: async (body) => {
       const data = await create({ ...body, status });
       if (data) {
-        navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
+        navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS]());
       }
     },
   });
