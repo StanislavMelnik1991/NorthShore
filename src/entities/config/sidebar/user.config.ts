@@ -1,6 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconHome, IconNewspaper, IconMask, IconLoudspeaker, IconWrench, IconDocumentHolder, IconCalendarX, IconQuestion, IconGear } from "@shared/icons";
+import {
+  IconHome,
+  IconNewspaper,
+  IconMask,
+  IconLoudspeaker,
+  IconWrench,
+  IconDocumentHolder,
+  IconCalendarX,
+  IconQuestion,
+  IconGear,
+} from "@shared/icons";
 import { NavItemProps } from "./types";
 
 export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
