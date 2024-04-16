@@ -1,7 +1,10 @@
 import path from "path";
+import { config } from "dotenv";
 import webpack from "webpack";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuildEnv, BuildPaths } from "./config/build/types/config";
+
+config({ path: ".env" });
 
 export default (env: BuildEnv) => {
   const paths: BuildPaths = {
@@ -24,8 +27,12 @@ export default (env: BuildEnv) => {
   };
 
   const mode = env?.mode || "development";
-  const PORT = env?.port;
-  const apiUrl = env?.apiUrl;
+  const PORT = Number(process.env.PORT);
+  const apiUrl = process.env.API_URL;
+
+  if (!apiUrl) {
+    throw new Error("incorrect env");
+  }
 
   const isDev = mode === "development";
 
