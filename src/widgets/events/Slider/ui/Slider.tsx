@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { imageParser } from "@features/utils/imageParser";
-import { EventsCard } from "@entities/cards";
+import { EventsCard } from "@entities/components";
 import { getRouteCurrentNews } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
 import { Slider } from "@shared/ui/Slider";

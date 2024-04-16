@@ -1,34 +1,34 @@
 export enum AppRoutes {
-  MAIN = "main",
-  SETTINGS = "settings",
-  ABOUT = "about",
-  PROFILE = "profile",
-  FORBIDDEN = "forbidden",
-  ADMIN_NOTIFICATIONS = "admin_notifications",
-  ADMIN_TECHNICAL_WORKS = "admin_technical_works",
-  ADMIN_VOTING = "admin_voting",
-  ADMIN_LOYALTY = "admin_loyalty",
+  MAIN,
+  SETTINGS,
+  ABOUT,
+  PROFILE,
+  FORBIDDEN,
+  ADMIN_NOTIFICATIONS,
+  ADMIN_TECHNICAL_WORKS,
+  ADMIN_VOTING,
+  ADMIN_LOYALTY,
   // User pages
-  NEWS_CURRENT = "news_current",
-  EVENT_CURRENT = "event_current",
-  MEETINGS_CURRENT = "event_meetings",
+  NEWS_CURRENT,
+  EVENT_CURRENT,
+  MEETINGS_CURRENT,
   // Auth
-  LOGIN = "login",
-  REGISTRATION = "registration",
+  LOGIN,
+  REGISTRATION,
   // Admin news
-  ADMIN_NEWS = "admin_news",
-  UPDATE_NEWS = "update_news",
-  CREATE_NEWS = "create_news",
+  ADMIN_NEWS,
+  UPDATE_NEWS,
+  CREATE_NEWS,
   // Admin events
-  ADMIN_EVENTS = "admin_events",
-  UPDATE_EVENT = "update_event",
-  CREATE_EVENT = "create_event",
+  ADMIN_EVENTS,
+  UPDATE_EVENT,
+  CREATE_EVENT,
   // Admin meetings
-  ADMIN_MEETINGS = "admin_meetings",
-  UPDATE_MEETINGS = "update_meetings",
-  CREATE_MEETINGS = "create_meetings",
+  ADMIN_MEETINGS,
+  UPDATE_MEETINGS,
+  CREATE_MEETINGS,
   // not found
-  NOT_FOUND = "not_found",
+  NOT_FOUND,
 }
 
 export const getRouteCurrentNews = (id: number | string) => `/news/${id}`;

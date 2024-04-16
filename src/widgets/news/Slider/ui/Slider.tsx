@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { extractTextFromHtml } from "@features/utils/html";
 import { imageParser } from "@features/utils/imageParser";
-import { NewsCard } from "@entities/cards";
+import { NewsCard } from "@entities/components";
 import { getRouteCurrentNews } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
 import { Slider } from "@shared/ui/Slider";

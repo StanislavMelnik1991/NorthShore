@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { Tab } from "@entities/Tab";
+import { Tab } from "@entities/components";
 import { ACCEPTED_LANGUAGES, LanguageEnum } from "@shared/constants";
 import { Text } from "@shared/ui";
 import { ContentWidget } from "../../singleLanguage";

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { Modal } from "@entities/modal";
+import { Modal } from "@entities/components";
 import { StatusEnum } from "@shared/constants";
 import { Button, Text, Title } from "@shared/ui";
 import styles from "./Update.module.scss";

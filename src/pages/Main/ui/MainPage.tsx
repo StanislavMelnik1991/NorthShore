@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { EventsSlider } from "@widgets/events";
 import { NewsSlider } from "@widgets/news";
-import { PageSkeleton } from "@entities/skeletons";
+import { PageSkeleton } from "@entities/components";
 import { Card, Title } from "@shared/ui";
 import { sliderConfig } from "../config";
 import styles from "./Main.module.scss";

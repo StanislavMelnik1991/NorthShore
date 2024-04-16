@@ -1,8 +1,6 @@
 import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
 import { ContentUpdateActions } from "@widgets/Content/actions/Update";
-import { Modal } from "@entities/modal";
-import { PageHeader } from "@entities/PageHeader";
-import { PageSkeleton } from "@entities/skeletons";
+import { Modal, PageHeader, PageSkeleton } from "@entities/components";
 import { getRouteAdminEvents } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";

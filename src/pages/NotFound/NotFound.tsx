@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { PageLoader } from "@widgets/PageLoader";
-import { PageSkeleton } from "@entities/skeletons";
+import { PageSkeleton } from "@entities/components";
 import { Title } from "@shared/ui";
 
 const NotFoundPage = () => {

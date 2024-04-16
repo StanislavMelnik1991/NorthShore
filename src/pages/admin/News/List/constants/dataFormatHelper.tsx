@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
 import { extractTextFromHtml } from "@features/utils/html";
-import { TableText } from "@entities/Table";
-import { TableBadge } from "@entities/Table/Badge/Badge";
+import { TableBadge, TableText } from "@entities/components";
 import { INews } from "@entities/types";
 import { getRouteCurrentNews, getRouteUpdateNews } from "@shared/constants";
 

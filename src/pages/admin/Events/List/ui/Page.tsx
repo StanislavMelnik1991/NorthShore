@@ -1,7 +1,9 @@
-import { PageHeader } from "@entities/PageHeader";
-import { Pagination } from "@entities/Pagination";
-import { PerPage } from "@entities/PerPageSelect";
-import { PageSkeleton } from "@entities/skeletons";
+import {
+  PageHeader,
+  PageSkeleton,
+  Pagination,
+  PerPage,
+} from "@entities/components";
 import { IconBriefcase, IconLoupe, IconPlus } from "@shared/icons";
 import { Button, Card, TextField } from "@shared/ui";
 import { Table } from "@shared/ui/Table";

@@ -1,6 +1,4 @@
-import { PageHeader } from "@entities/PageHeader";
-import { PasswordField } from "@entities/PasswordField";
-import { PageSkeleton } from "@entities/skeletons";
+import { PageHeader, PageSkeleton, PasswordField } from "@entities/components";
 import { Button, Card, TextField } from "@shared/ui";
 import { useLogin } from "../hook";
 

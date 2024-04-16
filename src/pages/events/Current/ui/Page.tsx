@@ -1,7 +1,6 @@
 import sanitizeHtml from "sanitize-html";
 import { ContentWidget } from "@widgets/Content";
-import { PageHeader } from "@entities/PageHeader";
-import { PageSkeleton } from "@entities/skeletons";
+import { PageHeader, PageSkeleton } from "@entities/components";
 import {
   LanguageEnum,
   allowedAttributesSchema,

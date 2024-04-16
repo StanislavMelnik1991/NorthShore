@@ -1,7 +1,10 @@
 import classNames from "classnames";
 import { format } from "date-fns";
-import { DateDetails, LinkDetails } from "@entities/Details";
-import { CurrentSkeleton } from "@entities/skeletons";
+import {
+  DateDetails,
+  LinkDetails,
+  CurrentSkeleton,
+} from "@entities/components";
 import { Badge, Title } from "@shared/ui";
 import styles from "./Content.module.scss";
 

@@ -1,5 +1,4 @@
-import { PageHeader } from "@entities/PageHeader";
-import { PageSkeleton } from "@entities/skeletons";
+import { PageHeader, PageSkeleton } from "@entities/components";
 import { Card, TextField } from "@shared/ui";
 
 export default () => {

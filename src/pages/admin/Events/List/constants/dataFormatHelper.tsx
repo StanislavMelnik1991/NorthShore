@@ -1,8 +1,7 @@
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
-import { TableText } from "@entities/Table";
-import { TableBadge } from "@entities/Table/Badge/Badge";
+import { TableBadge, TableText } from "@entities/components";
 import { INews } from "@entities/types";
 import { getRouteCurrentEvent, getRouteUpdateEvent } from "@shared/constants";
 

@@ -1,8 +1,6 @@
 import classNames from "classnames";
 import { FormikErrors } from "formik";
-import { Cover } from "@entities/Cover";
-import { CustomDatePicker } from "@entities/DatePicker";
-import { QuillEditor } from "@entities/QuillEditor";
+import { Cover, CustomDatePicker, QuillEditor } from "@entities/components";
 import { IconStaple } from "@shared/icons";
 import { Button, Card, TextField, Title } from "@shared/ui";
 import { useCreateMeeting } from "../hook/useCreateMeeting";
