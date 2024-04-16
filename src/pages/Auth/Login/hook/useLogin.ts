@@ -12,14 +12,14 @@ export const useLogin = () => {
   const { setUser } = useUser();
   const schema = z
     .object({
-      login: z.string(),
+      account_number: z.string(),
       password: z.string().min(4),
     })
     .required();
 
   type ValuesType = z.infer<typeof schema>;
   const initialValues: ValuesType = {
-    login: "",
+    account_number: "",
     password: "",
   };
   const { values, errors, setFieldValue, handleSubmit } = useFormik({
