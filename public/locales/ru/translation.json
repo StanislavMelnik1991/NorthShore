@@ -8,7 +8,14 @@
     "notifications": "Уведомления",
     "voting": "Голосования",
     "technicalWorks": "Технические работы",
-    "loyalty": "Программы лояльности"
+    "loyalty": "Программы лояльности",
+    "poster": "Афиша",
+    "activity": "Активности",
+    "services": "Услуги",
+    "requests": "Заявки и обращение",
+    "shutdowns": "Графики отключений",
+    "knowledge": "База знаний",
+    "settings": "Настройки"
   },
   "header": {
     "login": "Войти"

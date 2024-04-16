@@ -15,7 +15,7 @@ interface Props {
 
 export const Header = ({ className, burgerMenu }: Props) => {
   const { user, isLoading } = useUser();
-  const { t, i18n } = useTranslation("main");
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   // i18n.changeLanguage()
   const toggle = async () => {

@@ -9,7 +9,7 @@ interface Props {
 export const Footer = ({ className }: Props) => {
   return (
     <footer className={classNames(styles.wrapper, className)}>
-      <IconLogo variant="light" height={30} />
+      <IconLogo theme="light" height={30} />
     </footer>
   );
 };

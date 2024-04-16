@@ -22,6 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     size: 24,
+    theme: "light",
   },
   decorators: [WhiteBgDecorator],
 };

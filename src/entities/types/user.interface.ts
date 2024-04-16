@@ -24,8 +24,4 @@ export interface IUser extends IUserShort {
     apartment_id: number;
     apartment: number;
   }[];
-  group: {
-    id: number;
-    name: string;
-  };
 }

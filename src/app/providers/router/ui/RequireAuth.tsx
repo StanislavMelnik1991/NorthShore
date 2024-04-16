@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
+import { useUser } from "@features/User/hook";
 import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 interface RequireAuthProps {
@@ -7,13 +8,12 @@ interface RequireAuthProps {
 
 export function RequireAuth({ children }: RequireAuthProps) {
   const location = useLocation();
-
-  // ToDo fix auth
-  const auth = true;
+  const { user } = useUser();
+  const auth = !!user;
   if (!auth) {
     return (
       <Navigate
-        to={AppRoutes[AppRoutesEnum.MAIN]()}
+        to={AppRoutes[AppRoutesEnum.FORBIDDEN]()}
         state={{ from: location }}
         replace
       />

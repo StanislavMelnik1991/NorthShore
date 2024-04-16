@@ -1,19 +1,19 @@
 import classNames from "classnames";
 import { useLocation } from "react-router-dom";
-import { useNavBarItems } from "../config";
+import { NavItemProps } from "@entities/config";
 import { NavItem } from "./NavItem";
 import styles from "./SideBar.module.scss";
 
 interface Props {
   className?: string;
+  config: NavItemProps[];
 }
 
-export const SideBar = ({ className }: Props) => {
+export const SideBar = ({ className, config }: Props) => {
   const location = useLocation();
-  const navBarItems = useNavBarItems();
   return (
     <div className={classNames(styles.wrapper, className)}>
-      {navBarItems.map(({ href, icon, title, breadcrumbs }, index) => {
+      {config.map(({ href, icon, title, breadcrumbs }, index) => {
         return (
           <NavItem
             key={`nav-item-${index}`}

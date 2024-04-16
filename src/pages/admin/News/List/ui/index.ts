@@ -1,3 +1,3 @@
 import Page from "./Page.async";
 
-export { Page as NewsListPage };
+export { Page as AdminNewsListPage };

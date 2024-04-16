@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { toast } from "react-toastify";
 import styles from "./IconsGrid.module.scss";
+import { ThemeIcons } from "./types";
 import {
   IconArrow,
   IconBriefcase,
@@ -21,29 +22,38 @@ import {
   IconChain,
   IconPencil,
   IconDrawer,
+  IconNewspaper,
+  IconMask,
+  IconLoudspeaker,
+  IconWrench,
+  IconDocumentHolder,
+  IconCalendarX,
+  IconQuestion,
+  IconGear,
 } from ".";
 
 interface Props {
   size: number;
+  theme: ThemeIcons;
 }
 
-export const IconsGrid = ({ size }: Props) => {
+export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
       <Item name="IconArrow">
         <IconArrow width={size} height={size} />
       </Item>
       <Item name="IconBriefcase">
-        <IconBriefcase width={size} height={size} />
+        <IconBriefcase theme={theme} width={size} height={size} />
       </Item>
       <Item name="IconDot">
         <IconDot width={size} height={size} />
       </Item>
       <Item name="IconHome">
-        <IconHome width={size} height={size} />
+        <IconHome theme={theme} width={size} height={size} />
       </Item>
       <Item name="IconLogo">
-        <IconLogo height={size} />
+        <IconLogo theme={theme} height={size} />
       </Item>
       <Item name="IconLoupe">
         <IconLoupe width={size} height={size} />
@@ -86,6 +96,30 @@ export const IconsGrid = ({ size }: Props) => {
       </Item>
       <Item name="IconDrawer">
         <IconDrawer width={size} height={size} />
+      </Item>
+      <Item name="IconNewspaper">
+        <IconNewspaper theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconMask">
+        <IconMask theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconLoudspeaker">
+        <IconLoudspeaker theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconWrench">
+        <IconWrench theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconDocumentHolder">
+        <IconDocumentHolder theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconCalendarX">
+        <IconCalendarX theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconQuestion">
+        <IconQuestion theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconGear">
+        <IconGear theme={theme} width={size} height={size} />
       </Item>
     </div>
   );

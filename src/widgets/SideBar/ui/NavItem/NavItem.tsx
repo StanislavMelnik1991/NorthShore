@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { NavItemProps } from "@entities/config";
 import { IconArrow } from "@shared/icons";
 import { Text } from "@shared/ui";
-import { NavItemProps } from "../../types";
 import { Breadcrumb } from "./Breadcrumb";
 import styles from "./NavItem.module.scss";
 
@@ -30,7 +30,7 @@ export const NavItem = ({
             [styles.active]: isActive,
           })}
         >
-          <Icon width={20} isInvertColors={isActive} />
+          <Icon width={20} theme={isActive ? "dark" : "light"} />
           <Text fontWeight="medium" variant="body14">
             {title}
           </Text>
@@ -43,7 +43,7 @@ export const NavItem = ({
             [styles.active]: isActive,
           })}
         >
-          <Icon width={20} isInvertColors={isActive} />
+          <Icon width={20} theme={isActive ? "dark" : "light"} />
           <Text fontWeight="medium" variant="body14">
             {title}
           </Text>

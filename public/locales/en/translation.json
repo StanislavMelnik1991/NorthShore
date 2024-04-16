@@ -8,14 +8,21 @@
     "notifications": "Notifications",
     "voting": "Voting",
     "technicalWorks": "Technical Works",
-    "loyalty": "Loyalty Programs"
+    "loyalty": "Loyalty Programs",
+    "poster": "Poster",
+    "activity": "Activities",
+    "services": "Services",
+    "requests": "Requests and Appeals",
+    "shutdowns": "Shutdown Schedules",
+    "knowledge": "Knowledge Base",
+    "settings": "Settings"
   },
   "header": {
-    "login": "Log in"
+    "login": "Log In"
   },
   "poster": "Poster",
   "not_found": {
-    "title": "Page not found",
-    "back": "Go back"
+    "title": "Page Not Found",
+    "back": "Go Back"
   }
 }

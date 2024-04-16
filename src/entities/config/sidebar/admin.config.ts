@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconHome, IconBriefcase } from "@shared/icons";
-import { NavItemProps } from "../types";
+import { NavItemProps } from "./types";
 
-export const useNavBarItems: () => Array<NavItemProps> = () => {
-  const { t } = useTranslation("main");
+export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
+  const { t } = useTranslation();
   return [
     {
       title: t("sidebar.main"),
       icon: IconHome,
-      href: AppRoutes[AppRoutesEnum.MAIN](),
+      href: AppRoutes[AppRoutesEnum.ADMIN](),
     },
     {
       title: t("sidebar.admin"),
