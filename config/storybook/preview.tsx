@@ -3,7 +3,7 @@ import {
   StylesDecorator,
   RouterDecorator,
   SuspenseDecorator,
-} from "../../src/shared/config";
+} from "../../src/shared/lib";
 import { mockImagesUpload, mockNews } from "./mockData";
 
 const preview: Preview = {

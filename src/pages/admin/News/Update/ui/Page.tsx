@@ -1,7 +1,7 @@
 import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
 import { ContentUpdateActions } from "@widgets/Content/actions/Update";
 import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { getRouteAdminNews } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useUpdateNewsPage } from "../hook/useUpdateNews";
@@ -40,7 +40,10 @@ const Page = () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminNews(), title: t("routes.news") },
+          {
+            href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](""),
+            title: t("routes.news"),
+          },
           { href: "", title: t("routes.edit") },
         ]}
         controls={

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useCreateNews } from "@features/Admin";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { getRouteAdminNews } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useCreateNewsPage = () => {
   const { create, validate } = useCreateNews();
@@ -28,7 +28,7 @@ export const useCreateNewsPage = () => {
     onSubmit: async (body) => {
       const data = await create({ ...body, status });
       if (data) {
-        navigate(getRouteAdminNews());
+        navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS](""));
       }
     },
   });

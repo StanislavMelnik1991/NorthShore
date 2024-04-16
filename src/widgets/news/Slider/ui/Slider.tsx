@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { extractTextFromHtml } from "@features/utils/html";
 import { imageParser } from "@features/utils/imageParser";
 import { NewsCard } from "@entities/components";
-import { getRouteCurrentNews } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
 import { Slider } from "@shared/ui/Slider";
 import { useNewsSlider } from "../hook";
@@ -28,7 +28,7 @@ export const NewsSlider = ({
     const cover = el.cover || imageParser(el.html_content[lang])[0];
     return (
       <NewsCard
-        link={getRouteCurrentNews(el.id)}
+        link={AppRoutes[AppRoutesEnum.NEWS_CURRENT](el.id)}
         title={el.title[lang]}
         text={extractTextFromHtml(el.html_content[lang])}
         image={cover}

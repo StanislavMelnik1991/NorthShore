@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { imageParser } from "@features/utils/imageParser";
 import { EventsCard } from "@entities/components";
-import { getRouteCurrentNews } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconArrow } from "@shared/icons";
 import { Slider } from "@shared/ui/Slider";
 import { useEventsSlider } from "../hook";
@@ -27,7 +27,7 @@ export const EventsSlider = ({
     const cover = el.cover || imageParser(el.html_content[lang])[0];
     return (
       <EventsCard
-        link={getRouteCurrentNews(el.id)}
+        link={AppRoutes[AppRoutesEnum.EVENT_CURRENT](el.id)}
         title={el.title[lang]}
         date={new Date(el.target_date * 1000)}
         image={cover}

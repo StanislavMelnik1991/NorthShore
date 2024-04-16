@@ -5,9 +5,10 @@ import { useDebounce } from "use-debounce";
 import { useGetMeetingsList } from "@features/Admin/Meetings";
 import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
 import {
+  AppRoutes,
+  AppRoutesEnum,
   INITIAL_PER_PAGE,
   StatusEnum,
-  getRouteCreateMeeting,
 } from "@shared/constants";
 
 export const useMeetingsList = () => {
@@ -52,7 +53,7 @@ export const useMeetingsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(getRouteCreateMeeting());
+    navigate(AppRoutes[AppRoutesEnum.CREATE_MEETINGS](""));
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

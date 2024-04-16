@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { WhiteBgDecorator } from "../config";
+import { WhiteBgDecorator } from "../lib";
 import { IconsGrid } from "./IconsGrid";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

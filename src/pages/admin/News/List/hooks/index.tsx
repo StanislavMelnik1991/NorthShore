@@ -5,9 +5,10 @@ import { useDebounce } from "use-debounce";
 import { useGetNewsList } from "@features/Admin";
 import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
 import {
+  AppRoutes,
+  AppRoutesEnum,
   INITIAL_PER_PAGE,
   StatusEnum,
-  getRouteCreateNews,
 } from "@shared/constants";
 
 export const useNewsList = () => {
@@ -52,7 +53,7 @@ export const useNewsList = () => {
   }, [handleGetData]);
 
   const handleCreateClick = useCallback(() => {
-    navigate(getRouteCreateNews());
+    navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS](""));
   }, [navigate]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =

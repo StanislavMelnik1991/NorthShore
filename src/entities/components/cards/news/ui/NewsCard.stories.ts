@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator, WhiteBgDecorator } from "@shared/config";
+import { PageDecorator, WhiteBgDecorator } from "@shared/lib";
 import { NewsCard } from "./NewsCard";
 
 const defaultText =

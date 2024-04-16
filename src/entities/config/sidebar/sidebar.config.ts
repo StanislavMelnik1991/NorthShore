@@ -1,9 +1,29 @@
 import { useTranslation } from "react-i18next";
 import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconHome, IconBriefcase } from "@shared/icons";
-import { NavItemProps } from "../types";
+import { SVGProps } from "react";
 
-export const useNavBarItems: () => Array<NavItemProps> = () => {
+export type NavItemProps = {
+  title: string;
+  href: string;
+  icon: React.MemoExoticComponent<
+    React.ForwardRefExoticComponent<
+      Omit<
+        SVGProps<SVGSVGElement> & {
+          isInvertColors?: boolean;
+        },
+        "ref"
+      > &
+        React.RefAttributes<SVGSVGElement>
+    >
+  >;
+  breadcrumbs?: Array<{
+    title: string;
+    href: string;
+  }>;
+};
+
+export const useSidebarConfig: () => Array<NavItemProps> = () => {
   const { t } = useTranslation("main");
   return [
     {

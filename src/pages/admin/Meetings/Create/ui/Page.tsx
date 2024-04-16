@@ -4,7 +4,7 @@ import {
   ContentWithLanguageSelection,
 } from "@widgets/Content";
 import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { getRouteAdminMeeting } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useCreateMeetingPage } from "../hook";
@@ -44,7 +44,10 @@ const Page = () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminMeeting(), title: t("routes.meetings") },
+          {
+            href: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""),
+            title: t("routes.meetings"),
+          },
           { href: "", title: t("routes.create") },
         ]}
         controls={

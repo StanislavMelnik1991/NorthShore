@@ -3,7 +3,7 @@ import { TableControls } from "@widgets/Table";
 import { extractTextFromHtml } from "@features/utils/html";
 import { TableBadge, TableText } from "@entities/components";
 import { INews } from "@entities/types";
-import { getRouteCurrentNews, getRouteUpdateNews } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
@@ -27,8 +27,8 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       ),
       controls: (
         <TableControls
-          genDetailsRoute={getRouteCurrentNews}
-          genUpdateRoute={getRouteUpdateNews}
+          genDetailsRoute={AppRoutes[AppRoutesEnum.NEWS_CURRENT]}
+          genUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_NEWS]}
           id={id}
         />
       ),

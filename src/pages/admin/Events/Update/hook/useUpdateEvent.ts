@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useGetCurrentEvent, useUpdateEvent } from "@features/Admin";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
-import { getRouteAdminEvents } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useCreateEventPage = () => {
   const { t } = useTranslation("events");
@@ -44,7 +44,7 @@ export const useCreateEventPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(getRouteAdminEvents());
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
         }
       },
     });
@@ -52,7 +52,7 @@ export const useCreateEventPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(getRouteAdminEvents());
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);

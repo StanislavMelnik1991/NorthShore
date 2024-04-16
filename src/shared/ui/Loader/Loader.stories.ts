@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator, WhiteBgDecorator } from "../../config";
+import { PageDecorator, WhiteBgDecorator } from "../../lib";
 import { Loader } from "./Loader";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

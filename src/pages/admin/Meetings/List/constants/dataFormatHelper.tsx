@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import { TableControls } from "@widgets/Table";
 import { TableBadge, TableText } from "@entities/components";
 import { INews } from "@entities/types";
-import {
-  getRouteCurrentMeeting,
-  getRouteUpdateMeeting,
-} from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
@@ -24,8 +21,8 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       published: <TableText text={format(published_at * 1000, "dd.MM.yyyy")} />,
       controls: (
         <TableControls
-          genDetailsRoute={getRouteCurrentMeeting}
-          genUpdateRoute={getRouteUpdateMeeting}
+          genDetailsRoute={AppRoutes[AppRoutesEnum.MEETINGS_CURRENT]}
+          genUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_MEETINGS]}
           id={id}
         />
       ),

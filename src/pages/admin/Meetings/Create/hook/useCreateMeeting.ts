@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useCreateMeeting } from "@features/Admin/Meetings";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { getRouteAdminMeeting } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useCreateMeetingPage = () => {
   const { t } = useTranslation("meetings");
@@ -41,7 +41,7 @@ export const useCreateMeetingPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(getRouteAdminMeeting());
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
         }
       },
     });

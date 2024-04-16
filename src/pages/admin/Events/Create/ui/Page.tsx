@@ -4,7 +4,7 @@ import {
   ContentWithLanguageSelection,
 } from "@widgets/Content";
 import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { getRouteAdminEvents } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useCreateEventsPage } from "../hook";
@@ -42,7 +42,10 @@ const Page = () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminEvents(), title: t("routes.events") },
+          {
+            href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""),
+            title: t("routes.events"),
+          },
           { href: "", title: t("routes.create") },
         ]}
         controls={

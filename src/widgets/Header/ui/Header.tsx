@@ -3,7 +3,7 @@ import { ReactElement, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useUser } from "@features/User/hook";
-import { getRouteLogin, getRouteMain } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconBurger, IconHuman, IconLogo } from "@shared/icons";
 import { Button, Loader } from "@shared/ui";
 import styles from "./Header.module.scss";
@@ -25,7 +25,7 @@ export const Header = ({ className, burgerMenu }: Props) => {
     <>
       <header className={classNames(styles.wrapper, className)}>
         <div className={styles.logo}>
-          <Link to={getRouteMain()}>
+          <Link to={AppRoutes[AppRoutesEnum.MAIN]("")}>
             <IconLogo width={140} />
           </Link>
         </div>
@@ -39,7 +39,7 @@ export const Header = ({ className, burgerMenu }: Props) => {
             ) : user ? (
               <p>{user.name}</p>
             ) : (
-              <Link to={getRouteLogin()}>
+              <Link to={AppRoutes[AppRoutesEnum.LOGIN]("")}>
                 <Button size="small" variant="primary">
                   <IconHuman width={20} />
                   {t("header.login")}

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useCreateEvent } from "@features/Admin";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { getRouteAdminEvents } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useCreateEventsPage = () => {
   const { create, validate } = useCreateEvent();
@@ -29,7 +29,7 @@ export const useCreateEventsPage = () => {
     onSubmit: async (body) => {
       const data = await create({ ...body, status });
       if (data) {
-        navigate(getRouteAdminEvents());
+        navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""));
       }
     },
   });

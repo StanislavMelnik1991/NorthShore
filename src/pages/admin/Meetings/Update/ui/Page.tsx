@@ -1,7 +1,7 @@
 import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
 import { ContentUpdateActions } from "@widgets/Content/actions/Update";
 import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { getRouteAdminEvents } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 import { IconEyeOpen } from "@shared/icons";
 import { Button } from "@shared/ui";
 import { useUpdateMeetingPage } from "../hook/useUpdateMeetingPage";
@@ -44,7 +44,10 @@ const Page = () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: getRouteAdminEvents(), title: t("routes.meetings") },
+          {
+            href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](""),
+            title: t("routes.meetings"),
+          },
           { href: "", title: t("routes.edit") },
         ]}
         controls={

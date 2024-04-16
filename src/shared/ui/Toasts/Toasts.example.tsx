@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { PageSkeleton } from "@entities/skeletons";
 import { Button } from "../Button";
 import { Card } from "../Card";
+import { PageSkeleton } from "@entities/components";
 
 type Props = {
   message?: string;

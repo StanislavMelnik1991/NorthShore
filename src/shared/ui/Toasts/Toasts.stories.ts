@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator } from "../../config";
+import { PageDecorator } from "../../lib";
 import { ToastsExample } from "./Toasts.example";
 
 const defaultText = "some text";

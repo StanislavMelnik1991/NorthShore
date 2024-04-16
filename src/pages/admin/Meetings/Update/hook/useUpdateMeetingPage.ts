@@ -9,7 +9,7 @@ import {
 } from "@features/Admin/Meetings";
 import { useUploadImage } from "@features/Image/hooks/useUploadImage";
 import { axiosApi } from "@entities/api";
-import { getRouteAdminMeeting } from "@shared/constants";
+import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 export const useUpdateMeetingPage = () => {
   const { t } = useTranslation("meetings");
@@ -49,7 +49,7 @@ export const useUpdateMeetingPage = () => {
       onSubmit: async (body) => {
         const data = await create({ ...body, status });
         if (data) {
-          navigate(getRouteAdminMeeting());
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
         }
       },
     });
@@ -57,7 +57,7 @@ export const useUpdateMeetingPage = () => {
   const handleDelete = useCallback(async () => {
     try {
       await axiosApi.delete(`/news/${id}`);
-      navigate(getRouteAdminMeeting());
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](""));
       toast.success(t("toast.deleteSuccess"));
     } catch (error) {
       console.log(error);
