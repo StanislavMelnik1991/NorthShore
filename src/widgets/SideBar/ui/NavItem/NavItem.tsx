@@ -9,6 +9,7 @@ import styles from "./NavItem.module.scss";
 
 interface Props extends NavItemProps {
   pathname: string;
+  isEqualPath?: boolean;
 }
 
 export const NavItem = ({
@@ -17,8 +18,11 @@ export const NavItem = ({
   icon: Icon,
   title,
   breadcrumbs,
+  isEqualPath,
 }: Props) => {
-  const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
+  const isActive = isEqualPath
+    ? pathname === href
+    : pathname.startsWith(href) && pathname !== href;
   const [isExpanded, setIsExpanded] = useState(!isActive);
 
   return (
