@@ -27,7 +27,6 @@ export const NavItem = ({
     isActive,
   } = useNavItem({ href, pathname, breadcrumbs });
 
-  console.log(isLink);
   if (isLink) {
     return (
       <NavLink

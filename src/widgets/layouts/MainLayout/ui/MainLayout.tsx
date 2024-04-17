@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { memo, ReactElement } from 'react';
-import { useLocation } from 'react-router-dom';
-import { usePopup } from '@features/Popup/hook';
+import { useMainLayout } from '../hook';
 import styles from './MainLayout.module.scss';
 
 interface MainLayoutProps {
@@ -24,10 +23,13 @@ export const MainLayout = memo(
     burgerMenu,
     userMenu,
   }: MainLayoutProps) => {
-    const location = useLocation();
-    const { isShowBurgerMenu, isShowUserMenu } = usePopup();
-    const isWebView =
-      new URLSearchParams(location.search).get('mobile_view') === 'true';
+    const {
+      isShowBurgerMenu,
+      isShowUserMenu,
+      isWebView,
+      burgerMenuRef,
+      userMenuRef,
+    } = useMainLayout();
     return (
       <div className={classNames(styles.MainLayout, className)}>
         <div
@@ -45,6 +47,7 @@ export const MainLayout = memo(
             className={classNames(styles.popup, styles.burgerMenu, {
               [styles.hidePopup]: !isShowBurgerMenu,
             })}
+            ref={burgerMenuRef}
           >
             {burgerMenu}
           </div>
@@ -52,6 +55,7 @@ export const MainLayout = memo(
             className={classNames(styles.popup, styles.userMenu, {
               [styles.hidePopup]: !isShowUserMenu,
             })}
+            ref={userMenuRef}
           >
             {userMenu}
           </div>

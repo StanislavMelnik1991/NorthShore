@@ -11,6 +11,12 @@ export const usePopupProvider = () => {
   const toggleBurgerMenu = useCallback(() => {
     setIsShowBurgerMenu((val) => !val);
   }, []);
+  const closeUserMenu = useCallback(() => {
+    setIsShowUserMenu(false);
+  }, []);
+  const closeBurgerMenu = useCallback(() => {
+    setIsShowBurgerMenu(false);
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -18,8 +24,17 @@ export const usePopupProvider = () => {
       isShowBurgerMenu,
       toggleUserMenu,
       toggleBurgerMenu,
+      closeUserMenu,
+      closeBurgerMenu,
     }),
-    [isShowBurgerMenu, isShowUserMenu, toggleBurgerMenu, toggleUserMenu],
+    [
+      closeBurgerMenu,
+      closeUserMenu,
+      isShowBurgerMenu,
+      isShowUserMenu,
+      toggleBurgerMenu,
+      toggleUserMenu,
+    ],
   );
 
   return {
