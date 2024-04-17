@@ -51,8 +51,7 @@ export const useLogin = () => {
           body,
         );
         setUser?.(user);
-        const isAdmin =
-          (user && ROLES_ADMIN.includes(user?.group.id)) || false;
+        const isAdmin = (user && ROLES_ADMIN.includes(user?.group.id)) || false;
         if (isAdmin) {
           navigate(AppRoutes[AppRoutesEnum.ADMIN]());
         } else {
