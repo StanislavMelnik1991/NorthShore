@@ -1,8 +1,8 @@
-import { IMockData } from "../types/mockData.interface";
+import { IMockData } from '../types/mockData.interface';
 
 export const mockNews: IMockData = {
-  url: "https://testapi.ru/news?page=1&perPage=10&searchValue=&filter[is_draft]=1&sort[created_at]=asc",
-  method: "GET",
+  url: 'https://testapi.ru/news?page=1&perPage=10&searchValue=&filter[is_draft]=1&sort[created_at]=asc',
+  method: 'GET',
   status: 200,
   response: {
     data: [
@@ -10,41 +10,41 @@ export const mockNews: IMockData = {
         id: 3,
         user: {
           id: 105,
-          name: "Сотрудник 3",
+          name: 'Сотрудник 3',
           group: {
             id: 10,
-            name: "Сотрудник",
+            name: 'Сотрудник',
           },
           avatar: null,
           status: {
             id: 2,
-            name: "Подтвержден (активен)",
+            name: 'Подтвержден (активен)',
           },
         },
-        title: "Тестовый заголовок 1",
+        title: 'Тестовый заголовок 1',
         user_id: 105,
         is_draft: 1,
         created_at: 1712081639,
         updated_at: 1712081639,
-        html_content: "Тестовое наполнение dfsgsdfdsfsd",
+        html_content: 'Тестовое наполнение dfsgsdfdsfsd',
         published_at: 1712081639,
       },
       {
         id: 4,
         user: {
           id: 105,
-          name: "Сотрудник 3",
+          name: 'Сотрудник 3',
           group: {
             id: 10,
-            name: "Сотрудник",
+            name: 'Сотрудник',
           },
           avatar: null,
           status: {
             id: 2,
-            name: "Подтвержден (активен)",
+            name: 'Подтвержден (активен)',
           },
         },
-        title: "Избрание председателя правления ",
+        title: 'Избрание председателя правления ',
         user_id: 105,
         is_draft: 0,
         created_at: 1712081639,
@@ -53,7 +53,7 @@ export const mockNews: IMockData = {
         published_at: 1712081639,
       },
     ],
-    hash: "afde444fa91a88fc240b1eec4217e468",
+    hash: 'afde444fa91a88fc240b1eec4217e468',
     success: true,
     timestamp: 1712081646,
   },

@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { SVGProps, Ref, forwardRef, memo, useState } from "react";
-import styles from "./Icon.module.scss";
+import classNames from 'classnames';
+import { SVGProps, Ref, forwardRef, memo, useState } from 'react';
+import styles from './Icon.module.scss';
 
 type ExtendedProps = SVGProps<SVGSVGElement> & { isMenuOpen?: boolean };
 
@@ -21,7 +21,7 @@ const SvgComponent = (
       className={classNames(styles.wrapper, className)}
       width={isMenuOpen ? 18 : 22}
       height={isMenuOpen ? 18 : 14}
-      viewBox={isMenuOpen ? "0 0 18 18" : "0 0 22 14"}
+      viewBox={isMenuOpen ? '0 0 18 18' : '0 0 22 14'}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={ref}
@@ -35,7 +35,7 @@ const SvgComponent = (
         x={isMenuOpen ? 2 : 0}
         y={isMenuOpen ? 0.5 : 0}
         rx={1}
-        transform={`rotate(${isMenuOpen ? "45 2 0.5" : 0})`}
+        transform={`rotate(${isMenuOpen ? '45 2 0.5' : 0})`}
         fill="black"
       />
       <rect
@@ -43,7 +43,7 @@ const SvgComponent = (
         width={22}
         height={2}
         x={isMenuOpen ? 0.5 : 1}
-        transform={`rotate(${isMenuOpen ? "-45 0.5 16" : 0})`}
+        transform={`rotate(${isMenuOpen ? '-45 0.5 16' : 0})`}
         rx={1}
         fill="black"
       />

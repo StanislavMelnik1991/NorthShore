@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { IconDrawer, IconEyeOpen, IconPencil } from "@shared/icons";
-import { Card, Text } from "@shared/ui";
-import styles from "./PopUpMenu.module.scss";
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { IconDrawer, IconEyeOpen, IconPencil } from '@shared/icons';
+import { Card, Text } from '@shared/ui';
+import styles from './PopUpMenu.module.scss';
 
 interface Props {
   className?: string;
@@ -17,7 +17,7 @@ export const PopUpMenu = ({
   handleGoToDetails,
   handleGoToUpdate,
 }: Props) => {
-  const { t } = useTranslation("table");
+  const { t } = useTranslation('table');
   return (
     <Card
       padding={6}
@@ -27,19 +27,19 @@ export const PopUpMenu = ({
       <div className={styles.item} onClick={handleGoToDetails}>
         <IconEyeOpen width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          {t("popup.preview")}
+          {t('popup.preview')}
         </Text>
       </div>
       <div className={styles.item} onClick={handleGoToUpdate}>
         <IconPencil width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          {t("popup.edit")}
+          {t('popup.edit')}
         </Text>
       </div>
       <div className={styles.item} onClick={handleArchive}>
         <IconDrawer width={20} hanging={20} />
         <Text fontWeight="regular" variant="body14">
-          {t("popup.archive")}
+          {t('popup.archive')}
         </Text>
       </div>
     </Card>

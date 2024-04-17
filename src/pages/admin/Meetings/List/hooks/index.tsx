@@ -1,20 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDebounce } from "use-debounce";
-import { useGetMeetingsList } from "@features/Admin/Meetings";
-import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDebounce } from 'use-debounce';
+import { useGetMeetingsList } from '@features/Admin/Meetings';
+import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
   StatusEnum,
-} from "@shared/constants";
+} from '@shared/constants';
 
 export const useMeetingsList = () => {
-  const { t } = useTranslation("meetings");
+  const { t } = useTranslation('meetings');
   const { getData } = useGetMeetingsList();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -35,7 +35,7 @@ export const useMeetingsList = () => {
         status,
       },
       sort: {
-        created_at: "asc",
+        created_at: 'asc',
       },
     };
     setTotal(100);

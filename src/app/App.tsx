@@ -1,16 +1,16 @@
-import { Suspense, memo } from "react";
-import { ToastContainer } from "react-toastify";
-import { Footer } from "@widgets/Footer";
-import { Header } from "@widgets/Header";
-import { MainLayout } from "@widgets/layouts";
-import { SideBar } from "@widgets/SideBar";
-import { useUser } from "@features/User/hook";
+import { Suspense, memo } from 'react';
+import { ToastContainer } from 'react-toastify';
+import { Footer } from '@widgets/Footer';
+import { Header } from '@widgets/Header';
+import { MainLayout } from '@widgets/layouts';
+import { SideBar } from '@widgets/SideBar';
+import { useUser } from '@features/User/hook';
 import {
   useAdminSidebarConfig,
   useUserMenuConfig,
   useUserSidebarConfig,
-} from "./config";
-import { AppRouter } from "./providers/router";
+} from './config';
+import { AppRouter } from './providers/router';
 
 const App = memo(() => {
   const { isAdmin, user } = useUser();

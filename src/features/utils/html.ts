@@ -1,5 +1,5 @@
-import sanitizeHtml from "sanitize-html";
-import { textTags } from "@shared/constants";
+import sanitizeHtml from 'sanitize-html';
+import { textTags } from '@shared/constants';
 
 export const extractTextFromHtml = (htmlText: string) => {
   const sanitizedText = sanitizeHtml(htmlText, {
@@ -7,10 +7,10 @@ export const extractTextFromHtml = (htmlText: string) => {
   });
 
   const parser = new DOMParser();
-  const parsedHtml = parser.parseFromString(sanitizedText, "text/html");
-  let textContent = "";
+  const parsedHtml = parser.parseFromString(sanitizedText, 'text/html');
+  let textContent = '';
   parsedHtml.body.childNodes.forEach((node) => {
-    textContent += node.textContent + " ";
+    textContent += node.textContent + ' ';
   });
-  return textContent.replace(/\s\s+/g, " ");
+  return textContent.replace(/\s\s+/g, ' ');
 };

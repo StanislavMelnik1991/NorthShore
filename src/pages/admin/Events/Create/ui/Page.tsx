@@ -2,12 +2,12 @@ import {
   ContentCreateActions,
   ContentEditor,
   ContentWithLanguageSelection,
-} from "@widgets/Content";
-import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconEyeOpen } from "@shared/icons";
-import { Button } from "@shared/ui";
-import { useCreateEventsPage } from "../hook";
+} from '@widgets/Content';
+import { Modal, PageHeader, PageSkeleton } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconEyeOpen } from '@shared/icons';
+import { Button } from '@shared/ui';
+import { useCreateEventsPage } from '../hook';
 
 const Page = () => {
   const {
@@ -44,19 +44,19 @@ const Page = () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
-            title: t("routes.events"),
+            title: t('routes.events'),
           },
-          { href: "", title: t("routes.create") },
+          { href: '', title: t('routes.create') },
         ]}
         controls={
           <Button
             variant="white"
             size="small"
             onClick={() => setOpen(true)}
-            disabled={!isValid || values.title_ru === ""}
+            disabled={!isValid || values.title_ru === ''}
           >
             <IconEyeOpen width={20} height={20} />
-            {t("controls.preview")}
+            {t('controls.preview')}
           </Button>
         }
       />

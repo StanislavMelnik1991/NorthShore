@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./Table.module.scss";
+import classNames from 'classnames';
+import styles from './Table.module.scss';
 
 interface Props {
   className?: string;

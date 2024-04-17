@@ -1,21 +1,27 @@
-import { AdminNewsListPage, CreateNewsPage } from "@pages/admin";
-import { CreateEventPage, AdminEventsListPage } from "@pages/admin/Events";
-import { UpdateEventPage } from "@pages/admin/Events/Update";
-import { CreateMeetingPage, MeetingsListPage } from "@pages/admin/Meetings";
-import { UpdateMeetingPage } from "@pages/admin/Meetings/Update";
-import { UpdateNewsPage } from "@pages/admin/News/Update";
-import { LoginPage, RegistrationPage } from "@pages/Auth";
-import { CurrentEventPage } from "@pages/events";
-import { EventsListPage } from "@pages/events/List";
-import { ForbiddenPage } from "@pages/Forbidden";
-import { MainPage } from "@pages/Main";
-import { CurrentMeetingPage } from "@pages/meetings";
-import { CurrentNewsPage } from "@pages/news";
-import { NewsListPage } from "@pages/news/List";
-import { NotFoundPage } from "@pages/NotFound";
-import { SecurityAccessPage, SecurityPage } from "@pages/Security";
-import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from "@shared/constants";
-import { AppRoutesProps } from "@shared/types";
+import {
+  AdminNewsListPage,
+  CreateNewsPage,
+  UpdateMeetingPage,
+  CreateEventPage,
+  AdminEventsListPage,
+  UpdateEventPage,
+  CreateMeetingPage,
+  MeetingsListPage,
+  UpdateNewsPage,
+} from '@pages/admin';
+import { LoginPage, RegistrationPage } from '@pages/Auth';
+import { CurrentEventPage } from '@pages/events';
+import { EventsListPage } from '@pages/events';
+import { ForbiddenPage } from '@pages/Forbidden';
+import { MainPage } from '@pages/Main';
+import { CurrentMeetingPage } from '@pages/meetings';
+import { CurrentNewsPage } from '@pages/news';
+import { NewsListPage } from '@pages/news';
+import { NotFoundPage } from '@pages/NotFound';
+import { RequestMainPage } from '@pages/requests';
+import { SecurityAccessPage, SecurityPage } from '@pages/Security';
+import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
+import { AppRoutesProps } from '@shared/types';
 
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ADMIN]: {
@@ -31,7 +37,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.UPDATE_NEWS]: {
-    path: AppRoutes[AppRoutesEnum.UPDATE_NEWS](":id"),
+    path: AppRoutes[AppRoutesEnum.UPDATE_NEWS](':id'),
     element: <UpdateNewsPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
@@ -49,7 +55,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.UPDATE_EVENT]: {
-    path: AppRoutes[AppRoutesEnum.UPDATE_EVENT](":id"),
+    path: AppRoutes[AppRoutesEnum.UPDATE_EVENT](':id'),
     element: <UpdateEventPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
@@ -67,7 +73,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.UPDATE_MEETINGS]: {
-    path: AppRoutes[AppRoutesEnum.UPDATE_MEETINGS](":id"),
+    path: AppRoutes[AppRoutesEnum.UPDATE_MEETINGS](':id'),
     element: <UpdateMeetingPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
@@ -176,17 +182,17 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.NEWS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.NEWS_CURRENT](":id"),
+    path: AppRoutes[AppRoutesEnum.NEWS_CURRENT](':id'),
     element: <CurrentNewsPage />,
     authOnly: false,
   },
   [AppRoutesEnum.EVENT_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.EVENT_CURRENT](":id"),
+    path: AppRoutes[AppRoutesEnum.EVENT_CURRENT](':id'),
     element: <CurrentEventPage />,
     authOnly: false,
   },
   [AppRoutesEnum.MEETINGS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](":id"),
+    path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](':id'),
     element: <CurrentMeetingPage />,
     authOnly: false,
   },
@@ -228,8 +234,9 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS](),
-    element: <NotFoundPage />,
-    authOnly: false,
+    element: <RequestMainPage />,
+    authOnly: true,
+    // acceptedRoles: [],
   },
   [AppRoutesEnum.SHUTDOWNS]: {
     path: AppRoutes[AppRoutesEnum.SHUTDOWNS](),

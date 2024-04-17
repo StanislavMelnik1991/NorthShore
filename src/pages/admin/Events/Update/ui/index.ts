@@ -1,3 +1,3 @@
-import Page from "./Page.async";
+import Page from './Page.async';
 
 export { Page as UpdateEventPage };

@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { StatusEnum } from "@shared/constants";
-import { Button } from "@shared/ui";
-import styles from "./Create.module.scss";
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { StatusEnum } from '@shared/constants';
+import { Button } from '@shared/ui';
+import styles from './Create.module.scss';
 
 interface Props {
   className?: string;
@@ -15,7 +15,7 @@ export const ContentCreateActions = ({
   isValid,
   setStatus,
 }: Props) => {
-  const { t } = useTranslation("content");
+  const { t } = useTranslation('content');
   return (
     <div className={classNames(styles.submitBlock, className)}>
       <Button
@@ -26,7 +26,7 @@ export const ContentCreateActions = ({
         disabled={!isValid}
         onClick={() => setStatus(1)}
       >
-        {t("controls.publish")}
+        {t('controls.publish')}
       </Button>
       <Button
         className={styles.submitButton}
@@ -36,7 +36,7 @@ export const ContentCreateActions = ({
         disabled={!isValid}
         onClick={() => setStatus(0)}
       >
-        {t("controls.draft")}
+        {t('controls.draft')}
       </Button>
     </div>
   );

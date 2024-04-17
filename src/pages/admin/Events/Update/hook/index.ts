@@ -1,1 +1,1 @@
-export * from "./useUpdateEvent";
+export * from './useUpdateEvent';

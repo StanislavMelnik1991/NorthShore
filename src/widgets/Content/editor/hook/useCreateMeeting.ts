@@ -1,13 +1,13 @@
-import { FormikErrors } from "formik";
-import { useCallback, useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { useTranslation } from "react-i18next";
-import { IMAGE_TYPES, MAX_IMAGE_SIZE } from "@shared/constants";
+import { FormikErrors } from 'formik';
+import { useCallback, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { useTranslation } from 'react-i18next';
+import { IMAGE_TYPES, MAX_IMAGE_SIZE } from '@shared/constants';
 
 interface Props {
   handleUploadImage(file: File): Promise<string>;
   setFieldValue: (
-    field: "cover",
+    field: 'cover',
     value: string,
     shouldValidate?: boolean | undefined,
   ) =>
@@ -23,7 +23,7 @@ export const useCreateMeeting = ({
   handleUploadImage,
   setFieldValue,
 }: Props) => {
-  const { t } = useTranslation("meetings");
+  const { t } = useTranslation('meetings');
   const [isLoading, setIsLoading] = useState(false);
   const onDrop = useCallback(
     async (files: File[]) => {
@@ -31,7 +31,7 @@ export const useCreateMeeting = ({
       if (files.length) {
         const url = await handleUploadImage(files[0]);
         if (url) {
-          setFieldValue("cover", url);
+          setFieldValue('cover', url);
         }
       }
       setIsLoading(false);

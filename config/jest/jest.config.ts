@@ -3,36 +3,36 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
-import type { Config } from "jest";
+import path from 'path';
+import type { Config } from 'jest';
 
 const config: Config = {
-  testEnvironment: "jsdom",
-  coverageProvider: "v8",
-  rootDir: "../../",
+  testEnvironment: 'jsdom',
+  coverageProvider: 'v8',
+  rootDir: '../../',
   globals: {
     __IS_DEV__: true,
-    __API__: "",
-    __PROJECT__: "jest",
+    __API__: '',
+    __PROJECT__: 'jest',
   },
   // setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
-  coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
-  moduleDirectories: ["node_modules"],
-  modulePaths: ["<rootDir>src"],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleDirectories: ['node_modules'],
+  modulePaths: ['<rootDir>src'],
 
   moduleNameMapper: {
-    "\\.s?css$": "identity-obj-proxy",
-    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
-    "^@/(.*)$": "<rootDir>/src/$1",
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   reporters: [
-    "default",
+    'default',
     [
-      "jest-html-reporters",
+      'jest-html-reporters',
       {
-        publicPath: "<rootDir>/reports/unit",
-        filename: "report.html",
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
         // openReport: true,
         inlineSource: true,
       },

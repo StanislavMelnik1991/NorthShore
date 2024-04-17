@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { IconLogo } from "@shared/icons";
-import styles from "./Footer.module.scss";
+import classNames from 'classnames';
+import { IconLogo } from '@shared/icons';
+import styles from './Footer.module.scss';
 
 interface Props {
   className?: string;

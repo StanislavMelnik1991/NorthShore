@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { PageDecorator, WhiteBgDecorator } from "@shared/lib";
-import { PerPage } from "./PerPage";
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { PageDecorator, WhiteBgDecorator } from '@shared/lib';
+import { PerPage } from './PerPage';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Entity/PerPageSelection",
+  title: 'Entity/PerPageSelection',
   component: PerPage,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {},
 } satisfies Meta<typeof PerPage>;
 

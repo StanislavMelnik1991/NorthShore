@@ -1,1 +1,1 @@
-export * from "./usePopupProvider";
+export * from './usePopupProvider';

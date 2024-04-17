@@ -1,15 +1,15 @@
-import { useFormik } from "formik";
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useGetCurrentEvent, useUpdateEvent } from "@features/Admin";
-import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { axiosApi } from "@entities/api";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+import { useFormik } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useGetCurrentEvent, useUpdateEvent } from '@features/Admin';
+import { useUploadImage } from '@features/Image/hooks/useUploadImage';
+import { axiosApi } from '@entities/api';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCreateEventPage = () => {
-  const { t } = useTranslation("events");
+  const { t } = useTranslation('events');
   const { id } = useParams<{ id: string }>();
   const { create, validate } = useUpdateEvent(id as string);
   const { getData } = useGetCurrentEvent(id as string);
@@ -29,10 +29,10 @@ export const useCreateEventPage = () => {
   };
 
   const initialValues: Values = {
-    title_en: " ",
-    html_content_ru: " ",
-    title_ru: " ",
-    html_content_en: " ",
+    title_en: ' ',
+    html_content_ru: ' ',
+    title_ru: ' ',
+    html_content_en: ' ',
     cover: null,
     target_date: new Date(),
   };
@@ -53,10 +53,10 @@ export const useCreateEventPage = () => {
     try {
       await axiosApi.delete(`/news/${id}`);
       navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS]());
-      toast.success(t("toast.deleteSuccess"));
+      toast.success(t('toast.deleteSuccess'));
     } catch (error) {
       console.log(error);
-      toast.error(t("toast.deleteError"));
+      toast.error(t('toast.deleteError'));
     }
   }, [id, navigate, t]);
 

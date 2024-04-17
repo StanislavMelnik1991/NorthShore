@@ -1,1 +1,1 @@
-export * from "./ContentWithLanguageSelection";
+export * from './ContentWithLanguageSelection';

@@ -1,1 +1,1 @@
-export * from "./QuillEditor";
+export * from './QuillEditor';

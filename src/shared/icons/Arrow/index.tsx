@@ -1,4 +1,4 @@
-import { SVGProps, Ref, forwardRef, memo } from "react";
+import { SVGProps, Ref, forwardRef, memo } from 'react';
 const SvgComponent = (
   { rotate, style, ...props }: SVGProps<SVGSVGElement>,
   ref: Ref<SVGSVGElement>,

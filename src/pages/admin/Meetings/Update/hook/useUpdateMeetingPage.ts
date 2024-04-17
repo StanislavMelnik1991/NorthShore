@@ -1,18 +1,18 @@
-import { useFormik } from "formik";
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useFormik } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import {
   useGetCurrentMeeting,
   useUpdateMeeting,
-} from "@features/Admin/Meetings";
-import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { axiosApi } from "@entities/api";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+} from '@features/Admin/Meetings';
+import { useUploadImage } from '@features/Image/hooks/useUploadImage';
+import { axiosApi } from '@entities/api';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useUpdateMeetingPage = () => {
-  const { t } = useTranslation("meetings");
+  const { t } = useTranslation('meetings');
   const { id } = useParams<{ id: string }>();
   const { create, validate } = useUpdateMeeting(id as string);
   const { getData } = useGetCurrentMeeting(id as string);
@@ -33,10 +33,10 @@ export const useUpdateMeetingPage = () => {
   };
 
   const initialValues = {
-    title_en: " ",
-    html_content_ru: " ",
-    title_ru: " ",
-    html_content_en: " ",
+    title_en: ' ',
+    html_content_ru: ' ',
+    title_ru: ' ',
+    html_content_en: ' ',
     cover: null,
     target_date: new Date(),
     meeting_link: null as unknown as string,
@@ -58,10 +58,10 @@ export const useUpdateMeetingPage = () => {
     try {
       await axiosApi.delete(`/news/${id}`);
       navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
-      toast.success(t("toast.deleteSuccess"));
+      toast.success(t('toast.deleteSuccess'));
     } catch (error) {
       console.log(error);
-      toast.error(t("toast.deleteError"));
+      toast.error(t('toast.deleteError'));
     }
   }, [id, navigate, t]);
 

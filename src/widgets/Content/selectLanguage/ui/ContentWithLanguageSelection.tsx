@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { Tab } from "@entities/components";
-import { ACCEPTED_LANGUAGES, LanguageEnum } from "@shared/constants";
-import { Text } from "@shared/ui";
-import { ContentWidget } from "../../singleLanguage";
-import styles from "./ContentWithLanguageSelection.module.scss";
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { Tab } from '@entities/components';
+import { ACCEPTED_LANGUAGES, LanguageEnum } from '@shared/constants';
+import { Text } from '@shared/ui';
+import { ContentWidget } from '../../singleLanguage';
+import styles from './ContentWithLanguageSelection.module.scss';
 
 interface Props {
   className?: string;
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const ContentWithLanguageSelection = ({ className, config }: Props) => {
-  const { t } = useTranslation("content");
+  const { t } = useTranslation('content');
   const labels = ACCEPTED_LANGUAGES.map((lang) => {
     return (
       <Text variant="body16" fontWeight="medium" key={`tab-label-${lang}`}>

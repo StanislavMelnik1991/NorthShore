@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next";
-import { TableControls } from "@widgets/Table";
-import { extractTextFromHtml } from "@features/utils/html";
-import { TableBadge, TableText } from "@entities/components";
-import { INews } from "@entities/types";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+import { useTranslation } from 'react-i18next';
+import { TableControls } from '@widgets/Table';
+import { extractTextFromHtml } from '@features/utils/html';
+import { TableBadge, TableText } from '@entities/components';
+import { INews } from '@entities/types';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useDataFormatHelper = (data: Array<INews>) => {
   const { i18n } = useTranslation();
@@ -13,7 +13,7 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       status: <TableBadge status={status || 0} />,
       title: (
         <TableText
-          text={title[i18n.language as "en" | "ru"]}
+          text={title[i18n.language as 'en' | 'ru']}
           fontWeight="medium"
         />
       ),
@@ -22,7 +22,7 @@ export const useDataFormatHelper = (data: Array<INews>) => {
       ),
       text: (
         <TableText
-          text={extractTextFromHtml(html_content[i18n.language as "en" | "ru"])}
+          text={extractTextFromHtml(html_content[i18n.language as 'en' | 'ru'])}
         />
       ),
       controls: (

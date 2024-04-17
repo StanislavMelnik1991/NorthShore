@@ -1,17 +1,17 @@
 export const imageParser = (content: string) => {
   const linkSet = new Set<string | null>([]);
-  const contentElement = document.createElement("div");
+  const contentElement = document.createElement('div');
   contentElement.innerHTML = content;
 
-  const allImages = contentElement.querySelectorAll("img");
+  const allImages = contentElement.querySelectorAll('img');
   allImages.forEach((image) => {
-    const link = image.getAttribute("src");
+    const link = image.getAttribute('src');
     return linkSet.add(link);
   });
 
-  const allYoutubeVideos = contentElement.querySelectorAll("iframe.youtube");
+  const allYoutubeVideos = contentElement.querySelectorAll('iframe.youtube');
   allYoutubeVideos.forEach((video) => {
-    const id = youtubeLinkParser(video.getAttribute("src") || "");
+    const id = youtubeLinkParser(video.getAttribute('src') || '');
     linkSet.add(`https://img.youtube.com/vi/${id}/0.jpg`);
   });
 

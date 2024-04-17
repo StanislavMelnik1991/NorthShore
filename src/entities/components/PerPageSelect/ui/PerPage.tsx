@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { Text } from "@shared/ui";
-import { perPageVariants } from "../config";
-import styles from "./PerPage.module.scss";
+import classNames from 'classnames';
+import { Text } from '@shared/ui';
+import { perPageVariants } from '../config';
+import styles from './PerPage.module.scss';
 
 interface Props {
   className?: string;

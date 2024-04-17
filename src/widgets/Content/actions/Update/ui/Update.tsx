@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { Modal } from "@entities/components";
-import { StatusEnum } from "@shared/constants";
-import { Button, Text, Title } from "@shared/ui";
-import styles from "./Update.module.scss";
+import classNames from 'classnames';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { Modal } from '@entities/components';
+import { StatusEnum } from '@shared/constants';
+import { Button, Text, Title } from '@shared/ui';
+import styles from './Update.module.scss';
 
 interface Props {
   className?: string;
@@ -23,7 +23,7 @@ export const ContentUpdateActions = ({
   handleDelete,
 }: Props) => {
   const [openModal, setOpenModal] = useState(false);
-  const { t } = useTranslation("content");
+  const { t } = useTranslation('content');
   const navigate = useNavigate();
 
   return (
@@ -36,22 +36,22 @@ export const ContentUpdateActions = ({
       >
         <div className={styles.modal}>
           <Title fontWeight="semibold" variant="h4">
-            {t("remove.title")}
+            {t('remove.title')}
           </Title>
           <Text className={styles.dark} fontWeight="regular" variant="body14">
-            {t("remove.text")}
+            {t('remove.text')}
           </Text>
           <div className={styles.modalButtons}>
             <Button
               className={styles.submitButton}
               size="large"
               variant="secondary"
-              type={"button"}
+              type={'button'}
               onClick={() => {
                 setOpenModal(false);
               }}
             >
-              {t("controls.cancel")}
+              {t('controls.cancel')}
             </Button>
 
             <Button
@@ -61,7 +61,7 @@ export const ContentUpdateActions = ({
               type="button"
               onClick={handleDelete}
             >
-              {t("controls.delete")}
+              {t('controls.delete')}
             </Button>
           </div>
         </div>
@@ -70,22 +70,22 @@ export const ContentUpdateActions = ({
         className={styles.submitButton}
         size="large"
         variant="primary"
-        type={"submit"}
+        type={'submit'}
         disabled={!isValid}
         onClick={() => {
           setStatus(1);
         }}
       >
-        {status ? t("controls.refresh") : t("controls.publish")}
+        {status ? t('controls.refresh') : t('controls.publish')}
       </Button>
       <Button
         className={styles.submitButton}
         size="large"
         variant="secondary"
-        type={status ? "button" : "submit"}
+        type={status ? 'button' : 'submit'}
         onClick={status ? () => navigate(-1) : undefined}
       >
-        {status ? t("controls.cancel") : t("controls.refresh")}
+        {status ? t('controls.cancel') : t('controls.refresh')}
       </Button>
       <Button
         className={classNames(styles.submitButton, styles.deleteBtn)}
@@ -94,7 +94,7 @@ export const ContentUpdateActions = ({
         type="button"
         onClick={() => setOpenModal(true)}
       >
-        {t("controls.delete")}
+        {t('controls.delete')}
       </Button>
     </div>
   );

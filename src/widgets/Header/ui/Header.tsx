@@ -1,14 +1,14 @@
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { usePopup } from "@features/Popup/hook";
-import { useUser } from "@features/User/hook";
-import { AuthButton } from "@entities/AuthButton";
-import { UserIcon } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconBurger, IconLogo } from "@shared/icons";
-import { Button, Loader } from "@shared/ui";
-import styles from "./Header.module.scss";
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { usePopup } from '@features/Popup/hook';
+import { useUser } from '@features/User/hook';
+import { AuthButton } from '@entities/AuthButton';
+import { UserIcon } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconBurger, IconLogo } from '@shared/icons';
+import { Button, Loader } from '@shared/ui';
+import styles from './Header.module.scss';
 
 interface Props {
   className?: string;
@@ -21,7 +21,7 @@ export const Header = ({ className }: Props) => {
 
   // i18n.changeLanguage()
   const toggle = async () => {
-    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
   return (
     <>

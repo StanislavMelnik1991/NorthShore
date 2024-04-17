@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator, WhiteBgDecorator } from "@shared/lib";
-import { PageHeader } from "./PageHeader";
+import type { Meta, StoryObj } from '@storybook/react';
+import { PageDecorator, WhiteBgDecorator } from '@shared/lib';
+import { PageHeader } from './PageHeader';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Entity/PageHeader",
+  title: 'Entity/PageHeader',
   component: PageHeader,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {},
 } satisfies Meta<typeof PageHeader>;
 
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     breadcrumbs: [
-      { href: "", title: "Новости" },
-      { href: "", title: "Создание новости" },
+      { href: '', title: 'Новости' },
+      { href: '', title: 'Создание новости' },
     ],
   },
   decorators: [WhiteBgDecorator],
@@ -27,8 +27,8 @@ export const Main: Story = {
 export const OnPage: Story = {
   args: {
     breadcrumbs: [
-      { href: "", title: "Новости" },
-      { href: "", title: "Создание новости" },
+      { href: '', title: 'Новости' },
+      { href: '', title: 'Создание новости' },
     ],
   },
   decorators: [PageDecorator],

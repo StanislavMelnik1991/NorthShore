@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { toast } from "react-toastify";
-import styles from "./IconsGrid.module.scss";
-import { ThemeIcons } from "./types";
+import classNames from 'classnames';
+import { toast } from 'react-toastify';
+import styles from './IconsGrid.module.scss';
+import { ThemeIcons } from './types';
 import {
   IconArrow,
   IconBriefcase,
@@ -35,7 +35,7 @@ import {
   IconLock,
   IconPassport,
   IconPeople,
-} from ".";
+} from '.';
 
 interface Props {
   size: number;
@@ -158,7 +158,7 @@ const Item = ({ children, name }: ItemProps) => {
         navigator.clipboard.writeText(name);
         toast.info(`"${name}" copied to clipboard`);
       }}
-      title={"Copy icon name"}
+      title={'Copy icon name'}
     >
       {children}
       {name}

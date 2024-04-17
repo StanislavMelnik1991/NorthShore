@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import { ReactNode } from "react";
-import { IconClose } from "@shared/icons";
-import { Card } from "@shared/ui";
-import { useModal } from "../hook";
-import { Portal } from "../Portal";
-import styles from "./Modal.module.scss";
+import classNames from 'classnames';
+import { ReactNode } from 'react';
+import { IconClose } from '@shared/icons';
+import { Card } from '@shared/ui';
+import { useModal } from '../hook';
+import { Portal } from '../Portal';
+import styles from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
@@ -34,7 +34,7 @@ export const Modal = ({
   }
 
   return (
-    <Portal element={document.getElementById("app") ?? document.body}>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
         className={classNames(
           styles.wrapper,

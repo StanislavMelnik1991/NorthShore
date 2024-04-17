@@ -1,2 +1,2 @@
-export * from "./config";
-export * from "./dataFormatHelper";
+export * from './config';
+export * from './dataFormatHelper';

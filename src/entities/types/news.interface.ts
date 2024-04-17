@@ -1,5 +1,5 @@
-import { StatusEnum } from "@shared/constants";
-import { SortOrder } from "@shared/types";
+import { StatusEnum } from '@shared/constants';
+import { SortOrder } from '@shared/types';
 
 export type INews = {
   id: number;

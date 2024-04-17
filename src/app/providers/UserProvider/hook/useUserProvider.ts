@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, IUser } from "@entities/types";
-import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from "@shared/constants";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { toast } from 'react-toastify';
+import { axiosApi } from '@entities/api';
+import { BaseResponse, IUser } from '@entities/types';
+import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from '@shared/constants';
 
 export const useUserProvider = () => {
   const [user, setUser] = useState<IUser>();
@@ -24,13 +24,13 @@ export const useUserProvider = () => {
         setToken(token);
         setIsLoading(true);
         axiosApi
-          .get<BaseResponse<IUser>>("/user")
+          .get<BaseResponse<IUser>>('/user')
           .then(({ data: { data } }) => {
             handleSetUser(data);
           })
           .catch((err) => {
             console.error(err);
-            toast.error("Не удалось получить данные юзера");
+            toast.error('Не удалось получить данные юзера');
             localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
             setToken(null);
           })

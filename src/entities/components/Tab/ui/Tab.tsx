@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { useTab } from "../hook";
-import styles from "./Tab.module.scss";
+import classNames from 'classnames';
+import { useTab } from '../hook';
+import styles from './Tab.module.scss';
 
 interface Props {
   className?: string;

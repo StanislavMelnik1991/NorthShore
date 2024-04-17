@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import { extractTextFromHtml } from "@features/utils/html";
-import { imageParser } from "@features/utils/imageParser";
-import { NewsCard } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconArrow } from "@shared/icons";
-import { Slider } from "@shared/ui/Slider";
-import { useNewsSlider } from "../hook";
-import styles from "./Slider.module.scss";
+import classNames from 'classnames';
+import { extractTextFromHtml } from '@features/utils/html';
+import { imageParser } from '@features/utils/imageParser';
+import { NewsCard } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconArrow } from '@shared/icons';
+import { Slider } from '@shared/ui/Slider';
+import { useNewsSlider } from '../hook';
+import styles from './Slider.module.scss';
 
 interface Props {
   className?: string;

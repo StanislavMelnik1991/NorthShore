@@ -1,9 +1,9 @@
-import { useCallback, useEffect } from "react";
-import { RefObject } from "react";
-import type ReactQuill from "react-quill";
-import type { ReactQuillProps } from "react-quill";
-import { insertImage, insertLink } from "./helpers";
-import "./helpers/block";
+import { useCallback, useEffect } from 'react';
+import { RefObject } from 'react';
+import type ReactQuill from 'react-quill';
+import type { ReactQuillProps } from 'react-quill';
+import { insertImage, insertLink } from './helpers';
+import './helpers/block';
 
 type Props = {
   reactQuillRef: RefObject<ReactQuill>;
@@ -22,13 +22,13 @@ export const useQuillEditor = ({
   wrapperRef,
   uploadImage,
 }: Props) => {
-  const onchangeHandler: ReactQuillProps["onChange"] = (
+  const onchangeHandler: ReactQuillProps['onChange'] = (
     value,
     delta,
     source,
     editor,
   ) => {
-    if (source === "user" && delta.ops && delta.ops.length) {
+    if (source === 'user' && delta.ops && delta.ops.length) {
       if (!reactQuillRef.current) {
         return;
       }
@@ -51,11 +51,11 @@ export const useQuillEditor = ({
           });
           return;
         }
-        if (typeof content === "string" && content?.startsWith("https://")) {
+        if (typeof content === 'string' && content?.startsWith('https://')) {
           (
             contentEditor as unknown as { history: { undo: () => void } }
           ).history.undo();
-          contentEditor.insertText(position, "\n");
+          contentEditor.insertText(position, '\n');
           insertLink(contentEditor, content, position);
           return;
         } else {
@@ -80,7 +80,7 @@ export const useQuillEditor = ({
   ); */
 
   function dataURLtoFile(dataUrl: string): File {
-    const arr = dataUrl.split(",");
+    const arr = dataUrl.split(',');
     const mime = arr[0].match(/:(.*?);/)?.[1];
     const bstr = atob(arr[1]);
     let n = bstr.length;
@@ -88,7 +88,7 @@ export const useQuillEditor = ({
     while (n--) {
       u8arr[n] = bstr.charCodeAt(n);
     }
-    return new File([u8arr], "Image", { type: mime });
+    return new File([u8arr], 'Image', { type: mime });
   }
 
   const onDrop = useCallback(
@@ -112,7 +112,7 @@ export const useQuillEditor = ({
       }
       if (ev.clipboardData.items.length) {
         const item = ev.clipboardData.items[0];
-        if (item.type.indexOf("image") === 0 || item.type === "text/html") {
+        if (item.type.indexOf('image') === 0 || item.type === 'text/html') {
           ev.preventDefault();
           const image = item.getAsFile();
           image && onDrop([image]);
@@ -132,12 +132,12 @@ export const useQuillEditor = ({
     if (wrapperRef && wrapperRef.current) {
       const contentElement = wrapperRef.current;
       contentElement.addEventListener(
-        "paste",
+        'paste',
         handlePasteContent as EventListener,
       );
       return () => {
         contentElement?.removeEventListener(
-          "paste",
+          'paste',
           handlePasteContent as EventListener,
         );
       };

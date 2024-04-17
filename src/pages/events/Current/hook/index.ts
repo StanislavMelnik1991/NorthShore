@@ -1,1 +1,1 @@
-export * from "./useCurrentEvent";
+export * from './useCurrentEvent';

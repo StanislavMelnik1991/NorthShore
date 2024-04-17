@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { NavLink } from "react-router-dom";
-import { IconDot } from "@shared/icons";
-import { Text } from "@shared/ui";
-import styles from "./Breadcrumb.module.scss";
+import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
+import { IconDot } from '@shared/icons';
+import { Text } from '@shared/ui';
+import styles from './Breadcrumb.module.scss';
 
 interface Props {
   className?: string;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Breadcrumb = ({ className, href, title, pathname }: Props) => {
-  const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
+  const isActive = href === '/' ? pathname === href : pathname.startsWith(href);
   return (
     <li>
       <NavLink
@@ -26,7 +26,7 @@ export const Breadcrumb = ({ className, href, title, pathname }: Props) => {
         to={href}
       >
         <IconDot />
-        <Text fontWeight={isActive ? "semibold" : "medium"} variant="body13">
+        <Text fontWeight={isActive ? 'semibold' : 'medium'} variant="body13">
           {title}
         </Text>
       </NavLink>

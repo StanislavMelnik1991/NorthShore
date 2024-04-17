@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { Loader } from "@shared/ui";
-import styles from "./PageLoader.module.scss";
+import classNames from 'classnames';
+import { Loader } from '@shared/ui';
+import styles from './PageLoader.module.scss';
 
 interface PageLoaderProps {
   className?: string;

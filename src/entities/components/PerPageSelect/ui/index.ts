@@ -1,1 +1,1 @@
-export * from "./PerPage";
+export * from './PerPage';

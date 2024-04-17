@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import { NavLink } from "react-router-dom";
-import { IconArrow } from "@shared/icons";
-import { Text } from "@shared/ui";
-import { NavItemProps } from "../../types";
-import { useNavItem } from "../hook";
-import styles from "./NavItem.module.scss";
+import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
+import { IconArrow } from '@shared/icons';
+import { Text } from '@shared/ui';
+import { NavItemProps } from '../../types';
+import { useNavItem } from '../hook';
+import styles from './NavItem.module.scss';
 
 interface Props extends NavItemProps {
   pathname: string;
@@ -36,7 +36,7 @@ export const NavItem = ({
           [styles.active]: isActive,
         })}
       >
-        <Icon width={20} theme={isActive ? "dark" : "light"} />
+        <Icon width={20} theme={isActive ? 'dark' : 'light'} />
         <Text fontWeight="medium" variant="body14">
           {title}
         </Text>
@@ -51,7 +51,7 @@ export const NavItem = ({
             [styles.active]: isActive,
           })}
         >
-          <Icon width={20} theme={isActive ? "dark" : "light"} />
+          <Icon width={20} theme={isActive ? 'dark' : 'light'} />
           <Text fontWeight="medium" variant="body14">
             {title}
           </Text>

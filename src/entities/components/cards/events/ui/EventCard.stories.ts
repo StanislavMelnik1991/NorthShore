@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { PageDecorator, WhiteBgDecorator } from "@shared/lib";
-import { EventsCard } from "./EventsCard";
+import type { Meta, StoryObj } from '@storybook/react';
+import { PageDecorator, WhiteBgDecorator } from '@shared/lib';
+import { EventsCard } from './EventsCard';
 
 const defaultText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Entity/EventsCard",
+  title: 'Entity/EventsCard',
   component: EventsCard,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {},
 } satisfies Meta<typeof EventsCard>;
 
@@ -21,7 +21,7 @@ export const Main: Story = {
   args: {
     date: new Date(),
     title: defaultText,
-    image: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
+    image: 'https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg',
   },
   decorators: [WhiteBgDecorator],
 };
@@ -30,7 +30,7 @@ export const OnPage: Story = {
   args: {
     date: new Date(),
     title: defaultText,
-    image: "https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg",
+    image: 'https://northwaterfront.evocontrols.com/files/b654ab99781ad3fc.jpg',
   },
   decorators: [PageDecorator],
 };

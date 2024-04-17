@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "main": "Requests and appeals"
+  },
+  "tabs": {
+    "actual": "Topical",
+    "completed": "Completed"
+  }
+}

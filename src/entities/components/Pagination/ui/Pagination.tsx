@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import ReactPaginate from "react-paginate";
-import styles from "./Pagination.module.scss";
+import classNames from 'classnames';
+import ReactPaginate from 'react-paginate';
+import styles from './Pagination.module.scss';
 
 interface Props {
   className?: string;

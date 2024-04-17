@@ -1,20 +1,20 @@
-import ReactQuill from "react-quill";
+import ReactQuill from 'react-quill';
 import {
   imageLinkParser,
   tiktokLinkParser,
   youtubeLinkParser,
-} from "./linkParsers";
-import { insertImage } from ".";
+} from './linkParsers';
+import { insertImage } from '.';
 
 export enum LinkType {
-  DEFAULT = "default",
-  TIKTOK = "tiktok",
-  YOUTUBE = "youtube",
-  IMAGE = "image",
-  IS_NOT_LINK = "isNotLink",
+  DEFAULT = 'default',
+  TIKTOK = 'tiktok',
+  YOUTUBE = 'youtube',
+  IMAGE = 'image',
+  IS_NOT_LINK = 'isNotLink',
 }
 
-type Editor = Required<ReactQuill["editor"]>;
+type Editor = Required<ReactQuill['editor']>;
 
 export type LinkData = {
   sourceType: LinkType;
@@ -32,13 +32,13 @@ class LinkStrategyService {
     editor.clipboard.dangerouslyPasteHTML(
       position,
       `<a href="${link}" target="_blank" ref="noopener noreferrer">${link}</a>`,
-      "api",
+      'api',
     );
   };
 
   private embedVideoStrategy: LinkStrategy = (editor, linkData, position) => {
     // editor.insertText(position, '\n')
-    editor.insertEmbed(position, "embedVideo", linkData, "api");
+    editor.insertEmbed(position, 'embedVideo', linkData, 'api');
   };
 
   // private embedVideoStrategy: LinkStrategy = (editor, linkData, position) => {
@@ -50,7 +50,7 @@ class LinkStrategyService {
   // }
 
   private isNotLinkStrategy: LinkStrategy = (editor, { link }, position) => {
-    editor.insertText(position, link, "api");
+    editor.insertText(position, link, 'api');
   };
   private imageLinkStrategy: LinkStrategy = (editor, { link }) => {
     insertImage(editor, link);

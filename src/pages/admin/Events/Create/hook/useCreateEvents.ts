@@ -1,24 +1,24 @@
-import { useFormik } from "formik";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { useCreateEvent } from "@features/Admin";
-import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+import { useFormik } from 'formik';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { useCreateEvent } from '@features/Admin';
+import { useUploadImage } from '@features/Image/hooks/useUploadImage';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCreateEventsPage = () => {
   const { create, validate } = useCreateEvent();
-  const { t } = useTranslation("events");
+  const { t } = useTranslation('events');
   const [status, setStatus] = useState<0 | 1 | 2>(0);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { handleUploadImage } = useUploadImage();
 
   const initialValues = {
-    title_en: "",
-    html_content_ru: "",
-    title_ru: "",
-    html_content_en: "",
+    title_en: '',
+    html_content_ru: '',
+    title_ru: '',
+    html_content_en: '',
     cover: null,
     target_date: new Date(),
   };

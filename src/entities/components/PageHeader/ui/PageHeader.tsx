@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import React from "react";
-import { Link } from "react-router-dom";
-import { Text, Title } from "@shared/ui";
-import styles from "./PageHeader.module.scss";
+import classNames from 'classnames';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Text, Title } from '@shared/ui';
+import styles from './PageHeader.module.scss';
 
 interface Props {
   className?: string;
@@ -27,7 +27,7 @@ export const PageHeader = ({
           {breadcrumbs.map(({ href, title }, index) => {
             return (
               <React.Fragment key={`page-header-breadcrumbs-${href}-${index}`}>
-                <Link className={styles.link} to={href || ""}>
+                <Link className={styles.link} to={href || ''}>
                   <Text>{title}</Text>
                 </Link>
                 <Text className={styles.separator}>/</Text>

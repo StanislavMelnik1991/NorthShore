@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { PageDecorator, WhiteBgDecorator } from "@shared/lib";
-import { QuillEditor } from "./QuillEditor";
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { PageDecorator, WhiteBgDecorator } from '@shared/lib';
+import { QuillEditor } from './QuillEditor';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Entity/QuillEditor",
+  title: 'Entity/QuillEditor',
   component: QuillEditor,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {},
 } satisfies Meta<typeof QuillEditor>;
 
@@ -18,7 +18,7 @@ const text = `<p>some text</p><p>normal</p><h1>header</h1><h2>header2</h2><p><st
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
   args: {
-    initialValue: "",
+    initialValue: '',
     setValue: fn(),
     uploadImage: fn(),
   },
@@ -26,8 +26,8 @@ export const Main: Story = {
 };
 export const WithLabel: Story = {
   args: {
-    label: "Label text",
-    initialValue: "",
+    label: 'Label text',
+    initialValue: '',
     setValue: fn(),
     uploadImage: fn(),
   },
@@ -35,9 +35,9 @@ export const WithLabel: Story = {
 };
 export const WithError: Story = {
   args: {
-    label: "Label text",
-    error: "error text",
-    initialValue: "",
+    label: 'Label text',
+    error: 'error text',
+    initialValue: '',
     setValue: fn(),
     uploadImage: fn(),
   },

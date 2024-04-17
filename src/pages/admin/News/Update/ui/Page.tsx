@@ -1,10 +1,10 @@
-import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
-import { ContentUpdateActions } from "@widgets/Content/actions/Update";
-import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconEyeOpen } from "@shared/icons";
-import { Button } from "@shared/ui";
-import { useUpdateNewsPage } from "../hook/useUpdateNews";
+import { ContentEditor, ContentWithLanguageSelection } from '@widgets/Content';
+import { ContentUpdateActions } from '@widgets/Content/actions/Update';
+import { Modal, PageHeader, PageSkeleton } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconEyeOpen } from '@shared/icons';
+import { Button } from '@shared/ui';
+import { useUpdateNewsPage } from '../hook/useUpdateNews';
 
 const Page = () => {
   const {
@@ -42,9 +42,9 @@ const Page = () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
-            title: t("routes.news"),
+            title: t('routes.news'),
           },
-          { href: "", title: t("routes.edit") },
+          { href: '', title: t('routes.edit') },
         ]}
         controls={
           <Button
@@ -54,7 +54,7 @@ const Page = () => {
             disabled={!isValid}
           >
             <IconEyeOpen width={20} height={20} />
-            {t("controls.preview")}
+            {t('controls.preview')}
           </Button>
         }
       />

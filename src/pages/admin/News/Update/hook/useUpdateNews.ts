@@ -1,15 +1,15 @@
-import { useFormik } from "formik";
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useGetCurrentNews, useUpdateNews } from "@features/Admin";
-import { useUploadImage } from "@features/Image/hooks/useUploadImage";
-import { axiosApi } from "@entities/api";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+import { useFormik } from 'formik';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useGetCurrentNews, useUpdateNews } from '@features/Admin';
+import { useUploadImage } from '@features/Image/hooks/useUploadImage';
+import { axiosApi } from '@entities/api';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useUpdateNewsPage = () => {
-  const { t } = useTranslation("news");
+  const { t } = useTranslation('news');
   const { id } = useParams<{ id: string }>();
   const { create, validate } = useUpdateNews(id as string);
   const { getData } = useGetCurrentNews(id as string);
@@ -28,10 +28,10 @@ export const useUpdateNewsPage = () => {
   };
 
   const initialValues: Values = {
-    title_en: " ",
-    html_content_ru: " ",
-    title_ru: " ",
-    html_content_en: " ",
+    title_en: ' ',
+    html_content_ru: ' ',
+    title_ru: ' ',
+    html_content_en: ' ',
     cover: null,
   };
 
@@ -51,10 +51,10 @@ export const useUpdateNewsPage = () => {
     try {
       await axiosApi.delete(`/news/${id}`);
       navigate(AppRoutes[AppRoutesEnum.ADMIN_NEWS]());
-      toast.success(t("toast.deleteSuccess"));
+      toast.success(t('toast.deleteSuccess'));
     } catch (error) {
       console.log(error);
-      toast.error(t("toast.deleteError"));
+      toast.error(t('toast.deleteError'));
     }
   }, [id, navigate, t]);
 

@@ -1,15 +1,15 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 import {
   StylesDecorator,
   RouterDecorator,
   SuspenseDecorator,
-} from "../../src/shared/lib";
-import { mockImagesUpload, mockNews } from "./mockData";
+} from '../../src/shared/lib';
+import { mockImagesUpload, mockNews } from './mockData';
 
 const preview: Preview = {
   parameters: {
-    layout: "fullscreen",
-    class: "app",
+    layout: 'fullscreen',
+    class: 'app',
     mockAddonConfigs: {
       globalMockData: [mockNews, mockImagesUpload],
     },

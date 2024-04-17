@@ -1,56 +1,56 @@
-import { useTranslation } from "react-i18next";
-import { Text } from "@shared/ui";
-import { ConfigItemType } from "@shared/ui/Table";
+import { useTranslation } from 'react-i18next';
+import { Text } from '@shared/ui';
+import { ConfigItemType } from '@shared/ui/Table';
 
 export const useTableConfig: () => Array<ConfigItemType> = () => {
-  const { t } = useTranslation("news");
+  const { t } = useTranslation('news');
   return [
     {
-      name: "id",
+      name: 'id',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.index")}
+          {t('table.index')}
         </Text>
       ),
       width: 92,
     },
     {
-      name: "status",
+      name: 'status',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.status")}
+          {t('table.status')}
         </Text>
       ),
       width: 121,
     },
     {
-      name: "title",
+      name: 'title',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.title")}
+          {t('table.title')}
         </Text>
       ),
       width: 215,
     },
     {
-      name: "text",
+      name: 'text',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.text")}
+          {t('table.text')}
         </Text>
       ),
     },
     {
-      name: "date",
+      name: 'date',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t("table.date")}
+          {t('table.date')}
         </Text>
       ),
       width: 107,
     },
     {
-      name: "controls",
+      name: 'controls',
       width: 52,
     },
   ];

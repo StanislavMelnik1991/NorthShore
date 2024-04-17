@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { memo, ReactElement } from "react";
-import { useLocation } from "react-router-dom";
-import { usePopup } from "@features/Popup/hook";
-import styles from "./MainLayout.module.scss";
+import classNames from 'classnames';
+import { memo, ReactElement } from 'react';
+import { useLocation } from 'react-router-dom';
+import { usePopup } from '@features/Popup/hook';
+import styles from './MainLayout.module.scss';
 
 interface MainLayoutProps {
   className?: string;
@@ -27,7 +27,7 @@ export const MainLayout = memo(
     const location = useLocation();
     const { isShowBurgerMenu, isShowUserMenu } = usePopup();
     const isWebView =
-      new URLSearchParams(location.search).get("mobile_view") === "true";
+      new URLSearchParams(location.search).get('mobile_view') === 'true';
     return (
       <div className={classNames(styles.MainLayout, className)}>
         <div

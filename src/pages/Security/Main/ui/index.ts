@@ -1,2 +1,2 @@
-import SecurityPage from "./Page.async";
+import SecurityPage from './Page.async';
 export { SecurityPage };

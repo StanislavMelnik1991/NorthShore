@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import { FormikErrors } from "formik";
-import { Cover, CustomDatePicker, QuillEditor } from "@entities/components";
-import { IconStaple } from "@shared/icons";
-import { Button, Card, TextField, Title } from "@shared/ui";
-import { useCreateMeeting } from "../hook/useCreateMeeting";
-import styles from "./Editor.module.scss";
+import classNames from 'classnames';
+import { FormikErrors } from 'formik';
+import { Cover, CustomDatePicker, QuillEditor } from '@entities/components';
+import { IconStaple } from '@shared/icons';
+import { Button, Card, TextField, Title } from '@shared/ui';
+import { useCreateMeeting } from '../hook/useCreateMeeting';
+import styles from './Editor.module.scss';
 
 type News = {
   cover?: string | null;
@@ -60,94 +60,94 @@ export const ContentEditor = ({
       gap={20}
     >
       <input {...getInputProps()} />
-      {Object.keys(values).includes("target_date") && (
+      {Object.keys(values).includes('target_date') && (
         <CustomDatePicker
-          label={t("editor.date.label")}
+          label={t('editor.date.label')}
           error={errors.target_date as string}
           startDate={values.target_date || new Date()}
-          setStartDate={(val) => setFieldValue("target_date", val)}
+          setStartDate={(val) => setFieldValue('target_date', val)}
         />
       )}
 
-      {Object.keys(values).includes("meeting_link") && (
+      {Object.keys(values).includes('meeting_link') && (
         <TextField
-          value={values.meeting_link || ""}
+          value={values.meeting_link || ''}
           error={errors.meeting_link}
           onChange={(ev) => {
-            const value = ev.target.value === "" ? null : ev.target.value;
-            setFieldValue("meeting_link", value);
+            const value = ev.target.value === '' ? null : ev.target.value;
+            setFieldValue('meeting_link', value);
           }}
           wrapperClassName={styles.textField}
-          label={t("editor.link.label")}
-          placeholder={t("editor.link.placeholder")}
+          label={t('editor.link.label')}
+          placeholder={t('editor.link.placeholder')}
         />
       )}
-      {Object.keys(values).includes("cover") && (
+      {Object.keys(values).includes('cover') && (
         <div className={styles.cover}>
           {!values.cover ? (
             <Button
-              variant={"light"}
+              variant={'light'}
               className={styles.downloadButton}
               onClick={open}
               loading={isLoading}
             >
               <IconStaple width={24} height={24} />
-              {t("editor.cover.label")}
+              {t('editor.cover.label')}
             </Button>
           ) : (
             <Cover
               src={values.cover}
-              onRemove={() => setFieldValue("cover", "")}
+              onRemove={() => setFieldValue('cover', '')}
             />
           )}
         </div>
       )}
       <Title fontWeight="bold" variant="h2">
-        {t("editor.versions.ru")}
+        {t('editor.versions.ru')}
       </Title>
-      {Object.keys(values).includes("title_ru") && (
+      {Object.keys(values).includes('title_ru') && (
         <TextField
           value={values.title_ru}
           error={errors.title_ru}
-          onChange={(ev) => setFieldValue("title_ru", ev.target.value)}
+          onChange={(ev) => setFieldValue('title_ru', ev.target.value)}
           wrapperClassName={styles.textField}
-          label={t("editor.title.label")}
-          placeholder={t("editor.title.placeholder")}
+          label={t('editor.title.label')}
+          placeholder={t('editor.title.placeholder')}
         />
       )}
-      {Object.keys(values).includes("html_content_ru") && (
+      {Object.keys(values).includes('html_content_ru') && (
         <QuillEditor
           error={errors.html_content_ru}
-          label={t("editor.content.label")}
-          initialValue={values.html_content_ru || ""}
-          setValue={(val) => setFieldValue("html_content_ru", val)}
+          label={t('editor.content.label')}
+          initialValue={values.html_content_ru || ''}
+          setValue={(val) => setFieldValue('html_content_ru', val)}
           uploadImage={handleUploadImage}
         />
       )}
       <div className={styles.divider}></div>
       <Title fontWeight="bold" variant="h2">
-        {t("editor.versions.en")}
+        {t('editor.versions.en')}
       </Title>
-      {Object.keys(values).includes("title_en") && (
+      {Object.keys(values).includes('title_en') && (
         <TextField
           value={values.title_en}
           error={errors.title_en}
-          onChange={(ev) => setFieldValue("title_en", ev.target.value)}
+          onChange={(ev) => setFieldValue('title_en', ev.target.value)}
           wrapperClassName={styles.textField}
-          label={t("editor.title.label")}
-          placeholder={t("editor.title.placeholder")}
+          label={t('editor.title.label')}
+          placeholder={t('editor.title.placeholder')}
         />
       )}
-      {Object.keys(values).includes("html_content_en") && (
+      {Object.keys(values).includes('html_content_en') && (
         <QuillEditor
           error={errors.html_content_en}
-          label={t("editor.content.label")}
-          initialValue={values.html_content_en || ""}
-          setValue={(val) => setFieldValue("html_content_en", val)}
+          label={t('editor.content.label')}
+          initialValue={values.html_content_en || ''}
+          setValue={(val) => setFieldValue('html_content_en', val)}
           uploadImage={handleUploadImage}
         />
       )}
-      {controls || ""}
+      {controls || ''}
     </Card>
   );
 };

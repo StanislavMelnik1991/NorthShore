@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { ReactNode } from "react";
-import { Loader } from "../Loader";
-import styles from "./Card.module.scss";
+import classNames from 'classnames';
+import { ReactNode } from 'react';
+import { Loader } from '../Loader';
+import styles from './Card.module.scss';
 
 interface Props {
   className?: string;
@@ -14,14 +14,14 @@ interface Props {
   padding?: number;
   radius?: number;
   flexDirection?:
-    | "column"
-    | "column-reverse"
-    | "inherit"
-    | "initial"
-    | "revert"
-    | "revert-layer"
-    | "row"
-    | "row-reverse";
+    | 'column'
+    | 'column-reverse'
+    | 'inherit'
+    | 'initial'
+    | 'revert'
+    | 'revert-layer'
+    | 'row'
+    | 'row-reverse';
   gap?: number;
   loading?: boolean;
   loaderSize?: number;

@@ -1,10 +1,10 @@
-import { ContentEditor, ContentWithLanguageSelection } from "@widgets/Content";
-import { ContentUpdateActions } from "@widgets/Content/actions/Update";
-import { Modal, PageHeader, PageSkeleton } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconEyeOpen } from "@shared/icons";
-import { Button } from "@shared/ui";
-import { useUpdateMeetingPage } from "../hook/useUpdateMeetingPage";
+import { ContentEditor, ContentWithLanguageSelection } from '@widgets/Content';
+import { ContentUpdateActions } from '@widgets/Content/actions/Update';
+import { Modal, PageHeader, PageSkeleton } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconEyeOpen } from '@shared/icons';
+import { Button } from '@shared/ui';
+import { useUpdateMeetingPage } from '../hook/useUpdateMeetingPage';
 
 const Page = () => {
   const {
@@ -46,9 +46,9 @@ const Page = () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
-            title: t("routes.meetings"),
+            title: t('routes.meetings'),
           },
-          { href: "", title: t("routes.edit") },
+          { href: '', title: t('routes.edit') },
         ]}
         controls={
           <Button
@@ -58,7 +58,7 @@ const Page = () => {
             disabled={!isValid}
           >
             <IconEyeOpen width={20} height={20} />
-            {t("controls.preview")}
+            {t('controls.preview')}
           </Button>
         }
       />

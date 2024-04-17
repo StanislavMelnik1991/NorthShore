@@ -1,11 +1,11 @@
-import { useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { toast } from "react-toastify";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, INews } from "@entities/types";
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import { axiosApi } from '@entities/api';
+import { BaseResponse, INews } from '@entities/types';
 
 export const useGetCurrentMeeting = (id: string) => {
-  const { t } = useTranslation("meetings");
+  const { t } = useTranslation('meetings');
   const getData = useCallback(async () => {
     try {
       const {
@@ -13,7 +13,7 @@ export const useGetCurrentMeeting = (id: string) => {
       } = await axiosApi.get<BaseResponse<INews>>(`/news/${id}`);
       return data;
     } catch (error) {
-      toast.error(t("toast.notFound"));
+      toast.error(t('toast.notFound'));
       console.error(error);
     }
   }, [id, t]);

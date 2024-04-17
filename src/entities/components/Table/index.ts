@@ -1,2 +1,2 @@
-export * from "./Text";
-export * from "./Badge";
+export * from './Text';
+export * from './Badge';

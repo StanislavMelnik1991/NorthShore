@@ -1,9 +1,9 @@
-import { extractTextFromHtml } from "@features/utils/html";
-import { imageParser } from "@features/utils/imageParser";
-import { NewsCard, PageHeader, PageSkeleton } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { useEventsListPage } from "../hook";
-import styles from "./Page.module.scss";
+import { extractTextFromHtml } from '@features/utils/html';
+import { imageParser } from '@features/utils/imageParser';
+import { NewsCard, PageHeader, PageSkeleton } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { useEventsListPage } from '../hook';
+import styles from './Page.module.scss';
 
 export default () => {
   const { events, t, lang } = useEventsListPage();
@@ -12,7 +12,7 @@ export default () => {
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[
-          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t("routes.events") },
+          { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.events') },
         ]}
       />
       <div className={styles.wrapper}>

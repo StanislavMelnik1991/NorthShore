@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import { useLocation } from "react-router-dom";
-import { NavItem, NavItemProps } from "@entities/components";
-import styles from "./SideBar.module.scss";
+import classNames from 'classnames';
+import { useLocation } from 'react-router-dom';
+import { NavItem, NavItemProps } from '@entities/components';
+import styles from './SideBar.module.scss';
 
 interface Props {
   className?: string;

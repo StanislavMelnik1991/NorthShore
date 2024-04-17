@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import { format } from "date-fns";
-import { Link } from "react-router-dom";
-import { IconCalendar, IconClock } from "@shared/icons";
-import { Card, Text } from "@shared/ui";
-import styles from "./EventsCard.module.scss";
+import classNames from 'classnames';
+import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
+import { IconCalendar, IconClock } from '@shared/icons';
+import { Card, Text } from '@shared/ui';
+import styles from './EventsCard.module.scss';
 
 interface Props {
   className?: string;
@@ -17,7 +17,7 @@ export const EventsCard = ({
   className,
   image,
   title,
-  link = "",
+  link = '',
   date,
 }: Props) => {
   return (
@@ -38,9 +38,9 @@ export const EventsCard = ({
             fontWeight="medium"
           >
             <IconCalendar className={styles.icon} width={20} height={20} />
-            {format(date, "dd.MM.yyyy")}
+            {format(date, 'dd.MM.yyyy')}
             <IconClock className={styles.icon} width={20} height={20} />
-            {format(date, "HH:mm")}
+            {format(date, 'HH:mm')}
           </Text>
           <Text className={styles.title} fontWeight="semibold" variant="body16">
             {title}

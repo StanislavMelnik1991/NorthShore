@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import { format } from "date-fns";
+import classNames from 'classnames';
+import { format } from 'date-fns';
 import {
   DateDetails,
   LinkDetails,
   CurrentSkeleton,
-} from "@entities/components";
-import { Badge, Title } from "@shared/ui";
-import styles from "./Content.module.scss";
+} from '@entities/components';
+import { Badge, Title } from '@shared/ui';
+import styles from './Content.module.scss';
 
 interface Props {
   className?: string;
@@ -22,7 +22,7 @@ export const ContentWidget = ({
   className,
   isLoading,
   created_at,
-  html = "",
+  html = '',
   title,
   date,
   link,
@@ -33,7 +33,7 @@ export const ContentWidget = ({
       isLoading={isLoading}
     >
       {created_at && (
-        <Badge color="white">{format(created_at, "dd.MM.yyyy")}</Badge>
+        <Badge color="white">{format(created_at, 'dd.MM.yyyy')}</Badge>
       )}
       <Title fontWeight="semibold" variant="h2">
         {title}

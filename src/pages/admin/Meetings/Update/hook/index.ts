@@ -1,1 +1,1 @@
-export * from "./useUpdateMeetingPage";
+export * from './useUpdateMeetingPage';

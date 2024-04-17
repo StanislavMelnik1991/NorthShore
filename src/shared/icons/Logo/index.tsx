@@ -1,17 +1,17 @@
-import { SVGProps, Ref, forwardRef, memo, useMemo } from "react";
-import { ThemeIcons } from "../types";
+import { SVGProps, Ref, forwardRef, memo, useMemo } from 'react';
+import { ThemeIcons } from '../types';
 
 interface Props extends SVGProps<SVGSVGElement> {
   theme?: ThemeIcons;
 }
 
 const SvgComponent = (
-  { theme: variant = "dark", ...props }: Props,
+  { theme: variant = 'dark', ...props }: Props,
   ref: Ref<SVGSVGElement>,
 ) => {
   const colors = useMemo(() => {
-    const main = variant === "dark" ? "var(--dark-100)" : "var(--white-100)";
-    const second = "var(--primary-50)";
+    const main = variant === 'dark' ? 'var(--dark-100)' : 'var(--white-100)';
+    const second = 'var(--primary-50)';
     return { main, second };
   }, [variant]);
   return (

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useGetUserEventsList } from "@features/events";
-import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
-import { INITIAL_PER_PAGE, LanguageEnum } from "@shared/constants";
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useGetUserEventsList } from '@features/events';
+import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
 
 export const useEventsListPage = () => {
-  const { t, i18n } = useTranslation("events");
+  const { t, i18n } = useTranslation('events');
   const { getData, isLoading } = useGetUserEventsList();
   const [events, setEvents] = useState<Array<INews>>([]);
 
@@ -17,7 +17,7 @@ export const useEventsListPage = () => {
         status: 1,
       },
       sort: {
-        created_at: "asc",
+        created_at: 'asc',
       },
     };
     getData(newsParams).then((val) => {

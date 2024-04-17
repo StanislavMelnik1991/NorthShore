@@ -1,8 +1,8 @@
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { IconHuman } from "@shared/icons";
-import { Button } from "@shared/ui";
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconHuman } from '@shared/icons';
+import { Button } from '@shared/ui';
 
 interface Props {
   className?: string;
@@ -21,7 +21,7 @@ export const AuthButton = ({ className, isLogin, logout }: Props) => {
         onClick={logout}
       >
         <IconHuman width={20} />
-        {t("header.logout")}
+        {t('header.logout')}
       </Button>
     );
   }
@@ -29,7 +29,7 @@ export const AuthButton = ({ className, isLogin, logout }: Props) => {
     <Link to={AppRoutes[AppRoutesEnum.LOGIN]()}>
       <Button size="small" variant="primary" className={className}>
         <IconHuman width={20} />
-        {t("header.login")}
+        {t('header.login')}
       </Button>
     </Link>
   );

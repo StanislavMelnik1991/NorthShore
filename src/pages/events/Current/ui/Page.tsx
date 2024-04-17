@@ -1,13 +1,13 @@
-import sanitizeHtml from "sanitize-html";
-import { ContentWidget } from "@widgets/Content";
-import { PageHeader, PageSkeleton } from "@entities/components";
+import sanitizeHtml from 'sanitize-html';
+import { ContentWidget } from '@widgets/Content';
+import { PageHeader, PageSkeleton } from '@entities/components';
 import {
   LanguageEnum,
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
-} from "@shared/constants";
-import { useCurrentEvent } from "../hook";
+} from '@shared/constants';
+import { useCurrentEvent } from '../hook';
 
 export default () => {
   const { isLoading, event, i18n, t } = useCurrentEvent();
@@ -16,10 +16,10 @@ export default () => {
       <PageHeader
         hideTitle
         breadcrumbs={[
-          { href: "", title: t("routes.events") },
+          { href: '', title: t('routes.events') },
           {
-            href: "",
-            title: event?.title[i18n.language as LanguageEnum] || "",
+            href: '',
+            title: event?.title[i18n.language as LanguageEnum] || '',
           },
         ]}
       />

@@ -1,9 +1,9 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, INews } from "@entities/types";
+import { RefObject, useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { axiosApi } from '@entities/api';
+import { BaseResponse, INews } from '@entities/types';
 
 interface Props {
   id: number;
@@ -19,7 +19,7 @@ export const useTableControls = ({
   wrapperRef,
 }: Props) => {
   const navigate = useNavigate();
-  const { t } = useTranslation("table");
+  const { t } = useTranslation('table');
 
   const [isShow, setIsShow] = useState(false);
 
@@ -28,10 +28,10 @@ export const useTableControls = ({
       await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
         status: 2,
       });
-      toast.success(t("toast.archiveSuccess"));
+      toast.success(t('toast.archiveSuccess'));
     } catch (error) {
       console.error(error);
-      toast.error(t("toast.archiveError"));
+      toast.error(t('toast.archiveError'));
     }
   }, [id, t]);
 
@@ -53,9 +53,9 @@ export const useTableControls = ({
         setIsShow(false);
       }
     };
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener('click', handleClickOutside, true);
     };
   }, [wrapperRef]);
 

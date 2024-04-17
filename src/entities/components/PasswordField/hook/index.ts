@@ -1,1 +1,1 @@
-export * from "./usePasswordField";
+export * from './usePasswordField';

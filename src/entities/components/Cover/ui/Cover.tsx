@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { IconClose } from "@shared/icons";
-import styles from "./Cover.module.scss";
+import classNames from 'classnames';
+import { IconClose } from '@shared/icons';
+import styles from './Cover.module.scss';
 
 interface Props {
   className?: string;

@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import { ru } from "date-fns/locale/ru";
-import DatePicker from "react-datepicker";
-import { registerLocale } from "react-datepicker";
-import { useTranslation } from "react-i18next";
-import { IconCalendar } from "@shared/icons";
-import styles from "./DatePicker.module.scss";
-registerLocale("ru", ru);
+import classNames from 'classnames';
+import { ru } from 'date-fns/locale/ru';
+import DatePicker from 'react-datepicker';
+import { registerLocale } from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
+import { IconCalendar } from '@shared/icons';
+import styles from './DatePicker.module.scss';
+registerLocale('ru', ru);
 
 interface Props {
   className?: string;

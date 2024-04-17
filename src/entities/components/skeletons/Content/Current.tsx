@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { Card } from "@shared/ui";
-import styles from "./Current.module.scss";
+import classNames from 'classnames';
+import { Card } from '@shared/ui';
+import styles from './Current.module.scss';
 
 interface Props {
   className?: string;

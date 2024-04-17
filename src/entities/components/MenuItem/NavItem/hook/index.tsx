@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
-import { Breadcrumb } from "../../Breadcrumb";
-import { NavItemProps } from "../../types";
+import { useCallback, useState } from 'react';
+import { Breadcrumb } from '../../Breadcrumb';
+import { NavItemProps } from '../../types';
 
-interface Props extends Pick<NavItemProps, "href" | "breadcrumbs"> {
+interface Props extends Pick<NavItemProps, 'href' | 'breadcrumbs'> {
   pathname: string;
 }
 

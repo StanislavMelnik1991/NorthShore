@@ -1,1 +1,1 @@
-export * from "./useEventssListPage";
+export * from './useEventssListPage';

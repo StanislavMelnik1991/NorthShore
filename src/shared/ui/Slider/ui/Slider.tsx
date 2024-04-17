@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./Slider.module.scss";
+import classNames from 'classnames';
+import styles from './Slider.module.scss';
 
 type CustomSliderProps = {
   slides: Array<JSX.Element>;

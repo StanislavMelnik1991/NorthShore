@@ -1,7 +1,7 @@
-import ReactQuill from "react-quill";
-import { linkStrategyService } from "./linkStrategy";
+import ReactQuill from 'react-quill';
+import { linkStrategyService } from './linkStrategy';
 
-type Editor = Required<ReactQuill["editor"]>;
+type Editor = Required<ReactQuill['editor']>;
 
 export const insertLink = (
   editor: NonNullable<Editor>,
@@ -21,7 +21,7 @@ export const insertImage = (editor: NonNullable<Editor>, url: string): void => {
     return;
   }
   const cursorPosition = editor.getSelection()?.index ?? 1;
-  editor.insertText(cursorPosition, "\n");
-  editor.insertEmbed(cursorPosition, "image", url);
-  editor.insertText(cursorPosition, "\n");
+  editor.insertText(cursorPosition, '\n');
+  editor.insertEmbed(cursorPosition, 'image', url);
+  editor.insertText(cursorPosition, '\n');
 };

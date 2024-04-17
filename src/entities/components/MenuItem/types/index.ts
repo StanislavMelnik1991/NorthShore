@@ -1,5 +1,5 @@
-import { SVGProps } from "react";
-import { ThemeIcons } from "@shared/icons/types";
+import { SVGProps } from 'react';
+import { ThemeIcons } from '@shared/icons/types';
 
 export type NavItemProps = {
   title: string;
@@ -13,7 +13,7 @@ export type NavItemProps = {
         SVGProps<SVGSVGElement> & {
           theme?: ThemeIcons;
         },
-        "ref"
+        'ref'
       > &
         React.RefAttributes<SVGSVGElement>
     >

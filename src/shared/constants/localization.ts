@@ -1,6 +1,6 @@
 export enum LanguageEnum {
-  RU = "ru",
-  EN = "en",
+  RU = 'ru',
+  EN = 'en',
 }
 
 export const ACCEPTED_LANGUAGES = Object.values(LanguageEnum);

@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { StatusEnum } from "@shared/constants";
-import { Badge } from "@shared/ui";
-import styles from "./Badge.module.scss";
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { StatusEnum } from '@shared/constants';
+import { Badge } from '@shared/ui';
+import styles from './Badge.module.scss';
 
 interface Props {
   className?: string;
@@ -10,15 +10,15 @@ interface Props {
 }
 
 export const TableBadge = ({ className, status }: Props) => {
-  const { t } = useTranslation("table");
+  const { t } = useTranslation('table');
 
   const ColorEnum: Record<
     keyof typeof StatusEnum,
-    "violet" | "green" | "dark" | "blue" | "orange" | "red" | "white"
+    'violet' | 'green' | 'dark' | 'blue' | 'orange' | 'red' | 'white'
   > = {
-    0: "violet",
-    1: "green",
-    2: "white",
+    0: 'violet',
+    1: 'green',
+    2: 'white',
   };
 
   return (

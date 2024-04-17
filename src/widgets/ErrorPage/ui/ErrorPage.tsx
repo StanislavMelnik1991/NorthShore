@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { Button } from "@shared/ui";
-import cls from "./ErrorPage.module.scss";
+import classNames from 'classnames';
+import { Button } from '@shared/ui';
+import cls from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
   className?: string;
@@ -14,8 +14,8 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
 
   return (
     <div className={classNames(cls.ErrorPage, {}, [className])}>
-      <p>{"Произошла непредвиденная ошибка"}</p>
-      <Button onClick={reloadPage}>{"Обновить страницу"}</Button>
+      <p>{'Произошла непредвиденная ошибка'}</p>
+      <Button onClick={reloadPage}>{'Обновить страницу'}</Button>
     </div>
   );
 };

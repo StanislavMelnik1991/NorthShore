@@ -1,13 +1,13 @@
-import sanitizeHtml from "sanitize-html";
-import { ContentWidget } from "@widgets/Content";
-import { PageHeader, PageSkeleton } from "@entities/components";
+import sanitizeHtml from 'sanitize-html';
+import { ContentWidget } from '@widgets/Content';
+import { PageHeader, PageSkeleton } from '@entities/components';
 import {
   LanguageEnum,
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
-} from "@shared/constants";
-import { useCurrentMeeting } from "../hook";
+} from '@shared/constants';
+import { useCurrentMeeting } from '../hook';
 
 export default () => {
   const { isLoading, meeting: meeting, i18n, t } = useCurrentMeeting();
@@ -16,10 +16,10 @@ export default () => {
       <PageHeader
         hideTitle
         breadcrumbs={[
-          { href: "", title: t("routes.meetings") },
+          { href: '', title: t('routes.meetings') },
           {
-            href: "",
-            title: meeting?.title[i18n.language as LanguageEnum] || "",
+            href: '',
+            title: meeting?.title[i18n.language as LanguageEnum] || '',
           },
         ]}
       />

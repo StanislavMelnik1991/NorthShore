@@ -1,30 +1,30 @@
-import { useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { toast } from "react-toastify";
-import { SafeParseError, z } from "zod";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, INews } from "@entities/types";
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import { SafeParseError, z } from 'zod';
+import { axiosApi } from '@entities/api';
+import { BaseResponse, INews } from '@entities/types';
 
 export const useCreateEvent = () => {
-  const { t } = useTranslation("events");
+  const { t } = useTranslation('events');
   const schema = z
     .object({
       title_en: z
         .string()
-        .min(1, t("errors.required"))
-        .max(256, t("errors.max256")),
+        .min(1, t('errors.required'))
+        .max(256, t('errors.max256')),
       title_ru: z
         .string()
-        .min(1, t("errors.required"))
-        .max(256, t("errors.max256")),
+        .min(1, t('errors.required'))
+        .max(256, t('errors.max256')),
       html_content_en: z
         .string()
-        .min(1, t("errors.required"))
-        .refine((val) => val !== "<p><br></p>", t("errors.required")),
+        .min(1, t('errors.required'))
+        .refine((val) => val !== '<p><br></p>', t('errors.required')),
       html_content_ru: z
         .string()
-        .min(1, t("errors.required"))
-        .refine((val) => val !== "<p><br></p>", t("errors.required")),
+        .min(1, t('errors.required'))
+        .refine((val) => val !== '<p><br></p>', t('errors.required')),
       cover: z.string().url().nullable(),
       status: z.number().int().min(0).max(2),
       target_date: z.date(),
@@ -55,16 +55,16 @@ export const useCreateEvent = () => {
       try {
         const {
           data: { data },
-        } = await axiosApi.put<BaseResponse<INews>>("/news", {
+        } = await axiosApi.put<BaseResponse<INews>>('/news', {
           ...event,
           target_date: Math.ceil(new Date(event.target_date).getTime() / 1000),
           is_event: 1,
         });
-        toast.success(t("toast.createSuccess"));
+        toast.success(t('toast.createSuccess'));
         return data;
       } catch (error) {
         console.log(error);
-        toast.error(t("toast.createError"));
+        toast.error(t('toast.createError'));
       }
     },
     [t, validate],

@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./Page.module.scss";
+import classNames from 'classnames';
+import styles from './Page.module.scss';
 
 interface Props {
   className?: string;

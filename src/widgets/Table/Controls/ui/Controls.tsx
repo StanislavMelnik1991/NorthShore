@@ -1,9 +1,9 @@
-import classNames from "classnames";
-import { useRef } from "react";
-import { IconDottedLine } from "@shared/icons";
-import { useTableControls } from "../hook";
-import styles from "./Controls.module.scss";
-import { PopUpMenu } from "./PopUpMenu/PopUpMenu";
+import classNames from 'classnames';
+import { useRef } from 'react';
+import { IconDottedLine } from '@shared/icons';
+import { useTableControls } from '../hook';
+import styles from './Controls.module.scss';
+import { PopUpMenu } from './PopUpMenu/PopUpMenu';
 
 interface Props {
   className?: string;

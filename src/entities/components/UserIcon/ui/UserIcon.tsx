@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import styles from "./UserIcon.module.scss";
+import classNames from 'classnames';
+import styles from './UserIcon.module.scss';
 
 interface Props {
   className?: string;

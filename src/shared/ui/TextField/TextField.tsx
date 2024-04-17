@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { type DetailedHTMLProps, type InputHTMLAttributes } from "react";
-import styles from "./TextField.module.scss";
+import classNames from 'classnames';
+import { type DetailedHTMLProps, type InputHTMLAttributes } from 'react';
+import styles from './TextField.module.scss';
 
 interface Props
   extends DetailedHTMLProps<

@@ -1,12 +1,12 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from "react";
-import { IconEyeClose, IconEyeOpen } from "@shared/icons";
-import { TextField } from "@shared/ui";
-import { usePasswordField } from "../hook";
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { IconEyeClose, IconEyeOpen } from '@shared/icons';
+import { TextField } from '@shared/ui';
+import { usePasswordField } from '../hook';
 
 interface Props
   extends Omit<
     DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-    "type"
+    'type'
   > {
   wrapperClassName?: string;
   inputClassName?: string;
@@ -19,7 +19,7 @@ export const PasswordField = (props: Props) => {
   const { isShowPassword, toggleIsShowPassword } = usePasswordField();
   return (
     <TextField
-      type={isShowPassword ? "text" : "password"}
+      type={isShowPassword ? 'text' : 'password'}
       rightItem={
         <EyeIcon
           isShowPassword={isShowPassword}

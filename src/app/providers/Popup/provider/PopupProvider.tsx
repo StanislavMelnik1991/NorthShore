@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { PopupContext } from "@features/Popup";
-import { usePopupProvider } from "../hook";
+import { ReactNode } from 'react';
+import { PopupContext } from '@features/Popup';
+import { usePopupProvider } from '../hook';
 
 interface Props {
   children: ReactNode;

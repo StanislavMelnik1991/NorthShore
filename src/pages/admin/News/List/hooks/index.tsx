@@ -1,20 +1,20 @@
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDebounce } from "use-debounce";
-import { useGetNewsList } from "@features/Admin";
-import { INews, INewsFilter, INewsSort, ListParams } from "@entities/types";
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDebounce } from 'use-debounce';
+import { useGetNewsList } from '@features/Admin';
+import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
   StatusEnum,
-} from "@shared/constants";
+} from '@shared/constants';
 
 export const useNewsList = () => {
-  const { t } = useTranslation("news");
+  const { t } = useTranslation('news');
   const { getData } = useGetNewsList();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -35,7 +35,7 @@ export const useNewsList = () => {
         status,
       },
       sort: {
-        created_at: "asc",
+        created_at: 'asc',
       },
     };
     setTotal(100);

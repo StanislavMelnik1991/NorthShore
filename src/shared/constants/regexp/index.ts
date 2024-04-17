@@ -1,1 +1,1 @@
-export * from "./password.reg";
+export * from './password.reg';

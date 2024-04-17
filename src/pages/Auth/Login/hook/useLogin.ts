@@ -1,20 +1,20 @@
-import { useFormik } from "formik";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { z } from "zod";
-import { useUser } from "@features/User/hook";
-import { axiosApi } from "@entities/api";
-import { BaseResponse, ILoginResponse } from "@entities/types";
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { z } from 'zod';
+import { useUser } from '@features/User/hook';
+import { axiosApi } from '@entities/api';
+import { BaseResponse, ILoginResponse } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   TOKEN_LOCAL_STORAGE_KEY,
   ROLES_ADMIN,
-} from "@shared/constants";
+} from '@shared/constants';
 
 export const useLogin = () => {
-  const { t } = useTranslation("auth");
+  const { t } = useTranslation('auth');
   const navigate = useNavigate();
   const { setUser } = useUser();
   const schema = z
@@ -26,8 +26,8 @@ export const useLogin = () => {
 
   type ValuesType = z.infer<typeof schema>;
   const initialValues: ValuesType = {
-    account_number: "",
-    password: "",
+    account_number: '',
+    password: '',
   };
   const { values, errors, setFieldValue, handleSubmit } = useFormik({
     initialValues,
@@ -47,7 +47,7 @@ export const useLogin = () => {
             data: { token, ...user },
           },
         } = await axiosApi.post<BaseResponse<ILoginResponse>>(
-          "/auth/login",
+          '/auth/login',
           body,
         );
         setUser?.(user);
@@ -57,11 +57,11 @@ export const useLogin = () => {
         } else {
           navigate(AppRoutes[AppRoutesEnum.MAIN]());
         }
-        toast.success(`${t("toast.loginSuccess")} ${user.name}`);
+        toast.success(`${t('toast.loginSuccess')} ${user.name}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
         console.log(error);
-        toast.error(t("toast.loginError"));
+        toast.error(t('toast.loginError'));
       }
     },
   });

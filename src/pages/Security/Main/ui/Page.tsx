@@ -1,15 +1,15 @@
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { PageHeader, PageSkeleton } from "@entities/components";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
-import { Card, Title } from "@shared/ui";
-import accessImage from "../assets/access.png";
-import intercomImage from "../assets/intercom.png";
-import videoImage from "../assets/video.png";
-import styles from "./Page.module.scss";
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { PageHeader, PageSkeleton } from '@entities/components';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { Card, Title } from '@shared/ui';
+import accessImage from '../assets/access.png';
+import intercomImage from '../assets/intercom.png';
+import videoImage from '../assets/video.png';
+import styles from './Page.module.scss';
 
 const MainPage = () => {
-  const { t } = useTranslation("security");
+  const { t } = useTranslation('security');
 
   return (
     <PageSkeleton className={styles.wrapper}>
@@ -17,8 +17,8 @@ const MainPage = () => {
         className={styles.header}
         breadcrumbs={[
           {
-            href: "",
-            title: t("title"),
+            href: '',
+            title: t('title'),
           },
         ]}
       />
@@ -30,12 +30,12 @@ const MainPage = () => {
           padding={20}
         >
           <Title fontWeight="semibold" variant="h4">
-            {t("modules.access")}
+            {t('modules.access')}
           </Title>
           <img
             src={accessImage}
             className={styles.image}
-            alt={t("modules.access")}
+            alt={t('modules.access')}
           />
         </Card>
       </Link>
@@ -47,12 +47,12 @@ const MainPage = () => {
           padding={20}
         >
           <Title fontWeight="semibold" variant="h4">
-            {t("modules.intercom")}
+            {t('modules.intercom')}
           </Title>
           <img
             src={intercomImage}
             className={styles.image}
-            alt={t("modules.intercom")}
+            alt={t('modules.intercom')}
           />
         </Card>
       </Link>
@@ -64,12 +64,12 @@ const MainPage = () => {
           padding={20}
         >
           <Title fontWeight="semibold" variant="h4">
-            {t("modules.video")}
+            {t('modules.video')}
           </Title>
           <img
             src={videoImage}
             className={styles.image}
-            alt={t("modules.video")}
+            alt={t('modules.video')}
           />
         </Card>
       </Link>

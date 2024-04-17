@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { IUser } from "@entities/types";
+import { createContext } from 'react';
+import { IUser } from '@entities/types';
 
 export interface UserContextProps {
   user?: IUser;

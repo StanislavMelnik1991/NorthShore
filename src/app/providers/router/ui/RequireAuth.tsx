@@ -1,6 +1,6 @@
-import { Navigate, useLocation } from "react-router-dom";
-import { useUser } from "@features/User/hook";
-import { AppRoutes, AppRoutesEnum } from "@shared/constants";
+import { Navigate, useLocation } from 'react-router-dom';
+import { useUser } from '@features/User/hook';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 interface RequireAuthProps {
   children: JSX.Element;

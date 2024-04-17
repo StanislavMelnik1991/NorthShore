@@ -1,6 +1,6 @@
-import { useCallback, useContext } from "react";
-import { TOKEN_LOCAL_STORAGE_KEY } from "@shared/constants";
-import { UserContext } from "../context";
+import { useCallback, useContext } from 'react';
+import { TOKEN_LOCAL_STORAGE_KEY } from '@shared/constants';
+import { UserContext } from '../context';
 
 export const useUser = () => {
   const { user, isLoading, setUser, setToken, isAdmin } =

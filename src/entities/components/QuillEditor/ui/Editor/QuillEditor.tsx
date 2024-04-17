@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { FocusEventHandler, useRef } from "react";
-import ReactQuill from "react-quill";
-import { useQuillEditor } from "../../hooks";
-import styles from "./QuillEditor.module.scss";
+import classNames from 'classnames';
+import { FocusEventHandler, useRef } from 'react';
+import ReactQuill from 'react-quill';
+import { useQuillEditor } from '../../hooks';
+import styles from './QuillEditor.module.scss';
 
 type Props = {
   initialValue: string;
@@ -11,7 +11,7 @@ type Props = {
   wrapperClassName?: string;
   inputClassName?: string;
   onBlur?: FocusEventHandler<HTMLInputElement>;
-  theme?: "snow" | "bubble";
+  theme?: 'snow' | 'bubble';
   focused?: boolean;
   label?: string;
   error?: string;
@@ -22,7 +22,7 @@ export const QuillEditor = ({
   placeholder,
   initialValue,
   onBlur,
-  theme = "snow",
+  theme = 'snow',
   setValue,
   focused = false,
   uploadImage,
@@ -46,37 +46,37 @@ export const QuillEditor = ({
   const modules = {
     toolbar: [
       [{ header: [2, 3, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
+        { list: 'ordered' },
+        { list: 'bullet' },
+        { indent: '-1' },
+        { indent: '+1' },
       ],
       [
-        { align: "" },
-        { align: "center" },
-        { align: "right" },
-        { align: "justify" },
+        { align: '' },
+        { align: 'center' },
+        { align: 'right' },
+        { align: 'justify' },
       ],
-      ["link", "image"],
-      ["clean"],
+      ['link', 'image'],
+      ['clean'],
     ],
   };
   const formats = [
-    "header",
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "blockquote",
-    "list",
-    "bullet",
-    "indent",
-    "link",
-    "image",
-    "embedVideo",
-    "align",
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'link',
+    'image',
+    'embedVideo',
+    'align',
   ];
 
   return (
