@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 24px;
+
+  @media (width < 1280px) {
+    margin-bottom: 12px;
+  }
+
+  @media (width < 980px) {
+    margin-bottom: 0;
+  }
 }
 
 .breadcrumbs {
