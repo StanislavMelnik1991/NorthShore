@@ -29,7 +29,8 @@
     "video": "Video Surveillance"
   },
   "header": {
-    "login": "Log In"
+    "login": "Log In",
+    "logout": "Logout"
   },
   "poster": "Poster",
   "not_found": {

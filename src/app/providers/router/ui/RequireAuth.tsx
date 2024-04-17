@@ -4,13 +4,14 @@ import { AppRoutes, AppRoutesEnum } from "@shared/constants";
 
 interface RequireAuthProps {
   children: JSX.Element;
+  roles?: Array<number>;
 }
 
-export function RequireAuth({ children }: RequireAuthProps) {
+export function RequireAuth({ children, roles }: RequireAuthProps) {
   const location = useLocation();
   const { user } = useUser();
   const auth = !!user;
-  if (!auth) {
+  if (!auth || (roles && !roles?.includes(user.group.id))) {
     return (
       <Navigate
         to={AppRoutes[AppRoutesEnum.FORBIDDEN]()}

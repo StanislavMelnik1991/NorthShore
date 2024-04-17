@@ -57,26 +57,3 @@
     display: flex;
   }
 }
-
-.menu {
-  display: none;
-  position: absolute;
-  background-color: var(--white-100);
-  border: var(--border-width) solid var(--dark-20);
-  border-top: none;
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-  right: 0;
-  top: 100%;
-  z-index: 5;
-  transition: all var(--animation-duration) ease;
-
-  @media (width < 1280px) {
-    display: flex;
-  }
-}
-
-.hide {
-  transform: translateY(-100%);
-  z-index: -5;
-  opacity: 0;
-}

@@ -12,3 +12,5 @@ export * from "./Table";
 export * from "./cards";
 export * from "./modal";
 export * from "./skeletons";
+export * from "./MenuItem";
+export * from "./UserIcon";

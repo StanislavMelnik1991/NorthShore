@@ -29,7 +29,8 @@
     "video": "Видеонаблюдение"
   },
   "header": {
-    "login": "Войти"
+    "login": "Войти",
+    "logout": "Выйти"
   },
   "poster": "Афиша",
   "not_found": {

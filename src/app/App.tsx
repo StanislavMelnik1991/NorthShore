@@ -5,29 +5,32 @@ import { Header } from "@widgets/Header";
 import { MainLayout } from "@widgets/layouts";
 import { SideBar } from "@widgets/SideBar";
 import { useUser } from "@features/User/hook";
-import { useAdminSidebarConfig, useUserSidebarConfig } from "@entities/config";
-import { rolesAdminId } from "@shared/constants";
+import {
+  useAdminSidebarConfig,
+  useUserMenuConfig,
+  useUserSidebarConfig,
+} from "./config";
 import { AppRouter } from "./providers/router";
 
 const App = memo(() => {
-  const { user } = useUser();
-  const isAdmin = (user && rolesAdminId.includes(user?.group.id)) || false;
+  const { isAdmin, user } = useUser();
   const adminConfig = useAdminSidebarConfig();
   const userConfig = useUserSidebarConfig();
-  const sidebar = isAdmin ? (
-    <SideBar config={adminConfig} />
-  ) : (
-    <SideBar config={userConfig} />
-  );
+  const userMenuConfig = useUserMenuConfig();
+  const burgerMenuConfig = !isAdmin
+    ? [...adminConfig, ...userMenuConfig]
+    : [...userConfig, ...userMenuConfig];
   return (
     <div className="app" id="app">
       <ToastContainer />
       <Suspense fallback="">
         <MainLayout
-          header={<Header burgerMenu={sidebar} />}
+          header={<Header />}
           content={<AppRouter />}
-          sidebar={sidebar}
+          sidebar={<SideBar config={isAdmin ? adminConfig : userConfig} />}
           footer={<Footer />}
+          burgerMenu={<SideBar config={burgerMenuConfig} />}
+          userMenu={user ? <SideBar config={userMenuConfig} /> : undefined}
         />
       </Suspense>
     </div>

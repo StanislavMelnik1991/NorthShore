@@ -70,7 +70,7 @@ export const IconsGrid = ({ size, theme }: Props) => {
         <IconPlus width={size} height={size} />
       </Item>
       <Item name="IconHuman">
-        <IconHuman width={size} height={size} />
+        <IconHuman theme={theme} width={size} height={size} />
       </Item>
       <Item name="IconEyeOpen">
         <IconEyeOpen width={size} height={size} />

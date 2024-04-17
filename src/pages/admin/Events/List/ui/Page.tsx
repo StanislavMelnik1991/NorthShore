@@ -50,7 +50,7 @@ const Page = () => {
           leftItem={<IconLoupe width={20} height={20} />}
         />
       </Card>
-      <Card padding={0} flexDirection="column" loading={isLoading}>
+      <Card className={styles.card} flexDirection="column" loading={isLoading}>
         <Table config={tableConfig} items={useDataFormatHelper(data)} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
