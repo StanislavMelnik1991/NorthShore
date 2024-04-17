@@ -1,29 +1,18 @@
-import { StatusEnum } from '@shared/constants';
+import { NewsStatusEnum } from '@shared/constants';
 import { SortOrder } from '@shared/types';
+import { IUser } from './user.interface';
 
 export type INews = {
   id: number;
   cover?: string;
-  user: {
-    id: number;
-    name: string;
-    group: {
-      id: number;
-      name: string;
-    };
-    avatar: null;
-    status: {
-      id: number;
-      name: string;
-    };
-  };
+  user: IUser;
   title: {
     en: string;
     ru: string;
   };
   user_id: number;
   is_draft: 0 | 1;
-  status: keyof typeof StatusEnum;
+  status: keyof typeof NewsStatusEnum;
   created_at: number;
   updated_at: number;
   html_content: {
@@ -36,7 +25,7 @@ export type INews = {
 };
 
 export interface INewsFilter {
-  status?: keyof typeof StatusEnum;
+  status?: keyof typeof NewsStatusEnum;
 }
 
 export type INewsSort = { created_at: SortOrder } | { status: SortOrder };

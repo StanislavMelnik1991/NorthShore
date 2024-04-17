@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@entities/components';
-import { StatusEnum } from '@shared/constants';
+import { NewsStatusEnum } from '@shared/constants';
 import { Button, Text, Title } from '@shared/ui';
 import styles from './Update.module.scss';
 
 interface Props {
   className?: string;
-  setStatus(val: keyof typeof StatusEnum): void;
-  status: keyof typeof StatusEnum;
+  setStatus(val: keyof typeof NewsStatusEnum): void;
+  status: keyof typeof NewsStatusEnum;
   isValid: boolean;
   handleDelete(): void;
 }

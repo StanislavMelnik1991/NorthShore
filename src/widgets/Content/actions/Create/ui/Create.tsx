@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { StatusEnum } from '@shared/constants';
+import { NewsStatusEnum } from '@shared/constants';
 import { Button } from '@shared/ui';
 import styles from './Create.module.scss';
 
 interface Props {
   className?: string;
-  setStatus(val: keyof typeof StatusEnum): void;
+  setStatus(val: keyof typeof NewsStatusEnum): void;
   isValid: boolean;
 }
 

@@ -1,19 +1,19 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { StatusEnum } from '@shared/constants';
+import { NewsStatusEnum } from '@shared/constants';
 import { Badge } from '@shared/ui';
 import styles from './Badge.module.scss';
 
 interface Props {
   className?: string;
-  status: keyof typeof StatusEnum;
+  status: keyof typeof NewsStatusEnum;
 }
 
 export const TableBadge = ({ className, status }: Props) => {
   const { t } = useTranslation('table');
 
   const ColorEnum: Record<
-    keyof typeof StatusEnum,
+    keyof typeof NewsStatusEnum,
     'violet' | 'green' | 'dark' | 'blue' | 'orange' | 'red' | 'white'
   > = {
     0: 'violet',
@@ -26,7 +26,7 @@ export const TableBadge = ({ className, status }: Props) => {
       className={classNames(styles.wrapper, className)}
       color={ColorEnum[status]}
     >
-      {t(`badges.${StatusEnum[status]}`)}
+      {t(`badges.${NewsStatusEnum[status]}`)}
     </Badge>
   );
 };

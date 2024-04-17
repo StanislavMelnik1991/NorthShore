@@ -8,7 +8,7 @@ import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
-  StatusEnum,
+  NewsStatusEnum,
 } from '@shared/constants';
 
 export const useNewsList = () => {
@@ -19,7 +19,7 @@ export const useNewsList = () => {
   const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<Array<INews>>([]);
-  const [status, setStatus] = useState<keyof typeof StatusEnum>();
+  const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
   const [isLoading, setIsLoading] = useState(true);
   const [debounced] = useDebounce(search, 500);
   const navigate = useNavigate();

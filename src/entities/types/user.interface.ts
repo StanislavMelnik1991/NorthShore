@@ -24,4 +24,16 @@ export interface IUser extends IUserShort {
     apartment_id: number;
     apartment: number;
   }[];
+  parent?: IParent;
+}
+
+export interface IParent {
+  id: number;
+  name: string;
+  group: {
+    id: number;
+    name: string;
+  };
+  avatar: string;
+  parent?: IParent;
 }
