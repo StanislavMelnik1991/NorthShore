@@ -17,7 +17,7 @@ const App = memo(() => {
   const adminConfig = useAdminSidebarConfig();
   const userConfig = useUserSidebarConfig();
   const userMenuConfig = useUserMenuConfig();
-  const burgerMenuConfig = !isAdmin
+  const burgerMenuConfig = isAdmin
     ? [...adminConfig, ...userMenuConfig]
     : [...userConfig, ...userMenuConfig];
   return (
