@@ -4,6 +4,11 @@ import ReactQuill from 'react-quill';
 import { useQuillEditor } from '../../hooks';
 import styles from './QuillEditor.module.scss';
 
+type CustomFile = {
+  id: number;
+  url: string;
+};
+
 type Props = {
   initialValue: string;
   setValue: (val: string) => void;
@@ -15,7 +20,7 @@ type Props = {
   focused?: boolean;
   label?: string;
   error?: string;
-  uploadImage(file: File): Promise<string | undefined>;
+  uploadImage(file: File): Promise<CustomFile | undefined>;
 };
 
 export const QuillEditor = ({

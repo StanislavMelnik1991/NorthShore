@@ -1,12 +1,13 @@
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
+import { IFile } from '@entities/types';
 import { IMAGE_TYPES, MAX_IMAGE_SIZE } from '@shared/constants';
 
 interface Props {
-  handleUploadImage(file: File): Promise<string>;
-  setFieldValue(name: 'files', val: Array<string>): void;
-  files: Array<string>;
+  handleUploadImage(file: File): Promise<IFile | undefined>;
+  setFieldValue(name: 'files', val: Array<IFile>): void;
+  files: Array<IFile>;
 }
 
 export const useEditorWidget = ({
@@ -20,9 +21,9 @@ export const useEditorWidget = ({
     async (newFiles: File[]) => {
       setIsLoading(true);
       if (newFiles.length) {
-        const url = await handleUploadImage(newFiles[0]);
-        if (url) {
-          setFieldValue('files', [...files, url]);
+        const file = await handleUploadImage(newFiles[0]);
+        if (file && file.id) {
+          setFieldValue('files', [...files, file]);
         }
       }
       setIsLoading(false);

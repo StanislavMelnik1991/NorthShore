@@ -2,6 +2,8 @@ import sanitizeHtml from 'sanitize-html';
 import { ContentWidget } from '@widgets/Content';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import {
+  AppRoutes,
+  AppRoutesEnum,
   LanguageEnum,
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
@@ -16,7 +18,10 @@ export default () => {
       <PageHeader
         hideTitle
         breadcrumbs={[
-          { href: '', title: t('routes.events') },
+          {
+            href: AppRoutes[AppRoutesEnum.POSTER](),
+            title: t('routes.events'),
+          },
           {
             href: '',
             title: event?.title[i18n.language as LanguageEnum] || '',

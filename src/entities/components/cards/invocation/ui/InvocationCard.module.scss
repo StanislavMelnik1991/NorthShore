@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  border-bottom: var(--border-width) solid var(--dark-20);
+}
+
+.about {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px 20px 0;
+}
+
+.gray {
+  color: var(--dark-60);
+}
+
+.title {
+  padding: 0 20px;
+}
+
+.status {
+  padding: 0 20px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}

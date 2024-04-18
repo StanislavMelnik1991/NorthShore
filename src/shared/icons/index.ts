@@ -30,3 +30,6 @@ export * from './Diagram';
 export * from './Lock';
 export * from './Passport';
 export * from './People';
+export * from './ClockPast';
+export * from './Done';
+export * from './Star';

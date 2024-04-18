@@ -20,7 +20,7 @@ export default () => {
           const cover = el.cover || imageParser(el.html_content[lang])[0];
           return (
             <NewsCard
-              link={AppRoutes[AppRoutesEnum.NEWS_CURRENT](el.id)}
+              link={AppRoutes[AppRoutesEnum.EVENT_CURRENT](el.id)}
               title={el.title[lang]}
               text={extractTextFromHtml(el.html_content[lang])}
               image={cover}

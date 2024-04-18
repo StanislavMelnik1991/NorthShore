@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useUploadImage } from '@features/Image/hooks/useUploadImage';
 import { useCreateRequest } from '@features/invocation';
+import { IFile } from '@entities/types';
 import { AppRoutes, AppRoutesEnum, RequestThemesEnum } from '@shared/constants';
 
 export const useCreateEventsPage = () => {
@@ -18,7 +19,7 @@ export const useCreateEventsPage = () => {
     contact_id: undefined as unknown as number,
     contact_fio: '',
     contact_phone: '',
-    files: [] as Array<string>,
+    files: [] as Array<IFile>,
   };
 
   const { values, errors, setFieldValue, handleSubmit, isValid } = useFormik({

@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.new {
+  color: var(--primary-100);
+
+  rect {
+    fill: var(--primary-100);
+  }
+}
+
+.passed {
+  color: var(--yellow-100);
+
+  rect {
+    fill: var(--yellow-100);
+  }
+}
+
+.accepted {
+  color: var(--green-100);
+
+  rect {
+    fill: var(--green-100);
+  }
+}
+
+.done {
+  color: var(--green-100);
+
+  rect {
+    fill: var(--green-100);
+  }
+}
+
+.closed {
+  color: var(--dark-60);
+
+  rect {
+    fill: var(--dark-60);
+  }
+}

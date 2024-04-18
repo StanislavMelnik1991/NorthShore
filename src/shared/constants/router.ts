@@ -11,6 +11,7 @@ export enum AppRoutesEnum {
   SERVICES,
 
   REQUESTS,
+  REQUESTS_CURRENT,
   REQUESTS_CREATE,
   APPLICATIONS,
   APPLICATIONS_CREATE,
@@ -73,6 +74,7 @@ export const AppRoutes = {
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',
   [AppRoutesEnum.REQUESTS_CREATE]: () => '/requests/create',
+  [AppRoutesEnum.REQUESTS_CURRENT]: (id: number | string) => `/requests/${id}`,
   [AppRoutesEnum.APPLICATIONS]: () => '/applications',
   [AppRoutesEnum.APPLICATIONS_CREATE]: () => '/applications/create',
 

@@ -23,7 +23,12 @@ export const useCreateRequest = () => {
       .string()
       .min(1, t('errors.required'))
       .max(256, t('errors.max256')),
-    files: z.array(z.string()),
+    files: z.array(
+      z.object({
+        id: z.number().int(),
+        url: z.string(),
+      }),
+    ),
   });
 
   type ValuesType = z.infer<typeof schema>;

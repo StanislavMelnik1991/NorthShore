@@ -1,4 +1,6 @@
 :root {
-  --yellow-color-rgb: 251, 246, 220;
-  --yellow-color: rgb(var(--yellow-color-rgb));
+  --yellow-100-rgb: 241, 152, 17;
+  --yellow-10-rgb: 251, 246, 220;
+  --yellow-100: rgb(var(--yellow-100-rgb));
+  --yellow-10: rgb(var(--yellow-10-rgb));
 }

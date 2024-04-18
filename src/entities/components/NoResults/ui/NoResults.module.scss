@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  max-width: 253px;
+  gap: 7px;
+}
+
+.gray {
+  color: var(--dark-60);
+}
+
+.image {
+  height: 90px;
+  width: auto;
+}

@@ -1,10 +1,12 @@
 import { RequestStatusEnum } from '@shared/constants';
+import { IFile } from './image.interface';
 import { IUser } from './user.interface';
 
 export interface IRequest {
   id: number;
   user: IUser;
-  files: never[];
+  files: IFile[];
+  title: string;
   theme: {
     id: number;
     name: string;
@@ -20,7 +22,7 @@ export interface IRequest {
   };
   content: string;
   user_id: number;
-  data_add: string;
+  data_add: number;
   theme_id: number;
   files_ids: string;
   status_id: number;

@@ -6,7 +6,7 @@ import { BaseResponse, ListParams } from '@entities/types';
 import { IRequest } from '@entities/types/request.interface';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
-export const useGetRequestsList = () => {
+export const useGetRequestsList = (isActual: boolean) => {
   const { t } = useTranslation('invocation');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -14,10 +14,13 @@ export const useGetRequestsList = () => {
 
   const getData = useCallback(
     async (searchValue?: string) => {
-      const params: ListParams<undefined, undefined> = {
+      const params: ListParams<undefined, { isActual: 0 | 1 }> = {
         page,
         perPage,
         searchValue,
+        filter: {
+          isActual: isActual ? 1 : 0,
+        },
       };
       try {
         const {
@@ -31,7 +34,7 @@ export const useGetRequestsList = () => {
         console.error(error);
       }
     },
-    [page, perPage, t],
+    [isActual, page, perPage, t],
   );
 
   return {

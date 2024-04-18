@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { FormikErrors } from 'formik';
 import { Cover, CustomDatePicker, QuillEditor } from '@entities/components';
+import { IFile } from '@entities/types';
 import { IconStaple } from '@shared/icons';
 import { Button, Card, TextField, Title } from '@shared/ui';
 import { useEditorWidget } from '../hook/';
@@ -19,7 +20,7 @@ type News = {
 interface Props {
   className?: string;
   loading?: boolean;
-  handleUploadImage(file: File): Promise<string>;
+  handleUploadImage(file: File): Promise<IFile | undefined>;
   controls?: JSX.Element;
   values: News;
   errors: FormikErrors<News>;
@@ -88,6 +89,7 @@ export const ContentEditor = ({
             <Button
               variant={'light'}
               className={styles.downloadButton}
+              type="button"
               onClick={open}
               loading={isLoading}
             >

@@ -17,6 +17,7 @@ import { RequestMainPage } from '@pages/invocation';
 // import { ApplicationsMainPage } from '@pages/invocation/applications';
 // import { CreateApplicationPage } from '@pages/invocation/applications/Create';
 import { CreateRequestPage } from '@pages/invocation/requests/Create';
+import { CurrentRequestPage } from '@pages/invocation/requests/Current';
 import { MainPage } from '@pages/Main';
 import { CurrentMeetingPage } from '@pages/meetings';
 import { CurrentNewsPage } from '@pages/news';
@@ -244,6 +245,12 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.REQUESTS_CREATE]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
     element: <CreateRequestPage />,
+    authOnly: true,
+    // acceptedRoles: [],
+  },
+  [AppRoutesEnum.REQUESTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.REQUESTS_CURRENT](':id'),
+    element: <CurrentRequestPage />,
     authOnly: true,
     // acceptedRoles: [],
   },

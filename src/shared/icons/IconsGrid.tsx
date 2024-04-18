@@ -35,6 +35,9 @@ import {
   IconLock,
   IconPassport,
   IconPeople,
+  IconClockPast,
+  IconDone,
+  IconStar,
 } from '.';
 
 interface Props {
@@ -140,6 +143,15 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconPeople">
         <IconPeople theme={theme} width={size} height={size} />
+      </Item>
+      <Item name="IconClockPast">
+        <IconClockPast width={size} height={size} />
+      </Item>
+      <Item name="IconDone">
+        <IconDone width={size} height={size} />
+      </Item>
+      <Item name="IconStar">
+        <IconStar width={size} height={size} />
       </Item>
     </div>
   );

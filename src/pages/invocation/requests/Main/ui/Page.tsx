@@ -18,7 +18,7 @@ const Page = () => {
   ];
 
   const tabs = [
-    <RequestList key={`RequestList-0`} />,
+    <RequestList key={`RequestList-0`} isActual />,
     <RequestList key={`RequestList-1`} />,
   ];
   return (

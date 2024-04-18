@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { FormikErrors } from 'formik';
 import { Cover, QuillEditor, StyledSelect } from '@entities/components';
+import { IFile } from '@entities/types';
 import { RequestThemesEnum } from '@shared/constants';
 import { IconStaple } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
@@ -13,19 +14,19 @@ type Values = {
   theme_id: keyof typeof RequestThemesEnum;
   contact_fio: string;
   contact_phone: string;
-  files: string[];
+  files: IFile[];
 };
 
 interface Props {
   className?: string;
   loading?: boolean;
-  handleUploadImage(file: File): Promise<string>;
+  handleUploadImage(file: File): Promise<IFile | undefined>;
   controls?: JSX.Element;
   values: Values;
   errors: FormikErrors<Values>;
   setFieldValue: (
     field: keyof Values,
-    value: string | Array<string> | number | null,
+    value: string | Array<IFile> | number | null,
     shouldValidate?: boolean | undefined,
   ) => Promise<void> | Promise<FormikErrors<Values>>;
 }
@@ -111,7 +112,7 @@ export const RequestContentEditor = ({
                 return (
                   <Cover
                     key={`file-${index}`}
-                    src={el}
+                    src={el.url}
                     onRemove={() => handleRemoveImage(index)}
                   />
                 );

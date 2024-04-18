@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, IImage } from '@entities/types';
+import { BaseResponse, IFile } from '@entities/types';
 
 export const useUploadImage = () => {
   const handleUploadImage = useCallback(async (file: File) => {
@@ -11,17 +11,16 @@ export const useUploadImage = () => {
     try {
       const {
         data: { data },
-      } = await axiosApi.post<BaseResponse<IImage>>('upload', formData, {
+      } = await axiosApi.post<BaseResponse<IFile>>('upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      return data.url;
+      return data;
     } catch (error) {
       console.error(error);
       toast.error('Не удалось загрузить файл');
     }
-    return '';
   }, []);
   return {
     handleUploadImage,

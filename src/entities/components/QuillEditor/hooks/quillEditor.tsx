@@ -5,13 +5,18 @@ import type { ReactQuillProps } from 'react-quill';
 import { insertImage, insertLink } from './helpers';
 import './helpers/block';
 
+type CustomFile = {
+  id: number;
+  url: string;
+};
+
 type Props = {
   reactQuillRef: RefObject<ReactQuill>;
   wrapperRef: RefObject<HTMLLabelElement>;
   value: string;
   setValue: (val: string) => void;
   isActive: boolean;
-  uploadImage(file: File): Promise<string | undefined>;
+  uploadImage(file: File): Promise<CustomFile | undefined>;
 };
 
 export const useQuillEditor = ({
@@ -40,14 +45,14 @@ export const useQuillEditor = ({
         const position = contentText.indexOf(content as string) || 0;
         if (content?.image) {
           const file = dataURLtoFile(content.image);
-          uploadImage(file).then((url) => {
+          uploadImage(file).then((newFile) => {
             (
               contentEditor as unknown as { history: { undo: () => void } }
             ).history.undo();
-            if (!url) {
+            if (!newFile) {
               return;
             }
-            insertImage(contentEditor, url);
+            insertImage(contentEditor, newFile.url);
           });
           return;
         }
@@ -96,9 +101,9 @@ export const useQuillEditor = ({
       if (reactQuillRef.current && files.length) {
         const editor = reactQuillRef.current.getEditor();
         editor.focus();
-        const url = await uploadImage(files[0]);
-        if (url) {
-          insertImage(editor, url);
+        const newFile = await uploadImage(files[0]);
+        if (newFile) {
+          insertImage(editor, newFile.url);
         }
       }
     },
