@@ -56,11 +56,11 @@ export const useCreateRequest = () => {
         if (!data.id) {
           throw new Error();
         }
-        toast.success(t('toast.createSuccess'));
+        toast.success(t('toast.requestCreateSuccess'));
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('toast.requestCreateError'));
       }
     },
     [t, validate],

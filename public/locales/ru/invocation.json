@@ -70,7 +70,7 @@
     "requestUpdateSuccess": "Заявка обновлена успешно",
     "requestUpdateError": "Не удалось обновлена заявку",
     "requestCreateSuccess": "Заявка создана успешно",
-    "requestCreateError": "Не удалось создана заявку",
+    "requestCreateError": "Не удалось создать заявку",
     "requestNotFound": "Не удалось получить заявку"
   },
   "errors": {
