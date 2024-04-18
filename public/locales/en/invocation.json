@@ -1,0 +1,81 @@
+{
+  "routes": {
+    "applications": "Applications",
+    "requests": "Requests",
+    "create_application": "New application",
+    "create_request": "New application"
+  },
+  "tabs": {
+    "actual": "Topical",
+    "completed": "Completed"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview"
+  },
+  "status": {
+    "new": "New application",
+    "passed": "Transmitted for execution",
+    "accepted": "Accepted for execution",
+    "done": "Done",
+    "closed": "Closed"
+  },
+  "themes": {
+    "defect": "Fault",
+    "accident": "Accident",
+    "suggestion": "Suggestion",
+    "video": "Video clip request",
+    "parking": "Request for a parking space",
+    "parking_electro": "Request for a parking space with electric charger",
+    "passport": "Passport office applications",
+    "other": "Other"
+  },
+  "editor": {
+    "theme": {
+      "label": "Subject of the application",
+      "placeholder": "Select the type of application"
+    },
+    "content": {
+      "label": "Application text",
+      "placeholder": "Application text"
+    },
+    "contact_fio": {
+      "label": "Contact Person",
+      "placeholder": "Enter a name"   
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Enter the title of the application"
+    },
+    "cover": {
+      "label": "Photo and video"
+    },
+    "contact_phone": {
+      "label": "Phone number",
+      "placeholder": "Enter the phone number"   
+    }
+  },
+  "toast": {
+    "requestListError": "Failed to get the list of all requests",
+    "requestDeleteSuccess": "Request deleted successfully",
+    "requestDeleteError": "Failed to delete request",
+    "requestUpdateSuccess": "Request updated successfully",
+    "requestUpdateError": "Failed to update request",
+    "requestCreateSuccess": "Request created successfully",
+    "requestCreateError": "Failed to create request",
+    "requestNotFound": "Failed to get request"
+  },
+  "errors": {
+    "required": "Field is required",
+    "max256": "Title must not be longer than 256 characters",
+    "invalidFormat": "Incorrect format"
+  }
+}

@@ -3,7 +3,7 @@ import { FormikErrors } from 'formik';
 import { Cover, CustomDatePicker, QuillEditor } from '@entities/components';
 import { IconStaple } from '@shared/icons';
 import { Button, Card, TextField, Title } from '@shared/ui';
-import { useCreateMeeting } from '../hook/useCreateMeeting';
+import { useEditorWidget } from '../hook/';
 import styles from './Editor.module.scss';
 
 type News = {
@@ -47,7 +47,7 @@ export const ContentEditor = ({
   loading,
   values,
 }: Props) => {
-  const { getInputProps, open, isLoading, t } = useCreateMeeting({
+  const { getInputProps, open, isLoading, t } = useEditorWidget({
     handleUploadImage,
     setFieldValue,
   });

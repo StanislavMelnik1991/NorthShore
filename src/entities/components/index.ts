@@ -14,3 +14,4 @@ export * from './modal';
 export * from './skeletons';
 export * from './MenuItem';
 export * from './UserIcon';
+export * from './Select';

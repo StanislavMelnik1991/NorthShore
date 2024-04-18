@@ -47,10 +47,26 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
       isLink: true,
     },
     {
-      title: t('sidebar.requests'),
+      title: t('sidebar.invocation'),
       icon: IconDocumentHolder,
-      href: AppRoutes[AppRoutesEnum.REQUESTS](),
-      isLink: true,
+      href: '',
+      isLink: false,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.REQUESTS](),
+          title: t('sidebar.requests'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.APPLICATIONS](),
+          title: t('sidebar.applications'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
+        },
+      ],
     },
     {
       title: t('sidebar.shutdowns'),

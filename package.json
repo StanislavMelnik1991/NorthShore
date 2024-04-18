@@ -39,6 +39,7 @@
     "react-paginate": "^8.2.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.22.3",
+    "react-select": "^5.8.0",
     "react-toastify": "^10.0.5",
     "sanitize-html": "^2.13.0",
     "stylelint-scss": "^6.2.1",

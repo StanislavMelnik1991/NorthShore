@@ -9,6 +9,6 @@ export interface ListParams<Sort, Filter> {
   page?: number;
   perPage?: number;
   searchValue?: string;
-  sort: Sort;
-  filter: Filter;
+  sort?: Sort;
+  filter?: Filter;
 }

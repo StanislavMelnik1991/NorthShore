@@ -36,7 +36,7 @@ export const useLogin = () => {
         schema.parse(values);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
-        console.log(error);
+        console.error(error);
         return error.formErrors.fieldErrors;
       }
     },
@@ -60,7 +60,7 @@ export const useLogin = () => {
         toast.success(`${t('toast.loginSuccess')} ${user.name}`);
         localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, token);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         toast.error(t('toast.loginError'));
       }
     },

@@ -55,7 +55,7 @@ export const useCreateEventPage = () => {
       navigate(AppRoutes[AppRoutesEnum.ADMIN_EVENTS]());
       toast.success(t('toast.deleteSuccess'));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error(t('toast.deleteError'));
     }
   }, [id, navigate, t]);

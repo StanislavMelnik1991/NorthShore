@@ -1,4 +1,3 @@
-import { FormikErrors } from 'formik';
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useTranslation } from 'react-i18next';
@@ -6,37 +5,38 @@ import { IMAGE_TYPES, MAX_IMAGE_SIZE } from '@shared/constants';
 
 interface Props {
   handleUploadImage(file: File): Promise<string>;
-  setFieldValue: (
-    field: 'cover',
-    value: string,
-    shouldValidate?: boolean | undefined,
-  ) =>
-    | Promise<void>
-    | Promise<
-        FormikErrors<{
-          cover: string;
-        }>
-      >;
+  setFieldValue(name: 'files', val: Array<string>): void;
+  files: Array<string>;
 }
 
-export const useCreateMeeting = ({
+export const useEditorWidget = ({
   handleUploadImage,
+  files,
   setFieldValue,
 }: Props) => {
-  const { t } = useTranslation('meetings');
+  const { t } = useTranslation('invocation');
   const [isLoading, setIsLoading] = useState(false);
   const onDrop = useCallback(
-    async (files: File[]) => {
+    async (newFiles: File[]) => {
       setIsLoading(true);
-      if (files.length) {
-        const url = await handleUploadImage(files[0]);
+      if (newFiles.length) {
+        const url = await handleUploadImage(newFiles[0]);
         if (url) {
-          setFieldValue('cover', url);
+          setFieldValue('files', [...files, url]);
         }
       }
       setIsLoading(false);
     },
-    [handleUploadImage, setFieldValue],
+    [files, handleUploadImage, setFieldValue],
+  );
+
+  const handleRemoveImage = useCallback(
+    (index: number) => {
+      const newFiles = [...files];
+      newFiles.splice(index, 1);
+      setFieldValue('files', newFiles);
+    },
+    [files, setFieldValue],
   );
 
   const { getInputProps, open } = useDropzone({
@@ -50,6 +50,7 @@ export const useCreateMeeting = ({
     getInputProps,
     open,
     isLoading,
+    handleRemoveImage,
     t,
   };
 };

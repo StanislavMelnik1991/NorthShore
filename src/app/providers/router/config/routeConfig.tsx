@@ -13,12 +13,15 @@ import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { CurrentEventPage } from '@pages/events';
 import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
+import { RequestMainPage } from '@pages/invocation';
+// import { ApplicationsMainPage } from '@pages/invocation/applications';
+// import { CreateApplicationPage } from '@pages/invocation/applications/Create';
+import { CreateRequestPage } from '@pages/invocation/requests/Create';
 import { MainPage } from '@pages/Main';
 import { CurrentMeetingPage } from '@pages/meetings';
 import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
-import { RequestMainPage } from '@pages/requests';
 import { SecurityAccessPage, SecurityPage } from '@pages/Security';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
@@ -235,6 +238,26 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.REQUESTS](),
     element: <RequestMainPage />,
+    authOnly: true,
+    // acceptedRoles: [],
+  },
+  [AppRoutesEnum.REQUESTS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
+    element: <CreateRequestPage />,
+    authOnly: true,
+    // acceptedRoles: [],
+  },
+  [AppRoutesEnum.APPLICATIONS]: {
+    path: AppRoutes[AppRoutesEnum.APPLICATIONS](),
+    element: <NotFoundPage />,
+    // element: <ApplicationsMainPage />,
+    authOnly: true,
+    // acceptedRoles: [],
+  },
+  [AppRoutesEnum.APPLICATIONS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
+    element: <NotFoundPage />,
+    // element: <CreateApplicationPage />,
     authOnly: true,
     // acceptedRoles: [],
   },

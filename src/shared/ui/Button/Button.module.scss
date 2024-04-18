@@ -43,6 +43,7 @@
   }
 
   &:disabled {
+    color: var(--light-color);
     background-color: var(--gray-50);
   }
 }

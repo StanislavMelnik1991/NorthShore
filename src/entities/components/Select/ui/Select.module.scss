@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 3;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  opacity: 0.5;
+  padding: 0 var(--padding-md) !important;
+
+  &.error {
+    opacity: 1;
+  }
+}
+
+.error {
+  color: var(--red-100);
+
+  path {
+    fill: var(--red-100);
+  }
+
+  &::placeholder {
+    color: var(--red-10);
+  }
+}
+
+.errorText {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.container {
+  border: var(--border-width) solid var(--dark-20) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+}
+
+.containerFocused {
+  border: var(--border-width) solid var(--dark-30) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+}
+
+.menu {
+  border-radius: var(--radius-sm) !important;
+}
+
+.option {
+  background-color: inherit !important;
+  color: inherit !important;
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}
+
+.optionFocused {
+  background-color: var(--gray-20) !important;
+  color: inherit !important;
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}
+
+.optionSelected {
+  color: inherit !important;
+  background-color: var(--background-color) !important;
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}

@@ -19,7 +19,6 @@ export const useMainLayout = () => {
         userMenuRef.current &&
         !userMenuRef.current.contains(event.target as Node)
       ) {
-        console.log('asd');
         closeUserMenu?.();
       }
     },

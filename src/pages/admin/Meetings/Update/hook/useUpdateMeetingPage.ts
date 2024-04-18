@@ -60,7 +60,7 @@ export const useUpdateMeetingPage = () => {
       navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
       toast.success(t('toast.deleteSuccess'));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error(t('toast.deleteError'));
     }
   }, [id, navigate, t]);

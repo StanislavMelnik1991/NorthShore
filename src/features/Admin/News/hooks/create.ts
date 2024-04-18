@@ -58,7 +58,7 @@ export const useCreateNews = () => {
         toast.success(t('toast.createSuccess'));
         return data;
       } catch (error) {
-        console.log(error);
+        console.error(error);
         toast.error(t('toast.createError'));
       }
     },

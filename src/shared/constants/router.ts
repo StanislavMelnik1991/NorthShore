@@ -9,7 +9,12 @@ export enum AppRoutesEnum {
   POSTER,
   ACTIVITY,
   SERVICES,
+
   REQUESTS,
+  REQUESTS_CREATE,
+  APPLICATIONS,
+  APPLICATIONS_CREATE,
+
   SHUTDOWNS,
   KNOWLEDGE,
   SETTINGS,
@@ -65,7 +70,12 @@ export const AppRoutes = {
   [AppRoutesEnum.POSTER]: () => '/poster',
   [AppRoutesEnum.ACTIVITY]: () => '/activity',
   [AppRoutesEnum.SERVICES]: () => '/services',
+
   [AppRoutesEnum.REQUESTS]: () => '/requests',
+  [AppRoutesEnum.REQUESTS_CREATE]: () => '/requests/create',
+  [AppRoutesEnum.APPLICATIONS]: () => '/applications',
+  [AppRoutesEnum.APPLICATIONS_CREATE]: () => '/applications/create',
+
   [AppRoutesEnum.SHUTDOWNS]: () => '/shutdowns',
   [AppRoutesEnum.KNOWLEDGE]: () => '/knowledge',
   [AppRoutesEnum.SETTINGS]: () => '/settings',

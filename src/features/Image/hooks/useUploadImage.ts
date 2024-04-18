@@ -5,7 +5,6 @@ import { BaseResponse, IImage } from '@entities/types';
 
 export const useUploadImage = () => {
   const handleUploadImage = useCallback(async (file: File) => {
-    console.log(file);
     // const blob = new Blob([file], { type: "base64" });
     const formData = new FormData();
     formData.append('file', file);

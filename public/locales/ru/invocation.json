@@ -1,0 +1,81 @@
+{
+  "routes": {
+    "applications": "Обращения",
+    "requests": "Заявки",
+    "create_application": "Новая обращение",
+    "create_request": "Новое заявка"
+  },
+  "tabs": {
+    "actual": "Актуальные",
+    "completed": "Завершенные"
+  },
+  "controls": {
+    "publish": "Опубликовать",
+    "refresh": "Обновить",
+    "cancel": "Отмена",
+    "draft": "Сохранить черновик",
+    "create": "Создать",
+    "archive": "Перейти в архив",
+    "actual": "Перейти к актуальным",
+    "find": "Поиск",
+    "delete": "Удалить",
+    "preview": "Предпросмотр"
+  },
+  "status": {
+    "new": "Новая заявка",
+    "passed": "Передана на исполнение",
+    "accepted": "Принято на исполнение",
+    "done": "Выполнена",
+    "closed": "Завершена"
+  },
+  "themes": {
+    "defect": "Неисправность",
+    "accident": "Авария",
+    "suggestion": "Предложение",
+    "video": "Запрос видеофрагмента",
+    "parking": "Запрос на парковочное место",
+    "parking_electro": "Запрос на праковочное место с электрозарядкой",
+    "passport": "Заявки по вопросам паспортного стола",
+    "other": "Другое"
+  },
+  "editor": {
+    "theme": {
+      "label": "Тема заявки",
+      "placeholder": "Выберите вид заявки"
+    },
+    "content": {
+      "label": "Текст заявки",
+      "placeholder": "Текст заявки"
+    },
+    "contact_fio": {
+      "label": "Контактное лицо",
+      "placeholder": "Введите имя"
+    },
+    "title": {
+      "label": "Заголовок",
+      "placeholder": "Введите заголовок заявки"
+    },
+    "cover": {
+      "label": "Фото и видео"
+    },
+    "contact_phone": {
+      "label": "Номер телефона",
+      "placeholder": "Введите номер телефона"
+    }
+  },
+  "toast": {
+    "requestListError": "Не удалось получить список всех заявок",
+    "requestDeleteSuccess": "Заявка удалена успешно",
+    "requestDeleteError": "Не удалось удалить заявку",
+    "requestUpdateSuccess": "Заявка обновлена успешно",
+    "requestUpdateError": "Не удалось обновлена заявку",
+    "requestCreateSuccess": "Заявка создана успешно",
+    "requestCreateError": "Не удалось создана заявку",
+    "requestNotFound": "Не удалось получить заявку"
+  },
+  "errors": {
+    "required": "Поле обязательно для заполнения",
+    "max256": "Заголовок должен быть не длиннее 256 символов",
+    "invalidFormat": "Неверный формат"
+  }
+}
