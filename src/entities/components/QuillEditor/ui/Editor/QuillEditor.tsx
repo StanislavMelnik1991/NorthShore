@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FocusEventHandler, useRef } from 'react';
+import { FocusEventHandler } from 'react';
 import ReactQuill from 'react-quill';
 import { useQuillEditor } from '../../hooks';
 import styles from './QuillEditor.module.scss';
@@ -36,17 +36,13 @@ export const QuillEditor = ({
   inputClassName,
   wrapperClassName,
 }: Props) => {
-  const reactQuillRef = useRef<ReactQuill>(null);
-  const wrapperRef = useRef<HTMLLabelElement>(null);
-
-  const { onChange, value, handleLabelClick } = useQuillEditor({
-    reactQuillRef,
-    value: initialValue,
-    setValue,
-    isActive: focused,
-    wrapperRef,
-    uploadImage,
-  });
+  const { onChange, value, handleLabelClick, reactQuillRef, wrapperRef } =
+    useQuillEditor({
+      value: initialValue,
+      setValue,
+      isActive: focused,
+      uploadImage,
+    });
 
   const modules = {
     toolbar: [
@@ -85,7 +81,7 @@ export const QuillEditor = ({
   ];
 
   return (
-    <label
+    <div
       className={classNames(styles.wrapper, wrapperClassName)}
       ref={wrapperRef}
     >
@@ -118,6 +114,6 @@ export const QuillEditor = ({
       {error && (
         <p className={classNames(styles.error, styles.label)}>{error}</p>
       )}
-    </label>
+    </div>
   );
 };

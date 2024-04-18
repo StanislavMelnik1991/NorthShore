@@ -1,5 +1,4 @@
-import { useCallback, useEffect } from 'react';
-import { RefObject } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type ReactQuill from 'react-quill';
 import type { ReactQuillProps } from 'react-quill';
 import { insertImage, insertLink } from './helpers';
@@ -11,8 +10,6 @@ type CustomFile = {
 };
 
 type Props = {
-  reactQuillRef: RefObject<ReactQuill>;
-  wrapperRef: RefObject<HTMLLabelElement>;
   value: string;
   setValue: (val: string) => void;
   isActive: boolean;
@@ -20,13 +17,14 @@ type Props = {
 };
 
 export const useQuillEditor = ({
-  reactQuillRef,
   value,
   setValue,
   isActive,
-  wrapperRef,
   uploadImage,
 }: Props) => {
+  const reactQuillRef = useRef<ReactQuill>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const onchangeHandler: ReactQuillProps['onChange'] = (
     value,
     delta,
@@ -39,6 +37,7 @@ export const useQuillEditor = ({
       }
       const contentEditor = reactQuillRef.current.getEditor();
       const data = delta.ops[delta.ops.length - 1];
+      console.log(data);
       if (data && contentEditor) {
         const content = data.insert;
         const contentText = editor.getText();
@@ -163,5 +162,7 @@ export const useQuillEditor = ({
     onChange: onchangeHandler,
     value,
     handleLabelClick,
+    reactQuillRef,
+    wrapperRef,
   };
 };

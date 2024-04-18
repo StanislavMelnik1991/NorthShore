@@ -37,8 +37,6 @@ export const useCreateRequest = () => {
     (request: unknown) => {
       const res = schema.safeParse(request) as SafeParseError<ValuesType>;
       if (res.error) {
-        console.log(res.error.formErrors.fieldErrors);
-        console.log(request);
         return res.error.formErrors.fieldErrors;
       }
     },
