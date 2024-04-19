@@ -12,6 +12,7 @@ export const StyledSelect = ({
   label,
   inputId = 'select-input',
   error,
+  isClearable = true,
   ...props
 }: Props) => {
   return (
@@ -56,6 +57,7 @@ export const StyledSelect = ({
         }}
         aria-labelledby={props['aria-labelledby']}
         inputId={inputId}
+        isClearable={isClearable}
         {...props}
       />
       {error && (
