@@ -41,7 +41,7 @@
   "editor": {
     "theme": {
       "label": "Тема заявки",
-      "placeholder": "Выберите вид заявки"
+      "placeholder": "Выберите тему заявки"
     },
     "content": {
       "label": "Текст заявки",

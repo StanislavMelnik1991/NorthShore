@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { BaseResponse } from '@entities/types';
 import { IRequest } from '@entities/types/request.interface';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 export const useCurrentEvent = () => {
   const { t, i18n } = useTranslation('invocation');
   const [isLoading, setIsLoading] = useState(false);
+  const navigation = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [data, setData] = useState<IRequest>();
 
@@ -21,6 +23,7 @@ export const useCurrentEvent = () => {
           setData(data.data);
         } else {
           toast.error(t('toast.notFound'));
+          navigation(AppRoutes[AppRoutesEnum.REQUESTS]());
         }
       })
       .catch((err) => {
@@ -30,6 +33,6 @@ export const useCurrentEvent = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [id, t]);
+  }, [id, navigation, t]);
   return { data, isLoading, t, i18n };
 };

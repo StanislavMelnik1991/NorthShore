@@ -25,6 +25,7 @@ interface Props {
   status?: keyof typeof RequestStatusEnum;
   contact?: string;
   contactsTitle?: string;
+  theme?: string;
 }
 
 export const RequestContentWidget = ({
@@ -40,15 +41,19 @@ export const RequestContentWidget = ({
   contact,
   contactsTitle,
   status,
+  theme,
 }: Props) => {
   return (
     <CurrentSkeleton
       className={classNames(styles.wrapper, className)}
       isLoading={isLoading}
     >
-      {created_at && (
-        <Badge color="white">{format(created_at, 'dd.MM.yyyy')}</Badge>
-      )}
+      <div className={styles.header}>
+        {created_at && (
+          <Badge color="white">{format(created_at, 'dd.MM.yyyy')}</Badge>
+        )}
+        {created_at && <Badge color="blue">{theme}</Badge>}
+      </div>
       <Title className={styles.title} fontWeight="semibold" variant="h2">
         {idTitle}
       </Title>
@@ -74,7 +79,7 @@ export const RequestContentWidget = ({
       {!!contact && (
         <div className={styles.contacts}>
           <div className={styles.divider}></div>
-          <Text variant="small">{contactsTitle}</Text>
+          <Text>{contactsTitle}</Text>
           <Text fontWeight="medium">{contact}</Text>
         </div>
       )}

@@ -41,7 +41,7 @@
   "editor": {
     "theme": {
       "label": "Subject of the application",
-      "placeholder": "Select the type of application"
+      "placeholder": "Select the theme of application"
     },
     "content": {
       "label": "Application text",

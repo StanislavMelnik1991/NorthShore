@@ -4,6 +4,7 @@ import { PageHeader, PageSkeleton } from '@entities/components';
 import {
   AppRoutes,
   AppRoutesEnum,
+  RequestThemesEnum,
   allowedAttributesSchema,
   allowedIframeHostnamesSchema,
   allowedTagsSanitizer,
@@ -19,7 +20,7 @@ export default () => {
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.POSTER](),
-            title: t('routes.events'),
+            title: t('routes.requests'),
           },
           {
             href: '',
@@ -43,6 +44,9 @@ export default () => {
         idTitle={`${t('request')} №${data?.id}`}
         status={data?.status.id}
         contact={data?.contact_fio}
+        theme={
+          data ? t(`themes.${RequestThemesEnum[data?.theme.id]}`) : undefined
+        }
         contactsTitle={t('editor.contact_fio.label')}
       />
     </PageSkeleton>

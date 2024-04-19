@@ -1,4 +1,4 @@
-import { RequestStatusEnum } from '@shared/constants';
+import { RequestStatusEnum, RequestThemesEnum } from '@shared/constants';
 import { IFile } from './image.interface';
 import { IUser } from './user.interface';
 
@@ -8,7 +8,7 @@ export interface IRequest {
   files: IFile[];
   title: string;
   theme: {
-    id: number;
+    id: keyof typeof RequestThemesEnum;
     name: string;
   };
   status: {
