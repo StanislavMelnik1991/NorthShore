@@ -1,5 +1,5 @@
 import sanitizeHtml from 'sanitize-html';
-import { ContentWidget } from '@widgets/Content';
+import { RequestContentWidget } from '@widgets/invocation';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import {
   AppRoutes,
@@ -27,7 +27,7 @@ export default () => {
           },
         ]}
       />
-      <ContentWidget
+      <RequestContentWidget
         html={
           data &&
           sanitizeHtml(data.content, {
@@ -39,6 +39,11 @@ export default () => {
         created_at={data && new Date(data.data_add * 1000)}
         isLoading={isLoading}
         title={data?.title}
+        images={data?.files}
+        idTitle={`${t('request')} №${data?.id}`}
+        status={data?.status.id}
+        contact={data?.contact_fio}
+        contactsTitle={t('editor.contact_fio.label')}
       />
     </PageSkeleton>
   );

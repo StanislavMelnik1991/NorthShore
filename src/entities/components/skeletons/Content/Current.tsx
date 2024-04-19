@@ -7,7 +7,7 @@ interface Props {
   isLoading?: boolean;
   children?:
     | JSX.Element
-    | Array<JSX.Element | string | undefined>
+    | Array<JSX.Element | string | undefined | false>
     | string
     | false;
 }
