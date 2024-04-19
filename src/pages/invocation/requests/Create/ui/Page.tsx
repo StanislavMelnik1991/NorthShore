@@ -1,4 +1,4 @@
-import { RequestContentEditor } from '@widgets/requests/editor';
+import { RequestContentEditor } from '@widgets/invocation';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useCreateEventsPage } from '../hook';

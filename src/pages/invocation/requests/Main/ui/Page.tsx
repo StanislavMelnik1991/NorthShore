@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { RequestList } from '@widgets/requests';
+import { RequestList } from '@widgets/invocation';
 import { PageHeader, PageSkeleton, Tab } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
