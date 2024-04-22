@@ -23,7 +23,7 @@ const NotFoundPage = () => {
       >
         <source
           src={
-            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/main.m3u8?authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
+            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/main.mp4?audio=0&authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
           }
           type="video/mp4"
         />
