@@ -15,9 +15,7 @@ import styles from './Page.module.scss';
 const MainPage = () => {
   const {
     t,
-    setStreetId,
-    setEntranceId,
-    setHomeId,
+    setFilters,
     isFaulty,
     setIsFaulty,
     data,
@@ -52,9 +50,7 @@ const MainPage = () => {
         <SecurityFilters
           isFaulty={isFaulty}
           setIsFaulty={setIsFaulty}
-          setStreetId={setStreetId}
-          setEntranceId={setEntranceId}
-          setHomeId={setHomeId}
+          setFilters={setFilters}
         />
         <div className={styles.divider} />
         <VideoList data={data} isLoading={isLoading} />

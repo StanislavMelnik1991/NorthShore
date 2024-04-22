@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   useBuildingsList,
@@ -7,16 +13,16 @@ import {
 } from '@features/address';
 
 interface Props {
-  setStreetId: (val?: number) => void;
-  setEntranceId: (val?: number) => void;
-  setHomeId: (val?: number) => void;
+  setFilters: Dispatch<
+    SetStateAction<{
+      street_id?: number;
+      building_id?: number;
+      entrance_id?: number;
+    }>
+  >;
 }
 
-export const useSecurityFilters = ({
-  setStreetId,
-  setEntranceId,
-  setHomeId,
-}: Props) => {
+export const useSecurityFilters = ({ setFilters }: Props) => {
   const {
     data: streets,
     getData: getStreets,
@@ -55,41 +61,40 @@ export const useSecurityFilters = ({
       setActiveEntrance(null);
       setActiveBuilding(null);
       if (street) {
-        setStreetId(street.value);
+        setFilters({ street_id: street.value });
         getBuildings(street.value);
       } else {
-        setStreetId();
+        setFilters({});
         clearBuildings();
       }
     },
-    [clearBuildings, clearEntrances, getBuildings, setStreetId],
+    [clearBuildings, clearEntrances, getBuildings, setFilters],
   );
 
   const handleBuildingChange = useCallback(
     (building: { value: number; label: string } | null) => {
       setActiveBuilding(building);
       setActiveEntrance(null);
-      setEntranceId();
       if (building) {
-        setHomeId(building.value);
+        setFilters({ building_id: building.value });
         getEntrances(building.value);
       } else {
-        setHomeId();
+        setFilters({});
         clearEntrances();
       }
     },
-    [clearEntrances, getEntrances, setEntranceId, setHomeId],
+    [clearEntrances, getEntrances, setFilters],
   );
   const handleEntranceChange = useCallback(
     (entrance: { value: number; label: string } | null) => {
       setActiveEntrance(entrance);
       if (entrance) {
-        setEntranceId(entrance.value);
+        setFilters({ entrance_id: entrance.value });
       } else {
-        setEntranceId();
+        setFilters({});
       }
     },
-    [setEntranceId],
+    [setFilters],
   );
 
   return {

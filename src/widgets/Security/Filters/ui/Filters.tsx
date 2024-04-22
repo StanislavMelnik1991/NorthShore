@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Dispatch, SetStateAction } from 'react';
 import { StyledSelect } from '@entities/components';
 import { CheckBox } from '@shared/ui';
 import { useSecurityFilters } from '../hook';
@@ -8,16 +9,18 @@ interface Props {
   className?: string;
   isFaulty: boolean;
   setIsFaulty: (val: boolean) => void;
-  setStreetId: (val?: number) => void;
-  setEntranceId: (val?: number) => void;
-  setHomeId: (val?: number) => void;
+  setFilters: Dispatch<
+    SetStateAction<{
+      street_id?: number;
+      building_id?: number;
+      entrance_id?: number;
+    }>
+  >;
 }
 
 export const SecurityFilters = ({
   className,
-  setStreetId,
-  setEntranceId,
-  setHomeId,
+  setFilters,
   isFaulty,
   setIsFaulty,
 }: Props) => {
@@ -35,9 +38,7 @@ export const SecurityFilters = ({
     activeBuilding,
     activeEntrance,
   } = useSecurityFilters({
-    setStreetId,
-    setEntranceId,
-    setHomeId,
+    setFilters,
   });
 
   return (
