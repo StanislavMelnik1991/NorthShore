@@ -15,7 +15,7 @@ const NotFoundPage = () => {
         </Title>
         <Button onClick={() => navigate(-1)}>{t('not_found.back')}</Button>
       </Card>
-      <video
+      {/* <video
         controls
         width="250"
         // disablePictureInPicture
@@ -42,7 +42,7 @@ const NotFoundPage = () => {
           type="video/mp4"
         />
         {t('errors.video')}
-      </video>
+      </video> */}
     </PageSkeleton>
   );
 };
