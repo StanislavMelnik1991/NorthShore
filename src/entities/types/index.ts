@@ -5,3 +5,4 @@ export * from './news.interface';
 export * from './user.interface';
 export * from './image.interface';
 export * from './security.interface';
+export * from './street.interface';
