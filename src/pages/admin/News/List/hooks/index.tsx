@@ -25,9 +25,14 @@ export const useNewsList = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  interface Params extends ListParams {
+    sort: INewsSort;
+    filter: INewsFilter;
+  }
+
   const handleGetData = useCallback(async () => {
     setIsLoading(true);
-    const params: ListParams<INewsSort, INewsFilter> = {
+    const params: Params = {
       page,
       perPage,
       searchValue: debounced,

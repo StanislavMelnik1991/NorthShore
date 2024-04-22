@@ -8,6 +8,11 @@ interface Props {
   defaultSlide?: number;
 }
 
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
+
 export const useEventsSlider = ({ defaultSlide = 0 }: Props) => {
   const { t, i18n } = useTranslation();
   const { getData, isLoading, total } = useGetUserEventsList();
@@ -15,7 +20,7 @@ export const useEventsSlider = ({ defaultSlide = 0 }: Props) => {
   const [slide, setSlide] = useState(defaultSlide);
 
   useEffect(() => {
-    const newsParams: ListParams<INewsSort, INewsFilter> = {
+    const newsParams: Params = {
       page: 1,
       perPage: INITIAL_PER_PAGE,
       filter: {

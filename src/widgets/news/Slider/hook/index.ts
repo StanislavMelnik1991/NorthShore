@@ -15,8 +15,13 @@ export const useNewsSlider = ({ defaultSlide = 0 }: Props) => {
   const [news, setNews] = useState<Array<INews>>([]);
   const [slide, setSlide] = useState(defaultSlide);
 
+  interface Params extends ListParams {
+    sort: INewsSort;
+    filter: INewsFilter;
+  }
+
   useEffect(() => {
-    const newsParams: ListParams<INewsSort, INewsFilter> = {
+    const newsParams: Params = {
       page: 1,
       perPage: INITIAL_PER_PAGE,
       filter: {

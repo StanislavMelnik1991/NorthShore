@@ -79,5 +79,9 @@
     "invalidFormat": "Incorrect format"
   },
   "request": "Request",
-  "application": "Application"
+  "application": "Application",
+  "noApplications": {
+    "title": "You don't have any applications yet",
+    "text": "Click the 'Create' button to start"
+  }
 }

@@ -12,9 +12,13 @@ export const useGetRequestsList = (isActual: boolean) => {
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<IRequest[]>([]);
 
+  interface Params extends ListParams {
+    filter: { isActual: 0 | 1 };
+  }
+
   const getData = useCallback(
     async (searchValue?: string) => {
-      const params: ListParams<undefined, { isActual: 0 | 1 }> = {
+      const params: Params = {
         page,
         perPage,
         searchValue,
@@ -44,5 +48,6 @@ export const useGetRequestsList = (isActual: boolean) => {
     perPage,
     setPerPage,
     data,
+    t,
   };
 };

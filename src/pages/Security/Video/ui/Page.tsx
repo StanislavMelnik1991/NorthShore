@@ -1,16 +1,36 @@
-import { useTranslation } from 'react-i18next';
 import { SecurityFilters } from '@widgets/Security';
-import { PageHeader, PageSkeleton } from '@entities/components';
+import { VideoList } from '@widgets/Security/Video/List/ui/List';
+import {
+  PageHeader,
+  PageSkeleton,
+  Pagination,
+  PerPage,
+} from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { IconPlus } from '@shared/icons';
+import { Button } from '@shared/ui';
+import { useSecurityVideoPage } from '../hook';
 import styles from './Page.module.scss';
 
 const MainPage = () => {
-  const { t } = useTranslation('security');
+  const {
+    t,
+    setStreetId,
+    setEntranceId,
+    setHomeId,
+    isFaulty,
+    setIsFaulty,
+    data,
+    isLoading,
+    perPage,
+    setPerPage,
+    setPage,
+    total,
+  } = useSecurityVideoPage();
 
   return (
     <PageSkeleton className={styles.wrapper}>
       <PageHeader
-        className={styles.header}
         breadcrumbs={[
           {
             title: t('title'),
@@ -21,8 +41,28 @@ const MainPage = () => {
             href: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
           },
         ]}
+        controls={
+          <Button variant="primary" size="small">
+            <IconPlus width={20} height={20} />
+            {t('actions.add')}
+          </Button>
+        }
       />
-      <SecurityFilters />
+      <div className={styles.content}>
+        <SecurityFilters
+          isFaulty={isFaulty}
+          setIsFaulty={setIsFaulty}
+          setStreetId={setStreetId}
+          setEntranceId={setEntranceId}
+          setHomeId={setHomeId}
+        />
+        <div className={styles.divider} />
+        <VideoList data={data} isLoading={isLoading} />
+      </div>
+      <div className={styles.controls}>
+        <PerPage active={perPage} setActive={setPerPage} />
+        <Pagination total={total} onChange={setPage} />
+      </div>
     </PageSkeleton>
   );
 };

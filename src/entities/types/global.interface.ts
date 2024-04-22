@@ -5,10 +5,15 @@ export interface BaseResponse<T> {
   timestamp: number;
 }
 
-export interface ListParams<Sort, Filter> {
+export interface ListParams {
   page?: number;
   perPage?: number;
   searchValue?: string;
-  sort?: Sort;
-  filter?: Filter;
+}
+
+export interface PaginationResponse {
+  count_on_page: number;
+  current_page: number;
+  total_count: number;
+  total_pages: number;
 }

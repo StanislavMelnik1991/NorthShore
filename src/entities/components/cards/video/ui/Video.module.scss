@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.videoWrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 307 / 180;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
+.video {
+  object-fit: cover;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  width: 100%;
+}
+
+.timeStamp {
+  position: absolute;
+  top: 12px;
+  right: 9px;
+  z-index: 2;
+  font-weight: 400;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  height: 76px;
+  gap: 4px;
+}

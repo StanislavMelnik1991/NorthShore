@@ -10,10 +10,15 @@ import {
   ListParams,
 } from '@entities/types';
 
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
+
 export const useGetNewsList = () => {
   const { t } = useTranslation('news');
   const getData = useCallback(
-    async (params: ListParams<INewsSort, INewsFilter>) => {
+    async (params: Params) => {
       try {
         const {
           data: { data },

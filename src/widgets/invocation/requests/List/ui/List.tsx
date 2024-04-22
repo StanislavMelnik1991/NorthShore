@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const RequestList = ({ className, isActual = false }: Props) => {
-  const { getData, data } = useGetRequestsList(isActual);
+  const { getData, data, t } = useGetRequestsList(isActual);
 
   useEffect(() => {
     getData();
@@ -39,8 +39,8 @@ export const RequestList = ({ className, isActual = false }: Props) => {
         })
       ) : (
         <NoResults
-          title="У вас пока нет заявок"
-          text="Нажмите кнопку “Создать”, чтобы начать"
+          title={t('noApplications.title')}
+          text={t('noApplications.text')}
         />
       )}
     </div>
