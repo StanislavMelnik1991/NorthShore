@@ -12,5 +12,10 @@
   },
   "actions": {
     "open": "Open"
+  },
+  "editor": {
+    "street": {
+      "placeholder": "Select a street"
+    }
   }
 }

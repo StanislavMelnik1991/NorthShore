@@ -15,7 +15,7 @@ const NotFoundPage = () => {
         </Title>
         <Button onClick={() => navigate(-1)}>{t('not_found.back')}</Button>
       </Card>
-      {/* <video
+      <video
         controls
         width="250"
         // disablePictureInPicture
@@ -23,7 +23,7 @@ const NotFoundPage = () => {
       >
         <source
           src={
-            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/main.mp4?audio=0&authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
+            'https://cams.embed.by/cameras/0/streaming/main.mp4?authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
           }
           type="video/mp4"
         />
@@ -37,12 +37,12 @@ const NotFoundPage = () => {
       >
         <source
           src={
-            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/sub.mp4?audio=0&authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
+            'https://cams.embed.by/cameras/0/streaming/sub.mp4?authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
           }
           type="video/mp4"
         />
         {t('errors.video')}
-      </video> */}
+      </video>
     </PageSkeleton>
   );
 };

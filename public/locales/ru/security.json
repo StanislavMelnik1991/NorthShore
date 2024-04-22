@@ -12,5 +12,10 @@
   },
   "actions": {
     "open": "Открыть"
+  },
+  "editor": {
+    "street": {
+      "placeholder": "Выберите улицу"
+    }
   }
 }
