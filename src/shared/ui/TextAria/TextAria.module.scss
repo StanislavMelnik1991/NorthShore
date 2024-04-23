@@ -9,8 +9,8 @@
   align-items: center;
   outline: none;
   border: none;
-  width: 100%;
-  min-height: 500px;
+  min-width: 100%;
+  min-height: 240px;
 
   &::placeholder {
     color: var(--dark-60);

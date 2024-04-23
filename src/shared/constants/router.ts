@@ -30,11 +30,14 @@ export enum AppRoutesEnum {
   SECURITY_VIDEO,
 
   ENGINEERING,
-  INVOCATION,
   INFORM,
   PASSPORT,
   USERS,
   ADMIN_SETTINGS,
+
+  ADMIN_REQUESTS,
+  ADMIN_REQUESTS_CURRENT,
+  ADMIN_APPLICATIONS,
 
   ADMIN_NOTIFICATIONS,
   ADMIN_TECHNICAL_WORKS,
@@ -86,7 +89,12 @@ export const AppRoutes = {
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
   [AppRoutesEnum.INFORM]: () => '/admin/inform',
-  [AppRoutesEnum.INVOCATION]: () => '/admin/invocation',
+
+  [AppRoutesEnum.ADMIN_REQUESTS]: () => '/admin/requests',
+  [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: (id: number | string) =>
+    `/admin/requests/${id}`,
+  [AppRoutesEnum.ADMIN_APPLICATIONS]: () => '/admin/applications',
+
   [AppRoutesEnum.ENGINEERING]: () => '/admin/engineering',
 
   [AppRoutesEnum.SECURITY]: () => '/admin/security',

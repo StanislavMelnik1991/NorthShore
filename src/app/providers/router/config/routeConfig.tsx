@@ -140,9 +140,21 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
-  [AppRoutesEnum.INVOCATION]: {
-    path: AppRoutes[AppRoutesEnum.INVOCATION](),
+  [AppRoutesEnum.ADMIN_REQUESTS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
+    element: <RequestMainPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.ADMIN_APPLICATIONS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_APPLICATIONS](),
     element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS_CURRENT](':id'),
+    element: <CurrentRequestPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
