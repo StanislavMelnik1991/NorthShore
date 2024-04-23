@@ -1,39 +1,27 @@
-import { RefObject, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { axiosApi } from '@entities/api';
-import { BaseResponse, INews } from '@entities/types';
 
 interface Props {
   id: number;
+  lat: number;
+  lon: number;
   genUpdateRoute(id: number): string;
   genDetailsRoute(id: number): string;
-  wrapperRef: RefObject<HTMLDivElement>;
 }
 
-export const useTableControls = ({
+export const useVideoCardControls = ({
   genDetailsRoute,
   genUpdateRoute,
   id,
-  wrapperRef,
+  lat,
+  lon,
 }: Props) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { t } = useTranslation('table');
+  const { t } = useTranslation('security');
 
   const [isShow, setIsShow] = useState(false);
-
-  const handleArchive = useCallback(async () => {
-    try {
-      await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
-        status: 2,
-      });
-      toast.success(t('toast.archiveSuccess'));
-    } catch (error) {
-      console.error(error);
-      toast.error(t('toast.archiveError'));
-    }
-  }, [id, t]);
 
   const handleGoToUpdate = useCallback(async () => {
     navigate(genUpdateRoute(id));
@@ -42,6 +30,11 @@ export const useTableControls = ({
   const handleGoToDetails = useCallback(async () => {
     navigate(genDetailsRoute(id));
   }, [genDetailsRoute, id, navigate]);
+
+  const handleMapOpen = useCallback(() => {
+    const url = `https://yandex.ru/maps/?ll=${lon}%2C${lat}&z=17&pt=${lon}%2C${lat}`;
+    window.open(url, '_blank');
+  }, [lat, lon]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,11 +53,12 @@ export const useTableControls = ({
   }, [wrapperRef]);
 
   return {
-    handleArchive,
     handleGoToUpdate,
     handleGoToDetails,
     isShow,
     setIsShow,
+    handleMapOpen,
     t,
+    wrapperRef,
   };
 };

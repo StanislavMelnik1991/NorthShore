@@ -24,10 +24,13 @@ export enum AppRoutesEnum {
 
   ACCOUNTING,
   STATISTIC,
+
   SECURITY,
   SECURITY_ACCESS,
   SECURITY_INTERCOM,
   SECURITY_VIDEO,
+  SECURITY_VIDEO_UPDATE,
+  SECURITY_VIDEO_CURRENT,
 
   ENGINEERING,
   INFORM,
@@ -101,6 +104,10 @@ export const AppRoutes = {
   [AppRoutesEnum.SECURITY_ACCESS]: () => '/admin/security/access',
   [AppRoutesEnum.SECURITY_INTERCOM]: () => '/admin/security/intercom',
   [AppRoutesEnum.SECURITY_VIDEO]: () => '/admin/security/video',
+  [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: (id: number | string) =>
+    `/admin/security/video/${id}`,
+  [AppRoutesEnum.SECURITY_VIDEO_UPDATE]: (id: number | string) =>
+    `/admin/security/video/${id}/update`,
 
   [AppRoutesEnum.STATISTIC]: () => '/admin/statistic',
   [AppRoutesEnum.ACCOUNTING]: () => '/admin/accounting',

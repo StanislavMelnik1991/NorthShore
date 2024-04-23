@@ -33,3 +33,5 @@ export * from './People';
 export * from './ClockPast';
 export * from './Done';
 export * from './Star';
+export * from './Map';
+export * from './Basket';

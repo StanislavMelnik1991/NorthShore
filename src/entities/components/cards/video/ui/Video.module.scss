@@ -8,29 +8,36 @@
   position: relative;
   width: 100%;
   height: auto;
-  aspect-ratio: 307 / 180;
+  aspect-ratio: 283 / 168;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   overflow: hidden;
+  padding: 12px 12px 0;
 }
 
 .video {
   object-fit: cover;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: var(--radius-md);
   width: 100%;
 }
 
 .timeStamp {
   position: absolute;
-  top: 12px;
-  right: 9px;
+  top: 20px;
+  right: 20px;
   z-index: 2;
   font-weight: 400;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  height: 64px;
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  padding: 14px;
-  height: 76px;
   gap: 4px;
 }

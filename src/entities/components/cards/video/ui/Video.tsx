@@ -8,9 +8,10 @@ interface Props {
   video: string;
   name?: string;
   id: number;
+  controls?: JSX.Element;
 }
 
-export const VideoCard = ({ className, id, video, name }: Props) => {
+export const VideoCard = ({ className, id, video, name, controls }: Props) => {
   const { t } = useTranslation('security');
   return (
     <Card padding={0} className={classNames(styles.wrapper, className)}>
@@ -27,17 +28,20 @@ export const VideoCard = ({ className, id, video, name }: Props) => {
           {t('cards.onAir')}
         </Badge>
       </div>
-      <div className={styles.text}>
-        <Text
-          className={styles.textContent}
-          fontWeight="regular"
-          variant="body14"
-        >
-          {`${t('cards.camera')} №${id}`}
-        </Text>
-        <Text className={styles.title} fontWeight="semibold" variant="body16">
-          {name}
-        </Text>
+      <div className={styles.footer}>
+        <div className={styles.text}>
+          <Text
+            className={styles.textContent}
+            fontWeight="regular"
+            variant="body14"
+          >
+            {`${t('cards.camera')} №${id}`}
+          </Text>
+          <Text className={styles.title} fontWeight="semibold" variant="body16">
+            {name}
+          </Text>
+        </div>
+        {controls}
       </div>
     </Card>
   );

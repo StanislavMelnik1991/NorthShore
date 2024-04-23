@@ -33,5 +33,11 @@
     "camera": "Camera",
     "onAir": "On the air." ,
     "notOnAir": "Not on the air"
+  },
+  "popup": {
+    "preview": "Viewing",
+    "edit": "Edit",
+    "map": "Open on the map",
+    "delete": "Delete"
   }
 }

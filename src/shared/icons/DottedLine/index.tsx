@@ -1,6 +1,6 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react';
 const SvgComponent = (
-  props: SVGProps<SVGSVGElement>,
+  { rotate, style, ...props }: SVGProps<SVGSVGElement>,
   ref: Ref<SVGSVGElement>,
 ) => (
   <svg
@@ -10,6 +10,7 @@ const SvgComponent = (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     ref={ref}
+    style={{ transform: `rotate(${rotate || 0}deg)`, ...style }}
     {...props}
   >
     <path

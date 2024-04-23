@@ -38,6 +38,8 @@ import {
   IconClockPast,
   IconDone,
   IconStar,
+  IconMap,
+  IconBasket,
 } from '.';
 
 interface Props {
@@ -48,8 +50,14 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconBasket">
+        <IconBasket width={size} height={size} />
+      </Item>
       <Item name="IconArrow">
         <IconArrow width={size} height={size} />
+      </Item>
+      <Item name="IconMap">
+        <IconMap width={size} height={size} />
       </Item>
       <Item name="IconBriefcase">
         <IconBriefcase theme={theme} width={size} height={size} />

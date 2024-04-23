@@ -1,10 +1,13 @@
 .wrapper {
+  position: relative;
   display: flex;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 6px;
+  width: 32px;
+  height: 32px;
 
   path {
     fill: var(--dark-50);
@@ -18,8 +21,16 @@
 .popup {
   position: absolute;
   width: 210px;
-  right: 14px;
-  top: calc(100% - 12px);
+  right: calc(100% + 5px);
+  top: 8px;
   box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%);
   z-index: 1;
+}
+
+.danger {
+  color: var(--red-100);
+
+  path {
+    fill: var(--red-100);
+  }
 }

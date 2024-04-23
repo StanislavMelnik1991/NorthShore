@@ -1,42 +1,50 @@
 import classNames from 'classnames';
-import { useRef } from 'react';
+import { MouseEventHandler } from 'react';
 import { PopUpMenuItem } from '@entities/components';
 import {
+  IconBasket,
   IconDottedLine,
-  IconDrawer,
   IconEyeOpen,
+  IconMap,
   IconPencil,
 } from '@shared/icons';
 import { Card } from '@shared/ui';
-import { useTableControls } from '../hook';
+import { useVideoCardControls } from '../hook';
 import styles from './Controls.module.scss';
 
 interface Props {
   className?: string;
   id: number;
+  lat: number;
+  lon: number;
   genUpdateRoute(id: number): string;
   genDetailsRoute(id: number): string;
+  onDelete: MouseEventHandler<HTMLDivElement>;
 }
 
-export const TableControls = ({
+export const VideoCardControls = ({
   className,
   id,
+  lat,
+  lon,
   genDetailsRoute,
   genUpdateRoute,
+  onDelete,
 }: Props) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const {
-    handleArchive,
     handleGoToDetails,
     handleGoToUpdate,
     isShow,
     setIsShow,
+    handleMapOpen,
     t,
-  } = useTableControls({
+    wrapperRef,
+  } = useVideoCardControls({
     id,
     genDetailsRoute,
     genUpdateRoute,
-    wrapperRef,
+    lat,
+    lon,
   });
   return (
     <div
@@ -46,7 +54,7 @@ export const TableControls = ({
       }}
       ref={wrapperRef}
     >
-      <IconDottedLine width={20} height={20} />
+      <IconDottedLine rotate={90} width={20} height={20} />
       {isShow && (
         <Card
           padding={6}
@@ -64,9 +72,15 @@ export const TableControls = ({
             text={t('popup.edit')}
           />
           <PopUpMenuItem
-            onClick={handleArchive}
-            icon={<IconDrawer width={20} hanging={20} />}
-            text={t('popup.archive')}
+            onClick={handleMapOpen}
+            icon={<IconMap width={20} hanging={20} />}
+            text={t('popup.map')}
+          />
+          <PopUpMenuItem
+            className={styles.danger}
+            onClick={onDelete}
+            icon={<IconBasket width={20} hanging={20} />}
+            text={t('popup.delete')}
           />
         </Card>
       )}

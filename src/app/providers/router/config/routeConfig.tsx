@@ -188,6 +188,18 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
+  [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_VIDEO_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_UPDATE](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
 
   [AppRoutesEnum.STATISTIC]: {
     path: AppRoutes[AppRoutesEnum.STATISTIC](),
