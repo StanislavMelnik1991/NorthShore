@@ -11,6 +11,27 @@
     "openSuccess": "Открыто"
   },
   "actions": {
-    "open": "Открыть"
+    "open": "Открыть",
+    "add": "Добавить"
+  },
+  "editor": {
+    "street": {
+      "placeholder": "Выберите улицу"
+    },
+    "building": {
+      "placeholder": "Выберите дом"
+    },
+    "entrance": {
+      "placeholder": "Выберите подъезд"
+    }
+  },
+  "noData": {
+    "title": "Не найдено ни одной камеры",
+    "text": "Попробуйте изменить значения фильтров"
+  },
+  "cards": {
+    "camera": "Камера",
+    "onAir": "В эфире" ,
+    "notOnAir": "Не в эфире"
   }
 }

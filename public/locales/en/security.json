@@ -11,6 +11,27 @@
     "openSuccess": "It's open"
   },
   "actions": {
-    "open": "Open"
+    "open": "Open",
+    "add": "Add"
+  },
+  "editor": {
+    "street": {
+      "placeholder": "Select a street"
+    },
+    "building": {
+      "placeholder": "Select a house"
+    },
+    "entrance": {
+      "placeholder": "Select an entrance"
+    }
+  },
+  "noData": {
+    "title": "No cameras found",
+    "text": "Try changing the values of the filters"
+  },
+  "cards": {
+    "camera": "Camera",
+    "onAir": "On the air." ,
+    "notOnAir": "Not on the air"
   }
 }

@@ -10,12 +10,17 @@ import {
   ListParams,
 } from '@entities/types';
 
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
+
 export const useGetUserEventsList = () => {
   const { t } = useTranslation('news');
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
   const getData = useCallback(
-    async (params: ListParams<INewsSort, INewsFilter>) => {
+    async (params: Params) => {
       setIsLoading(true);
       try {
         const {

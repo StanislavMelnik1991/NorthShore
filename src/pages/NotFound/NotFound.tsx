@@ -15,34 +15,6 @@ const NotFoundPage = () => {
         </Title>
         <Button onClick={() => navigate(-1)}>{t('not_found.back')}</Button>
       </Card>
-      <video
-        controls
-        width="250"
-        // disablePictureInPicture
-        // controlsList="nofullscreen"
-      >
-        <source
-          src={
-            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/main.mp4?audio=0&authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
-          }
-          type="video/mp4"
-        />
-        {t('errors.video')}
-      </video>
-      <video
-        controls
-        width="250"
-        // disablePictureInPicture
-        // controlsList="nofullscreen"
-      >
-        <source
-          src={
-            'http://lc38.loc.devline.tv:3536/cameras/0/streaming/sub.mp4?audio=0&authorization=Basic%20YWRtaW46dXZ1TGZjRDU='
-          }
-          type="video/mp4"
-        />
-        {t('errors.video')}
-      </video>
     </PageSkeleton>
   );
 };

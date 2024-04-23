@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xs);
+  border: var(--border-width) solid var(--dark-20);
+  outline: none;
+  cursor: pointer;
+
+  path {
+    fill: transparent;
+  }
+}
+
+.active {
+  background-color: var(--primary-100);
+
+  path {
+    fill: var(--white-100);
+  }
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  user-select: none;
+}

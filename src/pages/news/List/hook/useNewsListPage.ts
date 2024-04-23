@@ -4,13 +4,18 @@ import { useGetUserNewsList } from '@features/news';
 import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
 
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
+
 export const useNewsListPage = () => {
   const { t, i18n } = useTranslation('news');
   const { getData, isLoading } = useGetUserNewsList();
   const [news, setNews] = useState<Array<INews>>([]);
 
   useEffect(() => {
-    const newsParams: ListParams<INewsSort, INewsFilter> = {
+    const newsParams: Params = {
       page: 1,
       perPage: INITIAL_PER_PAGE,
       filter: {

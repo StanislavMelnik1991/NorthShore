@@ -11,6 +11,11 @@ import {
   NewsStatusEnum,
 } from '@shared/constants';
 
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
+
 export const useMeetingsList = () => {
   const { t } = useTranslation('meetings');
   const { getData } = useGetMeetingsList();
@@ -27,7 +32,7 @@ export const useMeetingsList = () => {
 
   const handleGetData = useCallback(async () => {
     setIsLoading(true);
-    const params: ListParams<INewsSort, INewsFilter> = {
+    const params: Params = {
       page,
       perPage,
       searchValue: debounced,

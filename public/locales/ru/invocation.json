@@ -79,5 +79,9 @@
     "invalidFormat": "Неверный формат"
   },
   "request": "Заявка",
-  "application": "Обращение"
+  "application": "Обращение",
+  "noApplications": {
+    "title": "У вас пока нет заявок",
+    "text": "Нажмите кнопку “Создать”, чтобы начать"
+  }
 }

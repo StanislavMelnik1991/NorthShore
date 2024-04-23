@@ -26,7 +26,7 @@ interface Props {
   errors: FormikErrors<Values>;
   setFieldValue: (
     field: keyof Values,
-    value: string | Array<IFile> | number | null,
+    value: string | Array<IFile> | number | null | undefined,
     shouldValidate?: boolean | undefined,
   ) => Promise<void> | Promise<FormikErrors<Values>>;
 }
@@ -61,10 +61,14 @@ export const RequestContentEditor = ({
           placeholder={t('editor.theme.placeholder')}
           defaultValue={values.theme_id}
           onChange={(val) => {
-            setFieldValue(
-              'theme_id',
-              Number((val as { value: number; label: string }).value),
-            );
+            if (val) {
+              setFieldValue(
+                'theme_id',
+                Number((val as { value: number; label: string }).value),
+              );
+            } else {
+              setFieldValue('theme_id', null);
+            }
           }}
           options={Object.entries(RequestThemesEnum).map(([value, label]) => {
             return {

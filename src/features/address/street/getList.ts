@@ -7,14 +7,19 @@ import { BaseResponse, IStreet } from '@entities/types';
 export const useStreetsList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<Array<IStreet>>([]);
 
   const getData = useCallback(async () => {
     setIsLoading(true);
     try {
       const {
-        data: { data },
+        data: { data: newData },
       } = await axiosApi.get<BaseResponse<Array<IStreet>>>('/services/streets');
-      return data;
+      if (newData) {
+        setData(newData);
+      } else {
+        toast.error(t('errors.getError'));
+      }
     } catch (error) {
       toast.error(t('errors.getError'));
       console.error(error);
@@ -25,6 +30,7 @@ export const useStreetsList = () => {
 
   return {
     getData,
+    data,
     isLoading,
   };
 };

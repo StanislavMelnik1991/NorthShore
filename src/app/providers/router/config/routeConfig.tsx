@@ -23,7 +23,11 @@ import { CurrentMeetingPage } from '@pages/meetings';
 import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
-import { SecurityAccessPage, SecurityPage } from '@pages/Security';
+import {
+  SecurityAccessPage,
+  SecurityPage,
+  SecurityVideoPage,
+} from '@pages/Security';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
@@ -168,7 +172,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SECURITY_VIDEO]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
-    element: <NotFoundPage />,
+    element: <SecurityVideoPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
