@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import { FormikErrors } from 'formik';
-import { Cover, QuillEditor, StyledSelect } from '@entities/components';
+import { Cover, StyledSelect } from '@entities/components';
 import { IFile } from '@entities/types';
 import { RequestThemesEnum } from '@shared/constants';
 import { IconStaple } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
+import { StyledTextAria } from '@shared/ui/TextAria';
 import { useEditorWidget } from '../hook';
 import styles from './Editor.module.scss';
 
@@ -90,12 +91,13 @@ export const RequestContentEditor = ({
         />
       )}
       {Object.keys(values).includes('content') && (
-        <QuillEditor
+        <StyledTextAria
           error={errors.content}
           label={t('editor.content.label')}
-          initialValue={values.content || ''}
-          setValue={(val) => setFieldValue('content', val)}
-          uploadImage={handleUploadImage}
+          value={values.content || ''}
+          onChange={(ev) => setFieldValue('content', ev.target.value)}
+          // setValue={(val) => setFieldValue('content', val)}
+          // uploadImage={handleUploadImage}
         />
       )}
       {Object.keys(values).includes('files') && (

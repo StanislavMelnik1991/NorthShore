@@ -18,7 +18,7 @@ interface Props {
   created_at?: Date;
   title?: string;
   idTitle?: string;
-  html?: string;
+  text?: string;
   date?: Date;
   link?: string;
   images?: Array<IFile>;
@@ -32,7 +32,7 @@ export const RequestContentWidget = ({
   className,
   isLoading,
   created_at,
-  html = '',
+  text = '',
   title,
   date,
   link,
@@ -63,12 +63,7 @@ export const RequestContentWidget = ({
       {status && <StatusLabel className={styles.status} status={status} />}
       {date && <DateDetails date={date} />}
       {link && <LinkDetails href={link} />}
-      <div
-        className={styles.htmlContent}
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
+      {text && <Text variant="body14">{text}</Text>}
       {!!images?.length && (
         <div className={styles.images}>
           {images.map((el) => {

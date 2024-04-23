@@ -1,14 +1,6 @@
-import sanitizeHtml from 'sanitize-html';
 import { RequestContentWidget } from '@widgets/invocation';
 import { PageHeader, PageSkeleton } from '@entities/components';
-import {
-  AppRoutes,
-  AppRoutesEnum,
-  RequestThemesEnum,
-  allowedAttributesSchema,
-  allowedIframeHostnamesSchema,
-  allowedTagsSanitizer,
-} from '@shared/constants';
+import { AppRoutes, AppRoutesEnum, RequestThemesEnum } from '@shared/constants';
 import { useCurrentEvent } from '../hook';
 
 export default () => {
@@ -29,14 +21,7 @@ export default () => {
         ]}
       />
       <RequestContentWidget
-        html={
-          data &&
-          sanitizeHtml(data.content, {
-            allowedTags: allowedTagsSanitizer,
-            allowedAttributes: allowedAttributesSchema,
-            allowedIframeHostnames: allowedIframeHostnamesSchema,
-          })
-        }
+        text={data?.content}
         created_at={data && new Date(data.data_add * 1000)}
         isLoading={isLoading}
         title={data?.title}
