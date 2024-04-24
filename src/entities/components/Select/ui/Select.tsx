@@ -46,6 +46,9 @@ export const StyledSelect = ({
             }
             return styles.option;
           },
+          input: () => {
+            return styles.input;
+          },
         }}
         styles={{
           control: (baseStyles) => ({
