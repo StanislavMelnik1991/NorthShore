@@ -37,3 +37,5 @@ export * from './Map';
 export * from './Basket';
 export * from './Camera';
 export * from './PlusRounded';
+export * from './Point';
+export * from './Comment';

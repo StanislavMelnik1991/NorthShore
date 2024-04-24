@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { PageLoader } from '@widgets/PageLoader';
 import {
+  AccessInformation,
+  ConfigInformation,
+  MainInformation,
+} from '@widgets/Security';
+import {
   CurrentSkeleton,
   CustomVideo,
   PageHeader,
@@ -16,7 +21,11 @@ import styles from './Page.module.scss';
 const Page = () => {
   const { data, isLoading, t, id } = useCreateCameraPage();
 
-  const labels = [t('tabs.main'), t('tabs.config'), t('tabs.access')];
+  const labels = [
+    t('camera.tabs.main'),
+    t('camera.tabs.config'),
+    t('camera.tabs.access'),
+  ];
 
   if (!data) {
     return <PageLoader />;
@@ -43,7 +52,23 @@ const Page = () => {
         <CustomVideo src={data.rtsp_url} status={data.status_id || 3} />
       </CurrentSkeleton>
       <CurrentSkeleton className={styles.content} isLoading={isLoading}>
-        <Tab labels={labels} tabs={[]} />
+        <Tab
+          labels={labels}
+          tabs={[
+            <MainInformation
+              key={`main_camera_information-${data.id}`}
+              data={data}
+            />,
+            <ConfigInformation
+              key={`main_camera_information-${data.id}`}
+              data={data}
+            />,
+            <AccessInformation
+              key={`main_camera_information-${data.id}`}
+              data={data}
+            />,
+          ]}
+        />
         <Link
           className={styles.link}
           to={AppRoutes[AppRoutesEnum.SECURITY_VIDEO_UPDATE](id as string)}

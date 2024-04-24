@@ -9,7 +9,8 @@
   "toast": {
     "listError": "Failed to get the list of access points",
     "openError": "Failed to open the access point: ",
-    "openSuccess": "Opened"
+    "openSuccess": "Opened",
+    "copy": "Link copied to the clipboard"
   },
   "actions": {
     "open": "Open",
@@ -78,9 +79,19 @@
     "getError": "Failed to retrieve data from the server ",
     "video": "Sorry, your browser does not support embedded video. "
   },
-  "tabs": {
-    "main": "Basic information",
-    "config": "Configuration",
-    "access":"Addresses with access to the video camera"
-  } 
+  "camera": {
+    "tabs": {
+      "main": "Main Information",
+      "config": "Configuration",
+      "access":"Addresses with Access to the Camera"
+    },
+    "point": "Coordinates",
+    "location": "Location",
+    "comment": "Comment",
+    "street": "st.",
+    "home": "bld.",
+    "entrance": "entr.",
+    "highQuality": "Link to a high quality stream",
+    "lowQuality": "Link to a low quality stream"
+  }
 }

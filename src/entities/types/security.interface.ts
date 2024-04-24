@@ -1,5 +1,10 @@
 import { EquipmentCondition } from '@shared/constants';
-import { IEntranceFull } from './address.interface';
+import {
+  IEntrance,
+  IBuilding,
+  IStreet,
+  IEntranceFull,
+} from './address.interface';
 
 export interface SecurityAccess {
   id: number;
@@ -17,7 +22,10 @@ export interface SecurityCamera {
   type_id: number;
   rtsp_url: string;
   rtsp_url_small: string;
-  entrance?: IEntranceFull;
-  entrance_id?: IEntranceFull['id'];
+  entrance: IEntrance;
+  entrances: Array<IEntranceFull>;
+  street: IStreet;
+  building: IBuilding;
+  entrance_id?: IEntrance['id'];
   status_id: keyof typeof EquipmentCondition;
 }
