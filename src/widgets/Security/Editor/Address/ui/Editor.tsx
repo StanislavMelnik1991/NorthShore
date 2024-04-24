@@ -5,6 +5,11 @@ import { TextField, Title } from '@shared/ui';
 import { StyledTextAria } from '@shared/ui/TextAria';
 import styles from './Editor.module.scss';
 
+type Option = {
+  value: number;
+  label: string;
+};
+
 type Data = {
   address_building_id?: number;
   address_entrance_id?: number;
@@ -18,6 +23,11 @@ interface Props {
   title?: string;
   values: Data;
   errors: FormikErrors<Data>;
+  initialAddress?: {
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
+  };
   setFieldValue: (
     field: keyof Data,
     value: string | Date | null | undefined | number,
@@ -30,6 +40,7 @@ export const SecurityAddressEditor = ({
   setFieldValue,
   errors,
   title,
+  initialAddress,
 }: Props) => {
   const { t } = useTranslation('security');
   return (
@@ -38,6 +49,7 @@ export const SecurityAddressEditor = ({
         {title}
       </Title>
       <AddressFilters
+        initialValues={initialAddress}
         showLabel
         setFilters={({ building_id, entrance_id, street_id }) => {
           setFieldValue('address_building_id', building_id);

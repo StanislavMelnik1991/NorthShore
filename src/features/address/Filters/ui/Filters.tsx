@@ -1,6 +1,11 @@
 import { AddressSelect } from '@entities/components';
 import { useSecurityFilters } from '../hook';
 
+type Option = {
+  value: number;
+  label: string;
+};
+
 interface Props {
   className?: string;
   showLabel?: boolean;
@@ -8,6 +13,11 @@ interface Props {
     street?: string;
     building?: string;
     entrance?: string;
+  };
+  initialValues?: {
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
   };
   setFilters: (val: {
     street_id?: number;
@@ -21,6 +31,7 @@ export const AddressFilters = ({
   setFilters,
   showLabel,
   errors,
+  initialValues,
 }: Props) => {
   const {
     isStreetsLoading,
@@ -37,6 +48,7 @@ export const AddressFilters = ({
     activeStreet,
   } = useSecurityFilters({
     setFilters,
+    initial: initialValues,
   });
 
   return (

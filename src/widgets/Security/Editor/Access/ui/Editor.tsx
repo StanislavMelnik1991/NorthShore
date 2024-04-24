@@ -9,10 +9,20 @@ type Data = {
   entrances_ids: number[];
 };
 
+type Option = {
+  value: number;
+  label: string;
+};
+
 interface Props {
   title?: string;
   values: Data;
   errors: FormikErrors<Data>;
+  initialAccess?: Array<{
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
+  }>;
   setFieldValue: (
     field: keyof Data,
     value: Array<number>,
@@ -25,22 +35,26 @@ export const SecurityAccessEditor = ({
   setFieldValue,
   // errors,
   title,
+  initialAccess,
 }: Props) => {
   const { t, onAdd, onChange, onClear, address, isDisabled } =
     useSecurityAccessEditor({
       setFieldValue,
+      initialAccess,
     });
-
   return (
     <div className={styles.wrapper}>
       <Title fontWeight="semibold" className={styles.title}>
         {title}
       </Title>
       {address.map((el, index) => {
-        const isRemoveDisabled = !el.entrance_id || address.length === 1;
+        const isRemoveDisabled = !el?.entrance_id || address.length === 1;
         return (
           <div className={styles.element} key={`AddressFilters-${el.id}`}>
-            <AddressFilters setFilters={onChange(index)} />
+            <AddressFilters
+              initialValues={initialAccess?.[index]}
+              setFilters={onChange(index)}
+            />
             <Button
               variant="text"
               onClick={onClear(index)}

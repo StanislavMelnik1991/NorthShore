@@ -11,8 +11,16 @@ import { useCreateCameraPage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
-  const { values, errors, setFieldValue, handleSubmit, isValid, t } =
-    useCreateCameraPage();
+  const {
+    values,
+    errors,
+    setFieldValue,
+    handleSubmit,
+    isValid,
+    t,
+    initialAddress,
+    initialAccessAddress,
+  } = useCreateCameraPage();
 
   return (
     <PageSkeleton>
@@ -44,12 +52,14 @@ const Page = () => {
             values={values}
           />
           <SecurityAddressEditor
+            initialAddress={initialAddress}
             title={t('editor.location')}
             errors={errors}
             setFieldValue={setFieldValue}
             values={values}
           />
           <SecurityAccessEditor
+            initialAccess={initialAccessAddress}
             title={t('editor.access')}
             errors={errors}
             setFieldValue={setFieldValue}

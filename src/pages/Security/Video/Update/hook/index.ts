@@ -1,11 +1,16 @@
 import { useFormik } from 'formik';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { SafeParseError, z } from 'zod';
 import { useGetCurrentCamera } from '@features/security/cameras';
 import { useUpdateCamera } from '@features/security/cameras/update';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+
+type Option = {
+  value: number;
+  label: string;
+};
 
 type Data = {
   rtsp_url: string;
@@ -26,6 +31,18 @@ export const useCreateCameraPage = () => {
   const { update, validate } = useUpdateCamera(id as string);
   const { t } = useTranslation('security');
   const navigate = useNavigate();
+  const [initialAddress, setInitialAddress] = useState<{
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
+  }>();
+  const [initialAccessAddress, setAccessAddress] = useState<
+    Array<{
+      street?: Option;
+      building?: Option;
+      entrance?: Option;
+    }>
+  >([]);
 
   useEffect(() => {
     getData();
@@ -102,6 +119,45 @@ export const useCreateCameraPage = () => {
         comment: data.comment,
         name: data.name,
       });
+
+      const address = {
+        street: data?.street
+          ? {
+              value: data.street.id,
+              label: data.street.name,
+            }
+          : undefined,
+        building: data?.building
+          ? {
+              value: data.building.id,
+              label: data.building.name,
+            }
+          : undefined,
+        entrance: data?.entrance
+          ? {
+              value: data.entrance.id,
+              label: data.entrance.name,
+            }
+          : undefined,
+      };
+      setInitialAddress(address);
+      const access = data.entrances.map((el) => {
+        return {
+          entrance: {
+            value: el.id,
+            label: el.name,
+          },
+          building: {
+            value: el.building.id,
+            label: el.building.name,
+          },
+          street: {
+            value: el.building.street.id,
+            label: el.building.street.name,
+          },
+        };
+      });
+      setAccessAddress(access);
     }
   }, [data, setValues]);
 
@@ -112,6 +168,8 @@ export const useCreateCameraPage = () => {
     handleSubmit,
     isValid,
     isLoading,
+    initialAddress,
+    initialAccessAddress,
     t,
   };
 };

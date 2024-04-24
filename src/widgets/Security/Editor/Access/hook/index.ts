@@ -1,5 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+type Option = {
+  value: number;
+  label: string;
+};
 
 type Address = {
   id: number;
@@ -10,13 +15,33 @@ type Address = {
 
 type Props = {
   setFieldValue: (name: 'entrances_ids', val: number[]) => void;
+  initialAccess?: Array<{
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
+  }>;
 };
 
-export const useSecurityAccessEditor = ({ setFieldValue }: Props) => {
+export const useSecurityAccessEditor = ({
+  setFieldValue,
+  initialAccess = [],
+}: Props) => {
   const { t } = useTranslation('security');
   const [address, setAddress] = useState<Array<Address>>([
     { id: Math.random() },
   ]);
+
+  useEffect(() => {
+    if (initialAccess.length) {
+      const initialAddress = initialAccess.map((el) => {
+        return {
+          id: Math.random(),
+          entrance_id: el.entrance?.value,
+        };
+      });
+      setAddress(initialAddress);
+    }
+  }, [initialAccess]);
 
   const handleUpdateValues = useCallback(
     (index: number) => (data?: Omit<Address, 'id'>) => {
@@ -71,6 +96,6 @@ export const useSecurityAccessEditor = ({ setFieldValue }: Props) => {
     onChange: handleUpdateValues,
     onClear: handleClear,
     onAdd: handleAdd,
-    isDisabled: !address[address.length - 1].entrance_id,
+    isDisabled: !address[address.length - 1]?.entrance_id,
   };
 };

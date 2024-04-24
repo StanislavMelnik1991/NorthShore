@@ -1,15 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useBuildingsList, useEntranceList, useStreetsList } from '../../';
 
+type Option = {
+  value: number;
+  label: string;
+};
+
 interface Props {
   setFilters: (val: {
     street_id?: number;
     building_id?: number;
     entrance_id?: number;
   }) => void;
+  initial?: {
+    street?: Option;
+    building?: Option;
+    entrance?: Option;
+  };
 }
 
-export const useSecurityFilters = ({ setFilters }: Props) => {
+export const useSecurityFilters = ({ setFilters, initial }: Props) => {
   const {
     data: streets,
     getData: getStreets,
@@ -42,8 +52,22 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
   } | null>(null);
 
   useEffect(() => {
-    getStreets();
-  }, [getStreets]);
+    getStreets().then(() => {
+      if (initial) {
+        if (initial.street) {
+          getBuildings(initial.street.value);
+          setActiveStreet(initial.street);
+        }
+        if (initial.building) {
+          getEntrances(initial.building.value);
+          setActiveBuilding(initial.building);
+        }
+        if (initial.entrance) {
+          setActiveEntrance(initial.entrance);
+        }
+      }
+    });
+  }, [getBuildings, getEntrances, getStreets, initial]);
 
   const handleChangeStreet = useCallback(
     (street: unknown) => {
