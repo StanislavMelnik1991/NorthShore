@@ -55,7 +55,7 @@ const Page = () => {
             setFieldValue={setFieldValue}
             values={values}
           />
-          <CameraCreateActions isValid={isValid} />
+          <CameraCreateActions className={styles.actions} isValid={isValid} />
         </Card>
       </form>
     </PageSkeleton>
