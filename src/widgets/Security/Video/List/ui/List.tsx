@@ -30,18 +30,19 @@ export const VideoList = ({ className, data, isLoading }: Props) => {
           {!data.length ? (
             <NoResults title={t('noData.title')} text={t('noData.text')} />
           ) : (
-            data.map((el) => {
+            data.map(({ rtsp_url_small, id, lat, lon, name, status_id }) => {
               return (
                 <VideoCard
-                  video={el.rtsp_url}
-                  name={el.name}
-                  id={el.id}
-                  key={`security-video-${el.id}`}
+                  video={rtsp_url_small}
+                  name={name}
+                  id={id}
+                  status={status_id || 3}
+                  key={`security-video-${id}`}
                   controls={
                     <VideoCardControls
-                      lat={el.lat}
-                      lon={el.lon}
-                      id={el.id}
+                      lat={lat}
+                      lon={lon}
+                      id={id}
                       genDetailsRoute={
                         AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT]
                       }

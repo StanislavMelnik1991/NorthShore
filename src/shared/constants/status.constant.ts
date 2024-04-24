@@ -22,3 +22,9 @@ export const RequestThemesEnum = {
   7: 'passport',
   8: 'other',
 };
+
+export const EquipmentCondition = {
+  1: 'normal',
+  2: 'defect',
+  3: 'no_data',
+};

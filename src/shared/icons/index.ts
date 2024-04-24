@@ -35,3 +35,4 @@ export * from './Done';
 export * from './Star';
 export * from './Map';
 export * from './Basket';
+export * from './Camera';

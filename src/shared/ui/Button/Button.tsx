@@ -7,7 +7,7 @@ interface Props
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  variant?: 'primary' | 'secondary' | 'danger' | 'light' | 'white';
+  variant?: 'primary' | 'secondary' | 'danger' | 'light' | 'white' | 'text';
   size?: 'small' | 'large';
   width?: string | number;
   height?: string | number;

@@ -141,6 +141,56 @@
   }
 }
 
+.text {
+  padding: 0;
+  background-color: transparent !important;
+  color: var(--primary-100);
+
+  .loader {
+    color: var(--primary-100);
+  }
+
+  path {
+    fill: var(--primary-100);
+  }
+
+  &:hover {
+    color: var(--primary-semi-dark);
+
+    .loader {
+      color: var(--primary-semi-dark);
+    }
+
+    path {
+      fill: var(--primary-semi-dark);
+    }
+  }
+
+  &:active {
+    color: var(--primary-dark);
+
+    .loader {
+      color: var(--primary-dark);
+    }
+
+    path {
+      fill: var(--primary-dark);
+    }
+  }
+
+  &:disabled {
+    color: var(--gray-50);
+
+    .loader {
+      color: var(--gray-50);
+    }
+
+    path {
+      fill: var(--gray-50);
+    }
+  }
+}
+
 .large {
   font-weight: 500;
   font-size: 16px;

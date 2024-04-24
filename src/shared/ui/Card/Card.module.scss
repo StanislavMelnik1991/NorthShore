@@ -4,7 +4,6 @@
   background-color: var(--white-100);
   padding: 16px;
   border-radius: var(--radius-md);
-  z-index: 1;
 }
 
 .loader {
@@ -28,4 +27,8 @@
 
 .loading {
   min-height: 500px;
+}
+
+.shadow {
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 3%);
 }

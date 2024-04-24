@@ -1,3 +1,4 @@
+import { EquipmentCondition } from '@shared/constants';
 import { IEntranceFull } from './address.interface';
 
 export interface SecurityAccess {
@@ -15,6 +16,8 @@ export interface SecurityCamera {
   comment?: string;
   type_id: number;
   rtsp_url: string;
+  rtsp_url_small: string;
   entrance?: IEntranceFull;
   entrance_id?: IEntranceFull['id'];
+  status_id: keyof typeof EquipmentCondition;
 }

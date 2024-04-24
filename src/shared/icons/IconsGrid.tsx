@@ -40,6 +40,7 @@ import {
   IconStar,
   IconMap,
   IconBasket,
+  IconCamera,
 } from '.';
 
 interface Props {
@@ -50,6 +51,9 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconBasket">
+        <IconCamera width={size} height={size} />
+      </Item>
       <Item name="IconBasket">
         <IconBasket width={size} height={size} />
       </Item>

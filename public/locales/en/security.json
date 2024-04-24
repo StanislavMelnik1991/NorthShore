@@ -59,8 +59,10 @@
   },
   "cards": {
     "camera": "Camera",
-    "onAir": "On Air" ,
-    "notOnAir": "Not On Air"
+    "normal": "On Air" ,
+    "defect": "Not On Air",
+    "no_data": "No data",
+    "cameraError": "The camera is not connected"
   },
   "popup": {
     "preview": "Preview",

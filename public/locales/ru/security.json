@@ -59,8 +59,10 @@
   },
   "cards": {
     "camera": "Камера",
-    "onAir": "В эфире" ,
-    "notOnAir": "Не в эфире"
+    "normal": "В эфире" ,
+    "defect": "Не в эфире",
+    "no_data": "Нет данных",
+    "cameraError": "Камера не подключена"
   },
   "popup": {
     "preview": "Просмотр",

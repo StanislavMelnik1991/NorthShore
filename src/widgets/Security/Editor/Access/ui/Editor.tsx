@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { FormikErrors } from 'formik';
 import { AddressFilters } from '@features/address';
 import { IconClose, IconPlus } from '@shared/icons';
@@ -42,19 +41,19 @@ export const SecurityAccessEditor = ({
         return (
           <div className={styles.element} key={`AddressFilters-${index}`}>
             <AddressFilters setFilters={onChange(index)} />
-            <IconClose
-              width={20}
-              height={20}
-              className={classNames(styles.icon, {
-                [styles.disabled]: isRemoveDisabled,
-              })}
-              onClick={isRemoveDisabled ? undefined : onClear(index)}
-            />
+            <Button
+              variant="text"
+              onClick={onClear(index)}
+              className={styles.add}
+              disabled={isRemoveDisabled}
+            >
+              <IconClose width={20} height={20} />
+            </Button>
           </div>
         );
       })}
       <Button
-        variant="white"
+        variant="text"
         onClick={onAdd}
         className={styles.add}
         disabled={isDisabled}
