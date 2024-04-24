@@ -3,41 +3,69 @@
   "modules": {
     "access": "Access Control",
     "intercom": "Intercom",
-    "video": "Video Surveillance"
+    "video": "Video Surveillance",
+    "createCamera": "Adding a Camera" 
   },
   "toast": {
-    "listError": "Failed to retrieve the list of access points",
+    "listError": "Failed to get the list of access points",
     "openError": "Failed to open the access point: ",
-    "openSuccess": "It's open"
+    "openSuccess": "Opened"
   },
   "actions": {
     "open": "Open",
-    "add": "Add"
+    "add": "Add",
+    "addAddress": "Add Address"
   },
   "editor": {
     "street": {
-      "placeholder": "Select a street"
+      "label": "Street",
+      "placeholder": "Select a Street"
     },
     "building": {
-      "placeholder": "Select a house"
+      "label": "Building",
+      "placeholder": "Select a Building"
     },
     "entrance": {
-      "placeholder": "Select an entrance"
-    }
+      "label": "Entrance",
+      "placeholder": "Select an Entrance"
+    },
+    "faulty": {
+      "label": "Show Faulty"
+    },
+    "highQuality": {
+      "label": "Link to High Quality Stream",
+      "placeholder": "Enter the Link"
+    },
+    "lowQuality": {
+      "label": "Link to Low Quality Stream",
+      "placeholder": "Enter the Link"
+    },
+    "placeComment": {
+      "label": "Location Comment",
+      "placeholder": "Enter a Comment"
+    },
+    "point": {
+      "label": "Coordinates",
+      "placeholder": "Enter Coordinates"
+    },
+    "location": "Location Address",
+    "access": "Addresses with Access to the Camera",
+    "webData": "Credentials from WEB Interface",
+    "httpData": "Credentials from HTTP API"
   },
   "noData": {
-    "title": "No cameras found",
-    "text": "Try changing the values of the filters"
+    "title": "No Cameras Found",
+    "text": "Try Changing Filter Values"
   },
   "cards": {
     "camera": "Camera",
-    "onAir": "On the air." ,
-    "notOnAir": "Not on the air"
+    "onAir": "On Air" ,
+    "notOnAir": "Not On Air"
   },
   "popup": {
-    "preview": "Viewing",
+    "preview": "Preview",
     "edit": "Edit",
-    "map": "Open on the map",
+    "map": "Open on Map",
     "delete": "Delete"
   }
 }

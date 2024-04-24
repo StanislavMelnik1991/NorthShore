@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 4;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  cursor: pointer;
+
+  path {
+    fill: var(--dark-70);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+
+  path {
+    fill: var(--dark-20);
+  }
+}
+
+.add {
+  width: fit-content;
+  color: var(--primary-100);
+
+  path {
+    fill: var(--primary-100);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.title {
+  margin: 32px 0 -4px;
+}

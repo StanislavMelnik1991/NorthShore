@@ -1,5 +1,6 @@
-import { SecurityFilters } from '@widgets/Security';
-import { VideoList } from '@widgets/Security/Video/List/ui/List';
+import { Link } from 'react-router-dom';
+import { VideoList } from '@widgets/Security';
+import { AddressFilters } from '@features/address';
 import {
   PageHeader,
   PageSkeleton,
@@ -8,7 +9,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
-import { Button } from '@shared/ui';
+import { Button, CheckBox } from '@shared/ui';
 import { useSecurityVideoPage } from '../hook';
 import styles from './Page.module.scss';
 
@@ -40,18 +41,26 @@ const MainPage = () => {
           },
         ]}
         controls={
-          <Button variant="primary" size="small">
-            <IconPlus width={20} height={20} />
-            {t('actions.add')}
-          </Button>
+          <Link to={AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CREATE]()}>
+            <Button variant="primary" size="small">
+              <IconPlus width={20} height={20} />
+              {t('actions.add')}
+            </Button>
+          </Link>
         }
       />
       <div className={styles.content}>
-        <SecurityFilters
-          isFaulty={isFaulty}
-          setIsFaulty={setIsFaulty}
-          setFilters={setFilters}
-        />
+        <div className={styles.filters}>
+          <AddressFilters setFilters={setFilters} />
+          <CheckBox
+            LabelClassName={styles.checkbox}
+            value={isFaulty}
+            onChange={(val) => {
+              setIsFaulty(val);
+            }}
+            label={t('editor.faulty.label')}
+          />
+        </div>
         <div className={styles.divider} />
         <VideoList data={data} isLoading={isLoading} />
       </div>

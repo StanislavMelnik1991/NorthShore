@@ -2,6 +2,11 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  width: 100%;
+
+  form {
+    width: calc((100% - 32px) / 3);
+  }
 
   @media (width < 980px) {
     form {
@@ -11,7 +16,7 @@
 }
 
 .street {
-  width: 400px;
+  width: 100%;
 
   @media (width < 980px) {
     width: 100%;
@@ -19,7 +24,7 @@
 }
 
 .entrance {
-  width: 250px;
+  width: 100%;
 
   @media (width < 980px) {
     width: 100%;
@@ -27,7 +32,7 @@
 }
 
 .home {
-  width: 250px;
+  width: 100%;
 
   @media (width < 980px) {
     width: 100%;

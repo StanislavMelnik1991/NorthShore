@@ -38,11 +38,20 @@
     "title": "Page Not Found",
     "back": "Go Back"
   },
+  "toast": {
+    "deleteSuccess": "Deleted successfully",
+    "deleteError": "Failed to delete",
+    "updateSuccess": "Updated successfully",
+    "updateError": "Failed to update",
+    "createSuccess": "Created successfully",
+    "createError": "Failed to create",
+    "notFound": "Failed to get data from the server"
+  },
   "errors": {
-    "required": "Field is required",
-    "max256": "Title must not be longer than 256 characters",
-    "invalidFormat": "Incorrect format",
-    "getError": "Failed to retrieve data from the server",
-    "video": "Sorry, your browser does not support embedded video."
+    "required": "Field is required ",
+    "max256": "Title must not be longer than 256 characters ",
+    "invalidFormat": "Incorrect format ",
+    "getError": "Failed to retrieve data from the server ",
+    "video": "Sorry, your browser does not support embedded video. "
   }
 }

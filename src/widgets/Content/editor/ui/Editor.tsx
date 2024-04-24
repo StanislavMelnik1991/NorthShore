@@ -7,7 +7,7 @@ import { Button, Card, TextField, Title } from '@shared/ui';
 import { useEditorWidget } from '../hook/';
 import styles from './Editor.module.scss';
 
-type News = {
+type Content = {
   cover?: string | null;
   title_ru?: string;
   title_en?: string;
@@ -22,10 +22,10 @@ interface Props {
   loading?: boolean;
   handleUploadImage(file: File): Promise<IFile | undefined>;
   controls?: JSX.Element;
-  values: News;
-  errors: FormikErrors<News>;
+  values: Content;
+  errors: FormikErrors<Content>;
   setFieldValue: (
-    field: keyof News,
+    field: keyof Content,
     value: string | Date | null,
     shouldValidate?: boolean | undefined,
   ) =>

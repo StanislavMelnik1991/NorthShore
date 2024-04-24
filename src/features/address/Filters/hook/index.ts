@@ -1,25 +1,13 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  useBuildingsList,
-  useEntranceList,
-  useStreetsList,
-} from '@features/address';
+import { useBuildingsList, useEntranceList, useStreetsList } from '../../';
 
 interface Props {
-  setFilters: Dispatch<
-    SetStateAction<{
-      street_id?: number;
-      building_id?: number;
-      entrance_id?: number;
-    }>
-  >;
+  setFilters: (val: {
+    street_id?: number;
+    building_id?: number;
+    entrance_id?: number;
+  }) => void;
 }
 
 export const useSecurityFilters = ({ setFilters }: Props) => {

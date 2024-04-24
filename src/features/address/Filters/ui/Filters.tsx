@@ -1,29 +1,19 @@
 import classNames from 'classnames';
-import { Dispatch, SetStateAction } from 'react';
 import { StyledSelect } from '@entities/components';
-import { CheckBox } from '@shared/ui';
 import { useSecurityFilters } from '../hook';
 import styles from './Filters.module.scss';
 
 interface Props {
   className?: string;
-  isFaulty: boolean;
-  setIsFaulty: (val: boolean) => void;
-  setFilters: Dispatch<
-    SetStateAction<{
-      street_id?: number;
-      building_id?: number;
-      entrance_id?: number;
-    }>
-  >;
+  showLabel?: boolean;
+  setFilters: (val: {
+    street_id?: number;
+    building_id?: number;
+    entrance_id?: number;
+  }) => void;
 }
 
-export const SecurityFilters = ({
-  className,
-  setFilters,
-  isFaulty,
-  setIsFaulty,
-}: Props) => {
+export const AddressFilters = ({ className, setFilters, showLabel }: Props) => {
   const {
     t,
     isStreetsLoading,
@@ -46,6 +36,7 @@ export const SecurityFilters = ({
       <StyledSelect
         className={classNames(styles.select, styles.street)}
         isLoading={isStreetsLoading}
+        label={showLabel ? t('editor.street.label') : undefined}
         placeholder={t('editor.street.placeholder')}
         onChange={(val) =>
           handleChangeStreet(val as { value: number; label: string } | null)
@@ -62,6 +53,7 @@ export const SecurityFilters = ({
         isDisabled={!buildings.length}
         isLoading={isBuildingsLoading}
         value={activeBuilding}
+        label={showLabel ? t('editor.building.label') : undefined}
         placeholder={t('editor.building.placeholder')}
         onChange={(val) =>
           handleBuildingChange(val as { value: number; label: string } | null)
@@ -78,6 +70,7 @@ export const SecurityFilters = ({
         isDisabled={!entrances.length}
         isLoading={isEntrancesLoading}
         value={activeEntrance}
+        label={showLabel ? t('editor.entrance.label') : undefined}
         placeholder={t('editor.entrance.placeholder')}
         onChange={(val) =>
           handleEntranceChange(val as { value: number; label: string } | null)
@@ -88,13 +81,6 @@ export const SecurityFilters = ({
             label: el.name,
           };
         })}
-      />
-      <CheckBox
-        value={isFaulty}
-        onChange={(val) => {
-          setIsFaulty(val);
-        }}
-        label={'Показать неисправные'}
       />
     </div>
   );

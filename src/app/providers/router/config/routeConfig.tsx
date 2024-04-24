@@ -24,6 +24,7 @@ import { CurrentNewsPage } from '@pages/news';
 import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
 import {
+  CreateCameraPage,
   SecurityAccessPage,
   SecurityPage,
   SecurityVideoPage,
@@ -185,6 +186,12 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.SECURITY_VIDEO]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
     element: <SecurityVideoPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_VIDEO_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CREATE](),
+    element: <CreateCameraPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },

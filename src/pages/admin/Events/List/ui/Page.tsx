@@ -33,7 +33,7 @@ const Page = () => {
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t('routes.events') }]}
       />
-      <Card padding={12} gap={20} loading={isLoading} loaderSize={32}>
+      <Card padding={12} gap={20} loaderSize={32}>
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
           {t('controls.create')}
