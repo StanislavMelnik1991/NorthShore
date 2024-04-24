@@ -11,6 +11,7 @@ type Data = {
   address_street_id?: number;
   comment?: string;
   point?: string;
+  name?: string;
 };
 
 interface Props {
@@ -50,7 +51,10 @@ export const SecurityAddressEditor = ({
         placeholder={t('editor.placeComment.placeholder')}
         error={errors.comment}
         value={values.comment}
-        onChange={(ev) => setFieldValue('comment', ev.target.value)}
+        onChange={(ev) => {
+          setFieldValue('name', ev.target.value);
+          setFieldValue('comment', ev.target.value);
+        }}
       />
       <TextField
         label={t('editor.point.label')}

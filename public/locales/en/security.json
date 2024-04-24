@@ -4,7 +4,8 @@
     "access": "Access Control",
     "intercom": "Intercom",
     "video": "Video Surveillance",
-    "createCamera": "Adding a Camera" 
+    "createCamera": "Adding a Camera",
+    "updateCamera": "Editing the camcorder"
   },
   "toast": {
     "listError": "Failed to get the list of access points",
@@ -16,7 +17,8 @@
     "open": "Open",
     "add": "Add",
     "addAddress": "Add Address",
-    "edit": "Edit"
+    "edit": "Edit",
+    "update": "Update"
   },
   "editor": {
     "street": {

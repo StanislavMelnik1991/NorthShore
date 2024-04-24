@@ -7,9 +7,14 @@ import styles from './Create.module.scss';
 interface Props {
   className?: string;
   isValid: boolean;
+  submitText: string;
 }
 
-export const CameraCreateActions = ({ className, isValid }: Props) => {
+export const CameraCreateActions = ({
+  className,
+  isValid,
+  submitText,
+}: Props) => {
   const { t } = useTranslation('content');
   const navigate = useNavigate();
   return (
@@ -21,7 +26,7 @@ export const CameraCreateActions = ({ className, isValid }: Props) => {
         type="submit"
         disabled={!isValid}
       >
-        {t('controls.add')}
+        {submitText}
       </Button>
       <Button
         className={styles.submitButton}

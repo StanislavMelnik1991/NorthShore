@@ -27,7 +27,7 @@ const Page = () => {
             href: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
           },
           {
-            title: t('modules.createCamera'),
+            title: t('modules.updateCamera'),
           },
         ]}
       />
@@ -56,7 +56,7 @@ const Page = () => {
             values={values}
           />
           <CameraCreateActions
-            submitText={t('actions.add')}
+            submitText={t('actions.update')}
             className={styles.actions}
             isValid={isValid}
           />
