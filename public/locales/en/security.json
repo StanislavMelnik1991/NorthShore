@@ -14,7 +14,8 @@
   "actions": {
     "open": "Open",
     "add": "Add",
-    "addAddress": "Add Address"
+    "addAddress": "Add Address",
+    "edit": "Edit"
   },
   "editor": {
     "street": {
@@ -76,5 +77,10 @@
     "invalidFormat": "Incorrect format ",
     "getError": "Failed to retrieve data from the server ",
     "video": "Sorry, your browser does not support embedded video. "
-  }
+  },
+  "tabs": {
+    "main": "Basic information",
+    "config": "Configuration",
+    "access":"Addresses with access to the video camera"
+  } 
 }

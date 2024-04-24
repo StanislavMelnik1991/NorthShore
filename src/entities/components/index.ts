@@ -17,3 +17,4 @@ export * from './UserIcon';
 export * from './Select';
 export * from './PopUpMenuItem';
 export * from './AddressSelect';
+export * from './CustomVideo';

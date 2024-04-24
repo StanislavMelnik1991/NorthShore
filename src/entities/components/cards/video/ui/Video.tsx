@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { EquipmentCondition } from '@shared/constants';
-import { IconCamera } from '@shared/icons';
-import { Badge, Card, Text } from '@shared/ui';
+import { Card, Text } from '@shared/ui';
+import { CustomVideo } from '../../../';
 import styles from './Video.module.scss';
 
 interface Props {
@@ -25,29 +25,12 @@ export const VideoCard = ({
   const { t } = useTranslation('security');
   return (
     <Card padding={0} className={classNames(styles.wrapper, className)}>
-      <div className={styles.videoWrapper}>
-        {status === 2 ? (
-          <div className={styles.videoError}>
-            <IconCamera width={24} height={24} />
-            <Text fontWeight="medium" variant="body14">
-              {t('cards.cameraError')}
-            </Text>
-          </div>
-        ) : (
-          <video
-            controls
-            className={styles.video}
-            disablePictureInPicture
-            controlsList="nofullscreen"
-          >
-            <source src={video} type="video/mp4" />
-          </video>
-        )}
-        <Badge color="dark" className={styles.timeStamp}>
-          {status === 1 && <div className={styles.dot} />}
-          {t(`cards.${EquipmentCondition[status]}`)}
-        </Badge>
-      </div>
+      <CustomVideo
+        className={styles.videoWrapper}
+        src={video}
+        status={status}
+        controlsList="nofullscreen"
+      />
       <div className={styles.footer}>
         <div className={styles.text}>
           <Text

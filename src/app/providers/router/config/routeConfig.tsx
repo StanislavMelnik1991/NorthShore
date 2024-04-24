@@ -29,6 +29,7 @@ import {
   SecurityPage,
   SecurityVideoPage,
 } from '@pages/Security';
+import { CurrentCameraPage } from '@pages/Security/Video/Current';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
@@ -197,7 +198,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT](':id'),
-    element: <NotFoundPage />,
+    element: <CurrentCameraPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },

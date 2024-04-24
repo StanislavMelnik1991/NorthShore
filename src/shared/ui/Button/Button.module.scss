@@ -51,7 +51,7 @@
   }
 
   &:hover {
-    background-color: var(--primary-semi-dark);
+    background-color: var(--primary-60);
   }
 
   &:active {
@@ -195,18 +195,18 @@
   }
 
   &:hover {
-    color: var(--primary-semi-dark);
+    color: var(--primary-60);
 
     .loader {
-      color: var(--primary-semi-dark);
+      color: var(--primary-60);
     }
 
     path {
-      fill: var(--primary-semi-dark);
+      fill: var(--primary-60);
     }
 
     rect {
-      stroke: var(--primary-semi-dark);
+      stroke: var(--primary-60);
     }
   }
 
