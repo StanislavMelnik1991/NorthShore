@@ -69,5 +69,12 @@
     "edit": "Edit",
     "map": "Open on Map",
     "delete": "Delete"
+  },
+  "errors": {
+    "required": "Field is required ",
+    "max256": "Title must not be longer than 256 characters ",
+    "invalidFormat": "Incorrect format ",
+    "getError": "Failed to retrieve data from the server ",
+    "video": "Sorry, your browser does not support embedded video. "
   }
 }

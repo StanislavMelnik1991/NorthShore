@@ -16,3 +16,4 @@ export * from './MenuItem';
 export * from './UserIcon';
 export * from './Select';
 export * from './PopUpMenuItem';
+export * from './AddressSelect';

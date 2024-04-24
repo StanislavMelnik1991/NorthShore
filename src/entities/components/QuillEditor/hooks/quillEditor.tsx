@@ -37,7 +37,6 @@ export const useQuillEditor = ({
       }
       const contentEditor = reactQuillRef.current.getEditor();
       const data = delta.ops[delta.ops.length - 1];
-      console.log(data);
       if (data && contentEditor) {
         const content = data.insert;
         const contentText = editor.getText();

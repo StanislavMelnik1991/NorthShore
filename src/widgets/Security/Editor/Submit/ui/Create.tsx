@@ -21,7 +21,7 @@ export const CameraCreateActions = ({ className, isValid }: Props) => {
         type="submit"
         disabled={!isValid}
       >
-        {t('controls.publish')}
+        {t('controls.add')}
       </Button>
       <Button
         className={styles.submitButton}

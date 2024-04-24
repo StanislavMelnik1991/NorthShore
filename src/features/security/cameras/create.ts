@@ -33,7 +33,7 @@ export const useCreateCamera = () => {
     (data: Partial<ValuesType>) => {
       const res = schema.safeParse(data) as SafeParseError<ValuesType>;
       if (res.error) {
-        console.log(res.error.formErrors.fieldErrors);
+        console.warn(res.error.formErrors.fieldErrors);
         return res.error.formErrors.fieldErrors;
       }
     },

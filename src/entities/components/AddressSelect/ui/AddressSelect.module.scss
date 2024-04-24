@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+
+  form {
+    width: calc((100% - 32px) / 3);
+  }
+
+  @media (width < 980px) {
+    form {
+      width: 100%;
+    }
+  }
+}
+
+.street {
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.entrance {
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.home {
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}

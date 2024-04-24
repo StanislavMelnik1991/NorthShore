@@ -39,7 +39,7 @@ export const SecurityAccessEditor = ({
       {address.map((el, index) => {
         const isRemoveDisabled = !el.entrance_id || address.length === 1;
         return (
-          <div className={styles.element} key={`AddressFilters-${index}`}>
+          <div className={styles.element} key={`AddressFilters-${el.id}`}>
             <AddressFilters setFilters={onChange(index)} />
             <Button
               variant="text"

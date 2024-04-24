@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useBuildingsList, useEntranceList, useStreetsList } from '../../';
 
 interface Props {
@@ -29,7 +28,10 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
     clearData: clearEntrances,
   } = useEntranceList();
 
-  const { t } = useTranslation('security');
+  const [activeStreet, setActiveStreet] = useState<{
+    value: number;
+    label: string;
+  } | null>(null);
   const [activeBuilding, setActiveBuilding] = useState<{
     value: number;
     label: string;
@@ -44,13 +46,15 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
   }, [getStreets]);
 
   const handleChangeStreet = useCallback(
-    (street: { value: number; label: string } | null) => {
+    (street: unknown) => {
       clearEntrances();
+      setActiveStreet(street as { value: number; label: string });
       setActiveEntrance(null);
       setActiveBuilding(null);
       if (street) {
-        setFilters({ street_id: street.value });
-        getBuildings(street.value);
+        const { value } = street as { value: number; label: string };
+        setFilters({ street_id: value });
+        getBuildings(value);
       } else {
         setFilters({});
         clearBuildings();
@@ -60,12 +64,13 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
   );
 
   const handleBuildingChange = useCallback(
-    (building: { value: number; label: string } | null) => {
-      setActiveBuilding(building);
+    (building: unknown) => {
+      setActiveBuilding(building as { value: number; label: string });
       setActiveEntrance(null);
       if (building) {
-        setFilters({ building_id: building.value });
-        getEntrances(building.value);
+        const { value } = building as { value: number; label: string };
+        setFilters({ building_id: value });
+        getEntrances(value);
       } else {
         setFilters({});
         clearEntrances();
@@ -74,10 +79,11 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
     [clearEntrances, getEntrances, setFilters],
   );
   const handleEntranceChange = useCallback(
-    (entrance: { value: number; label: string } | null) => {
-      setActiveEntrance(entrance);
+    (entrance: unknown) => {
+      setActiveEntrance(entrance as { value: number; label: string });
       if (entrance) {
-        setFilters({ entrance_id: entrance.value });
+        const { value } = entrance as { value: number; label: string };
+        setFilters({ entrance_id: value });
       } else {
         setFilters({});
       }
@@ -86,10 +92,24 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
   );
 
   return {
-    t,
-    streets,
-    buildings,
-    entrances,
+    streets: streets.map((el) => {
+      return {
+        value: el.id,
+        label: el.name,
+      };
+    }),
+    buildings: buildings.map((el) => {
+      return {
+        value: el.id,
+        label: el.name,
+      };
+    }),
+    entrances: entrances.map((el) => {
+      return {
+        value: el.id,
+        label: el.name,
+      };
+    }),
     handleChangeStreet,
     handleBuildingChange,
     handleEntranceChange,
@@ -98,5 +118,6 @@ export const useSecurityFilters = ({ setFilters }: Props) => {
     isEntrancesLoading,
     activeBuilding,
     activeEntrance,
+    activeStreet,
   };
 };
