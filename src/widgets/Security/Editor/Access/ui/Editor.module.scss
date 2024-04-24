@@ -11,22 +11,6 @@
   gap: 12px;
 }
 
-.icon {
-  cursor: pointer;
-
-  path {
-    fill: var(--dark-70);
-  }
-}
-
-.disabled {
-  pointer-events: none;
-
-  path {
-    fill: var(--dark-20);
-  }
-}
-
 .add {
   width: fit-content;
   color: var(--primary-100);

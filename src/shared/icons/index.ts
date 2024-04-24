@@ -36,3 +36,4 @@ export * from './Star';
 export * from './Map';
 export * from './Basket';
 export * from './Camera';
+export * from './PlusRounded';

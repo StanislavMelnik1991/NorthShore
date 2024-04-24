@@ -1,6 +1,6 @@
 import { FormikErrors } from 'formik';
 import { AddressFilters } from '@features/address';
-import { IconClose, IconPlus } from '@shared/icons';
+import { IconClose, IconPlusRounded } from '@shared/icons';
 import { Button, Text, Title } from '@shared/ui';
 import { useSecurityAccessEditor } from '../hook';
 import styles from './Editor.module.scss';
@@ -58,7 +58,7 @@ export const SecurityAccessEditor = ({
         className={styles.add}
         disabled={isDisabled}
       >
-        <IconPlus width={20} height={20} />
+        <IconPlusRounded width={20} height={20} />
         <Text>{t('actions.addAddress')}</Text>
       </Button>
     </div>

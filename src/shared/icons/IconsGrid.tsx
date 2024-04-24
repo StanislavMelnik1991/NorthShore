@@ -41,6 +41,7 @@ import {
   IconMap,
   IconBasket,
   IconCamera,
+  IconPlusRounded,
 } from '.';
 
 interface Props {
@@ -83,6 +84,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconPlus">
         <IconPlus width={size} height={size} />
+      </Item>
+      <Item name="IconPlusRounded">
+        <IconPlusRounded width={size} height={size} />
       </Item>
       <Item name="IconHuman">
         <IconHuman theme={theme} width={size} height={size} />
