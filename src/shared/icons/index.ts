@@ -39,3 +39,4 @@ export * from './Camera';
 export * from './PlusRounded';
 export * from './Point';
 export * from './Comment';
+export * from './Filter';

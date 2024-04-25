@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SafeParseError, z } from 'zod';
-import { useCreateCamera } from '@features/security/cameras';
+import { useCreateCamera } from '@features/security';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 type Data = {

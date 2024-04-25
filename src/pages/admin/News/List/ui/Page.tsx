@@ -7,14 +7,13 @@ import {
 import { IconBriefcase, IconLoupe, IconPlus } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
 import { Table } from '@shared/ui/Table';
-import { useTableConfig, useDataFormatHelper } from '../constants';
 import { useNewsList } from '../hooks';
 import styles from './Page.module.scss';
 
 const Page = () => {
   const {
-    location,
-    data,
+    tableData,
+    tableHeader,
     handleCreateClick,
     search,
     setSearch,
@@ -27,7 +26,6 @@ const Page = () => {
     toggleStatusFilter,
     status,
   } = useNewsList();
-  const tableConfig = useTableConfig();
   return (
     <PageSkeleton>
       <PageHeader
@@ -51,7 +49,7 @@ const Page = () => {
         />
       </Card>
       <Card className={styles.card} flexDirection="column" loading={isLoading}>
-        <Table config={tableConfig} items={useDataFormatHelper(data)} />
+        <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
           <Pagination total={total} onChange={setPage} />

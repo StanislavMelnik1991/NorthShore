@@ -6,13 +6,13 @@ interface Props {
   id: number;
   lat: number;
   lon: number;
-  genUpdateRoute(id: number): string;
-  genDetailsRoute(id: number): string;
+  getUpdateRoute(id: number): string;
+  getDetailsRoute(id: number): string;
 }
 
 export const useVideoCardControls = ({
-  genDetailsRoute,
-  genUpdateRoute,
+  getDetailsRoute,
+  getUpdateRoute,
   id,
   lat,
   lon,
@@ -24,12 +24,12 @@ export const useVideoCardControls = ({
   const [isShow, setIsShow] = useState(false);
 
   const handleGoToUpdate = useCallback(async () => {
-    navigate(genUpdateRoute(id));
-  }, [genUpdateRoute, id, navigate]);
+    navigate(getUpdateRoute(id));
+  }, [getUpdateRoute, id, navigate]);
 
   const handleGoToDetails = useCallback(async () => {
-    navigate(genDetailsRoute(id));
-  }, [genDetailsRoute, id, navigate]);
+    navigate(getDetailsRoute(id));
+  }, [getDetailsRoute, id, navigate]);
 
   const handleMapOpen = useCallback(() => {
     const url = `https://yandex.ru/maps/?ll=${lon}%2C${lat}&z=17&pt=${lon}%2C${lat}`;

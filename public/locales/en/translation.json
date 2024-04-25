@@ -53,5 +53,6 @@
     "invalidFormat": "Incorrect format ",
     "getError": "Failed to retrieve data from the server ",
     "video": "Sorry, your browser does not support embedded video. "
-  }
+  },
+  "search": "search"
 }

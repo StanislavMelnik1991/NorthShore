@@ -7,10 +7,21 @@
   "badges": {
     "drafts": "Черновик",
     "publish": "Размещено",
-    "archive": "Архив"
+    "archive": "Архив",
+    "serviceable": "исправен",
+    "defective": "не исправен" 
   },
   "toast": {
     "archiveSuccess": "Успешно перемещено в архив",
     "archiveError": "Ошибка при перемещении в архив"
+  },
+  "header": {
+    "index": "номер",
+    "type": "тип",
+    "street": "улица",
+    "building": "дом",
+    "entrance": "подъезд",
+    "state": "состояние",
+    "serviceability": "исправность"
   }
 }

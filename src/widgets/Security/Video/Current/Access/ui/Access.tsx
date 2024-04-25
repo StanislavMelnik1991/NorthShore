@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { SecurityCamera } from '@entities/types';
-import { Badge } from '@shared/ui';
+import { Badge, Text } from '@shared/ui';
 import styles from './Access.module.scss';
 
 interface Props {
@@ -22,7 +22,7 @@ export const AccessInformation = ({ className, data }: Props) => {
             key={`AccessInformation-badge-${index}`}
             color="white"
           >
-            {location}
+            <Text variant="body14">{location}</Text>
           </Badge>
         );
       })}

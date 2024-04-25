@@ -7,10 +7,21 @@
   "badges": {
     "drafts": "Draft",
     "publish": "Posted",
-    "archive": "Archive"
+    "archive": "Archive",
+    "serviceable": "serviceable",
+    "defective": "defective" 
   },
   "toast": {
     "archiveSuccess": "Successfully moved to the archive",
     "archiveError": "Error when moving to archive"
+  },
+  "header": {
+    "index": "number",
+    "type": "type",
+    "street": "street",
+    "building": "building",
+    "entrance": "entrance",
+    "state": "state",
+    "serviceability": "serviceability"
   }
 }

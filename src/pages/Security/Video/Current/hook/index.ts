@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useGetCurrentCamera } from '@features/security/cameras';
+import { useGetCurrentCamera } from '@features/security';
 
 export const useCreateCameraPage = () => {
   const { id } = useParams<{ id: string }>();

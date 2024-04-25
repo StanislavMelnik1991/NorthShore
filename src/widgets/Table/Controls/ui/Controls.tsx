@@ -14,15 +14,15 @@ import styles from './Controls.module.scss';
 interface Props {
   className?: string;
   id: number;
-  genUpdateRoute(id: number): string;
-  genDetailsRoute(id: number): string;
+  getUpdateRoute(id: number): string;
+  getDetailsRoute(id: number): string;
 }
 
 export const TableControls = ({
   className,
   id,
-  genDetailsRoute,
-  genUpdateRoute,
+  getDetailsRoute,
+  getUpdateRoute,
 }: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const {
@@ -34,8 +34,8 @@ export const TableControls = ({
     t,
   } = useTableControls({
     id,
-    genDetailsRoute,
-    genUpdateRoute,
+    getDetailsRoute,
+    getUpdateRoute,
     wrapperRef,
   });
   return (

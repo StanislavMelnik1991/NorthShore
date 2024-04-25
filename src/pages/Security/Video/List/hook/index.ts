@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCamerasList } from '@features/security/cameras';
+import { useCamerasList } from '@features/security';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
 export const useSecurityVideoPage = () => {

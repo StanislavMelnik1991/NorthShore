@@ -7,14 +7,11 @@ import {
 import { IconBriefcase, IconLoupe, IconPlus } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
 import { Table } from '@shared/ui/Table';
-import { useTableConfig, useDataFormatHelper } from '../constants';
 import { useEventsList } from '../hooks';
 import styles from './Page.module.scss';
 
 const Page = () => {
   const {
-    location,
-    data,
     handleCreateClick,
     search,
     setSearch,
@@ -26,13 +23,12 @@ const Page = () => {
     status,
     toggleStatusFilter,
     t,
+    tableData,
+    tableHeader,
   } = useEventsList();
-  const tableConfig = useTableConfig();
   return (
     <PageSkeleton>
-      <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: t('routes.events') }]}
-      />
+      <PageHeader breadcrumbs={[{ title: t('routes.events') }]} />
       <Card padding={12} gap={20} loaderSize={32}>
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
@@ -51,7 +47,7 @@ const Page = () => {
         />
       </Card>
       <Card className={styles.card} flexDirection="column" loading={isLoading}>
-        <Table config={tableConfig} items={useDataFormatHelper(data)} />
+        <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
           <Pagination total={total} onChange={setPage} />

@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Modal } from '@entities/components';
+import { ModalDelete } from '@entities/components/ModalDelete';
 import { NewsStatusEnum } from '@shared/constants';
-import { Button, Text, Title } from '@shared/ui';
+import { Button } from '@shared/ui';
 import styles from './Update.module.scss';
 
 interface Props {
@@ -34,37 +35,12 @@ export const ContentUpdateActions = ({
           setOpenModal(false);
         }}
       >
-        <div className={styles.modal}>
-          <Title fontWeight="semibold" variant="h4">
-            {t('remove.title')}
-          </Title>
-          <Text className={styles.dark} fontWeight="regular" variant="body14">
-            {t('remove.text')}
-          </Text>
-          <div className={styles.modalButtons}>
-            <Button
-              className={styles.submitButton}
-              size="large"
-              variant="secondary"
-              type={'button'}
-              onClick={() => {
-                setOpenModal(false);
-              }}
-            >
-              {t('controls.cancel')}
-            </Button>
-
-            <Button
-              className={classNames(styles.submitButton, styles.deleteBtn)}
-              size="large"
-              variant="danger"
-              type="button"
-              onClick={handleDelete}
-            >
-              {t('controls.delete')}
-            </Button>
-          </div>
-        </div>
+        <ModalDelete
+          handleCloseModal={() => setOpenModal(false)}
+          handleDelete={handleDelete}
+          text={t('remove.text')}
+          title={t('remove.title')}
+        />
       </Modal>
       <Button
         className={styles.submitButton}

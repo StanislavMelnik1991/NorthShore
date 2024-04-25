@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { SafeParseError, z } from 'zod';
-import { useGetCurrentCamera } from '@features/security/cameras';
-import { useUpdateCamera } from '@features/security/cameras/update';
+import { useGetCurrentCamera } from '@features/security';
+import { useUpdateCamera } from '@features/security';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 type Option = {

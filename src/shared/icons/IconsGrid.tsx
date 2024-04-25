@@ -44,6 +44,7 @@ import {
   IconPlusRounded,
   IconComment,
   IconPoint,
+  IconFilter,
 } from '.';
 
 interface Props {
@@ -54,6 +55,9 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconFilter">
+        <IconFilter width={size} height={size} />
+      </Item>
       <Item name="IconComment">
         <IconComment width={size} height={size} />
       </Item>

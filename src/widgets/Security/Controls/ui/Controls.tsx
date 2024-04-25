@@ -5,6 +5,7 @@ import {
   IconBasket,
   IconDottedLine,
   IconEyeOpen,
+  IconLock,
   IconMap,
   IconPencil,
 } from '@shared/icons';
@@ -17,9 +18,11 @@ interface Props {
   id: number;
   lat: number;
   lon: number;
-  genUpdateRoute(id: number): string;
-  genDetailsRoute(id: number): string;
-  onDelete: MouseEventHandler<HTMLDivElement>;
+  getUpdateRoute(id: number): string;
+  getDetailsRoute(id: number): string;
+  onDelete?: MouseEventHandler<HTMLDivElement>;
+  onOpen?: MouseEventHandler<HTMLDivElement>;
+  rotateIcon?: boolean;
 }
 
 export const VideoCardControls = ({
@@ -27,9 +30,11 @@ export const VideoCardControls = ({
   id,
   lat,
   lon,
-  genDetailsRoute,
-  genUpdateRoute,
+  getDetailsRoute,
+  getUpdateRoute,
   onDelete,
+  onOpen,
+  rotateIcon,
 }: Props) => {
   const {
     handleGoToDetails,
@@ -41,8 +46,8 @@ export const VideoCardControls = ({
     wrapperRef,
   } = useVideoCardControls({
     id,
-    genDetailsRoute,
-    genUpdateRoute,
+    getDetailsRoute,
+    getUpdateRoute,
     lat,
     lon,
   });
@@ -54,7 +59,7 @@ export const VideoCardControls = ({
       }}
       ref={wrapperRef}
     >
-      <IconDottedLine rotate={90} width={20} height={20} />
+      <IconDottedLine rotate={rotateIcon ? 90 : 0} width={20} height={20} />
       {isShow && (
         <Card
           padding={6}
@@ -76,12 +81,21 @@ export const VideoCardControls = ({
             icon={<IconMap width={20} hanging={20} />}
             text={t('popup.map')}
           />
-          <PopUpMenuItem
-            className={styles.danger}
-            onClick={onDelete}
-            icon={<IconBasket width={20} hanging={20} />}
-            text={t('popup.delete')}
-          />
+          {onOpen && (
+            <PopUpMenuItem
+              onClick={onOpen}
+              icon={<IconLock width={20} hanging={20} />}
+              text={t('popup.open')}
+            />
+          )}
+          {onDelete && (
+            <PopUpMenuItem
+              className={styles.danger}
+              onClick={onDelete}
+              icon={<IconBasket width={20} hanging={20} />}
+              text={t('popup.delete')}
+            />
+          )}
         </Card>
       )}
     </div>

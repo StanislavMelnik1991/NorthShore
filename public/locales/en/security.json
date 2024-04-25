@@ -72,7 +72,8 @@
     "preview": "Preview",
     "edit": "Edit",
     "map": "Open on Map",
-    "delete": "Delete"
+    "delete": "Delete",
+    "open": "Open"
   },
   "errors": {
     "required": "Field is required ",
@@ -96,5 +97,10 @@
     "entrance": "entr.",
     "highQuality": "Link to a high quality stream",
     "lowQuality": "Link to a low quality stream"
+  },
+  "remove": {
+    "titleAccess": "Are you sure you want to delete this access point?",
+    "titleCamera": "Are you sure you want to remove this camera?",
+    "text": "This action cannot be undone"
   }
 }

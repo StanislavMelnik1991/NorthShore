@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { toast } from 'react-toastify';
-import { VideoCard } from '@entities/components';
+import { Modal, VideoCard } from '@entities/components';
+import { ModalDelete } from '@entities/components/ModalDelete';
 import { NoResults } from '@entities/components/NoResults';
 import { SecurityCamera } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -16,9 +16,18 @@ interface Props {
 }
 
 export const VideoList = ({ className, data, isLoading }: Props) => {
-  const { t } = useVideoList();
+  const { t, handleCloseModal, handleDelete, handleOpenModal, isModalOpen } =
+    useVideoList();
   return (
     <div className={classNames(styles.wrapper, className)}>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <ModalDelete
+          handleCloseModal={handleCloseModal}
+          handleDelete={handleDelete}
+          text={t('remove.text')}
+          title={t('remove.titleCamera')}
+        />
+      </Modal>
       {isLoading ? (
         [1, 2, 3, 4].map((el) => {
           return (
@@ -43,15 +52,14 @@ export const VideoList = ({ className, data, isLoading }: Props) => {
                       lat={lat}
                       lon={lon}
                       id={id}
-                      genDetailsRoute={
+                      rotateIcon
+                      getDetailsRoute={
                         AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT]
                       }
-                      genUpdateRoute={
+                      getUpdateRoute={
                         AppRoutes[AppRoutesEnum.SECURITY_VIDEO_UPDATE]
                       }
-                      onDelete={() => {
-                        toast.error('need to do');
-                      }}
+                      onDelete={handleOpenModal(id)}
                     />
                   }
                 />
