@@ -14,7 +14,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPencil } from '@shared/icons';
-import { Button } from '@shared/ui';
+import { Button, Text } from '@shared/ui';
 import { useCreateCameraPage } from '../hook';
 import styles from './Page.module.scss';
 
@@ -22,9 +22,27 @@ const Page = () => {
   const { data, isLoading, t, id } = useCreateCameraPage();
 
   const labels = [
-    t('camera.tabs.main'),
-    t('camera.tabs.config'),
-    t('camera.tabs.access'),
+    <Text
+      variant="body16"
+      fontWeight="medium"
+      key={`camera_details-tab-label-1`}
+    >
+      {t('camera.tabs.main')}
+    </Text>,
+    <Text
+      variant="body16"
+      fontWeight="medium"
+      key={`camera_details-tab-label-2`}
+    >
+      {t('camera.tabs.config')}
+    </Text>,
+    <Text
+      variant="body16"
+      fontWeight="medium"
+      key={`camera_details-tab-label-3`}
+    >
+      {`${t('camera.tabs.access')} (${data?.entrances.length})`}
+    </Text>,
   ];
 
   if (!data) {
@@ -32,7 +50,7 @@ const Page = () => {
   }
 
   return (
-    <PageSkeleton>
+    <PageSkeleton className={styles.wrapper}>
       <PageHeader
         breadcrumbs={[
           {

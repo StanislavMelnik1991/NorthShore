@@ -1,8 +1,9 @@
 .wrapper {
   display: flex;
-  margin-top: 24px;
+  margin-top: 32px;
   flex-direction: column;
   gap: 20px;
+  min-height: 135px;
 }
 
 .column {

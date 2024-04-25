@@ -32,7 +32,7 @@ export const useCreateCameraPage = () => {
         );
       },
       {
-        message: 'Строка должна содержать два числа, разделенных запятой',
+        message: t('errors.invalidPoint'),
       },
     ),
   });

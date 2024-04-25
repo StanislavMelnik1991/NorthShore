@@ -79,7 +79,8 @@
     "max256": "Title must not be longer than 256 characters ",
     "invalidFormat": "Incorrect format ",
     "getError": "Failed to retrieve data from the server ",
-    "video": "Sorry, your browser does not support embedded video. "
+    "video": "Sorry, your browser does not support embedded video. ",
+    "invalidPoint": "The string must contain latitude and longitude separated by a comma. Example: 53.962656, 27.567694. "
   },
   "camera": {
     "tabs": {

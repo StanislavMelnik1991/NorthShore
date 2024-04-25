@@ -8,14 +8,12 @@
   display: flex;
   width: 100%;
   text-wrap: nowrap;
-  border-bottom: 1px solid var(--dark-20);
 }
 
 .label {
   display: flex;
   padding: 0 8px 10px;
   width: fit-content;
-  order: 2;
   user-select: none;
   color: var(--dark-50);
   cursor: pointer;
@@ -28,12 +26,10 @@
 .active {
   background-color: transparent;
   text-wrap: nowrap;
-  order: 1;
   border-bottom: 1px solid var(--dark-100);
   color: var(--dark-100);
   pointer-events: none;
   width: fit-content !important;
-  margin-bottom: - 1px;
 }
 
 .tabs {

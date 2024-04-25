@@ -51,7 +51,7 @@
   }
 
   &:hover {
-    background-color: var(--primary-60);
+    background-color: var(--primary-semi-dark);
   }
 
   &:active {
@@ -195,22 +195,6 @@
   }
 
   &:hover {
-    color: var(--primary-60);
-
-    .loader {
-      color: var(--primary-60);
-    }
-
-    path {
-      fill: var(--primary-60);
-    }
-
-    rect {
-      stroke: var(--primary-60);
-    }
-  }
-
-  &:active {
     color: var(--primary-dark);
 
     .loader {
@@ -223,6 +207,22 @@
 
     rect {
       stroke: var(--primary-dark);
+    }
+  }
+
+  &:active {
+    color: var(--primary-semi-dark);
+
+    .loader {
+      color: var(--primary-semi-dark);
+    }
+
+    path {
+      fill: var(--primary-semi-dark);
+    }
+
+    rect {
+      stroke: var(--primary-semi-dark);
     }
   }
 

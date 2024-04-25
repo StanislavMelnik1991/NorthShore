@@ -17,7 +17,11 @@ export const AccessInformation = ({ className, data }: Props) => {
         const entrance = el.name;
         const location = `${street ? `${street},` : ''} ${home ? `${home},` : ''} ${entrance ? `${entrance}` : ''}`;
         return (
-          <Badge key={`AccessInformation-badge-${index}`} color="white">
+          <Badge
+            className={styles.badge}
+            key={`AccessInformation-badge-${index}`}
+            color="white"
+          >
             {location}
           </Badge>
         );
