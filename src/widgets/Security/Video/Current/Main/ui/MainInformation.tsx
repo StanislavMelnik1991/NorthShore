@@ -16,7 +16,7 @@ export const MainInformation = ({ className, data }: Props) => {
   const street = data.street.name;
   const home = data.building?.name;
   const entrance = data.entrance?.name;
-  const location = `${street ? `${t('camera.street')} ${street}` : ''} ${home ? `${t('camera.home')} ${home}` : ''} ${entrance ? `${t('camera.entrance')} ${entrance}` : ''}`;
+  const location = `${street ? `${street},` : ''} ${home ? `${home},` : ''} ${entrance ? `${entrance}` : ''}`;
   return (
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.row}>
