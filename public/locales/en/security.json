@@ -5,13 +5,15 @@
     "intercom": "Intercom",
     "video": "Video Surveillance",
     "createCamera": "Adding a Camera",
-    "updateCamera": "Editing the camcorder"
+    "updateCamera": "Editing the camcorder",
+    "createAccess": "Adding an access point",
+    "updateAccess": "Editing an access point"
   },
   "toast": {
     "listError": "Failed to get the list of access points",
     "openError": "Failed to open the access point: ",
     "openSuccess": "Opened",
-    "copy": "Link copied to the clipboard"
+    "copy": "Text copied to the clipboard"
   },
   "actions": {
     "open": "Open",
@@ -52,6 +54,22 @@
       "label": "Coordinates",
       "placeholder": "Enter Coordinates"
     },
+    "accessType": {
+      "label": "Access point type",
+      "placeholder": "Select the type"
+    },
+    "ipAddress": {
+      "label": "IP address",
+      "placeholder": "Enter the IP address"
+    },
+    "login": {
+      "label": "Login",
+      "placeholder": "Enter login"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password"
+    },
     "location": "Location Address",
     "access": "Addresses with Access to the Camera",
     "webData": "Credentials from WEB Interface",
@@ -83,12 +101,16 @@
     "video": "Sorry, your browser does not support embedded video. ",
     "invalidPoint": "The string must contain latitude and longitude separated by a comma. Example: 53.962656, 27.567694. "
   },
-  "camera": {
+  "details": {
     "tabs": {
       "main": "Main Information",
       "config": "Configuration",
       "access":"Addresses with Access to the Camera"
     },
+    "ipAddress": "IP address",
+    "login": "Login",
+    "password": "Password",
+    "type": "Type",
     "point": "Coordinates",
     "location": "Location",
     "comment": "Comment",

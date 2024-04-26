@@ -3,6 +3,11 @@ import Select from 'react-select';
 import { Props as SelectProps } from 'react-select';
 import styles from './Select.module.scss';
 
+export interface ISelectOption {
+  value: number;
+  label: string;
+}
+
 interface Props extends SelectProps {
   label?: string;
   error?: string;

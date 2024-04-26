@@ -5,6 +5,7 @@ import {
   EntranceSelection,
 } from '@widgets/addressSelection';
 import { TableFilter } from '@widgets/Table';
+import { TableSelect } from '@entities/components';
 import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui/Table';
 
@@ -12,6 +13,7 @@ interface AddressWrapper<T> {
   street: T;
   building: T;
   entrance: T;
+  type: T;
 }
 
 interface Options {
@@ -22,11 +24,13 @@ interface Options {
 interface Props {
   value: AddressWrapper<Options | null>;
   onChange: AddressWrapper<(val: Options | null) => void>;
+  options: Partial<AddressWrapper<Options[] | undefined>>;
 }
 
 export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
   onChange,
   value,
+  options,
 }) => {
   const { t } = useTranslation('table');
   return [
@@ -42,10 +46,25 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
     {
       name: 'type',
       label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('header.type')}
-        </Text>
+        <TableFilter
+          label={t('header.type')}
+          isActive={!!value.type}
+          filter={
+            <TableSelect
+              value={value.type}
+              placeholder={t('search')}
+              onChange={(val) => onChange.type(val as Options)}
+              options={options.type?.map(({ label, value }) => {
+                return {
+                  value,
+                  label,
+                };
+              })}
+            />
+          }
+        />
       ),
+
       width: 153,
     },
     {

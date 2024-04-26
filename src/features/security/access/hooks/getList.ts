@@ -14,6 +14,7 @@ interface Params extends ListParams {
   entrance_id?: number | string;
   street_id?: number | string;
   is_faulty?: 1;
+  type_id?: number | string;
 }
 
 interface ResponseDataType extends PaginationResponse {

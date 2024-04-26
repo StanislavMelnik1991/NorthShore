@@ -30,15 +30,19 @@ export const TableFilter = ({
         className,
       )}
     >
-      <Text
-        fontWeight="regular"
-        variant="body14"
-        onClick={disabled ? undefined : toggleShowFilter}
-        className={classNames(styles.label)}
-      >
-        {label}
-      </Text>
-      <IconFilter width={16} height={16} />
+      <div className={styles.content}>
+        <Text
+          fontWeight="regular"
+          variant="body14"
+          onClick={disabled ? undefined : toggleShowFilter}
+          className={classNames(styles.label)}
+        >
+          {label}
+        </Text>
+        {!disabled && (
+          <IconFilter className={styles.icon} width={16} height={16} />
+        )}
+      </div>
       <div
         className={classNames(styles.filter, { [styles.show]: isFilterShow })}
       >

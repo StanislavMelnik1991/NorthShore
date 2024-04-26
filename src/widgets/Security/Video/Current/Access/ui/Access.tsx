@@ -1,11 +1,13 @@
 import classNames from 'classnames';
-import { SecurityCamera } from '@entities/types';
+import { IEntranceFull } from '@entities/types';
 import { Badge, Text } from '@shared/ui';
 import styles from './Access.module.scss';
 
 interface Props {
   className?: string;
-  data: SecurityCamera;
+  data: {
+    entrances: IEntranceFull[];
+  };
 }
 
 export const AccessInformation = ({ className, data }: Props) => {

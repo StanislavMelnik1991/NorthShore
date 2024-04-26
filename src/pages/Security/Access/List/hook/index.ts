@@ -5,6 +5,7 @@ import {
   useOpenSecurityAccess,
   useRemoveSecurityAccess,
 } from '@features/security';
+import { useAccessTypeList } from '@features/security/access/hooks/getTypeList';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
@@ -16,11 +17,13 @@ interface Options {
 export const useSecurityAccessPage = () => {
   const { t } = useTranslation('security');
   const { getData, isLoading, data, total } = useGetSecurityAccessList();
+  const { data: typeLists, getData: getTypeList } = useAccessTypeList();
   const [page, setPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [activeId, setActiveId] = useState<string | number>();
 
+  const [type, setType] = useState<Options | null>(null);
   const [street, setActiveStreet] = useState<Options | null>(null);
   const [building, setActiveBuilding] = useState<Options | null>(null);
   const [entrance, setActiveEntrance] = useState<Options | null>(null);
@@ -29,14 +32,27 @@ export const useSecurityAccessPage = () => {
   const { onDelete } = useRemoveSecurityAccess();
 
   useEffect(() => {
+    getTypeList();
+  }, [getTypeList]);
+
+  useEffect(() => {
     getData({
       page,
       perPage,
       street_id: street?.value || undefined,
       building_id: building?.value || undefined,
       entrance_id: entrance?.value || undefined,
+      type_id: type?.value || undefined,
     });
-  }, [building?.value, entrance?.value, street?.value, getData, page, perPage]);
+  }, [
+    building?.value,
+    entrance?.value,
+    street?.value,
+    getData,
+    page,
+    perPage,
+    type?.value,
+  ]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
@@ -49,12 +65,30 @@ export const useSecurityAccessPage = () => {
     },
     [open],
   );
-  const handleDelete = useCallback(() => {
+  const handleDelete = useCallback(async () => {
     if (activeId) {
-      onDelete(activeId);
+      const active = data.find((val) => val.id === activeId);
+      await onDelete(activeId, active?.comment);
       setIsModalOpen(false);
+      getData({
+        page,
+        perPage,
+        street_id: street?.value || undefined,
+        building_id: building?.value || undefined,
+        entrance_id: entrance?.value || undefined,
+      });
     }
-  }, [activeId, onDelete]);
+  }, [
+    activeId,
+    building?.value,
+    data,
+    entrance?.value,
+    getData,
+    onDelete,
+    page,
+    perPage,
+    street?.value,
+  ]);
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -79,16 +113,27 @@ export const useSecurityAccessPage = () => {
     setActiveBuilding(val);
   }, []);
 
+  const handleSelectType = useCallback((val: Options | null) => {
+    setType(val);
+  }, []);
+
   const tableHeader = useTableHeader({
     value: {
       building,
       entrance,
       street,
+      type,
     },
     onChange: {
       building: handleSelectBuilding,
       entrance: setActiveEntrance,
       street: handleSelectStreet,
+      type: handleSelectType,
+    },
+    options: {
+      type: typeLists.map(({ id, name }) => {
+        return { value: id, label: name };
+      }),
     },
   });
 

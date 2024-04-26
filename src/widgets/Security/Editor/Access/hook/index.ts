@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-type Option = {
-  value: number;
-  label: string;
-};
+import { ISelectOption } from '@entities/components';
 
 type Address = {
   id: number;
@@ -16,9 +12,9 @@ type Address = {
 type Props = {
   setFieldValue: (name: 'entrances_ids', val: number[]) => void;
   initialAccess?: Array<{
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   }>;
 };
 

@@ -16,9 +16,9 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
       return {
         id: <TableText text={`№ ${String(id)}`} />,
         type: <TableText text={type.name} />,
-        street: <TableText text={street.name} />,
-        building: <TableText text={building.name} />,
-        entrance: <TableText text={entrance.name} />,
+        street: <TableText text={street?.name} />,
+        building: <TableText text={building?.name} />,
+        entrance: <TableText text={entrance?.name} />,
         state: <TableText text={status.name} />,
         controls: (
           <VideoCardControls
@@ -26,8 +26,8 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
             lon={lon}
             onDelete={onDelete(id)}
             onOpen={onOpen(id)}
-            getDetailsRoute={AppRoutes[AppRoutesEnum.NEWS_CURRENT]}
-            getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_NEWS]}
+            getDetailsRoute={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CURRENT]}
+            getUpdateRoute={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_UPDATE]}
             id={id}
           />
         ),

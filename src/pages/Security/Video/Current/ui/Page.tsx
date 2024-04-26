@@ -27,21 +27,21 @@ const Page = () => {
       fontWeight="medium"
       key={`camera_details-tab-label-1`}
     >
-      {t('camera.tabs.main')}
+      {t('details.tabs.main')}
     </Text>,
     <Text
       variant="body16"
       fontWeight="medium"
       key={`camera_details-tab-label-2`}
     >
-      {t('camera.tabs.config')}
+      {t('details.tabs.config')}
     </Text>,
     <Text
       variant="body16"
       fontWeight="medium"
       key={`camera_details-tab-label-3`}
     >
-      {`${t('camera.tabs.access')} (${data?.entrances.length})`}
+      {`${t('details.tabs.access')} (${data?.entrances.length})`}
     </Text>,
   ];
 

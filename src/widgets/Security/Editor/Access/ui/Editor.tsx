@@ -1,5 +1,6 @@
 import { FormikErrors } from 'formik';
 import { AddressFilters } from '@features/address';
+import { ISelectOption } from '@entities/components';
 import { IconClose, IconPlusRounded } from '@shared/icons';
 import { Button, Text, Title } from '@shared/ui';
 import { useSecurityAccessEditor } from '../hook';
@@ -9,19 +10,14 @@ type Data = {
   entrances_ids: number[];
 };
 
-type Option = {
-  value: number;
-  label: string;
-};
-
 interface Props {
   title?: string;
   values: Data;
   errors: FormikErrors<Data>;
   initialAccess?: Array<{
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   }>;
   setFieldValue: (
     field: keyof Data,

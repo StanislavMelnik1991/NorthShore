@@ -50,7 +50,7 @@ const MainPage = () => {
           },
         ]}
         controls={
-          <Link to={AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CREATE]()}>
+          <Link to={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CREATE]()}>
             <Button variant="primary" size="small">
               <IconPlus width={20} height={20} />
               {t('actions.add')}

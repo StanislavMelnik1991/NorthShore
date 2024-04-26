@@ -57,5 +57,6 @@ export interface SecurityCamera {
   address_building_id: IBuilding['id'];
   address_entrance_id: IEntrance['id'];
   address_street_id: IStreet['id'];
+  status: SecurityStatus;
   status_id: keyof typeof EquipmentCondition;
 }

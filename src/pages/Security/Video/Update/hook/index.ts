@@ -5,12 +5,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { SafeParseError, z } from 'zod';
 import { useGetCurrentCamera } from '@features/security';
 import { useUpdateCamera } from '@features/security';
+import { ISelectOption } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-
-type Option = {
-  value: number;
-  label: string;
-};
 
 type Data = {
   rtsp_url: string;
@@ -32,15 +28,15 @@ export const useCreateCameraPage = () => {
   const { t } = useTranslation('security');
   const navigate = useNavigate();
   const [initialAddress, setInitialAddress] = useState<{
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   }>();
   const [initialAccessAddress, setAccessAddress] = useState<
     Array<{
-      street?: Option;
-      building?: Option;
-      entrance?: Option;
+      street?: ISelectOption;
+      building?: ISelectOption;
+      entrance?: ISelectOption;
     }>
   >([]);
 

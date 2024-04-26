@@ -1,14 +1,10 @@
 import { FormikErrors } from 'formik';
-import { useTranslation } from 'react-i18next';
 import { AddressFilters } from '@features/address';
+import { ISelectOption } from '@entities/components';
 import { TextField, Title } from '@shared/ui';
 import { StyledTextAria } from '@shared/ui/TextAria';
+import { useSecurityAddressEditor } from '../hook';
 import styles from './Editor.module.scss';
-
-type Option = {
-  value: number;
-  label: string;
-};
 
 type Data = {
   address_building_id?: number;
@@ -24,9 +20,9 @@ interface Props {
   values: Data;
   errors: FormikErrors<Data>;
   initialAddress?: {
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   };
   setFieldValue: (
     field: keyof Data,
@@ -42,20 +38,23 @@ export const SecurityAddressEditor = ({
   title,
   initialAddress,
 }: Props) => {
-  const { t } = useTranslation('security');
+  const { t, handleChangeSelection } = useSecurityAddressEditor({
+    setFieldValue,
+  });
   return (
     <div className={styles.wrapper}>
       <Title fontWeight="semibold" className={styles.title}>
         {title}
       </Title>
       <AddressFilters
+        errors={{
+          building: errors.address_building_id,
+          entrance: errors.address_entrance_id,
+          street: errors.address_street_id,
+        }}
         initialValues={initialAddress}
         showLabel
-        setFilters={({ building_id, entrance_id, street_id }) => {
-          setFieldValue('address_building_id', building_id);
-          setFieldValue('address_entrance_id', entrance_id);
-          setFieldValue('address_street_id', street_id);
-        }}
+        setFilters={handleChangeSelection}
       />
       <StyledTextAria
         inputClassName={styles.comment}

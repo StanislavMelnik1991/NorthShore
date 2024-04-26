@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
+import { ISelectOption } from '@entities/components';
 import { useBuildingsList, useEntranceList, useStreetsList } from '../../';
-
-type Option = {
-  value: number;
-  label: string;
-};
 
 interface Props {
   setFilters: (val: {
@@ -13,9 +9,9 @@ interface Props {
     entrance_id?: number;
   }) => void;
   initial?: {
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   };
 }
 

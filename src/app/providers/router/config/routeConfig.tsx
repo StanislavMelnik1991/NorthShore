@@ -28,7 +28,10 @@ import {
   SecurityAccessPage,
   SecurityPage,
   SecurityVideoPage,
+  CreateAccessPage,
 } from '@pages/Security';
+import { CurrentAccessPage } from '@pages/Security/Access/Current';
+import { UpdateAccessPage } from '@pages/Security/Access/Update';
 import { CurrentCameraPage } from '@pages/Security/Video/Current';
 import { UpdateCameraPage } from '@pages/Security/Video/Update';
 import { AppRoutesEnum, AppRoutes, ROLES_ADMIN } from '@shared/constants';
@@ -176,6 +179,24 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.SECURITY_ACCESS]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
     element: <SecurityAccessPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_ACCESS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CREATE](),
+    element: <CreateAccessPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_ACCESS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CURRENT](':id'),
+    element: <CurrentAccessPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_ACCESS_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_UPDATE](':id'),
+    element: <UpdateAccessPage />,
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },

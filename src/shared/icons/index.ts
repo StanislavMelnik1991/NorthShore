@@ -40,3 +40,4 @@ export * from './PlusRounded';
 export * from './Point';
 export * from './Comment';
 export * from './Filter';
+export * from './Wifi';

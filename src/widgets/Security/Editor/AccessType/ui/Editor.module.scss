@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+  z-index: 4;
+
+  form {
+    width: 100%;
+  }
+}
+
+.editor {
+  width: 100%;
+}
+
+.title {
+  margin: 32px 0 -4px;
+}

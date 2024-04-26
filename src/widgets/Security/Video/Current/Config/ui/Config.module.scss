@@ -2,7 +2,7 @@
   display: flex;
   margin-top: 32px;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   min-height: 135px;
 }
 
@@ -26,4 +26,8 @@
   path {
     fill: var(--dark-70);
   }
+}
+
+.title {
+  margin-top: 16px;
 }

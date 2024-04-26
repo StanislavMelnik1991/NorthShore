@@ -1,10 +1,5 @@
-import { AddressSelect } from '@entities/components';
+import { AddressSelect, ISelectOption } from '@entities/components';
 import { useSecurityFilters } from '../hook';
-
-type Option = {
-  value: number;
-  label: string;
-};
 
 interface Props {
   className?: string;
@@ -15,9 +10,9 @@ interface Props {
     entrance?: string;
   };
   initialValues?: {
-    street?: Option;
-    building?: Option;
-    entrance?: Option;
+    street?: ISelectOption;
+    building?: ISelectOption;
+    entrance?: ISelectOption;
   };
   setFilters: (val: {
     street_id?: number;
