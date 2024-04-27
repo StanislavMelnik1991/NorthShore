@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import { RefObject, useRef } from 'react';
+import ReactHlsPlayer from 'react-hls-player';
 import { useTranslation } from 'react-i18next';
 import { EquipmentCondition } from '@shared/constants';
 import { IconCamera } from '@shared/icons';
@@ -9,16 +11,21 @@ interface Props {
   className?: string;
   status: keyof typeof EquipmentCondition;
   src: string;
-  controlsList?: string;
+  muted?: boolean;
+  controls?: boolean;
+  autoPlay?: boolean;
 }
 
 export const CustomVideo = ({
   className,
   src,
   status,
-  controlsList,
+  muted,
+  controls,
+  autoPlay = true,
 }: Props) => {
   const { t } = useTranslation('security');
+  const playerRef = useRef<HTMLVideoElement>();
   return (
     <div className={classNames(styles.wrapper, className)}>
       {status === 2 ? (
@@ -29,14 +36,14 @@ export const CustomVideo = ({
           </Text>
         </div>
       ) : (
-        <video
-          controls
+        <ReactHlsPlayer
           className={styles.video}
-          disablePictureInPicture
-          controlsList={controlsList}
-        >
-          <source src={src} type="video/mp4" />
-        </video>
+          playerRef={playerRef as RefObject<HTMLVideoElement>}
+          src={src}
+          autoPlay={autoPlay}
+          muted={muted}
+          controls={controls}
+        />
       )}
       <Badge color="dark" className={styles.timeStamp}>
         {status === 1 && <div className={styles.dot} />}

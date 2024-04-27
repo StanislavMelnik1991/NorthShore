@@ -29,7 +29,6 @@ export const VideoCard = ({
         className={styles.videoWrapper}
         src={video}
         status={status}
-        controlsList="nofullscreen"
       />
       <div className={styles.footer}>
         <div className={styles.text}>
