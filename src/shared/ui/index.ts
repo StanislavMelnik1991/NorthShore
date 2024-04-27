@@ -1,4 +1,5 @@
 export * from './Button/';
+export * from './Toggle/';
 export * from './Loader/';
 export * from './Title';
 export * from './Text';

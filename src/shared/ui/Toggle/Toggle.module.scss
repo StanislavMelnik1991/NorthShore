@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  background-color: var(--dark-20);
+  border-radius: 8px;
+  width: 52px;
+  height: 28px;
+  transition: all var(--animation-duration) ease;
+  cursor: pointer;
+  border: none;
+  
+  & .thumb {
+    height: 24px;
+    width: 24px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+    transform: translateX(0);
+    transition: all var(--animation-duration) ease;
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.toggled {
+    background-color: #936B18;
+
+    & .thumb {
+      left: calc(52px - 26px);
+    }
+  }
+  &:disabled {
+    background-color: var(--dark-30);
+
+    & .thumb {
+        background-color: var(--gray-30);
+      }
+  }
+}
