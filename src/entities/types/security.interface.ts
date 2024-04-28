@@ -5,6 +5,7 @@ import {
   IStreet,
   IEntranceFull,
 } from './address.interface';
+import { SecuritySipAccount } from './sip.interface';
 
 export interface SecurityStatus {
   id: number;
@@ -18,7 +19,7 @@ export interface SecurityType {
 
 export interface SecurityAccess {
   id: number;
-  name?: string;
+  name: string;
   ip_address: string;
   type: SecurityType;
   type_id: SecurityType['id'];
@@ -28,7 +29,7 @@ export interface SecurityAccess {
   address_building_id: IBuilding['id'];
   address_entrance_id: IEntrance['id'];
   address_street_id: IStreet['id'];
-  comment?: string;
+  comment: string;
   entrances: Array<IEntranceFull>;
   status: SecurityStatus;
   current_status_id: SecurityStatus['id'];
@@ -44,8 +45,8 @@ export interface SecurityCamera {
   id: number;
   lat: number;
   lon: number;
-  name?: string;
-  comment?: string;
+  name: string;
+  comment: string;
   type: SecurityType;
   type_id: SecurityType['id'];
   rtsp_url: string;
@@ -59,4 +60,26 @@ export interface SecurityCamera {
   address_street_id: IStreet['id'];
   status: SecurityStatus;
   status_id: keyof typeof EquipmentCondition;
+}
+
+export interface SecurityIntercom {
+  id: number;
+  name: string;
+  login: string;
+  password: string;
+  status: SecurityStatus;
+  comment: string;
+  mp4_url?: string;
+  hls_url?: string;
+  type: SecurityType;
+  type_id: SecurityType['id'];
+  entrance: IEntranceFull;
+  entrances: Array<IEntranceFull>;
+  rtsp_url: string;
+  http_login: string;
+  http_password: string;
+  ip_address: string;
+  entrance_id: number;
+  sip_account: SecuritySipAccount;
+  current_status_id: number;
 }

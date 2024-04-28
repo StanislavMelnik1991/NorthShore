@@ -5,7 +5,7 @@ import {
   useOpenSecurityAccess,
   useRemoveSecurityAccess,
 } from '@features/security';
-import { useAccessTypeList } from '@features/security/access/hooks/getTypeList';
+import { useAccessTypeList } from '@features/security';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 

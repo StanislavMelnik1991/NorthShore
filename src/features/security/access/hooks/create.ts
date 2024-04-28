@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, SecurityCamera } from '@entities/types';
+import { BaseResponse, SecurityAccess } from '@entities/types';
 import { IP_PATTERN } from '@shared/constants/regexp';
 
 export const useCreateAccess = () => {
@@ -52,7 +52,7 @@ export const useCreateAccess = () => {
         return;
       }
       try {
-        const result = await axiosApi.put<BaseResponse<SecurityCamera>>(
+        const result = await axiosApi.put<BaseResponse<SecurityAccess>>(
           '/access_points',
           data,
         );

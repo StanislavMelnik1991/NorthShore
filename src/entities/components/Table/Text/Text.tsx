@@ -3,13 +3,13 @@ import { Text } from '@shared/ui';
 import styles from './Text.module.scss';
 
 interface Props {
-  text: string;
+  children: false | string | JSX.Element | Array<string | JSX.Element | false>;
   className?: string;
   fontWeight?: 'medium' | 'regular' | 'semibold';
 }
 
 export const TableText = ({
-  text,
+  children,
   className,
   fontWeight = 'regular',
 }: Props) => {
@@ -19,7 +19,7 @@ export const TableText = ({
       fontWeight={fontWeight}
       variant="body14"
     >
-      {text}
+      {children}
     </Text>
   );
 };

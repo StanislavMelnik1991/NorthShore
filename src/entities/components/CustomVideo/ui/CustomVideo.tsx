@@ -9,8 +9,8 @@ import styles from './CustomVideo.module.scss';
 
 interface Props {
   className?: string;
-  status: keyof typeof EquipmentCondition;
-  src: string;
+  status: number;
+  src?: string;
   muted?: boolean;
   controls?: boolean;
   autoPlay?: boolean;
@@ -28,7 +28,7 @@ export const CustomVideo = ({
   const playerRef = useRef<HTMLVideoElement>();
   return (
     <div className={classNames(styles.wrapper, className)}>
-      {status === 2 ? (
+      {status === 2 || !src ? (
         <div className={styles.videoError}>
           <IconCamera width={24} height={24} />
           <Text fontWeight="medium" variant="body14">
@@ -47,7 +47,7 @@ export const CustomVideo = ({
       )}
       <Badge color="dark" className={styles.timeStamp}>
         {status === 1 && <div className={styles.dot} />}
-        {t(`cards.${EquipmentCondition[status]}`)}
+        {t(`cards.${EquipmentCondition[status as 1 | 2 | 3]}`)}
       </Badge>
     </div>
   );

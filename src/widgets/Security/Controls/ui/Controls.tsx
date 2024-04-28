@@ -16,8 +16,8 @@ import styles from './Controls.module.scss';
 interface Props {
   className?: string;
   id: number;
-  lat: number;
-  lon: number;
+  lat?: number;
+  lon?: number;
   getUpdateRoute(id: number): string;
   getDetailsRoute(id: number): string;
   onDelete?: MouseEventHandler<HTMLDivElement>;
@@ -76,11 +76,13 @@ export const VideoCardControls = ({
             icon={<IconPencil width={20} hanging={20} />}
             text={t('popup.edit')}
           />
-          <PopUpMenuItem
-            onClick={handleMapOpen}
-            icon={<IconMap width={20} hanging={20} />}
-            text={t('popup.map')}
-          />
+          {lat && lon && (
+            <PopUpMenuItem
+              onClick={handleMapOpen}
+              icon={<IconMap width={20} hanging={20} />}
+              text={t('popup.map')}
+            />
+          )}
           {onOpen && (
             <PopUpMenuItem
               onClick={onOpen}

@@ -72,7 +72,7 @@
 
 .option {
   background-color: inherit !important;
-  color: inherit !important;
+  color: var(--dark-70) !important;
 
   &:active {
     background-color: var(--gray-30) !important;
@@ -81,7 +81,8 @@
 
 .optionFocused {
   background-color: var(--gray-20) !important;
-  color: inherit !important;
+  color: var(--dark-70) !important;
+  border-radius: var(--radius-xs);
 
   &:active {
     background-color: var(--gray-30) !important;
@@ -89,8 +90,9 @@
 }
 
 .optionSelected {
-  color: inherit !important;
+  color: var(--dark-70) !important;
   background-color: var(--background-color) !important;
+  border-radius: var(--radius-xs);
 
   &:active {
     background-color: var(--gray-30) !important;

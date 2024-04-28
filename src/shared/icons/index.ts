@@ -41,3 +41,4 @@ export * from './Point';
 export * from './Comment';
 export * from './Filter';
 export * from './Wifi';
+export * from './Info';

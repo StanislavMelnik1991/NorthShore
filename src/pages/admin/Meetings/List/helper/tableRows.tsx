@@ -9,16 +9,19 @@ export const useTableRows = (data: Array<INews>) => {
   const { i18n } = useTranslation();
   return data.map(({ id, title, published_at, status, target_date }) => {
     return {
-      id: <TableText text={String(id)} />,
+      id: <TableText>{String(id)}</TableText>,
       status: <TableBadge status={status || 0} />,
       title: (
-        <TableText
-          text={title[i18n.language as 'en' | 'ru']}
-          fontWeight="medium"
-        />
+        <TableText fontWeight="medium">
+          {title[i18n.language as 'en' | 'ru']}
+        </TableText>
       ),
-      date: <TableText text={format(target_date * 1000, 'dd.MM.yyyy HH:mm')} />,
-      published: <TableText text={format(published_at * 1000, 'dd.MM.yyyy')} />,
+      date: (
+        <TableText>{format(target_date * 1000, 'dd.MM.yyyy HH:mm')}</TableText>
+      ),
+      published: (
+        <TableText>{format(published_at * 1000, 'dd.MM.yyyy')}</TableText>
+      ),
       controls: (
         <TableControls
           getDetailsRoute={AppRoutes[AppRoutesEnum.MEETINGS_CURRENT]}

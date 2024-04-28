@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 interface Props {
   id: number;
-  lat: number;
-  lon: number;
+  lat?: number;
+  lon?: number;
   getUpdateRoute(id: number): string;
   getDetailsRoute(id: number): string;
 }

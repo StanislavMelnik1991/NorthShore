@@ -10,21 +10,20 @@ export const useTableRows = (data: Array<INews>) => {
   const { i18n } = useTranslation();
   return data.map(({ id, status, title, html_content, published_at }) => {
     return {
-      id: <TableText text={String(id)} />,
+      id: <TableText>{String(id)}</TableText>,
       status: <TableBadge status={status || 0} />,
       title: (
-        <TableText
-          text={title[i18n.language as 'en' | 'ru']}
-          fontWeight="medium"
-        />
+        <TableText fontWeight="medium">
+          {title[i18n.language as 'en' | 'ru']}
+        </TableText>
       ),
       date: (
-        <TableText text={format(published_at * 1000, 'dd.MM.yyyy HH:mm')} />
+        <TableText>{format(published_at * 1000, 'dd.MM.yyyy HH:mm')}</TableText>
       ),
       text: (
-        <TableText
-          text={extractTextFromHtml(html_content[i18n.language as 'en' | 'ru'])}
-        />
+        <TableText>
+          {extractTextFromHtml(html_content[i18n.language as 'en' | 'ru'])}
+        </TableText>
       ),
       controls: (
         <TableControls

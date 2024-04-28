@@ -14,12 +14,12 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
   return data.map(
     ({ id, street, building, entrance, status, lat, lon, type }) => {
       return {
-        id: <TableText text={`№ ${String(id)}`} />,
-        type: <TableText text={type.name} />,
-        street: <TableText text={street?.name} />,
-        building: <TableText text={building?.name} />,
-        entrance: <TableText text={entrance?.name} />,
-        state: <TableText text={status.name} />,
+        id: <TableText>{`№ ${String(id)}`}</TableText>,
+        type: <TableText>{type.name}</TableText>,
+        street: <TableText>{street?.name}</TableText>,
+        building: <TableText>{building?.name}</TableText>,
+        entrance: <TableText>{entrance?.name}</TableText>,
+        state: <TableText>{status.name}</TableText>,
         controls: (
           <VideoCardControls
             lat={lat}

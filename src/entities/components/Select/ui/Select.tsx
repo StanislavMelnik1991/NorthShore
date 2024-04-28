@@ -11,6 +11,7 @@ export interface ISelectOption {
 interface Props extends SelectProps {
   label?: string;
   error?: string;
+  className?: string;
 }
 
 export const StyledSelect = ({
@@ -18,10 +19,11 @@ export const StyledSelect = ({
   inputId = 'select-input',
   error,
   isClearable = true,
+  className,
   ...props
 }: Props) => {
   return (
-    <form className={styles.wrapper}>
+    <form className={classNames(styles.wrapper, className)}>
       {label && (
         <label
           className={classNames(styles.label, { [styles.error]: !!error })}

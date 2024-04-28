@@ -7,7 +7,10 @@
     "createCamera": "Adding a Camera",
     "updateCamera": "Editing the camcorder",
     "createAccess": "Adding an access point",
-    "updateAccess": "Editing an access point"
+    "updateAccess": "Editing an access point",
+    "createIntercom": "Adding an intercom",
+    "updateIntercom": "Editing the intercom",
+    "intercomSingle": "Intercom"
   },
   "toast": {
     "listError": "Failed to get the list of access points",
@@ -58,6 +61,10 @@
       "label": "Access point type",
       "placeholder": "Select the type"
     },
+    "intercomType": {
+      "label": "Intercom type",
+      "placeholder": "Select the type"
+    },
     "ipAddress": {
       "label": "IP address",
       "placeholder": "Enter the IP address"
@@ -70,6 +77,20 @@
       "label": "Password",
       "placeholder": "Enter your password"
     },
+    "phoneNumber": {
+      "label": "Phone number",
+      "placeholder": "Select a phone number"
+    },
+    "rtspUrl": {
+      "label": "Link to video stream in rtsp format",
+      "placeholder": "Enter the link"
+    },
+    "hlsUrl": {
+      "label": "Link to video stream in hls format",
+      "placeholder": "Enter the link"
+    },
+    "sipAddress": "SIP server address",
+    "sipPort": "SIP server port",
     "location": "Location Address",
     "access": "Addresses with Access to the Camera",
     "webData": "Credentials from WEB Interface",
@@ -107,7 +128,7 @@
       "config": "Configuration",
       "access":"Addresses with Access to the Camera"
     },
-    "ipAddress": "IP address",
+    "ipAddress": "IP Address",
     "login": "Login",
     "password": "Password",
     "type": "Type",
@@ -117,8 +138,15 @@
     "street": "st.",
     "home": "bld.",
     "entrance": "entr.",
-    "highQuality": "Link to a high quality stream",
-    "lowQuality": "Link to a low quality stream"
+    "highQuality": "Link to High Quality Stream",
+    "lowQuality": "Link to Low Quality Stream",
+    "status": "Status",
+    "intercomType": "Intercom Type",
+    "rtsp_url": "Link to RTSP Video Stream",
+    "hls_url": "Link to HLS Video Stream",
+    "phoneNumber": "Phone Number",
+    "sipIp": "SIP Server Address",
+    "sipPort": "SIP Server Port"
   },
   "remove": {
     "titleAccess": "Are you sure you want to delete this access point?",

@@ -30,7 +30,11 @@ export enum AppRoutesEnum {
   SECURITY_ACCESS_CREATE,
   SECURITY_ACCESS_UPDATE,
   SECURITY_ACCESS_CURRENT,
+
   SECURITY_INTERCOM,
+  SECURITY_INTERCOM_CREATE,
+  SECURITY_INTERCOM_UPDATE,
+  SECURITY_INTERCOM_CURRENT,
 
   SECURITY_VIDEO,
   SECURITY_VIDEO_CREATE,
@@ -116,6 +120,13 @@ export const AppRoutes = {
   [AppRoutesEnum.SECURITY_ACCESS_UPDATE]: (id: number | string) =>
     `/admin/security/access/${id}/update`,
   [AppRoutesEnum.SECURITY_INTERCOM]: () => '/admin/security/intercom',
+  [AppRoutesEnum.SECURITY_INTERCOM_CREATE]: () =>
+    '/admin/security/intercom/create',
+  [AppRoutesEnum.SECURITY_INTERCOM_CURRENT]: (id: number | string) =>
+    `/admin/security/intercom/${id}`,
+  [AppRoutesEnum.SECURITY_INTERCOM_UPDATE]: (id: number | string) =>
+    `/admin/security/intercom/${id}/update`,
+
   [AppRoutesEnum.SECURITY_VIDEO]: () => '/admin/security/video',
   [AppRoutesEnum.SECURITY_VIDEO_CREATE]: () => '/admin/security/video/create',
   [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: (id: number | string) =>

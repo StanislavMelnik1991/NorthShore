@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAccessTypeList } from '@features/security/access/hooks/getTypeList';
+import { useAccessTypeList } from '@features/security';
 import { ISelectOption } from '@entities/components';
 
 interface Props {

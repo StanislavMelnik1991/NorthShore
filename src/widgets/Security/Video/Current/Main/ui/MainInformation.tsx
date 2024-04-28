@@ -18,8 +18,8 @@ interface Props {
     street?: IStreet;
     building?: IBuilding;
     entrance?: IEntrance;
-    lon: number;
-    lat: number;
+    lon?: number;
+    lat?: number;
     comment?: string;
     type?: { name: string };
     status?: { name: string };
@@ -102,7 +102,7 @@ export const MainInformation = ({ className, data }: Props) => {
           <div className={classNames(styles.column, styles.label)}>
             <IconLock width={20} height={20} />
             <Text fontWeight="regular" variant="body14">
-              {t('details.comment')}
+              {t('details.status')}
             </Text>
           </div>
           <div className={styles.column}>
