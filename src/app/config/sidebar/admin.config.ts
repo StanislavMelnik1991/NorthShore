@@ -117,6 +117,18 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
           href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
           title: t('sidebar.loyalty'),
         },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
+          title: t('sidebar.services'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT](),
+          title: t('sidebar.advertisement'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS](),
+          title: t('sidebar.employee_announcements'),
+        },
       ],
     },
     {

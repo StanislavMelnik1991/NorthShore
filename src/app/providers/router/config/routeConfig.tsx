@@ -104,6 +104,24 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
+  [AppRoutesEnum.ADMIN_SERVICES]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT](),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
   [AppRoutesEnum.ADMIN_NOTIFICATIONS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS](),
     element: <NotFoundPage />,
@@ -326,8 +344,8 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     // acceptedRoles: [],
   },
-  [AppRoutesEnum.SHUTDOWNS]: {
-    path: AppRoutes[AppRoutesEnum.SHUTDOWNS](),
+  [AppRoutesEnum.TECHNICAL_WORKS]: {
+    path: AppRoutes[AppRoutesEnum.TECHNICAL_WORKS](),
     element: <NotFoundPage />,
     authOnly: false,
   },

@@ -16,7 +16,7 @@ export enum AppRoutesEnum {
   APPLICATIONS,
   APPLICATIONS_CREATE,
 
-  SHUTDOWNS,
+  TECHNICAL_WORKS,
   KNOWLEDGE,
   SETTINGS,
 
@@ -51,6 +51,9 @@ export enum AppRoutesEnum {
   ADMIN_TECHNICAL_WORKS,
   ADMIN_VOTING,
   ADMIN_LOYALTY,
+  ADMIN_SERVICES,
+  ADMIN_ADVERTISEMENT,
+  ADMIN_EMPLOYEE_ANNOUNCEMENTS,
   // Auth
   LOGIN,
   REGISTRATION,
@@ -89,7 +92,7 @@ export const AppRoutes = {
   [AppRoutesEnum.APPLICATIONS]: () => '/applications',
   [AppRoutesEnum.APPLICATIONS_CREATE]: () => '/applications/create',
 
-  [AppRoutesEnum.SHUTDOWNS]: () => '/shutdowns',
+  [AppRoutesEnum.TECHNICAL_WORKS]: () => '/technical_works',
   [AppRoutesEnum.KNOWLEDGE]: () => '/knowledge',
   [AppRoutesEnum.SETTINGS]: () => '/settings',
 
@@ -127,6 +130,10 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_EVENTS]: () => '/admin/events',
   [AppRoutesEnum.ADMIN_MEETINGS]: () => '/admin/meeting',
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
+  [AppRoutesEnum.ADMIN_SERVICES]: () => '/admin/services',
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT]: () => '/admin/advertisement',
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: () =>
+    '/admin/employee_announcements',
   [AppRoutesEnum.ADMIN_NOTIFICATIONS]: () => '/admin/notifications',
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: () => '/admin/technical_works',
   [AppRoutesEnum.ADMIN_VOTING]: () => '/admin/voting',

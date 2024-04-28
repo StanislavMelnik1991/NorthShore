@@ -21,6 +21,7 @@
   border-right: var(--border-width) solid var(--dark-20);
   height: 100%;
   overflow: auto;
+  box-sizing: content-box;
 
   @media (width < 1280px) {
     display: none;
