@@ -5,10 +5,15 @@ import { NewsSlider } from '@widgets/news';
 import { PageSkeleton } from '@entities/components';
 import { Card, Title } from '@shared/ui';
 import { sliderConfig } from '../config';
+import { useInnerWidth } from '../hook';
 import styles from './Main.module.scss';
 
 const MainPage = () => {
   const { t } = useTranslation();
+  const { innerWidth } = useInnerWidth();
+
+  const breakPointTab = 980;
+  const breakPointMobile = 500;
 
   return (
     <PageSkeleton className={styles.wrapper}>
@@ -21,13 +26,31 @@ const MainPage = () => {
         <Title variant="h2" fontWeight="semibold">
           {t('sidebar.news')}
         </Title>
-        <NewsSlider {...sliderConfig} />
+        <NewsSlider
+          slidesOnPage={
+            innerWidth >= breakPointTab
+              ? sliderConfig.slidesOnPage.desctop
+              : innerWidth > breakPointMobile
+                ? sliderConfig.slidesOnPage.tab
+                : sliderConfig.slidesOnPage.mobile
+          }
+          gap={sliderConfig.gap}
+        />
       </Card>
       <Card className={styles.card} flexDirection="column" gap={20} radius={0}>
         <Title variant="h2" fontWeight="semibold">
           {t('poster')}
         </Title>
-        <EventsSlider {...sliderConfig} />
+        <EventsSlider
+          slidesOnPage={
+            innerWidth >= breakPointTab
+              ? sliderConfig.slidesOnPage.desctop
+              : innerWidth > breakPointMobile
+                ? sliderConfig.slidesOnPage.tab
+                : sliderConfig.slidesOnPage.mobile
+          }
+          gap={sliderConfig.gap}
+        />
       </Card>
     </PageSkeleton>
   );
