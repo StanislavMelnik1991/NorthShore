@@ -4,5 +4,6 @@ export * from './Access';
 export * from './Submit';
 export * from './AccessType';
 export * from './IntercomData';
+export * from './SlsIntercom';
 export * from './WebApi';
 export * from './HttpApi';

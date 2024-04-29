@@ -5,6 +5,7 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card, Title } from '@shared/ui';
 import accessImage from '../assets/access.png';
 import intercomImage from '../assets/intercom.png';
+import sls_intercom from '../assets/sls_intercom.png';
 import videoImage from '../assets/video.png';
 import styles from './Page.module.scss';
 
@@ -68,6 +69,23 @@ const MainPage = () => {
           </Title>
           <img
             src={videoImage}
+            className={styles.image}
+            alt={t('modules.video')}
+          />
+        </Card>
+      </Link>
+      <Link to={AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM]()}>
+        <Card
+          className={styles.card}
+          gap={20}
+          flexDirection="column"
+          padding={20}
+        >
+          <Title fontWeight="semibold" variant="h4">
+            {t('modules.sls_intercom')}
+          </Title>
+          <img
+            src={sls_intercom}
             className={styles.image}
             alt={t('modules.video')}
           />

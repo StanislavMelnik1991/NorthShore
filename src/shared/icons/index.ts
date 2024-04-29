@@ -42,3 +42,4 @@ export * from './Comment';
 export * from './Filter';
 export * from './Wifi';
 export * from './Info';
+export * from './Key';

@@ -10,13 +10,13 @@ export const useSecurityVideoPage = () => {
   const [isFaulty, setIsFaulty] = useState(false);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [filters, setFilters] = useState<{
-    street_id?: number;
-    building_id?: number;
-    entrance_id?: number;
+    street?: number;
+    building?: number;
+    entrance?: number;
   }>({
-    street_id: undefined,
-    building_id: undefined,
-    entrance_id: undefined,
+    street: undefined,
+    building: undefined,
+    entrance: undefined,
   });
 
   useEffect(() => {

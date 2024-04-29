@@ -1,24 +1,20 @@
 import { AddressSelect, ISelectOption } from '@entities/components';
 import { useSecurityFilters } from '../hook';
 
+interface Config<T> {
+  street?: T;
+  building?: T;
+  entrance?: T;
+  apartment?: T;
+}
+
 interface Props {
   className?: string;
   showLabel?: boolean;
-  errors?: {
-    street?: string;
-    building?: string;
-    entrance?: string;
-  };
-  initialValues?: {
-    street?: ISelectOption;
-    building?: ISelectOption;
-    entrance?: ISelectOption;
-  };
-  setFilters: (val: {
-    street_id?: number;
-    building_id?: number;
-    entrance_id?: number;
-  }) => void;
+  showApartment?: boolean;
+  errors?: Config<string>;
+  initialValues?: Config<ISelectOption>;
+  setFilters: (val: Config<number>) => void;
 }
 
 export const AddressFilters = ({
@@ -27,6 +23,7 @@ export const AddressFilters = ({
   showLabel,
   errors,
   initialValues,
+  showApartment,
 }: Props) => {
   const {
     isStreetsLoading,
@@ -41,32 +38,42 @@ export const AddressFilters = ({
     activeBuilding,
     activeEntrance,
     activeStreet,
+    activeApartment,
+    apartment,
+    handleApartmentChange,
+    isApartmentsLoading,
   } = useSecurityFilters({
     setFilters,
     initial: initialValues,
+    showApartment,
   });
 
   return (
     <AddressSelect
+      showApartment={showApartment}
       loading={{
         building: isBuildingsLoading,
         entrance: isEntrancesLoading,
         street: isStreetsLoading,
+        apartment: isApartmentsLoading,
       }}
       onChange={{
         building: handleBuildingChange,
         entrance: handleEntranceChange,
         street: handleChangeStreet,
+        apartment: handleApartmentChange,
       }}
       options={{
         building: buildings,
         entrance: entrances,
         street: streets,
+        apartment: apartment,
       }}
       values={{
         building: activeBuilding,
         entrance: activeEntrance,
         street: activeStreet,
+        apartment: activeApartment,
       }}
       errors={errors}
       showLabel={showLabel}

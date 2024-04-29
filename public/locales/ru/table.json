@@ -22,6 +22,8 @@
     "building": "дом",
     "entrance": "подъезд",
     "state": "состояние",
-    "serviceability": "исправность"
+    "serviceability": "исправность",
+    "apartment": "квартира",
+    "uuid": "UUID"
   }
 }

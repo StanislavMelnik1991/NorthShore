@@ -21,3 +21,9 @@ export interface PaginationResponse {
 export interface LogoutData {
   Authorization: string;
 }
+
+export interface BaseEntity {
+  id: number;
+  name: string;
+  comment?: string;
+}

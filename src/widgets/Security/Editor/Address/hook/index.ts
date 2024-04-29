@@ -14,23 +14,23 @@ export const useSecurityAddressEditor = ({ setFieldValue }: Props) => {
   const { t } = useTranslation('security');
   const handleChangeSelection = useCallback(
     ({
-      building_id,
-      entrance_id,
-      street_id,
+      building,
+      entrance,
+      street,
     }: {
-      building_id?: number;
-      entrance_id?: number;
-      street_id?: number;
+      building?: number;
+      entrance?: number;
+      street?: number;
     }) => {
-      if (street_id) {
+      if (street) {
         setFieldValue('address_building_id', undefined);
         setFieldValue('address_entrance_id', undefined);
-        setFieldValue('address_street_id', street_id);
-      } else if (building_id) {
-        setFieldValue('address_building_id', building_id);
+        setFieldValue('address_street_id', street);
+      } else if (building) {
+        setFieldValue('address_building_id', building);
         setFieldValue('address_entrance_id', undefined);
-      } else if (entrance_id) {
-        setFieldValue('address_entrance_id', entrance_id);
+      } else if (entrance) {
+        setFieldValue('address_entrance_id', entrance);
       }
     },
     [setFieldValue],

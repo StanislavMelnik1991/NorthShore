@@ -3,6 +3,7 @@
   "modules": {
     "access": "Access Control",
     "intercom": "Intercom",
+    "sls_intercom": "Video eyes",
     "video": "Video Surveillance",
     "createCamera": "Adding a Camera",
     "updateCamera": "Editing the camcorder",
@@ -10,7 +11,10 @@
     "updateAccess": "Editing an access point",
     "createIntercom": "Adding an intercom",
     "updateIntercom": "Editing the intercom",
-    "intercomSingle": "Intercom"
+    "intercomSingle": "Intercom",
+    "createSslIntercom": "Adding a video doorbell",
+    "updateSslIntercom": "Editing the video doorbell",
+    "sslIntercomSingle": "Video doorbell"
   },
   "toast": {
     "listError": "Failed to get the list of access points",
@@ -26,6 +30,10 @@
     "update": "Update"
   },
   "editor": {
+    "apartment": {
+      "label": "Apartment",
+      "placeholder": "Choose a apartment"
+    },
     "street": {
       "label": "Street",
       "placeholder": "Select a Street"
@@ -89,6 +97,10 @@
       "label": "Link to video stream in hls format",
       "placeholder": "Enter the link"
     },
+    "uuid": {
+      "label": "UUID",
+      "placeholder": "Enter the UUID"
+    },
     "sipAddress": "SIP server address",
     "sipPort": "SIP server port",
     "location": "Location Address",
@@ -102,7 +114,7 @@
   },
   "cards": {
     "camera": "Camera",
-    "normal": "On Air" ,
+    "normal": "On Air",
     "defect": "Not On Air",
     "no_data": "No data",
     "cameraError": "The camera is not connected"
@@ -126,7 +138,7 @@
     "tabs": {
       "main": "Main Information",
       "config": "Configuration",
-      "access":"Addresses with Access to the Camera"
+      "access": "Addresses with Access to the Camera"
     },
     "ipAddress": "IP Address",
     "login": "Login",
@@ -146,7 +158,8 @@
     "hls_url": "Link to HLS Video Stream",
     "phoneNumber": "Phone Number",
     "sipIp": "SIP Server Address",
-    "sipPort": "SIP Server Port"
+    "sipPort": "SIP Server Port",
+    "uuid": "UUID"
   },
   "remove": {
     "titleAccess": "Are you sure you want to delete this access point?",

@@ -44,7 +44,7 @@ export const SecurityAccessEditor = ({
         {title}
       </Title>
       {address.map((el, index) => {
-        const isRemoveDisabled = !el?.entrance_id || address.length === 1;
+        const isRemoveDisabled = !el?.entrance || address.length === 1;
         return (
           <div className={styles.element} key={`AddressFilters-${el.id}`}>
             <AddressFilters

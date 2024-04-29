@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { IBuilding, IEntrance, IStreet } from '@entities/types';
+import { IApartment, IBuilding, IEntrance, IStreet } from '@entities/types';
 import {
   IconComment,
+  IconKey,
   IconLock,
   IconMap,
   IconPoint,
@@ -18,11 +19,13 @@ interface Props {
     street?: IStreet;
     building?: IBuilding;
     entrance?: IEntrance;
+    apartment?: IApartment;
     lon?: number;
     lat?: number;
     comment?: string;
     type?: { name: string };
     status?: { name: string };
+    uuid?: string;
   };
 }
 
@@ -31,7 +34,8 @@ export const MainInformation = ({ className, data }: Props) => {
   const street = data.street?.name;
   const home = data.building?.name;
   const entrance = data.entrance?.name;
-  const location = `${street ? `${street},` : ''} ${home ? `${home},` : ''} ${entrance ? `${entrance}` : ''}`;
+  const apartment = data.apartment?.name;
+  const location = `${street ? `${street}` : ''}${home ? `, ${home}` : ''}${entrance ? `, ${entrance}` : ''} ${apartment ? `, ${apartment}` : ''}`;
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.type && (
@@ -108,6 +112,21 @@ export const MainInformation = ({ className, data }: Props) => {
           <div className={styles.column}>
             <Text fontWeight="medium" variant="body14">
               {data.status.name}
+            </Text>
+          </div>
+        </div>
+      )}
+      {data.uuid && (
+        <div className={styles.row}>
+          <div className={classNames(styles.column, styles.label)}>
+            <IconKey width={20} height={20} />
+            <Text fontWeight="regular" variant="body14">
+              {t('details.uuid')}
+            </Text>
+          </div>
+          <div className={styles.column}>
+            <Text fontWeight="medium" variant="body14">
+              {data.uuid}
             </Text>
           </div>
         </div>

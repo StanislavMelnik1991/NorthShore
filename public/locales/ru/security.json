@@ -3,6 +3,7 @@
   "modules": {
     "access": "Контроль доступа",
     "intercom": "Домофония",
+    "sls_intercom": "Видеоглазки",
     "video": "Видеонаблюдение",
     "createCamera": "Добавление видеокамеры",
     "updateCamera": "Редактирование видеокамеры",
@@ -10,7 +11,10 @@
     "updateAccess": "Редактирование точки доступа",
     "createIntercom": "Добавление домофона",
     "updateIntercom": "Редактирование домофона",
-    "intercomSingle": "Домофон"
+    "intercomSingle": "Домофон",
+    "createSslIntercom": "Добавление видеоглазка",
+    "updateSslIntercom": "Редактирование видеоглазка",
+    "sslIntercomSingle": "Видеоглазок"
   },
   "toast": {
     "listError": "Не удалось получить список точек доступа",
@@ -26,6 +30,10 @@
     "update": "Обновить"
   },
   "editor": {
+    "apartment": {
+      "label": "Квартира",
+      "placeholder": "Выберите квартиру"
+    },
     "street": {
       "label": "Улица",
       "placeholder": "Выберите улицу"
@@ -89,6 +97,10 @@
       "label": "Ссылка на видеопоток в формате hls",
       "placeholder": "Введите ссылку"
     },
+    "uuid": {
+      "label": "UUID",
+      "placeholder": "Введите UUID"
+    },
     "sipAddress": "Адрес SIP сервера",
     "sipPort": "Порт SIP сервера",
     "location": "Адрес местонахождения",
@@ -146,7 +158,8 @@
     "hls_url": "Ссылка на видеопоток в формате hls",
     "phoneNumber": "Номер телефона",
     "sipIp": "Адрес SIP сервера",
-    "sipPort": "Порт SIP сервера"
+    "sipPort": "Порт SIP сервера",
+    "uuid": "UUID"
   },
   "remove": {
     "titleAccess": "Вы уверены, что хотите удалить эту точку доступа?",

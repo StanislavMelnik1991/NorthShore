@@ -22,6 +22,8 @@
     "building": "building",
     "entrance": "entrance",
     "state": "state",
-    "serviceability": "serviceability"
+    "serviceability": "serviceability",
+    "apartment": "apartment",
+    "uuid": "UUID"
   }
 }

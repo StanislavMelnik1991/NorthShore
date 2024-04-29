@@ -12,11 +12,13 @@ interface AddressWrapper<T> {
   street: T;
   building: T;
   entrance: T;
+  apartment?: T;
 }
 
 interface Props {
   className?: string;
   showLabel?: boolean;
+  showApartment?: boolean;
   options: AddressWrapper<Array<Options>>;
   values: AddressWrapper<Options | null>;
   onChange: AddressWrapper<(val: unknown) => void>;
@@ -32,6 +34,7 @@ export const AddressSelect = ({
   onChange,
   options,
   values,
+  showApartment,
 }: Props) => {
   const { t } = useAddressSelect();
   return (
@@ -83,6 +86,24 @@ export const AddressSelect = ({
           };
         })}
       />
+      {showApartment && (
+        <StyledSelect
+          className={classNames(styles.select, styles.entrance)}
+          isDisabled={!options.apartment?.length}
+          isLoading={loading.apartment}
+          error={errors?.apartment}
+          value={values.apartment}
+          label={showLabel ? t('editor.apartment.label') : undefined}
+          placeholder={t('editor.apartment.placeholder')}
+          onChange={onChange.apartment}
+          options={options.apartment?.map(({ label, value }) => {
+            return {
+              value,
+              label,
+            };
+          })}
+        />
+      )}
     </div>
   );
 };

@@ -4,22 +4,17 @@ import {
   IBuilding,
   IStreet,
   IEntranceFull,
+  IApartment,
+  IApartmentFull,
 } from './address.interface';
+import { BaseEntity } from './global.interface';
 import { SecuritySipAccount } from './sip.interface';
 
-export interface SecurityStatus {
-  id: number;
-  name: string;
-}
+export interface SecurityStatus extends BaseEntity {}
 
-export interface SecurityType {
-  id: number;
-  name: string;
-}
+export interface SecurityType extends BaseEntity {}
 
-export interface SecurityAccess {
-  id: number;
-  name: string;
+export interface SecurityAccess extends BaseEntity {
   ip_address: string;
   type: SecurityType;
   type_id: SecurityType['id'];
@@ -29,7 +24,6 @@ export interface SecurityAccess {
   address_building_id: IBuilding['id'];
   address_entrance_id: IEntrance['id'];
   address_street_id: IStreet['id'];
-  comment: string;
   entrances: Array<IEntranceFull>;
   status: SecurityStatus;
   current_status_id: SecurityStatus['id'];
@@ -41,12 +35,9 @@ export interface SecurityAccess {
   password: string;
 }
 
-export interface SecurityCamera {
-  id: number;
+export interface SecurityCamera extends BaseEntity {
   lat: number;
   lon: number;
-  name: string;
-  comment: string;
   type: SecurityType;
   type_id: SecurityType['id'];
   rtsp_url: string;
@@ -62,13 +53,10 @@ export interface SecurityCamera {
   status_id: keyof typeof EquipmentCondition;
 }
 
-export interface SecurityIntercom {
-  id: number;
-  name: string;
+export interface SecurityIntercom extends BaseEntity {
   login: string;
   password: string;
   status: SecurityStatus;
-  comment: string;
   mp4_url?: string;
   hls_url?: string;
   type: SecurityType;
@@ -82,4 +70,11 @@ export interface SecurityIntercom {
   entrance_id: number;
   sip_account: SecuritySipAccount;
   current_status_id: number;
+}
+
+export interface SecuritySlsIntercom extends BaseEntity {
+  uuid: string;
+  data_add: number;
+  apartment: IApartmentFull;
+  apartment_id: IApartment['id'];
 }

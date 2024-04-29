@@ -29,17 +29,19 @@ import {
   SecurityPage,
   SecurityVideoPage,
   CreateAccessPage,
-} from '@pages/Security';
-import { CurrentAccessPage } from '@pages/Security/Access/Current';
-import { UpdateAccessPage } from '@pages/Security/Access/Update';
-import {
   CreateIntercomPage,
   SecurityIntercomPage,
-} from '@pages/Security/Intercom';
-import { CurrentIntercomPage } from '@pages/Security/Intercom/Current';
-import { UpdateIntercomPage } from '@pages/Security/Intercom/Update';
-import { CurrentCameraPage } from '@pages/Security/Video/Current';
-import { UpdateCameraPage } from '@pages/Security/Video/Update';
+  CreateSlsIntercomPage,
+  SecuritySlsIntercomPage,
+  CurrentSlsIntercomPage,
+  UpdateSlsIntercomPage,
+  CurrentAccessPage,
+  UpdateAccessPage,
+  CurrentCameraPage,
+  CurrentIntercomPage,
+  UpdateCameraPage,
+  UpdateIntercomPage,
+} from '@pages/Security';
 import {
   AppRoutesEnum,
   AppRoutes,
@@ -229,6 +231,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
+
   [AppRoutesEnum.SECURITY_INTERCOM]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
     element: <SecurityIntercomPage />,
@@ -253,6 +256,32 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_ADMIN,
   },
+
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM](),
+    element: <SecuritySlsIntercomPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_CREATE](),
+    element: <CreateSlsIntercomPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT](':id'),
+    element: <CurrentSlsIntercomPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_UPDATE](':id'),
+    element: <UpdateSlsIntercomPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+
   [AppRoutesEnum.SECURITY_VIDEO]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO](),
     element: <SecurityVideoPage />,

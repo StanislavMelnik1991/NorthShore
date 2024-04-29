@@ -66,7 +66,7 @@ const Page = () => {
             values={values}
           />
           <CameraCreateActions
-            submitText={t('actions.add')}
+            submitText={t('actions.update')}
             className={styles.actions}
             isValid={isValid}
           />

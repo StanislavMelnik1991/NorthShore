@@ -47,6 +47,7 @@ import {
   IconFilter,
   IconWifi,
   IconInfo,
+  IconKey,
 } from '.';
 
 interface Props {
@@ -57,6 +58,9 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconKey">
+        <IconKey width={size} height={size} />
+      </Item>
       <Item name="IconInfo">
         <IconInfo width={size} height={size} />
       </Item>

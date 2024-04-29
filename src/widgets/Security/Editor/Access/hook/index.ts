@@ -4,9 +4,9 @@ import { ISelectOption } from '@entities/components';
 
 type Address = {
   id: number;
-  entrance_id?: number | undefined;
-  building_id?: number | undefined;
-  street_id?: number | undefined;
+  entrance?: number | undefined;
+  building?: number | undefined;
+  street?: number | undefined;
 };
 
 type Props = {
@@ -45,17 +45,17 @@ export const useSecurityAccessEditor = ({
       const entrances: number[] = [];
       if (data) {
         newValues[index] = { ...data, id: newValues[index].id };
-        newValues.forEach(({ entrance_id }) => {
-          if (entrance_id) {
-            entrances.push(entrance_id);
+        newValues.forEach(({ entrance }) => {
+          if (entrance) {
+            entrances.push(entrance);
           }
         });
         setAddress(newValues);
       } else {
         newValues.splice(index, 1);
-        newValues.forEach(({ entrance_id }) => {
-          if (entrance_id) {
-            entrances.push(entrance_id);
+        newValues.forEach(({ entrance }) => {
+          if (entrance) {
+            entrances.push(entrance);
           }
         });
         setAddress(newValues);
@@ -70,9 +70,9 @@ export const useSecurityAccessEditor = ({
       const newValues = [...address];
       newValues.splice(index, 1);
       const entrances: number[] = [];
-      newValues.forEach(({ entrance_id }) => {
-        if (entrance_id) {
-          entrances.push(entrance_id);
+      newValues.forEach(({ entrance }) => {
+        if (entrance) {
+          entrances.push(entrance);
         }
       });
       setAddress(newValues);
@@ -92,6 +92,6 @@ export const useSecurityAccessEditor = ({
     onChange: handleUpdateValues,
     onClear: handleClear,
     onAdd: handleAdd,
-    isDisabled: !address[address.length - 1]?.entrance_id,
+    isDisabled: !address[address.length - 1]?.entrance,
   };
 };

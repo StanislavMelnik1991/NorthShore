@@ -31,6 +31,11 @@ export enum AppRoutesEnum {
   SECURITY_ACCESS_UPDATE,
   SECURITY_ACCESS_CURRENT,
 
+  SECURITY_SLS_INTERCOM,
+  SECURITY_SLS_INTERCOM_CREATE,
+  SECURITY_SLS_INTERCOM_UPDATE,
+  SECURITY_SLS_INTERCOM_CURRENT,
+
   SECURITY_INTERCOM,
   SECURITY_INTERCOM_CREATE,
   SECURITY_INTERCOM_UPDATE,
@@ -113,12 +118,14 @@ export const AppRoutes = {
   [AppRoutesEnum.ENGINEERING]: () => '/admin/engineering',
 
   [AppRoutesEnum.SECURITY]: () => '/admin/security',
+
   [AppRoutesEnum.SECURITY_ACCESS]: () => '/admin/security/access',
   [AppRoutesEnum.SECURITY_ACCESS_CREATE]: () => '/admin/security/access/create',
   [AppRoutesEnum.SECURITY_ACCESS_CURRENT]: (id: number | string) =>
     `/admin/security/access/${id}`,
   [AppRoutesEnum.SECURITY_ACCESS_UPDATE]: (id: number | string) =>
     `/admin/security/access/${id}/update`,
+
   [AppRoutesEnum.SECURITY_INTERCOM]: () => '/admin/security/intercom',
   [AppRoutesEnum.SECURITY_INTERCOM_CREATE]: () =>
     '/admin/security/intercom/create',
@@ -126,6 +133,14 @@ export const AppRoutes = {
     `/admin/security/intercom/${id}`,
   [AppRoutesEnum.SECURITY_INTERCOM_UPDATE]: (id: number | string) =>
     `/admin/security/intercom/${id}/update`,
+
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM]: () => '/admin/security/intercom/sls',
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CREATE]: () =>
+    '/admin/security/intercom/sls/create',
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT]: (id: number | string) =>
+    `/admin/security/intercom/sls/${id}`,
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_UPDATE]: (id: number | string) =>
+    `/admin/security/intercom/sls/${id}/update`,
 
   [AppRoutesEnum.SECURITY_VIDEO]: () => '/admin/security/video',
   [AppRoutesEnum.SECURITY_VIDEO_CREATE]: () => '/admin/security/video/create',
