@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetRequestsList } from '@features/invocation';
 import { InvocationCard } from '@entities/components';
 import { NoResults } from '@entities/components/NoResults';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { useList } from '../hook';
 import styles from './List.module.scss';
 
 interface Props {
@@ -13,11 +12,8 @@ interface Props {
 }
 
 export const RequestList = ({ className, isActual = false }: Props) => {
-  const { getData, data, t } = useGetRequestsList(isActual);
+  const { t, data } = useList(isActual);
 
-  useEffect(() => {
-    getData();
-  }, [getData]);
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.length ? (

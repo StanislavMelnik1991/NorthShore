@@ -12,6 +12,7 @@ interface Props {
   id: number;
   controls?: JSX.Element;
   status: keyof typeof EquipmentCondition;
+  muted?: boolean;
 }
 
 export const VideoCard = ({
@@ -21,6 +22,7 @@ export const VideoCard = ({
   name,
   controls,
   status,
+  muted,
 }: Props) => {
   const { t } = useTranslation('security');
   return (
@@ -29,6 +31,7 @@ export const VideoCard = ({
         className={styles.videoWrapper}
         src={video}
         status={status}
+        muted={muted}
       />
       <div className={styles.footer}>
         <div className={styles.text}>

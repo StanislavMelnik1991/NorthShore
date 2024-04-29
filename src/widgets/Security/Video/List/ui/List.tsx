@@ -45,6 +45,7 @@ export const VideoList = ({ className, data, isLoading }: Props) => {
                   video={rtsp_url_small}
                   name={name}
                   id={id}
+                  muted
                   status={status_id || 3}
                   key={`security-video-${id}`}
                   controls={

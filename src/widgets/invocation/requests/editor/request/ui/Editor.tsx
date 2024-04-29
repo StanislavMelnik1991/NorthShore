@@ -10,11 +10,11 @@ import { useEditorWidget } from '../hook';
 import styles from './Editor.module.scss';
 
 type Values = {
-  title: string;
-  content: string;
-  theme_id: keyof typeof RequestThemesEnum;
-  contact_fio: string;
-  contact_phone: string;
+  title?: string;
+  content?: string;
+  theme_id?: keyof typeof RequestThemesEnum;
+  contact_fio?: string;
+  contact_phone?: string;
   files: IFile[];
 };
 

@@ -7,3 +7,4 @@ export * from './image.interface';
 export * from './security.interface';
 export * from './address.interface';
 export * from './sip.interface';
+export * from './request.interface';
