@@ -17,10 +17,10 @@ interface Params extends ListParams {
 }
 
 interface ResponseDataType extends PaginationResponse {
-  events: Array<INews>;
+  meetings: Array<INews>;
 }
 
-export const useGetUserEventsList = () => {
+export const useGetUserMeetingsList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<Array<INews>>([]);
@@ -31,11 +31,11 @@ export const useGetUserEventsList = () => {
       setIsLoading(true);
       try {
         const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
-          `/events`,
+          `/meetings`,
           { params },
         );
-        if (data?.data?.events) {
-          setData(data.data.events);
+        if (data?.data?.meetings) {
+          setData(data.data.meetings);
           setTotal(data.data.total_pages);
         } else {
           toast.error(t('errors.getError'));

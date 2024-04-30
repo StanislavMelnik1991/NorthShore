@@ -17,9 +17,7 @@ export const useTableRows = (data: Array<INews>) => {
           {title[i18n.language as 'en' | 'ru']}
         </TableText>
       ),
-      date: (
-        <TableText>{format(published_at * 1000, 'dd.MM.yyyy HH:mm')}</TableText>
-      ),
+      date: <TableText>{format(published_at * 1000, 'dd.MM.yyyy')}</TableText>,
       text: (
         <TableText>
           {extractTextFromHtml(html_content[i18n.language as 'en' | 'ru'])}
