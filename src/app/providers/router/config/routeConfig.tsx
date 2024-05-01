@@ -10,6 +10,8 @@ import {
   UpdateNewsPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
+import { EnergyListPage } from '@pages/engineering/energy';
+import { CurrentEnergyPage } from '@pages/engineering/energy/current';
 import { CurrentEventPage } from '@pages/events';
 import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
@@ -203,6 +205,31 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
+  [AppRoutesEnum.ENGINEERING_LIFTS]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_HEATING]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ENERGY]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY](),
+    element: <EnergyListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ENERGY_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY_CURRENT](':id'),
+    element: <CurrentEnergyPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+
   [AppRoutesEnum.SECURITY]: {
     path: AppRoutes[AppRoutesEnum.SECURITY](),
     element: <SecurityPage />,

@@ -60,7 +60,20 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.engineering'),
       icon: IconWrench,
       href: AppRoutes[AppRoutesEnum.ENGINEERING](),
-      isLink: true,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY](),
+          title: t('sidebar.energy'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
+          title: t('sidebar.heating'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
+          title: t('sidebar.lifts'),
+        },
+      ],
     },
     {
       title: t('sidebar.invocation'),

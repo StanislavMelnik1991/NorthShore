@@ -1,7 +1,6 @@
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
-import { TableControls } from '@widgets/Table';
-import { TableBadge, TableText } from '@entities/components';
+import { TableBadge, TableControls, TableText } from '@entities/components';
 import { INews } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 

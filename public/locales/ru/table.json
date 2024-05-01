@@ -24,6 +24,11 @@
     "state": "состояние",
     "serviceability": "исправность",
     "apartment": "квартира",
-    "uuid": "UUID"
+    "uuid": "UUID",
+    "address": "адрес",
+    "lastData": "последнее показание",
+    "lastUpdate": "дата оследниего опроса",
+    "voltage": "напряжение",
+    "chargingStatus": "статус заряда"
   }
 }

@@ -1,47 +1,52 @@
-import { RefObject, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { axiosApi } from '@entities/api';
-import { BaseResponse, INews } from '@entities/types';
 
 interface Props {
   id: number;
-  getUpdateRoute(id: number): string;
-  getDetailsRoute(id: number): string;
-  wrapperRef: RefObject<HTMLDivElement>;
+  point?: {
+    lat?: number;
+    lon?: number;
+  };
+  getUpdateRoute?: (id: number) => string;
+  getDetailsRoute?: (id: number) => string;
 }
 
-export const useTableControls = ({
+export const useVideoCardControls = ({
   getDetailsRoute,
   getUpdateRoute,
   id,
-  wrapperRef,
+  point,
 }: Props) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { t } = useTranslation('table');
+  const { t } = useTranslation('security');
 
   const [isShow, setIsShow] = useState(false);
 
-  const handleArchive = useCallback(async () => {
-    try {
-      await axiosApi.post<BaseResponse<INews>>(`/news/${id}`, {
-        status: 2,
-      });
-      toast.success(t('toast.archiveSuccess'));
-    } catch (error) {
-      console.error(error);
-      toast.error(t('toast.archiveError'));
-    }
-  }, [id, t]);
-
   const handleGoToUpdate = useCallback(async () => {
+    if (!getUpdateRoute) {
+      return;
+    }
     navigate(getUpdateRoute(id));
   }, [getUpdateRoute, id, navigate]);
 
   const handleGoToDetails = useCallback(async () => {
+    if (!getDetailsRoute) {
+      return;
+    }
     navigate(getDetailsRoute(id));
   }, [getDetailsRoute, id, navigate]);
+
+  const handleMapOpen = useCallback(() => {
+    if (!point) {
+      return;
+    } else {
+      const { lat, lon } = point;
+      const url = `https://yandex.ru/maps/?ll=${lon}%2C${lat}&z=17&pt=${lon}%2C${lat}`;
+      window.open(url, '_blank');
+    }
+  }, [point]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,11 +65,12 @@ export const useTableControls = ({
   }, [wrapperRef]);
 
   return {
-    handleArchive,
     handleGoToUpdate,
     handleGoToDetails,
     isShow,
     setIsShow,
+    handleMapOpen,
     t,
+    wrapperRef,
   };
 };

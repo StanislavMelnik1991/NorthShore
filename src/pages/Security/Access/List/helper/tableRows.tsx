@@ -1,6 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { VideoCardControls } from '@widgets/Security/Controls';
-import { TableText } from '@entities/components';
+import { TableControls, TableText } from '@entities/components';
 import { SecurityAccess } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
@@ -21,9 +20,8 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
         entrance: <TableText>{entrance?.name}</TableText>,
         state: <TableText>{status.name}</TableText>,
         controls: (
-          <VideoCardControls
-            lat={lat}
-            lon={lon}
+          <TableControls
+            point={{ lat, lon }}
             onDelete={onDelete(id)}
             onOpen={onOpen(id)}
             getDetailsRoute={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CURRENT]}

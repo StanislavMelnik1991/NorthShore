@@ -24,6 +24,12 @@
     "state": "state",
     "serviceability": "serviceability",
     "apartment": "apartment",
-    "uuid": "UUID"
+    "uuid": "UUID",
+    "address": "address",
+    "lastData": "last reading",
+    "lastUpdate": "date of last poll",
+    "voltage": "voltage",
+    "chargingStatus": "charging status"
   }
+
 }

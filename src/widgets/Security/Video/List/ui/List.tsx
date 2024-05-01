@@ -1,11 +1,9 @@
 import classNames from 'classnames';
-import { Modal, VideoCard } from '@entities/components';
-import { ModalDelete } from '@entities/components/ModalDelete';
-import { NoResults } from '@entities/components/NoResults';
+import { Modal, TableControls, VideoCard } from '@entities/components';
+import { ModalDelete, NoResults } from '@entities/components';
 import { SecurityCamera } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card } from '@shared/ui';
-import { VideoCardControls } from '../../../Controls';
 import { useVideoList } from '../hook';
 import styles from './List.module.scss';
 
@@ -49,9 +47,8 @@ export const VideoList = ({ className, data, isLoading }: Props) => {
                   status={status_id || 3}
                   key={`security-video-${id}`}
                   controls={
-                    <VideoCardControls
-                      lat={lat}
-                      lon={lon}
+                    <TableControls
+                      point={{ lat, lon }}
                       id={id}
                       rotateIcon
                       getDetailsRoute={

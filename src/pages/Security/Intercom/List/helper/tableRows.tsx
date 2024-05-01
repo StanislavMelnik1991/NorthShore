@@ -1,6 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { VideoCardControls } from '@widgets/Security/Controls';
-import { TableText } from '@entities/components';
+import { TableControls, TableText } from '@entities/components';
 import { SecurityIntercom } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconInfo } from '@shared/icons';
@@ -33,7 +32,7 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
         </TableText>
       ),
       controls: (
-        <VideoCardControls
+        <TableControls
           onDelete={onDelete(id)}
           onOpen={onOpen(id)}
           getDetailsRoute={AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_CURRENT]}

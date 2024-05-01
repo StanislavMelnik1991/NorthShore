@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { MouseEventHandler } from 'react';
-import { PopUpMenuItem } from '@entities/components';
 import {
   IconBasket,
   IconDottedLine,
@@ -10,26 +9,28 @@ import {
   IconPencil,
 } from '@shared/icons';
 import { Card } from '@shared/ui';
+import { PopUpMenuItem } from '../../../';
 import { useVideoCardControls } from '../hook';
 import styles from './Controls.module.scss';
 
 interface Props {
   className?: string;
   id: number;
-  lat?: number;
-  lon?: number;
-  getUpdateRoute(id: number): string;
-  getDetailsRoute(id: number): string;
+  point?: {
+    lat?: number;
+    lon?: number;
+  };
+  getUpdateRoute?: (id: number) => string;
+  getDetailsRoute?: (id: number) => string;
   onDelete?: MouseEventHandler<HTMLDivElement>;
   onOpen?: MouseEventHandler<HTMLDivElement>;
   rotateIcon?: boolean;
 }
 
-export const VideoCardControls = ({
+export const TableControls = ({
   className,
   id,
-  lat,
-  lon,
+  point,
   getDetailsRoute,
   getUpdateRoute,
   onDelete,
@@ -48,8 +49,7 @@ export const VideoCardControls = ({
     id,
     getDetailsRoute,
     getUpdateRoute,
-    lat,
-    lon,
+    point,
   });
   return (
     <div
@@ -66,17 +66,21 @@ export const VideoCardControls = ({
           flexDirection="column"
           className={classNames(styles.popup, className)}
         >
-          <PopUpMenuItem
-            onClick={handleGoToDetails}
-            icon={<IconEyeOpen width={20} hanging={20} />}
-            text={t('popup.preview')}
-          />
-          <PopUpMenuItem
-            onClick={handleGoToUpdate}
-            icon={<IconPencil width={20} hanging={20} />}
-            text={t('popup.edit')}
-          />
-          {lat && lon && (
+          {getDetailsRoute && (
+            <PopUpMenuItem
+              onClick={handleGoToDetails}
+              icon={<IconEyeOpen width={20} hanging={20} />}
+              text={t('popup.preview')}
+            />
+          )}
+          {getUpdateRoute && (
+            <PopUpMenuItem
+              onClick={handleGoToUpdate}
+              icon={<IconPencil width={20} hanging={20} />}
+              text={t('popup.edit')}
+            />
+          )}
+          {point && (
             <PopUpMenuItem
               onClick={handleMapOpen}
               icon={<IconMap width={20} hanging={20} />}

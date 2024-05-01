@@ -9,22 +9,32 @@ registerLocale('ru', ru);
 
 interface Props {
   className?: string;
-  startDate: Date | null;
-  setStartDate(val: Date | null): void;
+  wrapperClassName?: string;
+  value: Date | null;
+  setDate(val: Date | null): void;
   label?: string;
   error?: string;
+  required?: boolean;
+  showTimeSelect?: boolean;
+  timeFormat?: string;
+  dateFormat?: string;
 }
 
 export const CustomDatePicker = ({
   className,
-  setStartDate,
-  startDate,
+  wrapperClassName,
+  setDate,
+  value,
   error,
   label,
+  required,
+  showTimeSelect = true,
+  timeFormat = 'HH:mm',
+  dateFormat = 'dd MM yyyy, HH:mm',
 }: Props) => {
   const { i18n } = useTranslation();
   return (
-    <label className={classNames(styles.wrapper)}>
+    <label className={classNames(styles.wrapper, wrapperClassName)}>
       {label && (
         <p className={classNames(styles.label, { [styles.error]: !!error })}>
           {label}
@@ -38,13 +48,14 @@ export const CustomDatePicker = ({
         <DatePicker
           wrapperClassName={classNames(styles.wrapper, className)}
           showIcon
+          required={required}
           locale={i18n.language}
-          timeFormat="HH:mm"
-          dateFormat="dd MM yyyy, HH:mm"
-          selected={startDate}
-          showTimeSelect
+          timeFormat={timeFormat}
+          dateFormat={dateFormat}
+          selected={value}
+          showTimeSelect={showTimeSelect}
           icon={<IconCalendar width={20} height={20} />}
-          onChange={(date) => setStartDate(date)}
+          onChange={(date) => setDate(date)}
         />
       </div>
       {error && (

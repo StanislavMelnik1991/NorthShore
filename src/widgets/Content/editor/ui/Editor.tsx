@@ -65,8 +65,8 @@ export const ContentEditor = ({
         <CustomDatePicker
           label={t('editor.date.label')}
           error={errors.target_date as string}
-          startDate={values.target_date || new Date()}
-          setStartDate={(val) => setFieldValue('target_date', val)}
+          value={values.target_date || new Date()}
+          setDate={(val) => setFieldValue('target_date', val)}
         />
       )}
 

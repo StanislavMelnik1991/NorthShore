@@ -47,6 +47,12 @@ export enum AppRoutesEnum {
   SECURITY_VIDEO_CURRENT,
 
   ENGINEERING,
+  ENGINEERING_ENERGY,
+  ENGINEERING_ENERGY_CURRENT,
+
+  ENGINEERING_HEATING,
+  ENGINEERING_LIFTS,
+
   INFORM,
   PASSPORT,
   USERS,
@@ -116,6 +122,12 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_APPLICATIONS]: () => '/admin/applications',
 
   [AppRoutesEnum.ENGINEERING]: () => '/admin/engineering',
+  [AppRoutesEnum.ENGINEERING_ENERGY]: () => '/admin/engineering/energy',
+  [AppRoutesEnum.ENGINEERING_ENERGY_CURRENT]: (id: number | string) =>
+    `/admin/engineering/energy/${id}`,
+
+  [AppRoutesEnum.ENGINEERING_HEATING]: () => '/admin/engineering/heating',
+  [AppRoutesEnum.ENGINEERING_LIFTS]: () => '/admin/engineering/lifts',
 
   [AppRoutesEnum.SECURITY]: () => '/admin/security',
 

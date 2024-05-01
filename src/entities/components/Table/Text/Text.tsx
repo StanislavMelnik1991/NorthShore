@@ -6,15 +6,18 @@ interface Props {
   children: false | string | JSX.Element | Array<string | JSX.Element | false>;
   className?: string;
   fontWeight?: 'medium' | 'regular' | 'semibold';
+  title?: string;
 }
 
 export const TableText = ({
   children,
   className,
   fontWeight = 'regular',
+  title,
 }: Props) => {
   return (
     <Text
+      title={title}
       className={classNames(styles.wrapper, className)}
       fontWeight={fontWeight}
       variant="body14"

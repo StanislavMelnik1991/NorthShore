@@ -28,7 +28,10 @@
     "users": "Users",
     "access": "Access Control",
     "intercom": "Intercom",
-    "video": "Video Surveillance"
+    "video": "Video Surveillance",
+    "energy": "Energy resources",
+    "heating": "Heating points",
+    "lifts": "Lifts"
   },
   "header": {
     "login": "Log In",
