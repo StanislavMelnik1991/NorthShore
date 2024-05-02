@@ -29,7 +29,10 @@
     "lastData": "last reading",
     "lastUpdate": "date of last poll",
     "voltage": "voltage",
-    "chargingStatus": "charging status"
+    "chargingStatus": "charging status",
+    "periodTotal": "Total for the period",
+    "readingDate": "date of reading",
+    "absoluteConsumption": "absolute consumption",
+    "delta": "delta"
   }
-
 }

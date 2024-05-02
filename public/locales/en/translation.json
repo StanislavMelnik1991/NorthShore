@@ -59,5 +59,6 @@
     "getError": "Failed to retrieve data from the server ",
     "video": "Sorry, your browser does not support embedded video. "
   },
-  "search": "search"
+  "search": "search",
+  "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 }

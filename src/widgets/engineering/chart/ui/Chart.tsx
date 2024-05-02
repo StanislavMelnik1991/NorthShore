@@ -1,37 +1,46 @@
 import classNames from 'classnames';
-import { CustomDatePicker, StyledBar } from '@entities/components';
+import {
+  CurrentSkeleton,
+  CustomDatePicker,
+  StyledBar,
+} from '@entities/components';
 import { IEngineeringResults } from '@entities/types';
-import { Card, Text, Title } from '@shared/ui';
+import { Text, Title } from '@shared/ui';
 import { useEngineeringChar } from '../hook';
 import styles from './Chart.module.scss';
 
 interface Props {
   className?: string;
-  data?: IEngineeringResults;
+  results: IEngineeringResults['results'];
+  measures: string;
   from: Date;
   to: Date;
   setFrom: (val: Date | null) => void;
   setTo: (val: Date | null) => void;
   isLoading?: boolean;
+  total: number;
 }
 
 export const EngineeringChart = ({
   className,
-  data,
+  measures,
+  results,
   from,
   to,
   setFrom,
   setTo,
   isLoading,
+  total,
 }: Props) => {
-  const { barData, t, total, measures } = useEngineeringChar({
-    data,
+  const { barData, t } = useEngineeringChar({
+    measures,
+    results,
     from,
     to,
   });
   return (
-    <Card
-      loading={isLoading}
+    <CurrentSkeleton
+      isLoading={isLoading}
       className={classNames(styles.wrapper, className)}
       flexDirection="column"
     >
@@ -63,6 +72,6 @@ export const EngineeringChart = ({
         </div>
       </div>
       <StyledBar className={styles.padding} data={barData} />
-    </Card>
+    </CurrentSkeleton>
   );
 };

@@ -43,3 +43,5 @@ export * from './Filter';
 export * from './Wifi';
 export * from './Info';
 export * from './Key';
+export * from './Lightning';
+export * from './Battery';

@@ -29,6 +29,10 @@
     "lastData": "последнее показание",
     "lastUpdate": "дата оследниего опроса",
     "voltage": "напряжение",
-    "chargingStatus": "статус заряда"
+    "chargingStatus": "статус заряда",
+    "periodTotal": "Итого за период",
+    "readingDate": "дата показаний",
+    "absoluteConsumption": "абсолютное потребление",
+    "delta": "дельта"
   }
 }

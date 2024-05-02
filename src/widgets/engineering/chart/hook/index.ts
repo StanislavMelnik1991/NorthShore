@@ -1,24 +1,19 @@
 import { differenceInDays, format } from 'date-fns';
-import { ru, enGB } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
+import { useLocalizedDate } from '@features/date';
 import { IEngineeringResults } from '@entities/types';
-import { LanguageEnum, MAX_DAYS_PERIOD } from '@shared/constants';
+import { MAX_DAYS_PERIOD } from '@shared/constants';
 
 interface Props {
-  data?: IEngineeringResults;
+  results: IEngineeringResults['results'];
+  measures: string;
   from: Date;
   to: Date;
 }
 
-const locales = {
-  ru,
-  en: enGB,
-};
-
-export const useEngineeringChar = ({ data, from, to }: Props) => {
-  const { t, i18n } = useTranslation('engineering');
-  const measures = data?.type.measures || '';
-  const results = data?.results || [];
+export const useEngineeringChar = ({ measures, results, from, to }: Props) => {
+  const { t } = useTranslation('engineering');
+  const { getLocalizedMonth } = useLocalizedDate();
   const barData = {
     labels: results.map((el, index) => {
       const expectedTime = new Date(from.getTime());
@@ -28,10 +23,10 @@ export const useEngineeringChar = ({ data, from, to }: Props) => {
       } else {
         expectedTime.setDate(expectedTime.getDate() + index);
       }
-      const time = el?.timestamp * 1000;
-      return format(time || expectedTime, 'dd MMMM', {
-        locale: locales[i18n.language as LanguageEnum],
-      });
+      const time = el ? new Date(el.timestamp * 1000) : undefined;
+      return daysBetween > MAX_DAYS_PERIOD
+        ? getLocalizedMonth((time || expectedTime).getMonth())
+        : format(time || expectedTime, 'dd.MM');
     }),
     datasets: [
       {
@@ -43,8 +38,6 @@ export const useEngineeringChar = ({ data, from, to }: Props) => {
       },
     ],
   };
-  const total = results.reduce((prev, current) => {
-    return prev + (current?.current_value || 0);
-  }, 0);
-  return { barData, t, total, measures };
+
+  return { barData, t };
 };

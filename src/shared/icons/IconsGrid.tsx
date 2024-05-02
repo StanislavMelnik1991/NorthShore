@@ -48,6 +48,8 @@ import {
   IconWifi,
   IconInfo,
   IconKey,
+  IconLightning,
+  IconBattery,
 } from '.';
 
 interface Props {
@@ -58,6 +60,12 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconBattery">
+        <IconBattery width={size} height={size} />
+      </Item>
+      <Item name="IconLightning">
+        <IconLightning width={size} height={size} />
+      </Item>
       <Item name="IconKey">
         <IconKey width={size} height={size} />
       </Item>
@@ -76,7 +84,7 @@ export const IconsGrid = ({ size, theme }: Props) => {
       <Item name="IconPoint">
         <IconPoint width={size} height={size} />
       </Item>
-      <Item name="IconBasket">
+      <Item name="IconCamera">
         <IconCamera width={size} height={size} />
       </Item>
       <Item name="IconBasket">

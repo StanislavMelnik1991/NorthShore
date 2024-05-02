@@ -6,7 +6,7 @@ interface Props {
   children?:
     | JSX.Element
     | string
-    | Array<JSX.Element | string | undefined | null>;
+    | Array<JSX.Element | string | undefined | null | JSX.Element[] | false>;
 }
 
 export const PageSkeleton = ({ className, children }: Props) => {

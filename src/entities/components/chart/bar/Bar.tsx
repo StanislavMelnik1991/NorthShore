@@ -14,7 +14,7 @@ export const StyledBar = ({ className, options, data }: Props) => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        display: false,
       },
       title: {
         display: false,
