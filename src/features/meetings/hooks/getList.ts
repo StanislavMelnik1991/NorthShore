@@ -12,8 +12,8 @@ import {
 } from '@entities/types';
 
 interface Params extends ListParams {
-  sort: INewsSort;
-  filter: INewsFilter;
+  sort?: INewsSort;
+  filter?: INewsFilter;
 }
 
 interface ResponseDataType extends PaginationResponse {

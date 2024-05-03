@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { v1 } from 'uuid';
 import { ISelectOption } from '@entities/components';
 
 type Address = {
-  id: number;
+  id: string;
   entrance?: number | undefined;
   building?: number | undefined;
   street?: number | undefined;
@@ -23,15 +24,13 @@ export const useSecurityAccessEditor = ({
   initialAccess = [],
 }: Props) => {
   const { t } = useTranslation('security');
-  const [address, setAddress] = useState<Array<Address>>([
-    { id: Math.random() },
-  ]);
+  const [address, setAddress] = useState<Array<Address>>([{ id: v1() }]);
 
   useEffect(() => {
     if (initialAccess.length) {
       const initialAddress = initialAccess.map((el) => {
         return {
-          id: Math.random(),
+          id: v1(),
           entrance_id: el.entrance?.value,
         };
       });
@@ -83,7 +82,7 @@ export const useSecurityAccessEditor = ({
 
   const handleAdd = () =>
     setAddress((value) => {
-      return [...value, { id: Math.random() }];
+      return [...value, { id: v1() }];
     });
 
   return {

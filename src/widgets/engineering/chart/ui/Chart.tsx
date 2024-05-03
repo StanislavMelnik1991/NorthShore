@@ -49,14 +49,14 @@ export const EngineeringChart = ({
       </Title>
       <div className={styles.header}>
         <CustomDatePicker
-          wrapperClassName={styles.dataPicker}
+          className={styles.dataPicker}
           showTimeSelect={false}
           value={from}
           setDate={setFrom}
           dateFormat="dd MM yyyy"
         />
         <CustomDatePicker
-          wrapperClassName={styles.dataPicker}
+          className={styles.dataPicker}
           dateFormat="dd MM yyyy"
           showTimeSelect={false}
           value={to}

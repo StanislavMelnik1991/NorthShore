@@ -1,0 +1,31 @@
+{
+  "routes": {
+    "create": "Create Notification",
+    "list": "Notifications",
+    "notification": "Notification"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview"
+  },
+  "editor": {
+    "titles": {
+      "recipients": "Recipient Groups"
+    },
+    "additionalInfo": {
+      "label": "Link to Additional Information",
+      "placeholder": "Enter the Link"
+    },
+    "cover": {
+      "label": "Upload Image"
+    }
+  }
+}

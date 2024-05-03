@@ -23,7 +23,6 @@ export default () => {
             title: t('routes.events'),
           },
           {
-            href: '',
             title: event?.title[i18n.language as LanguageEnum] || '',
           },
         ]}

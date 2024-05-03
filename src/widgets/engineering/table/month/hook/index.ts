@@ -23,9 +23,6 @@ export const useTable = ({ date, id, measures }: Props) => {
       if (!val && !data) {
         const dateFrom = getStartOfMonth(new Date(date));
         const dateTo = getEndOfMonth(new Date(date));
-        console.log('date', date);
-        console.log('from', dateFrom);
-        console.log('to', dateTo);
         getData({
           id: id,
           from: Math.floor(dateFrom.getTime() / 1000),

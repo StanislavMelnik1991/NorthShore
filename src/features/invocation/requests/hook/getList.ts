@@ -41,12 +41,17 @@ export const useGetRequestsList = (isActual: boolean) => {
     [isActual, page, perPage, t],
   );
 
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   return {
     getData,
     page,
     setPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     data,
   };
 };

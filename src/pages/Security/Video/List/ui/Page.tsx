@@ -25,6 +25,7 @@ const MainPage = () => {
     setPerPage,
     setPage,
     total,
+    page,
   } = useSecurityVideoPage();
 
   return (
@@ -53,7 +54,7 @@ const MainPage = () => {
         <div className={styles.filters}>
           <AddressFilters setFilters={setFilters} />
           <CheckBox
-            LabelClassName={styles.checkbox}
+            wrapperClassName={styles.checkbox}
             value={isFaulty}
             onChange={(val) => {
               setIsFaulty(val);
@@ -66,7 +67,7 @@ const MainPage = () => {
       </div>
       <div className={styles.controls}>
         <PerPage active={perPage} setActive={setPerPage} />
-        <Pagination total={total} onChange={setPage} />
+        <Pagination page={page} total={total} onChange={setPage} />
       </div>
     </PageSkeleton>
   );

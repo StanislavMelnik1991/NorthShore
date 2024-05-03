@@ -9,3 +9,5 @@ export * from './address.interface';
 export * from './sip.interface';
 export * from './request.interface';
 export * from './engineering.interface';
+export * from './localization.interface';
+export * from './notifications.interface';

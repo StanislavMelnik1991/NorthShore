@@ -52,7 +52,6 @@ export const SecurityIntercomDataEditor = ({
   } = useIntercomDataEditor({
     setFieldValue,
   });
-  console.log(errors);
   return (
     <div className={styles.wrapper}>
       <div className={styles.row}>

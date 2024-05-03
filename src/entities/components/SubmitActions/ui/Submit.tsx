@@ -1,19 +1,22 @@
 import classNames from 'classnames';
+import { MouseEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@shared/ui';
-import styles from './Create.module.scss';
+import styles from './Submit.module.scss';
 
 interface Props {
   className?: string;
   isValid: boolean;
   submitText: string;
+  onDelete?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const CameraCreateActions = ({
+export const SubmitActions = ({
   className,
   isValid,
   submitText,
+  onDelete,
 }: Props) => {
   const { t } = useTranslation('content');
   const navigate = useNavigate();
@@ -38,6 +41,17 @@ export const CameraCreateActions = ({
       >
         {t('controls.cancel')}
       </Button>
+      {onDelete && (
+        <Button
+          className={classNames(styles.submitButton, styles.deleteBtn)}
+          size="large"
+          variant="danger"
+          type="button"
+          onClick={onDelete}
+        >
+          {t('controls.delete')}
+        </Button>
+      )}
     </div>
   );
 };

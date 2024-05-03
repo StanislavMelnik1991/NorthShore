@@ -5,7 +5,7 @@ import {
   PerPage,
 } from '@entities/components';
 import { Card } from '@shared/ui';
-import { Table } from '@shared/ui/Table';
+import { Table } from '@shared/ui';
 import { useNewsList } from '../hooks';
 import styles from './Page.module.scss';
 
@@ -19,6 +19,7 @@ const Page = () => {
     setPerPage,
     isLoading,
     t,
+    page,
   } = useNewsList();
   return (
     <PageSkeleton>
@@ -29,7 +30,7 @@ const Page = () => {
         <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
-          <Pagination total={total} onChange={setPage} />
+          <Pagination page={page} total={total} onChange={setPage} />
         </div>
       </Card>
     </PageSkeleton>

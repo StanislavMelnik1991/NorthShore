@@ -33,6 +33,10 @@
     "periodTotal": "Total for the period",
     "readingDate": "date of reading",
     "absoluteConsumption": "absolute consumption",
-    "delta": "delta"
+    "delta": "delta",
+    "sendDate": "date of dispatch",
+    "title": "headline",
+    "recipient_groups": "beneficiary groups",
+    "notification": "notification"
   }
 }

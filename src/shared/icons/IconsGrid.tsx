@@ -50,6 +50,7 @@ import {
   IconKey,
   IconLightning,
   IconBattery,
+  IconCheck,
 } from '.';
 
 interface Props {
@@ -60,6 +61,9 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconCheck">
+        <IconCheck width={size} height={size} />
+      </Item>
       <Item name="IconBattery">
         <IconBattery width={size} height={size} />
       </Item>

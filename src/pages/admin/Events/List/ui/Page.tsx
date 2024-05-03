@@ -6,7 +6,7 @@ import {
 } from '@entities/components';
 import { IconBriefcase, IconLoupe, IconPlus } from '@shared/icons';
 import { Button, Card, TextField } from '@shared/ui';
-import { Table } from '@shared/ui/Table';
+import { Table } from '@shared/ui';
 import { useEventsList } from '../hooks';
 import styles from './Page.module.scss';
 
@@ -25,6 +25,7 @@ const Page = () => {
     t,
     tableData,
     tableHeader,
+    page,
   } = useEventsList();
   return (
     <PageSkeleton>
@@ -50,7 +51,7 @@ const Page = () => {
         <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
-          <Pagination total={total} onChange={setPage} />
+          <Pagination page={page} total={total} onChange={setPage} />
         </div>
       </Card>
     </PageSkeleton>

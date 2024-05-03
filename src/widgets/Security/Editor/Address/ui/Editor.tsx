@@ -1,8 +1,7 @@
 import { FormikErrors } from 'formik';
 import { AddressFilters } from '@features/address';
 import { ISelectOption } from '@entities/components';
-import { TextField, Title } from '@shared/ui';
-import { StyledTextAria } from '@shared/ui/TextAria';
+import { TextField, Title, StyledTextAria } from '@shared/ui';
 import { useSecurityAddressEditor } from '../hook';
 import styles from './Editor.module.scss';
 

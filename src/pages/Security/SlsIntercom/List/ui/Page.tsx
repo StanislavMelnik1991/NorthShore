@@ -10,7 +10,7 @@ import { ModalDelete } from '@entities/components/ModalDelete';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
 import { Button, Card } from '@shared/ui';
-import { Table } from '@shared/ui/Table';
+import { Table } from '@shared/ui';
 import { useSecurityAccessPage } from '../hook';
 import styles from './Page.module.scss';
 
@@ -27,6 +27,7 @@ const MainPage = () => {
     handleCloseModal,
     handleDelete,
     isModalOpen,
+    page,
   } = useSecurityAccessPage();
   return (
     <PageSkeleton className={styles.wrapper}>
@@ -62,7 +63,7 @@ const MainPage = () => {
         <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
-          <Pagination total={total} onChange={setPage} />
+          <Pagination page={page} total={total} onChange={setPage} />
         </div>
       </Card>
     </PageSkeleton>

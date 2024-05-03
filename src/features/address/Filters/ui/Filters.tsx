@@ -15,6 +15,7 @@ interface Props {
   errors?: Config<string>;
   initialValues?: Config<ISelectOption>;
   setFilters: (val: Config<number>) => void;
+  disabled?: Partial<Config<boolean>>;
 }
 
 export const AddressFilters = ({
@@ -24,6 +25,7 @@ export const AddressFilters = ({
   errors,
   initialValues,
   showApartment,
+  disabled,
 }: Props) => {
   const {
     isStreetsLoading,
@@ -78,6 +80,7 @@ export const AddressFilters = ({
       errors={errors}
       showLabel={showLabel}
       className={className}
+      disabled={disabled}
     />
   );
 };

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Text } from '@shared/ui';
-import { ConfigItemType } from '@shared/ui/Table';
+import { ConfigItemType } from '@shared/ui';
 
 interface Props {
   measures: string;

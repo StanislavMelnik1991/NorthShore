@@ -4,8 +4,7 @@ import { Cover, StyledSelect } from '@entities/components';
 import { IFile } from '@entities/types';
 import { RequestThemesEnum } from '@shared/constants';
 import { IconStaple } from '@shared/icons';
-import { Button, Card, TextField } from '@shared/ui';
-import { StyledTextAria } from '@shared/ui/TextAria';
+import { Button, Card, TextField, StyledTextAria } from '@shared/ui';
 import { useEditorWidget } from '../hook';
 import styles from './Editor.module.scss';
 

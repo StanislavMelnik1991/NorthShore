@@ -7,7 +7,7 @@ import {
 } from '@widgets/addressSelection';
 import { TableFilter } from '@widgets/Table';
 import { Text } from '@shared/ui';
-import { ConfigItemType } from '@shared/ui/Table';
+import { ConfigItemType } from '@shared/ui';
 
 interface AddressWrapper<T> {
   street: T;

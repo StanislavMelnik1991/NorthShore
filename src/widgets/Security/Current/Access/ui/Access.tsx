@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { formatAddress } from '@features/utils';
 import { IEntranceFull } from '@entities/types';
 import { Badge, Text } from '@shared/ui';
 import styles from './Access.module.scss';
@@ -14,10 +15,7 @@ export const AccessInformation = ({ className, data }: Props) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.entrances.map((el, index) => {
-        const street = el.building?.street?.name;
-        const home = el.building?.name;
-        const entrance = el.name;
-        const location = `${street ? `${street},` : ''} ${home ? `${home},` : ''} ${entrance ? `${entrance}` : ''}`;
+        const location = formatAddress({ entrance: el });
         return (
           <Badge
             className={styles.badge}

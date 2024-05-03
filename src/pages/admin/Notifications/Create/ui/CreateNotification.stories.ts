@@ -1,33 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { PageDecorator, WhiteBgDecorator } from '@shared/lib';
-import { CustomDatePicker } from './DatePicker';
+import { PageDecorator } from '@shared/lib';
+import Page from './Page';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Entity/DatePicker',
-  component: CustomDatePicker,
+  title: 'Page/CreateNotification',
+  component: Page,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   args: {},
-} satisfies Meta<typeof CustomDatePicker>;
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const News: Story = {
-  args: {
-    value: new Date(),
-    setDate: fn(),
-  },
-  decorators: [WhiteBgDecorator],
+  args: {},
 };
 
 export const OnPage: Story = {
-  args: {
-    value: new Date(),
-    setDate: fn(),
-  },
+  args: {},
   decorators: [PageDecorator],
 };

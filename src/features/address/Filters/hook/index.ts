@@ -101,6 +101,7 @@ export const useSecurityFilters = ({
       setActiveStreet(val as { value: number; label: string });
       setActiveEntrance(null);
       setActiveBuilding(null);
+      setActiveApartment(null);
       if (val) {
         const { value } = val as { value: number; label: string };
         setFilters({ street: value });
@@ -117,6 +118,7 @@ export const useSecurityFilters = ({
     (val: unknown) => {
       setActiveBuilding(val as { value: number; label: string });
       setActiveEntrance(null);
+      setActiveApartment(null);
       if (val) {
         const { value } = val as { value: number; label: string };
         setFilters({ building: value });
@@ -131,6 +133,7 @@ export const useSecurityFilters = ({
   const handleEntranceChange = useCallback(
     (val: unknown) => {
       setActiveEntrance(val as { value: number; label: string });
+      setActiveApartment(null);
       if (val) {
         const { value } = val as { value: number; label: string };
         setFilters({ entrance: value });

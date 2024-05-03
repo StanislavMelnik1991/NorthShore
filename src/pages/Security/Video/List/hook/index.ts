@@ -32,6 +32,12 @@ export const useSecurityVideoPage = () => {
     useCallback(({ selected }) => {
       setPage(selected + 1);
     }, []);
+
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   return {
     setFilters,
     isFaulty,
@@ -41,7 +47,8 @@ export const useSecurityVideoPage = () => {
     isLoading,
     setPage: handleSetPage,
     total,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     perPage,
+    page,
   };
 };

@@ -55,6 +55,11 @@ export const useEventsList = () => {
       setPage(selected + 1);
     }, []);
 
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   const handleToggleStatusFilter = useCallback(() => {
     setStatus((val) => (val ? undefined : 2));
   }, []);
@@ -69,12 +74,13 @@ export const useEventsList = () => {
     total,
     setPage: handleSetPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     isLoading,
     status,
     toggleStatusFilter: handleToggleStatusFilter,
     t,
     tableData,
     tableHeader,
+    page,
   };
 };

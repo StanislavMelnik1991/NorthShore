@@ -33,6 +33,10 @@
     "periodTotal": "Итого за период",
     "readingDate": "дата показаний",
     "absoluteConsumption": "абсолютное потребление",
-    "delta": "дельта"
+    "delta": "дельта",
+    "sendDate": "дата отправки",
+    "title": "заголовок",
+    "recipient_groups": "группы получателей",
+    "notification": "уведомление"
   }
 }

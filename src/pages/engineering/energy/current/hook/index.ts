@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useGetCurrentEnergyConsumers } from '@features/engineering/energy/hooks/getCurrent';
-import { getEndOfMonth, getStartOfMonth } from '@features/utils';
+import { formatAddress, getEndOfMonth, getStartOfMonth } from '@features/utils';
 import { MAX_DAYS_PERIOD } from '@shared/constants';
 
 export const useCurrentEnergy = () => {
@@ -14,6 +14,7 @@ export const useCurrentEnergy = () => {
   const [to, setTo] = useState<Date>(getEndOfMonth());
 
   const isShowMonth = differenceInDays(to, from) > MAX_DAYS_PERIOD;
+  const location = formatAddress({ apartment: data?.apartment });
 
   useEffect(() => {
     getData({
@@ -23,12 +24,6 @@ export const useCurrentEnergy = () => {
       variant: isShowMonth ? 'monthly' : 'daily',
     });
   }, [from, getData, id, isShowMonth, to]);
-
-  const street = data?.apartment.entrance.building.street;
-  const building = data?.apartment.entrance.building;
-  const entrance = data?.apartment.entrance;
-  const apartment = data?.apartment;
-  const location = `${street ? `${street.name}` : ''}${building ? `, ${building.name}` : ''}${entrance ? `, ${entrance.name}` : ''} ${apartment ? `, ${apartment.name}` : ''}`;
 
   const month = isShowMonth
     ? (data?.results || []).map((el, index) => {

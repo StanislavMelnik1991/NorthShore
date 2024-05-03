@@ -60,6 +60,11 @@ export const useSecurityAccessPage = () => {
       setPage(selected + 1);
     }, []);
 
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   const handleOpen = useCallback(
     (id: string | number) => () => {
       open(id);
@@ -148,12 +153,13 @@ export const useSecurityAccessPage = () => {
     isLoading,
     perPage,
     setPage: handleSetPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     total,
     tableHeader,
     tableData,
     handleDelete,
     isModalOpen: isModalOpen && !!activeId,
     handleCloseModal,
+    page,
   };
 };

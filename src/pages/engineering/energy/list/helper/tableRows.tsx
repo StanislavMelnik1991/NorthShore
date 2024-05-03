@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { formatAddress } from '@features/utils';
 import { TableControls, TableText } from '@entities/components';
 import { IEngineeringFull } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -15,10 +16,7 @@ export const useTableRows = (data: IEngineeringFull[]) => {
       last_check_date,
       current_value,
     }) => {
-      const street = apartment.entrance.building.street;
-      const building = apartment.entrance.building;
-      const entrance = apartment.entrance;
-      const location = `${street ? `${street.name}` : ''}${building ? `, ${building.name}` : ''}${entrance ? `, ${entrance.name}` : ''} ${apartment ? `, ${apartment.name}` : ''}`;
+      const location = formatAddress({ apartment });
       return {
         id: <TableText>{String(id)}</TableText>,
         type: <TableText>{type?.name}</TableText>,

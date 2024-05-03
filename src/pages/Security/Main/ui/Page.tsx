@@ -18,7 +18,6 @@ const MainPage = () => {
         className={styles.header}
         breadcrumbs={[
           {
-            href: '',
             title: t('title'),
           },
         ]}

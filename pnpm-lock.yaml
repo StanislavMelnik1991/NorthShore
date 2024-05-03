@@ -83,6 +83,9 @@ dependencies:
   use-debounce:
     specifier: ^10.0.0
     version: 10.0.0(react@18.2.0)
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -178,6 +181,9 @@ devDependencies:
   '@types/sanitize-html':
     specifier: ^2.11.0
     version: 2.11.0
+  '@types/uuid':
+    specifier: ^9.0.8
+    version: 9.0.8
   '@types/webpack':
     specifier: ^5.28.5
     version: 5.28.5(@swc/core@1.4.12)(esbuild@0.18.20)(webpack-cli@5.1.4)
@@ -15767,7 +15773,6 @@ packages:
   /uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
-    dev: true
 
   /v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}

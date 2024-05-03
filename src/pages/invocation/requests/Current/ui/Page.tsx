@@ -15,7 +15,6 @@ export default () => {
             title: t('routes.requests'),
           },
           {
-            href: '',
             title: `№ ${data?.id || ''}`,
           },
         ]}

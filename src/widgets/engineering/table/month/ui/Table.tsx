@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { CurrentSkeleton } from '@entities/components';
 import { IconArrow } from '@shared/icons';
 import { Badge, Text } from '@shared/ui';
-import { Table } from '@shared/ui/Table';
+import { Table } from '@shared/ui';
 import { useTable } from '../hook';
 import styles from './Table.module.scss';
 

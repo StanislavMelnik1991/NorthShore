@@ -3,10 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import {
-  useGetCurrentMeeting,
-  useUpdateMeeting,
-} from '@features/Admin/Meetings';
+import { useGetCurrentMeeting, useUpdateMeeting } from '@features/Admin';
 import { useUploadImage } from '@features/Image/hooks/useUploadImage';
 import { axiosApi } from '@entities/api';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';

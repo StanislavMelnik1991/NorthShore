@@ -1,5 +1,5 @@
-import { CameraCreateActions, SlsIntercomEditor } from '@widgets/Security';
-import { PageHeader, PageSkeleton } from '@entities/components';
+import { SlsIntercomEditor } from '@widgets/Security';
+import { PageHeader, PageSkeleton, SubmitActions } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card } from '@shared/ui';
 import { useCreateIntercomPage } from '../hook';
@@ -38,7 +38,7 @@ const Page = () => {
             setFieldValue={setFieldValue}
             values={values}
           />
-          <CameraCreateActions
+          <SubmitActions
             submitText={t('actions.add')}
             className={styles.actions}
             isValid={isValid}

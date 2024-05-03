@@ -19,7 +19,7 @@ export default () => {
         hideTitle
         breadcrumbs={[
           { href: AppRoutes[AppRoutesEnum.NEWS](), title: t('routes.news') },
-          { href: '', title: news?.title[i18n.language as LanguageEnum] || '' },
+          { title: news?.title[i18n.language as LanguageEnum] || '' },
         ]}
       />
       <ContentWidget

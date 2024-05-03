@@ -47,6 +47,7 @@
     "sanitize-html": "^2.13.0",
     "stylelint-scss": "^6.2.1",
     "use-debounce": "^10.0.0",
+    "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -80,6 +81,7 @@
     "@types/react-dom": "^18.2.24",
     "@types/react-router-dom": "^5.3.3",
     "@types/sanitize-html": "^2.11.0",
+    "@types/uuid": "^9.0.8",
     "@types/webpack": "^5.28.5",
     "@types/webpack-bundle-analyzer": "^4.7.0",
     "@types/webpack-dev-server": "^4.7.2",

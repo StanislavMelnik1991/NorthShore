@@ -24,6 +24,7 @@ interface Props {
   onChange: AddressWrapper<(val: unknown) => void>;
   loading: AddressWrapper<boolean>;
   errors?: Partial<AddressWrapper<string>>;
+  disabled?: Partial<AddressWrapper<boolean>>;
 }
 
 export const AddressSelect = ({
@@ -35,11 +36,13 @@ export const AddressSelect = ({
   options,
   values,
   showApartment,
+  disabled,
 }: Props) => {
   const { t } = useAddressSelect();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <StyledSelect
+        isDisabled={disabled?.street}
         className={classNames(styles.select, styles.street)}
         value={values.street}
         isLoading={loading.street}
@@ -56,7 +59,7 @@ export const AddressSelect = ({
       />
       <StyledSelect
         className={classNames(styles.select, styles.home)}
-        isDisabled={!options.building.length}
+        isDisabled={disabled?.apartment || !options.building.length}
         isLoading={loading.building}
         value={values.building}
         error={errors?.building}
@@ -72,7 +75,7 @@ export const AddressSelect = ({
       />
       <StyledSelect
         className={classNames(styles.select, styles.entrance)}
-        isDisabled={!options.entrance.length}
+        isDisabled={disabled?.entrance || !options.entrance.length}
         isLoading={loading.entrance}
         error={errors?.entrance}
         value={values.entrance}
@@ -89,7 +92,7 @@ export const AddressSelect = ({
       {showApartment && (
         <StyledSelect
           className={classNames(styles.select, styles.entrance)}
-          isDisabled={!options.apartment?.length}
+          isDisabled={disabled?.apartment || !options.apartment?.length}
           isLoading={loading.apartment}
           error={errors?.apartment}
           value={values.apartment}

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { formatAddress } from '@features/utils';
 import { IApartment, IBuilding, IEntrance, IStreet } from '@entities/types';
 import {
   IconComment,
@@ -31,11 +32,8 @@ interface Props {
 
 export const MainInformation = ({ className, data }: Props) => {
   const { t } = useTranslation('security');
-  const street = data.street?.name;
-  const home = data.building?.name;
-  const entrance = data.entrance?.name;
-  const apartment = data.apartment?.name;
-  const location = `${street ? `${street}` : ''}${home ? `, ${home}` : ''}${entrance ? `, ${entrance}` : ''} ${apartment ? `, ${apartment}` : ''}`;
+  const location = formatAddress(data);
+
   return (
     <div className={classNames(styles.wrapper, className)}>
       {data.type && (

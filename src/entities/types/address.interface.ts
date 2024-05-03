@@ -40,3 +40,10 @@ export interface IApartment extends BaseEntity {
 export interface IApartmentFull extends IApartment {
   entrance: IEntranceFull;
 }
+
+export interface IRecipientGroup {
+  apartment: IApartment | null;
+  entrance: IEntrance | null;
+  building: IBuilding | null;
+  street: IStreet | null;
+}

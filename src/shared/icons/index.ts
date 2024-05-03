@@ -45,3 +45,4 @@ export * from './Info';
 export * from './Key';
 export * from './Lightning';
 export * from './Battery';
+export * from './Check';

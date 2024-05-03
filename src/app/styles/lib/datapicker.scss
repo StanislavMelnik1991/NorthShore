@@ -101,3 +101,22 @@
 .react-datepicker__time-list-item--selected {
   background-color: var(--primary-100) !important;
 }
+
+.react-datepicker__day--in-range {
+  background-color: var(--primary-100);
+  color: var(--white-100);
+
+  &:hover {
+    background-color: var(--primary-semi-dark) !important;
+    color: var(--white-100);
+  }
+}
+
+.react-datepicker__day--in-selecting-range {
+  background-color: var(--primary-60) !important;
+  color: var(--white-100);
+
+  &:hover {
+    background-color: var(--primary-50) !important;
+  }
+}

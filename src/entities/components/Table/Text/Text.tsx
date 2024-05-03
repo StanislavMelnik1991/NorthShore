@@ -3,7 +3,13 @@ import { Text } from '@shared/ui';
 import styles from './Text.module.scss';
 
 interface Props {
-  children: false | string | JSX.Element | Array<string | JSX.Element | false>;
+  children:
+    | false
+    | string
+    | JSX.Element
+    | null
+    | undefined
+    | Array<string | JSX.Element | false>;
   className?: string;
   fontWeight?: 'medium' | 'regular' | 'semibold';
   title?: string;

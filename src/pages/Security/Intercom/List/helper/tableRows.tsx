@@ -3,7 +3,7 @@ import { TableControls, TableText } from '@entities/components';
 import { SecurityIntercom } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconInfo } from '@shared/icons';
-import { Dot } from '@shared/ui/Dot';
+import { Dot } from '@shared/ui';
 
 interface Props {
   data: Array<SecurityIntercom>;
