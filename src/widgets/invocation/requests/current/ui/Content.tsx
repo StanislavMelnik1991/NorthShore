@@ -9,7 +9,7 @@ import {
 import { StatusLabel } from '@entities/components/StatusLabel';
 import { IFile } from '@entities/types';
 import { RequestStatusEnum } from '@shared/constants';
-import { Badge, Text, Title } from '@shared/ui';
+import { Badge, Divider, Text, Title } from '@shared/ui';
 import styles from './Content.module.scss';
 
 interface Props {
@@ -73,7 +73,7 @@ export const RequestContentWidget = ({
       )}
       {!!contact && (
         <div className={styles.contacts}>
-          <div className={styles.divider}></div>
+          <Divider className={styles.divider} />
           <Text>{contactsTitle}</Text>
           <Text fontWeight="medium">{contact}</Text>
         </div>

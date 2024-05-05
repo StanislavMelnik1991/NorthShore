@@ -1,10 +1,16 @@
 import {
   AdditionalImagesEditor,
   RecipientGroupsEditor,
+  TextContentEditor,
 } from '@widgets/Content';
-import { PageHeader, PageSkeleton, SubmitActions } from '@entities/components';
+import {
+  PageHeader,
+  PageSkeleton,
+  SubmitActions,
+  ToggleWithLabel,
+} from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { Card, TextField, Toggle } from '@shared/ui';
+import { Card, Divider, TextField } from '@shared/ui';
 import { useCreatePage } from '../hook';
 import styles from './Page.module.scss';
 
@@ -35,16 +41,16 @@ const Page = () => {
           { title: t('routes.create') },
         ]}
         /* controls={
-        <Button
-          variant="white"
-          size="small"
-          onClick={() => setOpen(true)}
-          disabled={!isValid || values.title_ru === ''}
-        >
-          <IconEyeOpen width={20} height={20} />
-          {t('controls.preview')}
-        </Button>
-      } */
+      <Button
+        variant="white"
+        size="small"
+        onClick={() => setOpen(true)}
+        disabled={!isValid || values.title_ru === ''}
+      >
+        <IconEyeOpen width={20} height={20} />
+        {t('controls.preview')}
+      </Button>
+    } */
       />
       <form onSubmit={handleSubmit}>
         <Card
@@ -71,7 +77,13 @@ const Page = () => {
           <TextField
             value={values.url}
             error={errors.url}
-            onChange={(ev) => setFieldValue('url', ev.target.value)}
+            onChange={(ev) => {
+              if (ev.target.value === '') {
+                setFieldValue('url', undefined);
+                return;
+              }
+              setFieldValue('url', ev.target.value);
+            }}
             label={t('editor.additionalInfo.label')}
             placeholder={t('editor.additionalInfo.placeholder')}
           />
@@ -81,9 +93,55 @@ const Page = () => {
             onRemove={handleRemoveImage}
             loading={loading}
           />
-          <Toggle
+          <ToggleWithLabel
+            label={t('editor.push.label')}
             value={values.need_push}
             onChange={() => setFieldValue('need_push', !values.need_push)}
+          />
+          <TextContentEditor
+            title={t('editor.titles.ru')}
+            titleEditor={{
+              onChange: (val) => {
+                setFieldValue('title_ru', val);
+              },
+              value: values.title_ru,
+              error: errors.title_ru,
+              label: t('editor.title.label'),
+              placeholder: t('editor.title.placeholder'),
+            }}
+            contentEditor={{
+              onChange: (val) => {
+                setFieldValue('body_ru', val);
+              },
+              value: values.body_ru,
+              error: errors.body_ru,
+              label: t('editor.text.label'),
+              placeholder: t('editor.text.placeholder'),
+            }}
+            variant="textarea"
+          />
+          <Divider />
+          <TextContentEditor
+            title={t('editor.titles.en')}
+            titleEditor={{
+              onChange: (val) => {
+                setFieldValue('title_en', val);
+              },
+              value: values.title_en,
+              error: errors.title_en,
+              label: t('editor.title.label'),
+              placeholder: t('editor.title.placeholder'),
+            }}
+            contentEditor={{
+              onChange: (val) => {
+                setFieldValue('body_en', val);
+              },
+              value: values.body_en,
+              error: errors.body_en,
+              label: t('editor.text.label'),
+              placeholder: t('editor.text.placeholder'),
+            }}
+            variant="textarea"
           />
           <SubmitActions isValid={isValid} submitText={t('controls.create')} />
         </Card>

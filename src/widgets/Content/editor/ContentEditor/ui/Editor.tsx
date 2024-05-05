@@ -3,7 +3,7 @@ import { FormikErrors } from 'formik';
 import { Cover, CustomDatePicker, QuillEditor } from '@entities/components';
 import { IFile } from '@entities/types';
 import { IconStaple } from '@shared/icons';
-import { Button, Card, TextField, Title } from '@shared/ui';
+import { Button, Card, Divider, TextField, Title } from '@shared/ui';
 import { useEditorWidget } from '../hook/';
 import styles from './Editor.module.scss';
 
@@ -126,7 +126,7 @@ export const ContentEditor = ({
           uploadImage={handleUploadImage}
         />
       )}
-      <div className={styles.divider}></div>
+      <Divider />
       <Title fontWeight="bold" variant="h2">
         {t('editor.versions.en')}
       </Title>

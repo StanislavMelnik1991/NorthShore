@@ -20,7 +20,7 @@ type Props = {
   focused?: boolean;
   label?: string;
   error?: string;
-  uploadImage(file: File): Promise<CustomFile | undefined>;
+  uploadImage?: (file: File) => Promise<CustomFile | undefined>;
 };
 
 export const QuillEditor = ({
@@ -60,7 +60,7 @@ export const QuillEditor = ({
         { align: 'right' },
         { align: 'justify' },
       ],
-      ['link', 'image'],
+      ['link', uploadImage && 'image'],
       ['clean'],
     ],
   };

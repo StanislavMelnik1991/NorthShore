@@ -12,3 +12,4 @@ export * from './TextAria';
 export * from './TextField';
 export * from './Title';
 export * from './Toggle';
+export * from './Divider';

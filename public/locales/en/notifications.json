@@ -18,7 +18,9 @@
   },
   "editor": {
     "titles": {
-      "recipients": "Recipient Groups"
+      "recipients": "Recipient Groups",
+      "ru": "Russian Version",
+      "en": "English Version"
     },
     "additionalInfo": {
       "label": "Link to Additional Information",
@@ -26,6 +28,17 @@
     },
     "cover": {
       "label": "Upload Image"
+    },
+    "push": {
+      "label": "Send Push Notification"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Notification Title"
+    },
+    "text": {
+      "label": "Text",
+      "placeholder": "Notification Text"
     }
   }
 }

@@ -9,7 +9,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
-import { Button, CheckBox } from '@shared/ui';
+import { Button, CheckBox, Divider } from '@shared/ui';
 import { useSecurityVideoPage } from '../hook';
 import styles from './Page.module.scss';
 
@@ -62,7 +62,7 @@ const MainPage = () => {
             label={t('editor.faulty.label')}
           />
         </div>
-        <div className={styles.divider} />
+        <Divider />
         <VideoList data={data} isLoading={isLoading} />
       </div>
       <div className={styles.controls}>

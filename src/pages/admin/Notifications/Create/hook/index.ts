@@ -45,7 +45,7 @@ export const useCreatePage = () => {
           recipient_groups: isSendToAll ? [] : recipient_groups,
         });
         if (data) {
-          navigate(AppRoutes[AppRoutesEnum.ADMIN_MEETINGS]());
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS]());
         }
       },
     });

@@ -13,7 +13,7 @@ type Props = {
   value: string;
   setValue: (val: string) => void;
   isActive: boolean;
-  uploadImage(file: File): Promise<CustomFile | undefined>;
+  uploadImage?: (file: File) => Promise<CustomFile | undefined>;
 };
 
 export const useQuillEditor = ({
@@ -41,7 +41,7 @@ export const useQuillEditor = ({
         const content = data.insert;
         const contentText = editor.getText();
         const position = contentText.indexOf(content as string) || 0;
-        if (content?.image) {
+        if (content?.image && uploadImage) {
           const file = dataURLtoFile(content.image);
           uploadImage(file).then((newFile) => {
             (
@@ -96,6 +96,9 @@ export const useQuillEditor = ({
 
   const onDrop = useCallback(
     async (files: File[]) => {
+      if (!uploadImage) {
+        return;
+      }
       if (reactQuillRef.current && files.length) {
         const editor = reactQuillRef.current.getEditor();
         editor.focus();

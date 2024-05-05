@@ -48,6 +48,7 @@ export const RecipientGroupsEditor = ({
       setFieldValue,
       initialAccess,
     });
+
   return (
     <div className={classNames(styles.wrapper, className)}>
       <Title fontWeight="semibold" className={styles.title}>
