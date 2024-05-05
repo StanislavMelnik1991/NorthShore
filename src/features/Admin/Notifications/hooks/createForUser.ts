@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, INews } from '@entities/types';
+import { BaseResponse, INotification } from '@entities/types';
 
 export const useCreateUserNotification = (userId: string | number) => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ export const useCreateUserNotification = (userId: string | number) => {
       try {
         const {
           data: { data },
-        } = await axiosApi.put<BaseResponse<INews>>(
+        } = await axiosApi.put<BaseResponse<INotification>>(
           `/user/${userId}/notifications`,
           body,
         );
