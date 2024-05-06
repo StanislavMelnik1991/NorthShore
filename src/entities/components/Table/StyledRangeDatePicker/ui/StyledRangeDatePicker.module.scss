@@ -1,7 +1,16 @@
 .wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .picker {
   padding: 0;
+  border: none;
+}
+
+.reset {
+  align-self: flex-start;
+  padding: 12px;
+  margin: 0 10px;
 }

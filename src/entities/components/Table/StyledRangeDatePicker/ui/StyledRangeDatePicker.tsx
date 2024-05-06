@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { Button, Divider } from '@shared/ui';
 import { RangeDatePicker } from '../../../';
 import styles from './StyledRangeDatePicker.module.scss';
 
@@ -15,6 +17,7 @@ export const StyledRangeDatePicker = ({
   onChange,
   endDate,
 }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className={classNames(styles.wrapper, className)}>
       <RangeDatePicker
@@ -24,6 +27,14 @@ export const StyledRangeDatePicker = ({
         onChange={onChange}
         inline
       />
+      <Divider />
+      <Button
+        className={styles.reset}
+        disabled={!startDate && !endDate}
+        variant="text"
+      >
+        {t('actions.reset')}
+      </Button>
     </div>
   );
 };

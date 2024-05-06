@@ -6,6 +6,7 @@
   font-weight: 400;
   text-transform: none;
   width: 100%;
+  min-width: 300px;
 }
 
 .label {
@@ -42,7 +43,7 @@
   border: var(--border-width) solid var(--dark-20) !important;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
   border-bottom: none !important;
-  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 3%) !important;
+  box-shadow: var(--shadow) !important;
   padding: 16px;
   padding-bottom: 0;
   background-color: transparent !important;

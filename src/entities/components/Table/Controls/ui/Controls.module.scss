@@ -23,7 +23,7 @@
   width: 210px;
   right: calc(100% + 5px);
   top: 8px;
-  box-shadow: 0 0 12px 0 rgb(0 0 0 / 12%);
+  box-shadow: var(--shadow-2);
   z-index: 1;
 }
 
