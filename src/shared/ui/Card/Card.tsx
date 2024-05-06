@@ -25,6 +25,8 @@ interface Props {
   gap?: number;
   loading?: boolean;
   loaderSize?: number;
+  zIndex?: number;
+  hideShadow?: boolean;
 }
 
 export const Card = ({
@@ -36,13 +38,15 @@ export const Card = ({
   gap,
   loading,
   loaderSize = 64,
+  zIndex,
+  hideShadow,
 }: Props) => {
   return (
     <main
-      style={{ padding, borderRadius: radius, flexDirection, gap }}
+      style={{ padding, borderRadius: radius, flexDirection, gap, zIndex }}
       className={classNames(
         styles.wrapper,
-        { [styles.loading]: loading },
+        { [styles.loading]: loading, [styles.shadow]: !hideShadow },
         className,
       )}
     >

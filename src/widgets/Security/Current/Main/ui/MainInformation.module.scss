@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  margin-top: 32px;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 135px;
+}
+
+.column {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--dark-100);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  width: 180px;
+  color: var(--dark-70);
+
+  path {
+    fill: var(--dark-70);
+  }
+}

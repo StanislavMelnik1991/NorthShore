@@ -4,7 +4,7 @@ import { imageParser } from '@features/utils/imageParser';
 import { NewsCard } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconArrow } from '@shared/icons';
-import { Slider } from '@shared/ui/Slider';
+import { Slider } from '@shared/ui';
 import { useNewsSlider } from '../hook';
 import styles from './Slider.module.scss';
 

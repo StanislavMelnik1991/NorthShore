@@ -9,7 +9,7 @@ type InputPrototype = Omit<
 >;
 
 interface Props extends InputPrototype {
-  LabelClassName?: string;
+  wrapperClassName?: string;
   inputClassName?: string;
   labelClassName?: string;
   value?: boolean;
@@ -18,7 +18,7 @@ interface Props extends InputPrototype {
 }
 
 export const CheckBox = ({
-  LabelClassName,
+  wrapperClassName,
   inputClassName,
   labelClassName,
   value,
@@ -27,7 +27,7 @@ export const CheckBox = ({
   ...props
 }: Props) => {
   return (
-    <label className={classNames(styles.wrapper, LabelClassName)}>
+    <label className={classNames(styles.wrapper, wrapperClassName)}>
       <input
         className={styles.input}
         type="checkbox"

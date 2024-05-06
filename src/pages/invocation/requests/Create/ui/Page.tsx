@@ -23,7 +23,7 @@ const Page = () => {
             href: AppRoutes[AppRoutesEnum.REQUESTS](),
             title: t('routes.requests'),
           },
-          { href: '', title: t('routes.create_request') },
+          { title: t('routes.create_request') },
         ]}
       />
       <form onSubmit={handleSubmit}>

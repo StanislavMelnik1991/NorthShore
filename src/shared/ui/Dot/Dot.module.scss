@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  border-radius: 50%;
+  content: "";
+}
+
+.blue {
+  background-color: var(--blue-100);
+}
+
+.green {
+  background-color: var(--green-100);
+}
+
+.orange {
+  background-color: var(--orange-100);
+}
+
+.red {
+  background-color: var(--red-100);
+}
+
+.violet {
+  background-color: var(--violet-100);
+}
+
+.white {
+  background-color: var(--dark-100);
+}
+
+.dark {
+  background-color: rgba(var(--dark-100-rgb), 0.6);
+}

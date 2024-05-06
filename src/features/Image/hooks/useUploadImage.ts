@@ -1,11 +1,12 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { BaseResponse, IFile } from '@entities/types';
 
 export const useUploadImage = () => {
+  const [loading, setLoading] = useState(false);
   const handleUploadImage = useCallback(async (file: File) => {
-    // const blob = new Blob([file], { type: "base64" });
+    setLoading(true);
     const formData = new FormData();
     formData.append('file', file);
     try {
@@ -20,9 +21,12 @@ export const useUploadImage = () => {
     } catch (error) {
       console.error(error);
       toast.error('Не удалось загрузить файл');
+    } finally {
+      setLoading(false);
     }
   }, []);
   return {
     handleUploadImage,
+    loading,
   };
 };

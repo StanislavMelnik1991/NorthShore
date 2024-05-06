@@ -17,3 +17,13 @@ export interface PaginationResponse {
   total_count: number;
   total_pages: number;
 }
+
+export interface LogoutData {
+  Authorization: string;
+}
+
+export interface BaseEntity {
+  id: number;
+  name: string;
+  comment?: string;
+}

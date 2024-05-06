@@ -6,11 +6,13 @@ interface Props {
   className?: string;
   total: number;
   onChange(selectedItem: { selected: number }): void;
+  page?: number;
 }
 
-export const Pagination = ({ className, onChange, total }: Props) => {
+export const Pagination = ({ className, onChange, total, page }: Props) => {
   return (
     <ReactPaginate
+      initialPage={page ? page - 1 : undefined}
       containerClassName={classNames(styles.wrapper, className)}
       pageClassName={styles.element}
       pageLinkClassName={styles.link}

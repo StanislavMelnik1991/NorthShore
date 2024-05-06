@@ -60,13 +60,41 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.engineering'),
       icon: IconWrench,
       href: AppRoutes[AppRoutesEnum.ENGINEERING](),
-      isLink: true,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY](),
+          title: t('sidebar.energy'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
+          title: t('sidebar.heating'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
+          title: t('sidebar.lifts'),
+        },
+      ],
     },
     {
       title: t('sidebar.invocation'),
       icon: IconDocumentHolder,
-      href: AppRoutes[AppRoutesEnum.INVOCATION](),
-      isLink: true,
+      href: '',
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
+          title: t('sidebar.requests'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_APPLICATIONS](),
+          title: t('sidebar.applications'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
+        },
+      ],
     },
     {
       title: t('sidebar.admin'),
@@ -101,6 +129,18 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
         {
           href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
           title: t('sidebar.loyalty'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
+          title: t('sidebar.services'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT](),
+          title: t('sidebar.advertisement'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS](),
+          title: t('sidebar.employee_announcements'),
         },
       ],
     },

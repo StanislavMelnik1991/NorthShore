@@ -48,7 +48,7 @@ const Page = () => {
             href: AppRoutes[AppRoutesEnum.ADMIN_EVENTS](),
             title: t('routes.meetings'),
           },
-          { href: '', title: t('routes.edit') },
+          { title: t('routes.edit') },
         ]}
         controls={
           <Button

@@ -1,4 +1,4 @@
 export const sliderConfig = {
-  slidesOnPage: 3,
+  slidesOnPage: { desctop: 3, tab: 2, mobile: 1 },
   gap: 24,
 };

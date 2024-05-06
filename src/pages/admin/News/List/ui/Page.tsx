@@ -5,16 +5,15 @@ import {
   PerPage,
 } from '@entities/components';
 import { IconBriefcase, IconLoupe, IconPlus } from '@shared/icons';
+import { Table } from '@shared/ui';
 import { Button, Card, TextField } from '@shared/ui';
-import { Table } from '@shared/ui/Table';
-import { useTableConfig, useDataFormatHelper } from '../constants';
 import { useNewsList } from '../hooks';
 import styles from './Page.module.scss';
 
 const Page = () => {
   const {
-    location,
-    data,
+    tableData,
+    tableHeader,
     handleCreateClick,
     search,
     setSearch,
@@ -26,14 +25,14 @@ const Page = () => {
     t,
     toggleStatusFilter,
     status,
+    page,
   } = useNewsList();
-  const tableConfig = useTableConfig();
   return (
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t('routes.news') }]}
       />
-      <Card padding={12} gap={20} loading={isLoading} loaderSize={32}>
+      <Card padding={12} gap={20} loaderSize={32}>
         <Button onClick={handleCreateClick}>
           <IconPlus width={24} height={24} />
           {t('controls.create')}
@@ -51,10 +50,10 @@ const Page = () => {
         />
       </Card>
       <Card className={styles.card} flexDirection="column" loading={isLoading}>
-        <Table config={tableConfig} items={useDataFormatHelper(data)} />
+        <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
-          <Pagination total={total} onChange={setPage} />
+          <Pagination page={page} total={total} onChange={setPage} />
         </div>
       </Card>
     </PageSkeleton>

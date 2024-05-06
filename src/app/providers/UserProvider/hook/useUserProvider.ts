@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { BaseResponse, IUser } from '@entities/types';
-import { TOKEN_LOCAL_STORAGE_KEY, ROLES_ADMIN } from '@shared/constants';
+import { TOKEN_LOCAL_STORAGE_KEY, ROLES_STAFF } from '@shared/constants';
 
 export const useUserProvider = () => {
   const [user, setUser] = useState<IUser>();
@@ -13,7 +13,7 @@ export const useUserProvider = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const handleSetUser = useCallback((user?: IUser) => {
-    const isUserAdmin = (user && ROLES_ADMIN.includes(user?.group.id)) || false;
+    const isUserAdmin = (user && ROLES_STAFF.includes(user?.group.id)) || false;
     setIsAdmin(isUserAdmin);
     setUser(user);
   }, []);

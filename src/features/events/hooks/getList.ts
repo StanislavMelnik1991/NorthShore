@@ -8,6 +8,7 @@ import {
   INewsFilter,
   INewsSort,
   ListParams,
+  PaginationResponse,
 } from '@entities/types';
 
 interface Params extends ListParams {
@@ -15,24 +16,32 @@ interface Params extends ListParams {
   filter: INewsFilter;
 }
 
+interface ResponseDataType extends PaginationResponse {
+  events: Array<INews>;
+}
+
 export const useGetUserEventsList = () => {
-  const { t } = useTranslation('news');
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<Array<INews>>([]);
   const [total, setTotal] = useState(0);
+
   const getData = useCallback(
     async (params: Params) => {
       setIsLoading(true);
       try {
-        const {
-          data: { data },
-        } = await axiosApi.get<BaseResponse<Array<INews>>>('/events', {
-          params,
-        });
-        // toDo: update from server
-        setTotal(data.length);
-        return data;
+        const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
+          `/events`,
+          { params },
+        );
+        if (data?.data?.events) {
+          setData(data.data.events);
+          setTotal(data.data.total_pages);
+        } else {
+          toast.error(t('errors.getError'));
+        }
       } catch (error) {
-        toast.error(t('toast.listError'));
+        toast.error(t('errors.getError'));
         console.error(error);
       } finally {
         setIsLoading(false);
@@ -43,6 +52,7 @@ export const useGetUserEventsList = () => {
 
   return {
     getData,
+    data,
     isLoading,
     total,
   };

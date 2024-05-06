@@ -7,7 +7,7 @@ import { IRequest } from '@entities/types/request.interface';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
 export const useGetRequestsList = (isActual: boolean) => {
-  const { t } = useTranslation('invocation');
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [data, setData] = useState<IRequest[]>([]);
@@ -41,12 +41,17 @@ export const useGetRequestsList = (isActual: boolean) => {
     [isActual, page, perPage, t],
   );
 
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   return {
     getData,
     page,
     setPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     data,
     t,
   };
