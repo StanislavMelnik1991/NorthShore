@@ -1,5 +1,9 @@
 import { BaseEntity } from './global.interface';
 
+export interface IRole extends BaseEntity {
+  access: Array<number> | null;
+}
+
 export interface IUserShort extends BaseEntity {
   group: BaseEntity;
   avatar: string;
@@ -10,7 +14,8 @@ export interface IUser extends IUserShort {
   status: BaseEntity;
   phone_number: string;
   email: string;
-  accept_intercom: number;
+  accept_intercom?: number;
+  role: IRole;
   account_numbers: {
     id: number;
     user_id: number;

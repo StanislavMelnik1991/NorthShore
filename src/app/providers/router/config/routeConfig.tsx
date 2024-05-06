@@ -10,6 +10,7 @@ import {
   UpdateNewsPage,
   CreateNotificationPage,
   NotificationsListPage,
+  CurrentNotificationPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { EnergyListPage } from '@pages/engineering/energy';
@@ -155,7 +156,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_NOTIFICATIONS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_NOTIFICATIONS_CURRENT](':id'),
-    element: <NotFoundPage />,
+    element: <CurrentNotificationPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
