@@ -3,6 +3,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .item {
@@ -64,4 +65,8 @@
 
 .breadcrumb {
   display: inline-flex;
+}
+
+.icon {
+  flex-shrink: 0;
 }

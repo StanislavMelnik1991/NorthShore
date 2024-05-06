@@ -3,8 +3,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-  height: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .header {
@@ -28,12 +27,18 @@
   }
 }
 
-.content {
-  position: relative;
+.scrollingContainer {
+  height: 100%;
+  overflow: auto;
   grid-column: 2;
   grid-row: 2;
+}
+
+.content {
+  position: relative;
   padding: 40px 32px;
   overflow: auto;
+  min-height: calc(100% - var(--footer-height));
 
   @media (width < 1280px) {
     padding: 16px;
@@ -49,6 +54,7 @@
 }
 
 .footer {
+  height: var(--footer-height);
   grid-row: 3;
   grid-column: 2;
   position: relative;
