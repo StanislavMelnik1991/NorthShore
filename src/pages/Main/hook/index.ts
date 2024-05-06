@@ -24,5 +24,5 @@ export const useMainPage = () => {
   };
   const dateString = new Date().toLocaleDateString(i18n.language, dateOptions);
 
-  return { innerWidth, t, userGreetingsMessage, dateString };
+  return { innerWidth, t, userGreetingsMessage, dateString, isLogin: !!user };
 };

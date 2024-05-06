@@ -9,11 +9,14 @@ import { useMainPage } from '../hook';
 import styles from './Main.module.scss';
 
 const MainPage = () => {
-  const { innerWidth, t, dateString, userGreetingsMessage } = useMainPage();
+  const { innerWidth, t, dateString, userGreetingsMessage, isLogin } =
+    useMainPage();
 
   return (
     <PageSkeleton className={styles.wrapper}>
-      <UserGreetings date={dateString} title={userGreetingsMessage} />
+      {isLogin && (
+        <UserGreetings date={dateString} title={userGreetingsMessage} />
+      )}
       <Card
         className={classNames(styles.card, styles.transparent)}
         flexDirection="column"
