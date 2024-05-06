@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { usePopup } from '@features/Popup/hook';
 import { useUser } from '@features/User/hook';
-import { AuthButton } from '@entities/AuthButton';
+import { AuthButton } from '@entities/components';
 import { UserIcon } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconBurger, IconLogo } from '@shared/icons';

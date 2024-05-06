@@ -7,10 +7,36 @@
   "badges": {
     "drafts": "Draft",
     "publish": "Posted",
-    "archive": "Archive"
+    "archive": "Archive",
+    "serviceable": "serviceable",
+    "defective": "defective" 
   },
   "toast": {
     "archiveSuccess": "Successfully moved to the archive",
     "archiveError": "Error when moving to archive"
+  },
+  "header": {
+    "index": "number",
+    "type": "type",
+    "street": "street",
+    "building": "building",
+    "entrance": "entrance",
+    "state": "state",
+    "serviceability": "serviceability",
+    "apartment": "apartment",
+    "uuid": "UUID",
+    "address": "address",
+    "lastData": "last reading",
+    "lastUpdate": "date of last poll",
+    "voltage": "voltage",
+    "chargingStatus": "charging status",
+    "periodTotal": "Total for the period",
+    "readingDate": "date of reading",
+    "absoluteConsumption": "absolute consumption",
+    "delta": "delta",
+    "sendDate": "date of dispatch",
+    "title": "headline",
+    "recipient_groups": "beneficiary groups",
+    "notification": "notification"
   }
 }

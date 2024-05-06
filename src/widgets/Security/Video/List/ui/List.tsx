@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import { VideoCard } from '@entities/components';
-import { NoResults } from '@entities/components/NoResults';
+import { Modal, TableControls, VideoCard } from '@entities/components';
+import { ModalDelete, NoResults } from '@entities/components';
 import { SecurityCamera } from '@entities/types';
-import { Loader } from '@shared/ui';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { Card } from '@shared/ui';
 import { useVideoList } from '../hook';
 import styles from './List.module.scss';
 
@@ -13,27 +14,57 @@ interface Props {
 }
 
 export const VideoList = ({ className, data, isLoading }: Props) => {
-  const { t } = useVideoList();
+  const { t, handleCloseModal, handleDelete, handleOpenModal, isModalOpen } =
+    useVideoList();
   return (
     <div className={classNames(styles.wrapper, className)}>
-      {isLoading && (
-        <div className={styles.loader}>
-          <Loader size={200} />
-        </div>
-      )}
-      {!data.length ? (
-        <NoResults title={t('noData.title')} text={t('noData.text')} />
-      ) : (
-        data.map((el) => {
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <ModalDelete
+          handleCloseModal={handleCloseModal}
+          handleDelete={handleDelete}
+          text={t('remove.text')}
+          title={t('remove.titleCamera')}
+        />
+      </Modal>
+      {isLoading ? (
+        [1, 2, 3, 4].map((el) => {
           return (
-            <VideoCard
-              video={el.rtsp_url}
-              name={el.name}
-              id={el.id}
-              key={`security-video-${el.id}`}
-            />
+            <Card className={styles.loader} loading key={`loader-${el}`} />
           );
         })
+      ) : (
+        <>
+          {!data.length ? (
+            <NoResults title={t('noData.title')} text={t('noData.text')} />
+          ) : (
+            data.map(({ rtsp_url_small, id, lat, lon, name, status_id }) => {
+              return (
+                <VideoCard
+                  video={rtsp_url_small}
+                  name={name}
+                  id={id}
+                  muted
+                  status={status_id || 3}
+                  key={`security-video-${id}`}
+                  controls={
+                    <TableControls
+                      point={{ lat, lon }}
+                      id={id}
+                      rotateIcon
+                      getDetailsRoute={
+                        AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT]
+                      }
+                      getUpdateRoute={
+                        AppRoutes[AppRoutesEnum.SECURITY_VIDEO_UPDATE]
+                      }
+                      onDelete={handleOpenModal(id)}
+                    />
+                  }
+                />
+              );
+            })
+          )}
+        </>
       )}
     </div>
   );

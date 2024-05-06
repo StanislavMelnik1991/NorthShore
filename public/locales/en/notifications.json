@@ -1,0 +1,44 @@
+{
+  "routes": {
+    "create": "Create Notification",
+    "list": "Notifications",
+    "notification": "Notification"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview"
+  },
+  "editor": {
+    "titles": {
+      "recipients": "Recipient Groups",
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
+    "additionalInfo": {
+      "label": "Link to Additional Information",
+      "placeholder": "Enter the Link"
+    },
+    "cover": {
+      "label": "Upload Image"
+    },
+    "push": {
+      "label": "Send Push Notification"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Notification Title"
+    },
+    "text": {
+      "label": "Text",
+      "placeholder": "Notification Text"
+    }
+  }
+}

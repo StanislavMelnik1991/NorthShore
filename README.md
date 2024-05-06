@@ -2,14 +2,19 @@
 
 This project has been created using **webpack-cli**, you can now run
 
-```
-npm run build
-```
-
-or
+## Node version
 
 ```
-yarn build
+v18.19.0
 ```
 
-to bundle your application
+## Pnpm version
+
+```
+8.15.1
+```
+
+```
+pnpm run build
+```
+

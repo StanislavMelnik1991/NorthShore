@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetUserEventsList } from '@features/events';
-import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { INewsFilter, INewsSort, ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
 
 interface Props {
@@ -15,8 +15,7 @@ interface Params extends ListParams {
 
 export const useEventsSlider = ({ defaultSlide = 0 }: Props) => {
   const { t, i18n } = useTranslation();
-  const { getData, isLoading, total } = useGetUserEventsList();
-  const [events, setEvents] = useState<Array<INews>>([]);
+  const { getData, isLoading, total, data } = useGetUserEventsList();
   const [slide, setSlide] = useState(defaultSlide);
 
   useEffect(() => {
@@ -30,12 +29,10 @@ export const useEventsSlider = ({ defaultSlide = 0 }: Props) => {
         created_at: 'asc',
       },
     };
-    getData(newsParams).then((val) => {
-      setEvents(val || []);
-    });
+    getData(newsParams);
   }, [getData]);
   return {
-    events,
+    events: data,
     t,
     lang: i18n.language as LanguageEnum,
     slide,

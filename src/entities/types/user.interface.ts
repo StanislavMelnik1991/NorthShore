@@ -1,22 +1,21 @@
-export interface IUserShort {
-  id: number;
-  name: string;
-  group: {
-    id: number;
-    name: string;
-  };
+import { BaseEntity } from './global.interface';
+
+export interface IRole extends BaseEntity {
+  access: Array<number> | null;
+}
+
+export interface IUserShort extends BaseEntity {
+  group: BaseEntity;
   avatar: string;
   childs: Array<IUserShort>;
 }
 
 export interface IUser extends IUserShort {
-  status: {
-    id: number;
-    name: string;
-  };
+  status: BaseEntity;
   phone_number: string;
   email: string;
-  accept_intercom: number;
+  accept_intercom?: number;
+  role: IRole;
   account_numbers: {
     id: number;
     user_id: number;
@@ -27,13 +26,8 @@ export interface IUser extends IUserShort {
   parent?: IParent;
 }
 
-export interface IParent {
-  id: number;
-  name: string;
-  group: {
-    id: number;
-    name: string;
-  };
+export interface IParent extends BaseEntity {
+  group: BaseEntity;
   avatar: string;
   parent?: IParent;
 }

@@ -9,7 +9,7 @@ import {
 import { StatusLabel } from '@entities/components/StatusLabel';
 import { IFile } from '@entities/types';
 import { RequestStatusEnum } from '@shared/constants';
-import { Badge, Text, Title } from '@shared/ui';
+import { Badge, Divider, Text, Title } from '@shared/ui';
 import styles from './Content.module.scss';
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
   created_at?: Date;
   title?: string;
   idTitle?: string;
-  html?: string;
+  text?: string;
   date?: Date;
   link?: string;
   images?: Array<IFile>;
@@ -32,7 +32,7 @@ export const RequestContentWidget = ({
   className,
   isLoading,
   created_at,
-  html = '',
+  text = '',
   title,
   date,
   link,
@@ -63,12 +63,7 @@ export const RequestContentWidget = ({
       {status && <StatusLabel className={styles.status} status={status} />}
       {date && <DateDetails date={date} />}
       {link && <LinkDetails href={link} />}
-      <div
-        className={styles.htmlContent}
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
+      {text && <Text variant="body14">{text}</Text>}
       {!!images?.length && (
         <div className={styles.images}>
           {images.map((el) => {
@@ -78,7 +73,7 @@ export const RequestContentWidget = ({
       )}
       {!!contact && (
         <div className={styles.contacts}>
-          <div className={styles.divider}></div>
+          <Divider className={styles.divider} />
           <Text>{contactsTitle}</Text>
           <Text fontWeight="medium">{contact}</Text>
         </div>

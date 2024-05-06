@@ -6,7 +6,7 @@ export default () => {
   const { errors, handleSubmit, setFieldValue, values, t } = useLogin();
   return (
     <PageSkeleton>
-      <PageHeader breadcrumbs={[{ href: '', title: t('route') }]} />
+      <PageHeader breadcrumbs={[{ title: t('route') }]} />
       <form onSubmit={handleSubmit}>
         <Card padding={12} gap={20} flexDirection="column">
           <TextField
