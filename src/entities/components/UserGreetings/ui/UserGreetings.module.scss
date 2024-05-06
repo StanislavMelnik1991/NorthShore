@@ -4,6 +4,7 @@
   position: relative;
   padding: 0;
   overflow: hidden;
+  background: var(--gradient-light);
 }
 
 .content {
@@ -28,8 +29,9 @@
 
 .image {
   object-fit: cover;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   position: absolute;
+  right: 0;
   z-index: 1;
 }
