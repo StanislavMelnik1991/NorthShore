@@ -11,6 +11,7 @@ import {
   CreateNotificationPage,
   NotificationsListPage,
   CurrentNotificationPage,
+  AdminMainPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { EnergyListPage } from '@pages/engineering/energy';
@@ -60,7 +61,7 @@ import { AppRoutesProps } from '@shared/types';
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ADMIN]: {
     path: AppRoutes[AppRoutesEnum.ADMIN](),
-    element: <NotFoundPage />,
+    element: <AdminMainPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

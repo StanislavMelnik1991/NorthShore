@@ -1,22 +1,19 @@
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import { EventsSlider } from '@widgets/events';
 import { NewsSlider } from '@widgets/news';
-import { PageSkeleton } from '@entities/components';
+import { PageSkeleton, UserGreetings } from '@entities/components';
+import { BREAK_POINT_MOBILE, BREAK_POINT_TAB } from '@shared/constants';
 import { Card, Title } from '@shared/ui';
 import { sliderConfig } from '../config';
-import { useInnerWidth } from '../hook';
+import { useMainPage } from '../hook';
 import styles from './Main.module.scss';
 
 const MainPage = () => {
-  const { t } = useTranslation();
-  const { innerWidth } = useInnerWidth();
-
-  const breakPointTab = 980;
-  const breakPointMobile = 500;
+  const { innerWidth, t, dateString, userGreetingsMessage } = useMainPage();
 
   return (
     <PageSkeleton className={styles.wrapper}>
+      <UserGreetings date={dateString} title={userGreetingsMessage} />
       <Card
         className={classNames(styles.card, styles.transparent)}
         flexDirection="column"
@@ -28,9 +25,9 @@ const MainPage = () => {
         </Title>
         <NewsSlider
           slidesOnPage={
-            innerWidth >= breakPointTab
+            innerWidth >= BREAK_POINT_TAB
               ? sliderConfig.slidesOnPage.desctop
-              : innerWidth > breakPointMobile
+              : innerWidth > BREAK_POINT_MOBILE
                 ? sliderConfig.slidesOnPage.tab
                 : sliderConfig.slidesOnPage.mobile
           }
@@ -43,9 +40,9 @@ const MainPage = () => {
         </Title>
         <EventsSlider
           slidesOnPage={
-            innerWidth >= breakPointTab
+            innerWidth >= BREAK_POINT_TAB
               ? sliderConfig.slidesOnPage.desctop
-              : innerWidth > breakPointMobile
+              : innerWidth > BREAK_POINT_MOBILE
                 ? sliderConfig.slidesOnPage.tab
                 : sliderConfig.slidesOnPage.mobile
           }

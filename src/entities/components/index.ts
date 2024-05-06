@@ -19,3 +19,4 @@ export * from './chart';
 export * from './ModalDelete';
 export * from './NoResults';
 export * from './AuthButton';
+export * from './UserGreetings';
