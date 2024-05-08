@@ -24,7 +24,11 @@ export default () => {
         dataLength={data.length}
         next={handleLoadNews}
         hasMore={hasMore}
-        loader={<Loader size={40} />}
+        loader={
+          <div className={styles.loader}>
+            <Loader size={80} />
+          </div>
+        }
         endMessage={''}
       >
         {data.map((el) => {
