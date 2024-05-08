@@ -31,6 +31,7 @@ export const StyledRangeDatePicker = ({
       <Button
         className={styles.reset}
         disabled={!startDate && !endDate}
+        onClick={() => onChange([null, null])}
         variant="text"
       >
         {t('actions.reset')}
