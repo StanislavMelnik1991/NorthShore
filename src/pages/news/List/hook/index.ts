@@ -1,37 +1,46 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetUserNewsList } from '@features/news';
-import { INewsFilter, INewsSort, ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
-
-interface Params extends ListParams {
-  sort: INewsSort;
-  filter: INewsFilter;
-}
+import { useGetInfinityNewsList } from '@features/news';
+import { INews, ListParams } from '@entities/types';
+import { LanguageEnum } from '@shared/constants';
 
 export const useNewsListPage = () => {
   const { t, i18n } = useTranslation('news');
-  const { getData, isLoading, data, total } = useGetUserNewsList();
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState<Array<INews>>([]);
+  const { getData, isLoading, hasMore } = useGetInfinityNewsList();
+
+  const handleLoadNews = useCallback(async () => {
+    const newsParams: ListParams = {
+      page: page,
+      perPage: 6,
+    };
+    const news = await getData(newsParams);
+    if (news) {
+      setData((val) => [...val, ...news]);
+      setPage((val) => val + 1);
+    }
+  }, [getData, page]);
 
   useEffect(() => {
-    const newsParams: Params = {
+    const newsParams: ListParams = {
       page: 1,
-      perPage: INITIAL_PER_PAGE,
-      filter: {
-        status: 1,
-      },
-      sort: {
-        created_at: 'asc',
-      },
+      perPage: 6,
     };
-    getData(newsParams);
+    getData(newsParams).then((news) => {
+      if (news) {
+        setData((val) => [...val, ...news]);
+        setPage((val) => val + 1);
+      }
+    });
   }, [getData]);
+
   return {
-    news: data,
+    data,
     isLoading,
     t,
-    i18n,
     lang: i18n.language as LanguageEnum,
-    total,
+    hasMore,
+    handleLoadNews,
   };
 };

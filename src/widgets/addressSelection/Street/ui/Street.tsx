@@ -1,15 +1,10 @@
-import { TableSelect } from '@entities/components';
+import { ISelectOption, TableSelect } from '@entities/components';
 import { useStreet } from '../hook';
-
-interface Options {
-  value: string | number;
-  label: string;
-}
 
 interface Props {
   className?: string;
-  value?: Options | null;
-  onChange: (street: Options) => void;
+  value?: ISelectOption | null;
+  onChange: (street: ISelectOption) => void;
 }
 
 export const StreetSelection = ({ value, onChange }: Props) => {
@@ -18,7 +13,7 @@ export const StreetSelection = ({ value, onChange }: Props) => {
     <TableSelect
       value={value}
       isLoading={isLoading}
-      placeholder={t('search')}
+      placeholder={t('controls.find')}
       onChange={handleChange}
       options={data.map(({ label, value }) => {
         return {

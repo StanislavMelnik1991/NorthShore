@@ -11,6 +11,12 @@ import {
   CreateNotificationPage,
   NotificationsListPage,
   CurrentNotificationPage,
+  AdminMainPage,
+  AdminVotingListPage,
+  CreateVotingPage,
+  UpdateVotingPage,
+  UpdateVotingQuestionsPage,
+  AdminTechnicalWorks,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { EnergyListPage } from '@pages/engineering/energy';
@@ -49,6 +55,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
+import { TechnicalWorks } from '@pages/TechnicalWorks';
 import {
   AppRoutesEnum,
   AppRoutes,
@@ -60,7 +67,13 @@ import { AppRoutesProps } from '@shared/types';
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ADMIN]: {
     path: AppRoutes[AppRoutesEnum.ADMIN](),
-    element: <NotFoundPage />,
+    element: <AdminMainPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS](),
+    element: <AdminTechnicalWorks />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -168,6 +181,31 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_VOTING]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_VOTING](),
+    element: <AdminVotingListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_VOTING_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_CREATE](),
+    element: <CreateVotingPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_UPDATE](':id'),
+    element: <UpdateVotingPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE_QUESTIONS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_UPDATE_QUESTIONS](':id'),
+    element: <UpdateVotingQuestionsPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+
+  [AppRoutesEnum.ADMIN_VOTING_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](':id'),
     element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
@@ -446,7 +484,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.TECHNICAL_WORKS](),
-    element: <NotFoundPage />,
+    element: <TechnicalWorks />,
     authOnly: false,
   },
   [AppRoutesEnum.KNOWLEDGE]: {

@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  background: var(--gradient-light);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+  color: var(--white-100);
+}
+
+.calendar {
+  display: flex;
+  gap: 4px;
+  color: var(--gray-20);
+
+  path {
+    fill: var(--gray-20);
+  }
+}
+
+.image {
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}

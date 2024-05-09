@@ -15,6 +15,19 @@
     "archiveSuccess": "Successfully moved to the archive",
     "archiveError": "Error when moving to archive"
   },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Actual",
+    "find": "Search",
+    "delete": "Delete",
+    "greetings": "Good day",
+    "preview": "Preview"
+  },
   "header": {
     "index": "number",
     "type": "type",
@@ -37,6 +50,9 @@
     "sendDate": "date of dispatch",
     "title": "headline",
     "recipient_groups": "beneficiary groups",
-    "notification": "notification"
+    "notification": "notification",
+    "deadline": "deadline",
+    "showResults": "result display",
+    "status": "status"
   }
 }

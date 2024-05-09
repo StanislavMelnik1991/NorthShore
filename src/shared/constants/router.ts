@@ -21,6 +21,7 @@ export enum AppRoutesEnum {
   SETTINGS,
 
   ADMIN,
+  ADMIN_INFO_TECHNICAL_WORKS,
 
   ACCOUNTING,
   STATISTIC,
@@ -67,7 +68,13 @@ export enum AppRoutesEnum {
   ADMIN_NOTIFICATIONS_CURRENT,
 
   ADMIN_TECHNICAL_WORKS,
+
   ADMIN_VOTING,
+  ADMIN_VOTING_CREATE,
+  ADMIN_VOTING_UPDATE,
+  ADMIN_VOTING_UPDATE_QUESTIONS,
+  ADMIN_VOTING_CURRENT,
+
   ADMIN_LOYALTY,
   ADMIN_SERVICES,
   ADMIN_ADVERTISEMENT,
@@ -94,6 +101,8 @@ export enum AppRoutesEnum {
 export const AppRoutes = {
   [AppRoutesEnum.MAIN]: () => '/',
   [AppRoutesEnum.ADMIN]: () => '/admin',
+  [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: () =>
+    '/admin/info/technical_works',
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
   [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
   [AppRoutesEnum.LOGIN]: () => '/login',
@@ -182,7 +191,15 @@ export const AppRoutes = {
     `/admin/notifications/${id}`,
 
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: () => '/admin/technical_works',
+
   [AppRoutesEnum.ADMIN_VOTING]: () => '/admin/voting',
+  [AppRoutesEnum.ADMIN_VOTING_CREATE]: () => '/admin/voting/create',
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE]: (id: number | string) =>
+    `/admin/voting/${id}/update`,
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE_QUESTIONS]: (id: number | string) =>
+    `/admin/voting/${id}/update/questions`,
+  [AppRoutesEnum.ADMIN_VOTING_CURRENT]: (id: number | string) =>
+    `/admin/voting/${id}`,
 
   [AppRoutesEnum.CREATE_EVENT]: () => '/admin/events/create',
   [AppRoutesEnum.CREATE_MEETINGS]: () => '/admin/meeting/create',
