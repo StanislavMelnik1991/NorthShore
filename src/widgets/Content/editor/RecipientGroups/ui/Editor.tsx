@@ -27,6 +27,7 @@ interface Props {
     street?: ISelectOption;
     building?: ISelectOption;
     entrance?: ISelectOption;
+    apartment?: ISelectOption;
   }>;
   setFieldValue: (
     field: keyof Data,

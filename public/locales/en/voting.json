@@ -1,0 +1,62 @@
+{
+  "routes": {
+    "list": "Voting",
+    "edit": "Editing a vote",
+    "create": "Creating a vote"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Current",
+    "find": "Search",
+    "delete": "Delete",
+    "preview": "Preview",
+    "next": "Next",
+    "addVariant": "Add a variant",
+    "addQuestion": "Add a new question",
+    "back": "Back"
+  },
+  "editor": {
+    "titles": {
+      "recipients": "Recipient Groups",
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
+    "additionalInfo": {
+      "label": "Link to Additional Information",
+      "placeholder": "Enter the Link"
+    },
+    "cover": {
+      "label": "Upload Image"
+    },
+    "push": {
+      "label": "Send Push Notification"
+    },
+    "date_finish": {
+      "label": "Deadline for receipt of responses "
+    },
+    "show_result": {
+      "label": "Demonstration of results "
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Notification Title"
+    },
+    "text": {
+      "label": "Text",
+      "placeholder": "Notification Text"
+    },
+    "question": {
+      "label": "question",
+      "placeholder": "Enter a question"
+    },
+    "answer": {
+      "label": "answer",
+      "placeholder": "Enter an answer choice"
+    }
+  }
+}

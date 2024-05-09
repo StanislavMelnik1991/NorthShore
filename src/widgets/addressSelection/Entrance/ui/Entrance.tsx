@@ -1,15 +1,10 @@
-import { TableSelect } from '@entities/components';
+import { ISelectOption, TableSelect } from '@entities/components';
 import { useEntrance } from '../hook';
-
-interface Options {
-  value: string | number;
-  label: string;
-}
 
 interface Props {
   className?: string;
-  value?: Options | null;
-  onChange: (street: Options) => void;
+  value?: ISelectOption | null;
+  onChange: (street: ISelectOption) => void;
   streetId?: number | string;
 }
 
@@ -23,7 +18,7 @@ export const EntranceSelection = ({ value, onChange, streetId }: Props) => {
       value={value}
       isLoading={isLoading}
       isDisabled={!streetId || isLoading}
-      placeholder={t('search')}
+      placeholder={t('controls.find')}
       onChange={handleChange}
       options={data.map(({ label, value }) => {
         return {

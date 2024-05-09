@@ -1,0 +1,45 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--dark-10);
+  border-radius: var(--radius-md);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px;
+  padding-top: 0;
+  align-items: flex-start;
+}
+
+.padding {
+  padding: 0 30px;
+}
+
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  padding-bottom: 0;
+  margin-bottom: -12px;
+}
+
+.deleteButton {
+  color: var(--dark-100);
+
+  path {
+    fill: var(--dark-100);
+  }
+}

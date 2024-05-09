@@ -6,13 +6,9 @@ import {
   useRemoveSecurityAccess,
 } from '@features/security';
 import { useAccessTypeList } from '@features/security';
+import { ISelectOption } from '@entities/components';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
-
-interface Options {
-  value: string | number;
-  label: string;
-}
 
 export const useSecurityAccessPage = () => {
   const { t } = useTranslation('security');
@@ -23,10 +19,10 @@ export const useSecurityAccessPage = () => {
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [activeId, setActiveId] = useState<string | number>();
 
-  const [type, setType] = useState<Options | null>(null);
-  const [street, setActiveStreet] = useState<Options | null>(null);
-  const [building, setActiveBuilding] = useState<Options | null>(null);
-  const [entrance, setActiveEntrance] = useState<Options | null>(null);
+  const [type, setType] = useState<ISelectOption | null>(null);
+  const [street, setActiveStreet] = useState<ISelectOption | null>(null);
+  const [building, setActiveBuilding] = useState<ISelectOption | null>(null);
+  const [entrance, setActiveEntrance] = useState<ISelectOption | null>(null);
 
   const { open } = useOpenSecurityAccess();
   const { onDelete } = useRemoveSecurityAccess();
@@ -107,18 +103,18 @@ export const useSecurityAccessPage = () => {
     [],
   );
 
-  const handleSelectStreet = useCallback((val: Options | null) => {
+  const handleSelectStreet = useCallback((val: ISelectOption | null) => {
     setActiveStreet(val);
     setActiveEntrance(null);
     setActiveBuilding(null);
   }, []);
 
-  const handleSelectBuilding = useCallback((val: Options | null) => {
+  const handleSelectBuilding = useCallback((val: ISelectOption | null) => {
     setActiveEntrance(null);
     setActiveBuilding(val);
   }, []);
 
-  const handleSelectType = useCallback((val: Options | null) => {
+  const handleSelectType = useCallback((val: ISelectOption | null) => {
     setType(val);
   }, []);
 

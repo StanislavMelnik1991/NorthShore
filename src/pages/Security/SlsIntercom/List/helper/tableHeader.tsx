@@ -6,6 +6,7 @@ import {
   ApartmentSelection,
 } from '@widgets/addressSelection';
 import { TableFilter } from '@widgets/Table';
+import { ISelectOption } from '@entities/components';
 import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui';
 
@@ -16,14 +17,9 @@ interface AddressWrapper<T> {
   apartment: T;
 }
 
-interface Options {
-  value: string | number;
-  label: string;
-}
-
 interface Props {
-  value: AddressWrapper<Options | null>;
-  onChange: AddressWrapper<(val: Options | null) => void>;
+  value: AddressWrapper<ISelectOption | null>;
+  onChange: AddressWrapper<(val: ISelectOption | null) => void>;
 }
 
 export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({

@@ -9,6 +9,7 @@ export interface ListParams {
   page?: number;
   perPage?: number;
   searchValue?: string;
+  is_deleted?: boolean;
 }
 
 export interface PaginationResponse {

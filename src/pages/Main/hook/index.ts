@@ -15,7 +15,7 @@ export const useMainPage = () => {
     };
   }, []);
 
-  const userGreetingsMessage = `${t('greetings')}, ${user?.name}`;
+  const userGreetingsMessage = `${t('controls.greetings')}, ${user?.name}`;
   const dateOptions = {
     year: 'numeric' as const,
     month: '2-digit' as const,

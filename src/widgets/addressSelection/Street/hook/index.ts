@@ -1,14 +1,10 @@
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useStreetsList } from '@features/address';
-
-interface Options {
-  value: string | number;
-  label: string;
-}
+import { ISelectOption } from '@entities/components';
 
 interface Props {
-  onChange: (street: Options) => void;
+  onChange: (street: ISelectOption) => void;
 }
 
 export const useStreet = ({ onChange }: Props) => {
@@ -21,7 +17,7 @@ export const useStreet = ({ onChange }: Props) => {
 
   const handleChange = useCallback(
     (val: unknown) => {
-      onChange(val as Options);
+      onChange(val as ISelectOption);
     },
     [onChange],
   );

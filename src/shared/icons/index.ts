@@ -46,3 +46,4 @@ export * from './Key';
 export * from './Lightning';
 export * from './Battery';
 export * from './Check';
+export * from './Image';

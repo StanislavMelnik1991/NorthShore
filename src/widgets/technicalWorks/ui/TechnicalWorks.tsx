@@ -112,8 +112,8 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
         period = period[0].toUpperCase() + period.slice(1);
         return (
           <TechWork
-            title={el.title[lang]}
-            text={el.body[lang]}
+            title={el.title[lang] || ''}
+            text={el.body[lang] || ''}
             key={index}
             period={period}
             image={el.type.icon_site}

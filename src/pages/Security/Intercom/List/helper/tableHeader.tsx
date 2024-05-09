@@ -5,7 +5,7 @@ import {
   EntranceSelection,
 } from '@widgets/addressSelection';
 import { TableFilter } from '@widgets/Table';
-import { TableSelect } from '@entities/components';
+import { ISelectOption, TableSelect } from '@entities/components';
 import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui';
 
@@ -16,15 +16,10 @@ interface AddressWrapper<T> {
   status: T;
 }
 
-interface Options {
-  value: string | number;
-  label: string;
-}
-
 interface Props {
-  value: AddressWrapper<Options | null>;
-  onChange: AddressWrapper<(val: Options | null) => void>;
-  options: Partial<AddressWrapper<Array<Options>>>;
+  value: AddressWrapper<ISelectOption | null>;
+  onChange: AddressWrapper<(val: ISelectOption | null) => void>;
+  options: Partial<AddressWrapper<Array<ISelectOption>>>;
 }
 
 export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
@@ -100,8 +95,8 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
           filter={
             <TableSelect
               value={value.status}
-              placeholder={t('search')}
-              onChange={(val) => onChange.status(val as Options)}
+              placeholder={t('controls.find')}
+              onChange={(val) => onChange.status(val as ISelectOption)}
               options={options.status?.map(({ label, value }) => {
                 return {
                   value,

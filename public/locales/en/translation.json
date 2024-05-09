@@ -62,6 +62,23 @@
   "actions": {
     "reset": "Reset"
   },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Actual",
+    "find": "Search",
+    "delete": "Delete",
+    "greetings": "Good day",
+    "preview": "Preview"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete?",
+    "text": "This action cannot be undone"
+  },
   "search": "search",
   "greetings": "Good day",
   "all": "All",

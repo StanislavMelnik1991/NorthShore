@@ -1,12 +1,7 @@
 import classNames from 'classnames';
-import { StyledSelect } from '../..';
+import { ISelectOption, StyledSelect } from '../..';
 import { useAddressSelect } from '../hook';
 import styles from './AddressSelect.module.scss';
-
-interface Options {
-  value: string | number;
-  label: string;
-}
 
 interface AddressWrapper<T> {
   street: T;
@@ -19,8 +14,8 @@ interface Props {
   className?: string;
   showLabel?: boolean;
   showApartment?: boolean;
-  options: AddressWrapper<Array<Options>>;
-  values: AddressWrapper<Options | null>;
+  options: AddressWrapper<Array<ISelectOption>>;
+  values: AddressWrapper<ISelectOption | null>;
   onChange: AddressWrapper<(val: unknown) => void>;
   loading: AddressWrapper<boolean>;
   errors?: Partial<AddressWrapper<string>>;
