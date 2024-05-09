@@ -20,3 +20,32 @@
 .transparent {
   background-color: transparent;
 }
+
+.main__wrapper {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.right {
+  padding-left: 20px;
+  border-left: 1px solid var(--gray-30);
+}
+
+.block__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+
+  &__text {
+    color: var(--dark-60);
+    font-weight: 500;
+    font-size: 14;
+  }
+}

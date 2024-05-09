@@ -1,0 +1,52 @@
+.cards__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loader {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select {
+  width: 240px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--gray-20);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--dark-80);
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.dataPicker {
+  position: absolute;
+  z-index: 1;
+  background: var(--white-100);
+  box-shadow: var(--shadow-2);
+  top: 44px;
+  left: 0;
+  user-select: none;
+}

@@ -12,6 +12,7 @@ import {
   NotificationsListPage,
   CurrentNotificationPage,
   AdminMainPage,
+  AdminTechnicalWorks,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { EnergyListPage } from '@pages/engineering/energy';
@@ -50,6 +51,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
+import { TechnicalWorks } from '@pages/TechnicalWorks';
 import {
   AppRoutesEnum,
   AppRoutes,
@@ -62,6 +64,12 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ADMIN]: {
     path: AppRoutes[AppRoutesEnum.ADMIN](),
     element: <AdminMainPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS](),
+    element: <AdminTechnicalWorks />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -447,7 +455,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.TECHNICAL_WORKS](),
-    element: <NotFoundPage />,
+    element: <TechnicalWorks />,
     authOnly: false,
   },
   [AppRoutesEnum.KNOWLEDGE]: {

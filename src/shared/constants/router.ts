@@ -21,6 +21,7 @@ export enum AppRoutesEnum {
   SETTINGS,
 
   ADMIN,
+  ADMIN_INFO_TECHNICAL_WORKS,
 
   ACCOUNTING,
   STATISTIC,
@@ -94,6 +95,8 @@ export enum AppRoutesEnum {
 export const AppRoutes = {
   [AppRoutesEnum.MAIN]: () => '/',
   [AppRoutesEnum.ADMIN]: () => '/admin',
+  [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: () =>
+    '/admin/info/technical_works',
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
   [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
   [AppRoutesEnum.LOGIN]: () => '/login',

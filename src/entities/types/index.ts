@@ -11,3 +11,4 @@ export * from './request.interface';
 export * from './engineering.interface';
 export * from './localization.interface';
 export * from './notifications.interface';
+export * from './technicalWork.interface';
