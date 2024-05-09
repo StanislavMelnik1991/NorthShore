@@ -69,9 +69,9 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
       ],
     },
     {
-      title: t('sidebar.shutdowns'),
+      title: t('sidebar.technicalWorks'),
       icon: IconCalendarX,
-      href: AppRoutes[AppRoutesEnum.SHUTDOWNS](),
+      href: AppRoutes[AppRoutesEnum.TECHNICAL_WORKS](),
       isLink: true,
     },
     {

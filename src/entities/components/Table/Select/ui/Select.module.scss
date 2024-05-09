@@ -1,0 +1,110 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 3;
+  font-weight: 400;
+  text-transform: none;
+  width: 100%;
+  min-width: 300px;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--dark-70);
+  padding: 0 var(--padding-md) !important;
+
+  &.error {
+    opacity: 1;
+  }
+}
+
+.error {
+  color: var(--red-100);
+
+  path {
+    fill: var(--red-100);
+  }
+
+  &::placeholder {
+    color: var(--red-10);
+  }
+}
+
+.errorText {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.container {
+  border: var(--border-width) solid var(--dark-20) !important;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+  border-bottom: none !important;
+  box-shadow: var(--shadow) !important;
+  padding: 16px;
+  padding-bottom: 0;
+  background-color: transparent !important;
+}
+
+.valueContainer {
+  border: var(--border-width) solid var(--dark-20);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  border-right: none;
+}
+
+.indicators {
+  border: var(--border-width) solid var(--dark-20);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-left: none;
+}
+
+.menu {
+  border: var(--border-width) solid var(--dark-20) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 16px;
+  background-color: var(--white-100);
+}
+
+.option {
+  background-color: inherit !important;
+  color: var(--dark-70) !important;
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}
+
+.optionFocused {
+  background-color: var(--gray-20) !important;
+  color: var(--dark-70) !important;
+  border-radius: var(--radius-xs);
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}
+
+.optionSelected {
+  color: var(--dark-70) !important;
+  background-color: var(--background-color) !important;
+  border-radius: var(--radius-xs);
+
+  &:active {
+    background-color: var(--gray-30) !important;
+  }
+}
+
+.input {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.placeholder {
+  text-transform: capitalize;
+}

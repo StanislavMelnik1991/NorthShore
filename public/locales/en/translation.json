@@ -9,13 +9,14 @@
     "voting": "Voting",
     "technicalWorks": "Technical Works",
     "loyalty": "Loyalty Programs",
+    "advertisement": "Advertisement",
+    "employee_announcements": "Employee announcements",
     "poster": "Poster",
     "activity": "Activities",
     "services": "Services",
     "invocation": "Requests and Appeals",
     "requests": "Requests",
     "applications": "Applications",
-    "shutdowns": "Shutdown Schedules",
     "knowledge": "Knowledge Base",
     "settings": "Settings",
     "accounting": "Accounting",
@@ -27,7 +28,10 @@
     "users": "Users",
     "access": "Access Control",
     "intercom": "Intercom",
-    "video": "Video Surveillance"
+    "video": "Video Surveillance",
+    "energy": "Energy resources",
+    "heating": "Heating points",
+    "lifts": "Lifts"
   },
   "header": {
     "login": "Log In",
@@ -38,11 +42,58 @@
     "title": "Page Not Found",
     "back": "Go Back"
   },
+  "toast": {
+    "deleteSuccess": "Deleted successfully",
+    "deleteError": "Failed to delete",
+    "updateSuccess": "Updated successfully",
+    "updateError": "Failed to update",
+    "createSuccess": "Created successfully",
+    "createError": "Failed to create",
+    "notFound": "Failed to get data from the server"
+  },
   "errors": {
-    "required": "Field is required",
-    "max256": "Title must not be longer than 256 characters",
-    "invalidFormat": "Incorrect format",
-    "getError": "Failed to retrieve data from the server",
-    "video": "Sorry, your browser does not support embedded video."
-  }
+    "required": "Field is required ",
+    "max256": "Title must not be longer than 256 characters ",
+    "invalidFormat": "Incorrect format ",
+    "invalidIp": "Invalid IP address",
+    "getError": "Failed to retrieve data from the server ",
+    "video": "Sorry, your browser does not support embedded video. "
+  },
+  "actions": {
+    "reset": "Reset"
+  },
+  "controls": {
+    "publish": "Publish",
+    "refresh": "Refresh",
+    "cancel": "Cancel",
+    "draft": "Save Draft",
+    "create": "Create",
+    "archive": "Go to Archive",
+    "actual": "Go to Actual",
+    "find": "Search",
+    "delete": "Delete",
+    "greetings": "Good day",
+    "preview": "Preview"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete?",
+    "text": "This action cannot be undone"
+  },
+  "search": "search",
+  "greetings": "Good day",
+  "all": "All",
+  "month": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
 }

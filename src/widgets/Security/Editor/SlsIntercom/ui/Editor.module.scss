@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  margin: 32px 0 -4px;
+}
+
+.address {
+  form {
+    width: calc((100% - 16px * 3) / 4);
+  }
+}

@@ -1,0 +1,39 @@
+.card {
+  padding: 32px 24px;
+  margin-bottom: 128px;
+  position: relative;
+}
+
+.actions {
+  margin-top: 32px;
+}
+
+.addButton {
+  display: none;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  &:last-child {
+    .addButton {
+      display: flex;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+}
+
+.submit {
+  display: flex;
+  gap: 24px;
+
+  .button {
+    width: 207px;
+  }
+}

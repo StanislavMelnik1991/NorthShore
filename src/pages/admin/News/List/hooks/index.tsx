@@ -1,37 +1,33 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
-import { useGetNewsList } from '@features/Admin';
-import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { useGetUserNewsList } from '@features/news';
+import { INewsFilter, INewsSort, ListParams } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
   INITIAL_PER_PAGE,
   NewsStatusEnum,
 } from '@shared/constants';
+import { useTableHeader, useTableRows } from '../helper';
+
+interface Params extends ListParams {
+  sort: INewsSort;
+  filter: INewsFilter;
+}
 
 export const useNewsList = () => {
   const { t } = useTranslation('news');
-  const { getData } = useGetNewsList();
+  const { getData, isLoading, total, data } = useGetUserNewsList();
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
-  const [data, setData] = useState<Array<INews>>([]);
   const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
-  const [isLoading, setIsLoading] = useState(true);
   const [debounced] = useDebounce(search, 500);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  interface Params extends ListParams {
-    sort: INewsSort;
-    filter: INewsFilter;
-  }
 
   const handleGetData = useCallback(async () => {
-    setIsLoading(true);
     const params: Params = {
       page,
       perPage,
@@ -43,15 +39,8 @@ export const useNewsList = () => {
         created_at: 'asc',
       },
     };
-    setTotal(100);
-    const news = await getData(params);
-    setIsLoading(false);
-    if (news) {
-      setData(news);
-    } else {
-      navigate(-1);
-    }
-  }, [debounced, getData, navigate, page, perPage, status]);
+    getData(params);
+  }, [debounced, getData, page, perPage, status]);
 
   useEffect(() => {
     handleGetData();
@@ -66,24 +55,32 @@ export const useNewsList = () => {
       setPage(selected + 1);
     }, []);
 
+  const handleSetPerPage = useCallback((val: number) => {
+    setPerPage(val);
+    setPage(1);
+  }, []);
+
   const handleToggleStatusFilter = useCallback(() => {
     setStatus((val) => (val ? undefined : 2));
   }, []);
 
+  const tableHeader = useTableHeader();
+  const tableData = useTableRows(data);
+
   return {
-    location,
-    data,
     handleCreateClick,
     search,
     setSearch,
     isLoading,
-    page,
     setPage: handleSetPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     total,
     t,
     status,
+    tableHeader,
+    page,
+    tableData,
     toggleStatusFilter: handleToggleStatusFilter,
   };
 };

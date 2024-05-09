@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+  z-index: 4;
+
+  form {
+    width: 100%;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.editor {
+  width: 100%;
+}
+
+.title {
+  margin: 32px 0 -4px;
+}
+
+.sipData {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.typeSelect {
+  z-index: 5;
+}
+
+.phoneSelect {
+  z-index: 4;
+}

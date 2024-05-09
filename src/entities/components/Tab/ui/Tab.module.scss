@@ -7,27 +7,29 @@
 .labels {
   display: flex;
   width: 100%;
+  text-wrap: nowrap;
 }
 
 .label {
   display: flex;
   padding: 0 8px 10px;
-  width: 100%;
-  order: 2;
+  width: fit-content;
   user-select: none;
-  border-bottom: 1px solid var(--dark-20);
   color: var(--dark-50);
   cursor: pointer;
+
+  &:hover {
+    color: var(--dark-70);
+  }
 }
 
 .active {
   background-color: transparent;
-  width: fit-content;
   text-wrap: nowrap;
-  order: 1;
   border-bottom: 1px solid var(--dark-100);
   color: var(--dark-100);
   pointer-events: none;
+  width: fit-content !important;
 }
 
 .tabs {

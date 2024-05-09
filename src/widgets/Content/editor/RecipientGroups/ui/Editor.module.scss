@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 4;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  width: fit-content;
+  color: var(--primary-100);
+
+  path {
+    fill: var(--primary-100);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.remove {
+  margin-top: 22px;
+}
+
+.title {
+  margin: unset;
+}
+
+.address {
+  form {
+    width: calc((100% - (16px * 3)) / 4);
+  }
+}
+
+.checkbox {
+  width: fit-content;
+}

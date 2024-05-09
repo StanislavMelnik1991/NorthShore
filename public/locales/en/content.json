@@ -16,7 +16,12 @@
     "actual": "Go to Current",
     "find": "Search",
     "delete": "Delete",
-    "preview": "Preview"
+    "preview": "Preview",
+    "add": "Add"
+  },
+  "actions": {
+    "addAddress": "Add an address",
+    "sendToAll": "Send to all"
   },
   "remove": {
     "title": "Are you sure you want to delete this news item?",

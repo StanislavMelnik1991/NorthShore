@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { memo, ReactElement } from 'react';
+import { SCROLLING_CONTAINER_ID } from '@shared/constants/scrolling';
 import { useMainLayout } from '../hook';
 import styles from './MainLayout.module.scss';
 
@@ -42,26 +43,28 @@ export const MainLayout = memo(
         >
           {sidebar}
         </div>
-        <div className={styles.content}>
-          <div
-            className={classNames(styles.popup, styles.burgerMenu, {
-              [styles.hidePopup]: !isShowBurgerMenu,
-            })}
-            ref={burgerMenuRef}
-          >
-            {burgerMenu}
+        <div className={styles.scrollingContainer} id={SCROLLING_CONTAINER_ID}>
+          <div className={styles.content}>
+            <div
+              className={classNames(styles.popup, styles.burgerMenu, {
+                [styles.hidePopup]: !isShowBurgerMenu,
+              })}
+              ref={burgerMenuRef}
+            >
+              {burgerMenu}
+            </div>
+            <div
+              className={classNames(styles.popup, styles.userMenu, {
+                [styles.hidePopup]: !isShowUserMenu,
+              })}
+              ref={userMenuRef}
+            >
+              {userMenu}
+            </div>
+            {content}
           </div>
-          <div
-            className={classNames(styles.popup, styles.userMenu, {
-              [styles.hidePopup]: !isShowUserMenu,
-            })}
-            ref={userMenuRef}
-          >
-            {userMenu}
-          </div>
-          {content}
+          <div className={styles.footer}>{footer}</div>
         </div>
-        <div className={styles.footer}>{footer}</div>
       </div>
     );
   },

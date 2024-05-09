@@ -3,23 +3,32 @@ import { Text } from '@shared/ui';
 import styles from './Text.module.scss';
 
 interface Props {
-  text: string;
+  children:
+    | false
+    | string
+    | JSX.Element
+    | null
+    | undefined
+    | Array<string | JSX.Element | false>;
   className?: string;
   fontWeight?: 'medium' | 'regular' | 'semibold';
+  title?: string;
 }
 
 export const TableText = ({
-  text,
+  children,
   className,
   fontWeight = 'regular',
+  title,
 }: Props) => {
   return (
     <Text
+      title={title}
       className={classNames(styles.wrapper, className)}
       fontWeight={fontWeight}
       variant="body14"
     >
-      {text}
+      {children}
     </Text>
   );
 };

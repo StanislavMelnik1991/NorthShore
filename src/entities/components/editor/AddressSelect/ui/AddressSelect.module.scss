@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+
+  form {
+    width: calc((100% - 32px) / 3);
+  }
+
+  @media (width < 980px) {
+    form {
+      width: 100%;
+    }
+  }
+}
+
+.street {
+  z-index: 4;
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.home {
+  z-index: 3;
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.entrance {
+  z-index: 2;
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.apartment {
+  z-index: 1;
+  width: 100%;
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}

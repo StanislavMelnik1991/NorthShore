@@ -1,0 +1,36 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+
+  path {
+    fill: var(--dark-50);
+  }
+
+  &:hover {
+    background-color: var(--dark-20);
+  }
+}
+
+.popup {
+  position: absolute;
+  width: 210px;
+  right: calc(100% + 5px);
+  top: 8px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+}
+
+.danger {
+  color: var(--red-100);
+
+  path {
+    fill: var(--red-100);
+  }
+}

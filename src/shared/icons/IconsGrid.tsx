@@ -38,6 +38,20 @@ import {
   IconClockPast,
   IconDone,
   IconStar,
+  IconMap,
+  IconBasket,
+  IconCamera,
+  IconPlusRounded,
+  IconComment,
+  IconPoint,
+  IconFilter,
+  IconWifi,
+  IconInfo,
+  IconKey,
+  IconLightning,
+  IconBattery,
+  IconCheck,
+  IconImage,
 } from '.';
 
 interface Props {
@@ -48,8 +62,47 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconImage">
+        <IconImage width={size} height={size} />
+      </Item>
+      <Item name="IconCheck">
+        <IconCheck width={size} height={size} />
+      </Item>
+      <Item name="IconBattery">
+        <IconBattery width={size} height={size} />
+      </Item>
+      <Item name="IconLightning">
+        <IconLightning width={size} height={size} />
+      </Item>
+      <Item name="IconKey">
+        <IconKey width={size} height={size} />
+      </Item>
+      <Item name="IconInfo">
+        <IconInfo width={size} height={size} />
+      </Item>
+      <Item name="IconWifi">
+        <IconWifi width={size} height={size} />
+      </Item>
+      <Item name="IconFilter">
+        <IconFilter width={size} height={size} />
+      </Item>
+      <Item name="IconComment">
+        <IconComment width={size} height={size} />
+      </Item>
+      <Item name="IconPoint">
+        <IconPoint width={size} height={size} />
+      </Item>
+      <Item name="IconCamera">
+        <IconCamera width={size} height={size} />
+      </Item>
+      <Item name="IconBasket">
+        <IconBasket width={size} height={size} />
+      </Item>
       <Item name="IconArrow">
         <IconArrow width={size} height={size} />
+      </Item>
+      <Item name="IconMap">
+        <IconMap width={size} height={size} />
       </Item>
       <Item name="IconBriefcase">
         <IconBriefcase theme={theme} width={size} height={size} />
@@ -71,6 +124,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconPlus">
         <IconPlus width={size} height={size} />
+      </Item>
+      <Item name="IconPlusRounded">
+        <IconPlusRounded width={size} height={size} />
       </Item>
       <Item name="IconHuman">
         <IconHuman theme={theme} width={size} height={size} />

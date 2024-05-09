@@ -7,10 +7,52 @@
   "badges": {
     "drafts": "Черновик",
     "publish": "Размещено",
-    "archive": "Архив"
+    "archive": "Архив",
+    "serviceable": "исправен",
+    "defective": "не исправен" 
   },
   "toast": {
     "archiveSuccess": "Успешно перемещено в архив",
     "archiveError": "Ошибка при перемещении в архив"
+  },
+  "controls": {
+    "publish": "Опубликовать",
+    "refresh": "Обновить",
+    "cancel": "Отмена",
+    "draft": "Сохранить черновик",
+    "create": "Создать",
+    "archive": "Перейти в архив",
+    "actual": "Перейти к актуальным",
+    "find": "Поиск",
+    "delete": "Удалить",
+    "greetings": "Добрый день",
+    "preview": "Предпросмотр"
+  },
+  "header": {
+    "index": "номер",
+    "type": "тип",
+    "street": "улица",
+    "building": "дом",
+    "entrance": "подъезд",
+    "state": "состояние",
+    "serviceability": "исправность",
+    "apartment": "квартира",
+    "uuid": "UUID",
+    "address": "адрес",
+    "lastData": "последнее показание",
+    "lastUpdate": "дата оследниего опроса",
+    "voltage": "напряжение",
+    "chargingStatus": "статус заряда",
+    "periodTotal": "Итого за период",
+    "readingDate": "дата показаний",
+    "absoluteConsumption": "абсолютное потребление",
+    "delta": "дельта",
+    "sendDate": "дата отправки",
+    "title": "заголовок",
+    "recipient_groups": "группы получателей",
+    "notification": "уведомление",
+    "deadline": "дедлайн",
+    "showResults": "отображение результатов",
+    "status": "статус"
   }
 }

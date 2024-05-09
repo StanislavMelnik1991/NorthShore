@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "energy": "Energy resources"
+  },
+  "energy": {
+    "total": "Total consumption",
+    "periodTotal": "Total for the period:"
+  }
+}

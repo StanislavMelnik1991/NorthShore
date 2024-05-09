@@ -3,35 +3,167 @@
   "modules": {
     "access": "Access Control",
     "intercom": "Intercom",
-    "video": "Video Surveillance"
+    "sls_intercom": "Video eyes",
+    "video": "Video Surveillance",
+    "createCamera": "Adding a Camera",
+    "updateCamera": "Editing the camcorder",
+    "createAccess": "Adding an access point",
+    "updateAccess": "Editing an access point",
+    "createIntercom": "Adding an intercom",
+    "updateIntercom": "Editing the intercom",
+    "intercomSingle": "Intercom",
+    "createSslIntercom": "Adding a video doorbell",
+    "updateSslIntercom": "Editing the video doorbell",
+    "sslIntercomSingle": "Video doorbell"
   },
   "toast": {
-    "listError": "Failed to retrieve the list of access points",
+    "listError": "Failed to get the list of access points",
     "openError": "Failed to open the access point: ",
-    "openSuccess": "It's open"
+    "openSuccess": "Opened",
+    "copy": "Text copied to the clipboard"
   },
   "actions": {
     "open": "Open",
-    "add": "Add"
+    "add": "Add",
+    "addAddress": "Add Address",
+    "edit": "Edit",
+    "update": "Update"
   },
   "editor": {
+    "apartment": {
+      "label": "Apartment",
+      "placeholder": "Choose a apartment"
+    },
     "street": {
-      "placeholder": "Select a street"
+      "label": "Street",
+      "placeholder": "Select a Street"
     },
     "building": {
-      "placeholder": "Select a house"
+      "label": "Building",
+      "placeholder": "Select a Building"
     },
     "entrance": {
-      "placeholder": "Select an entrance"
-    }
+      "label": "Entrance",
+      "placeholder": "Select an Entrance"
+    },
+    "faulty": {
+      "label": "Show Faulty"
+    },
+    "highQuality": {
+      "label": "Link to High Quality Stream",
+      "placeholder": "Enter the Link"
+    },
+    "lowQuality": {
+      "label": "Link to Low Quality Stream",
+      "placeholder": "Enter the Link"
+    },
+    "placeComment": {
+      "label": "Location Comment",
+      "placeholder": "Enter a Comment"
+    },
+    "point": {
+      "label": "Coordinates",
+      "placeholder": "Enter Coordinates"
+    },
+    "accessType": {
+      "label": "Access point type",
+      "placeholder": "Select the type"
+    },
+    "intercomType": {
+      "label": "Intercom type",
+      "placeholder": "Select the type"
+    },
+    "ipAddress": {
+      "label": "IP address",
+      "placeholder": "Enter the IP address"
+    },
+    "login": {
+      "label": "Login",
+      "placeholder": "Enter login"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password"
+    },
+    "phoneNumber": {
+      "label": "Phone number",
+      "placeholder": "Select a phone number"
+    },
+    "rtspUrl": {
+      "label": "Link to video stream in rtsp format",
+      "placeholder": "Enter the link"
+    },
+    "hlsUrl": {
+      "label": "Link to video stream in hls format",
+      "placeholder": "Enter the link"
+    },
+    "uuid": {
+      "label": "UUID",
+      "placeholder": "Enter the UUID"
+    },
+    "sipAddress": "SIP server address",
+    "sipPort": "SIP server port",
+    "location": "Location Address",
+    "access": "Addresses with Access to the Camera",
+    "webData": "Credentials from WEB Interface",
+    "httpData": "Credentials from HTTP API"
   },
   "noData": {
-    "title": "No cameras found",
-    "text": "Try changing the values of the filters"
+    "title": "No Cameras Found",
+    "text": "Try Changing Filter Values"
   },
   "cards": {
     "camera": "Camera",
-    "onAir": "On the air." ,
-    "notOnAir": "Not on the air"
+    "normal": "On Air",
+    "defect": "Not On Air",
+    "no_data": "No data",
+    "cameraError": "The camera is not connected"
+  },
+  "popup": {
+    "preview": "Preview",
+    "edit": "Edit",
+    "map": "Open on Map",
+    "delete": "Delete",
+    "open": "Open"
+  },
+  "errors": {
+    "required": "Field is required ",
+    "max256": "Title must not be longer than 256 characters ",
+    "invalidFormat": "Incorrect format ",
+    "getError": "Failed to retrieve data from the server ",
+    "video": "Sorry, your browser does not support embedded video. ",
+    "invalidPoint": "The string must contain latitude and longitude separated by a comma. Example: 53.962656, 27.567694. "
+  },
+  "details": {
+    "tabs": {
+      "main": "Main Information",
+      "config": "Configuration",
+      "access": "Addresses with Access to the Camera"
+    },
+    "ipAddress": "IP Address",
+    "login": "Login",
+    "password": "Password",
+    "type": "Type",
+    "point": "Coordinates",
+    "location": "Location",
+    "comment": "Comment",
+    "street": "st.",
+    "home": "bld.",
+    "entrance": "entr.",
+    "highQuality": "Link to High Quality Stream",
+    "lowQuality": "Link to Low Quality Stream",
+    "status": "Status",
+    "intercomType": "Intercom Type",
+    "rtsp_url": "Link to RTSP Video Stream",
+    "hls_url": "Link to HLS Video Stream",
+    "phoneNumber": "Phone Number",
+    "sipIp": "SIP Server Address",
+    "sipPort": "SIP Server Port",
+    "uuid": "UUID"
+  },
+  "remove": {
+    "titleAccess": "Are you sure you want to delete this access point?",
+    "titleCamera": "Are you sure you want to remove this camera?",
+    "text": "This action cannot be undone"
   }
 }

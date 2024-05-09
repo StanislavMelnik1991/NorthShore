@@ -35,7 +35,11 @@ export const NavItem = ({
           [styles.active]: isActive,
         })}
       >
-        <Icon width={20} theme={isActive ? 'dark' : 'light'} />
+        <Icon
+          className={styles.icon}
+          width={20}
+          theme={isActive ? 'dark' : 'light'}
+        />
         <Text fontWeight="medium" variant="body14">
           {title}
         </Text>

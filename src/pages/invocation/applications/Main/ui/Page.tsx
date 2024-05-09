@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ApplicationsList } from '@widgets/invocation';
 import { PageHeader, PageSkeleton, Tab } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
@@ -15,12 +16,15 @@ const Page = () => {
       {t('tabs.completed')}
     </Text>,
   ];
+
+  const tabs = [
+    <ApplicationsList key={`RequestList-0`} isActual />,
+    <ApplicationsList key={`RequestList-1`} />,
+  ];
   return (
     <PageSkeleton>
       <PageHeader
-        breadcrumbs={[
-          { href: location.pathname, title: t('routes.applications') },
-        ]}
+        breadcrumbs={[{ href: location.pathname, title: t('routes.requests') }]}
         controls={
           <Link to={AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE]()}>
             <Button>
@@ -30,7 +34,7 @@ const Page = () => {
           </Link>
         }
       />
-      <Tab labels={labels} tabs={[]} />
+      <Tab labels={labels} tabs={tabs} />
     </PageSkeleton>
   );
 };

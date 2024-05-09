@@ -40,7 +40,7 @@ const Page = () => {
             href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
             title: t('routes.news'),
           },
-          { href: '', title: t('routes.create') },
+          { title: t('routes.create') },
         ]}
         controls={
           <Button

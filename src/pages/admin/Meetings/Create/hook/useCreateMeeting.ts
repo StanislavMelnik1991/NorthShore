@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCreateMeeting } from '@features/Admin/Meetings';
+import { useCreateMeeting } from '@features/Admin';
 import { useUploadImage } from '@features/Image/hooks/useUploadImage';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 

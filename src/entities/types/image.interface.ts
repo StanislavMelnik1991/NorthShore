@@ -1,7 +1,7 @@
-export interface IFile {
-  id: number;
+import { BaseEntity } from './global.interface';
+
+export interface IFile extends BaseEntity {
   url: string;
-  name: string;
   size: number;
   user_id: number;
   data_add: number;
