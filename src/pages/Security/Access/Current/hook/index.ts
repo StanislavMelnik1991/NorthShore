@@ -6,7 +6,7 @@ import { useGetCurrentAccess } from '@features/security';
 export const useCreateCameraPage = () => {
   const { id } = useParams<{ id: string }>();
   const { data, getData, isLoading } = useGetCurrentAccess(id as string);
-  const { t } = useTranslation('security');
+  const { t } = useTranslation('securityCurrent');
 
   useEffect(() => {
     getData();

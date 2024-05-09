@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 export const useVideoConfig = () => {
-  const { t } = useTranslation('security');
+  const { t } = useTranslation('securityCurrent');
 
   const copyText = useCallback(
     (text: string) => () => {

@@ -6,7 +6,7 @@ import { useGetCurrentSlsIntercom } from '@features/security';
 export const useCurrentIntercomPage = () => {
   const { id } = useParams<{ id: string }>();
   const { data, getData, isLoading } = useGetCurrentSlsIntercom(id as string);
-  const { t } = useTranslation('security');
+  const { t } = useTranslation('securityCurrent');
 
   useEffect(() => {
     getData();

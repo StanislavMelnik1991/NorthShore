@@ -1,0 +1,58 @@
+{
+  "modules": {
+    "access": "Access Control",
+    "intercom": "Intercom",
+    "sls_intercom": "Video eyes",
+    "video": "Video Surveillance",
+    "createCamera": "Adding a Camera",
+    "updateCamera": "Editing the camcorder",
+    "createAccess": "Adding an access point",
+    "updateAccess": "Editing an access point",
+    "createIntercom": "Adding an intercom",
+    "updateIntercom": "Editing the intercom",
+    "intercomSingle": "Intercom",
+    "createSslIntercom": "Adding a video doorbell",
+    "updateSslIntercom": "Editing the video doorbell",
+    "sslIntercomSingle": "Video doorbell"
+  },
+  "details": {
+    "tabs": {
+      "main": "Main Information",
+      "config": "Configuration",
+      "access": "Addresses with Access to the Camera"
+    },
+    "ipAddress": "IP Address",
+    "login": "Login",
+    "password": "Password",
+    "type": "Type",
+    "point": "Coordinates",
+    "location": "Location",
+    "comment": "Comment",
+    "street": "st.",
+    "home": "bld.",
+    "entrance": "entr.",
+    "highQuality": "Link to High Quality Stream",
+    "lowQuality": "Link to Low Quality Stream",
+    "status": "Status",
+    "intercomType": "Intercom Type",
+    "rtsp_url": "Link to RTSP Video Stream",
+    "hls_url": "Link to HLS Video Stream",
+    "phoneNumber": "Phone Number",
+    "sipIp": "SIP Server Address",
+    "sipPort": "SIP Server Port",
+    "uuid": "UUID"
+  },
+  "actions": {
+    "open": "Open",
+    "add": "Add",
+    "addAddress": "Add Address",
+    "edit": "Edit",
+    "update": "Update"
+  },
+  "toast": {
+    "listError": "Failed to get the list of access points",
+    "openError": "Failed to open the access point: ",
+    "openSuccess": "Opened",
+    "copy": "Text copied to the clipboard"
+  }
+}
