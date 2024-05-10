@@ -53,6 +53,5 @@ export const useGetRequestsList = (isActual: boolean) => {
     perPage,
     setPerPage: handleSetPerPage,
     data,
-    t,
   };
 };

@@ -54,7 +54,7 @@ dependencies:
     specifier: ^14.2.3
     version: 14.2.3(react@18.3.1)
   react-hls-player:
-    specifier: 3.0.7
+    specifier: ^3.0.7
     version: 3.0.7(react-dom@18.3.1)(react@18.3.1)
   react-i18next:
     specifier: ^14.1.0
