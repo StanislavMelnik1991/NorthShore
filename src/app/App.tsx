@@ -4,6 +4,7 @@ import { Footer } from '@widgets/Footer';
 import { Header } from '@widgets/Header';
 import { MainLayout } from '@widgets/layouts';
 import { SideBar } from '@widgets/SideBar';
+import { UserMenu } from '@widgets/UserMenu';
 import { useUser } from '@features/User/hook';
 import {
   useAdminSidebarConfig,
@@ -30,7 +31,9 @@ const App = memo(() => {
           sidebar={<SideBar config={isAdmin ? adminConfig : userConfig} />}
           footer={<Footer />}
           burgerMenu={<SideBar config={burgerMenuConfig} />}
-          userMenu={user ? <SideBar config={userMenuConfig} /> : undefined}
+          userMenu={
+            user ? <UserMenu user={user} config={userMenuConfig} /> : undefined
+          }
         />
       </Suspense>
     </div>

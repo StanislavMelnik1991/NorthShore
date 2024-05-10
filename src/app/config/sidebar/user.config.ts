@@ -10,7 +10,6 @@ import {
   IconDocumentHolder,
   IconCalendarX,
   IconQuestion,
-  IconGear,
 } from '@shared/icons';
 
 export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
@@ -78,12 +77,6 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.knowledge'),
       icon: IconQuestion,
       href: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
-      isLink: true,
-    },
-    {
-      title: t('sidebar.settings'),
-      icon: IconGear,
-      href: AppRoutes[AppRoutesEnum.SETTINGS](),
       isLink: true,
     },
   ];

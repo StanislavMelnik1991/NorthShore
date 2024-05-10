@@ -1,0 +1,26 @@
+{
+  "title": "Settings",
+  "errors": {
+    "getError": "Failed to retrieve data from the server",
+    "langError": "Failed to change language"
+  },
+  "blocks": {
+    "titles": {
+      "profile_data": "Profile data",
+      "account_management": "Account management",
+      "profile_photo": "Profile photo",
+      "phone_number": "Phone number",
+      "password": "Password",
+      "account_deleting": "Account deleting",
+      "language": "Language"
+    },
+    "descriptions": {
+      "account_deleting": "Deleting an account and everything associated with the account",
+      "language": "Select the language in which you want to use the site interface"
+    },
+    "btns": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  }
+}

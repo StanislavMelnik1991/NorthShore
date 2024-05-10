@@ -56,6 +56,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
+import { SettingsPage } from '@pages/Settings';
 import { TechnicalWorks } from '@pages/TechnicalWorks';
 import {
   AppRoutesEnum,
@@ -495,8 +496,8 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SETTINGS]: {
     path: AppRoutes[AppRoutesEnum.SETTINGS](),
-    element: <NotFoundPage />,
-    authOnly: false,
+    element: <SettingsPage />,
+    authOnly: true,
   },
 
   [AppRoutesEnum.FORBIDDEN]: {

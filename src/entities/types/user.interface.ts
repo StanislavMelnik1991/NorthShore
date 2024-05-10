@@ -16,6 +16,7 @@ export interface IUser extends IUserShort {
   email: string;
   accept_intercom?: number;
   role: IRole;
+  lang: 'en' | 'ru';
   account_numbers: {
     id: number;
     user_id: number;

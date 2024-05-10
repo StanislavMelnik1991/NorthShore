@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { BaseResponse, IUser } from '@entities/types';
 import { TOKEN_LOCAL_STORAGE_KEY, ROLES_STAFF } from '@shared/constants';
 
 export const useUserProvider = () => {
+  const { i18n } = useTranslation();
   const [user, setUser] = useState<IUser>();
   const [token, setToken] = useState<string | null>(
     localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY),
@@ -27,6 +29,7 @@ export const useUserProvider = () => {
           .get<BaseResponse<IUser>>('/user')
           .then(({ data: { data } }) => {
             handleSetUser(data);
+            i18n.changeLanguage(data.lang);
           })
           .catch((err) => {
             console.error(err);
@@ -39,7 +42,7 @@ export const useUserProvider = () => {
           });
       }
     }
-  }, [user, isLoading, token, handleSetUser]);
+  }, [user, isLoading, token, handleSetUser, i18n]);
 
   const value = useMemo(
     () => ({
