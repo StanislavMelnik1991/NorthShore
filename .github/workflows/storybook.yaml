@@ -1,6 +1,7 @@
 name: Deploy_storybook
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      API_URL: ${{ secrets.API_URL }}
 
     steps:
     - name: Checkout code
