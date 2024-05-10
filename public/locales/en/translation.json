@@ -68,7 +68,7 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Actual",
     "find": "Search",
     "delete": "Delete",
@@ -95,5 +95,13 @@
     "October",
     "November",
     "December"
-  ]
+  ],
+  "popup": {
+    "preview": "Preview",
+    "edit": "Edit",
+    "map": "Open on Map",
+    "delete": "Delete",
+    "open": "Open",
+    "markAsFailed": "Mark as failed"
+  }
 }

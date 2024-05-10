@@ -2,7 +2,8 @@
   "routes": {
     "list": "Voting",
     "edit": "Editing a vote",
-    "create": "Creating a vote"
+    "create": "Creating a vote",
+    "voting": "Voting"
   },
   "controls": {
     "publish": "Publish",
@@ -10,7 +11,7 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Current",
     "find": "Search",
     "delete": "Delete",
@@ -18,7 +19,8 @@
     "next": "Next",
     "addVariant": "Add a variant",
     "addQuestion": "Add a new question",
-    "back": "Back"
+    "back": "Back",
+    "edit": "Edit"
   },
   "editor": {
     "titles": {

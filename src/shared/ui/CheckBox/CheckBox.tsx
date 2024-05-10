@@ -24,6 +24,7 @@ export const CheckBox = ({
   value,
   label,
   onChange,
+  disabled,
   ...props
 }: Props) => {
   return (
@@ -39,12 +40,13 @@ export const CheckBox = ({
               }
             : undefined
         }
+        disabled={disabled}
         {...props}
       />
       <IconCheckboxChecked
         className={classNames(
           styles.icon,
-          { [styles.active]: value },
+          { [styles.active]: value, [styles.disabled]: disabled },
           inputClassName,
         )}
       />

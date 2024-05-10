@@ -17,6 +17,7 @@ import {
   UpdateVotingPage,
   UpdateVotingQuestionsPage,
   AdminTechnicalWorks,
+  CurrentVotingPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { EnergyListPage } from '@pages/engineering/energy';
@@ -206,7 +207,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
 
   [AppRoutesEnum.ADMIN_VOTING_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](':id'),
-    element: <NotFoundPage />,
+    element: <CurrentVotingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

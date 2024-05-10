@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--dark-70);
+  padding: 0 var(--padding-md);
+}
+
+.bar {
+  display: flex;
+  width: 100%;
+  background-color: var(--gray-10);
+  border-radius: 6px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  background-color: var(--blue-20);
+  padding: 0 12px;
+  border-radius: 6px;
+  min-width: fit-content;
+  color: var(--blue-100);
+}

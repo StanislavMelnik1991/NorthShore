@@ -22,7 +22,6 @@ export interface IAnswer extends BaseEntity {
 
 export interface IQuestion extends BaseEntity {
   body: ILocalizedData;
-  title: ILocalizedData;
   election_id: IVoting['id'];
   votes_count: number;
   answer_variants: Array<IAnswer>;

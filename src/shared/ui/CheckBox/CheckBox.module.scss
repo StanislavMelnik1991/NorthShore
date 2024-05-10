@@ -28,6 +28,15 @@
   path {
     fill: var(--white-100);
   }
+
+  &.disabled {
+    background-color: var(--dark-10);
+    border: none;
+
+    path {
+      fill: var(--dark-30);
+    }
+  }
 }
 
 .label {

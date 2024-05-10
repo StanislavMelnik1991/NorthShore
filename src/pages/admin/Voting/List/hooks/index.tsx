@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'use-debounce';
-import { useDeleteVoting, useGetUserVotingList } from '@features/Admin';
+import {
+  useDeleteVoting,
+  useGetUserVotingList,
+  useUpdateVoting,
+} from '@features/Admin';
 import { useVotingStatusList } from '@features/Admin/Voting/hooks/getStatusList';
 import { ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE } from '@shared/constants';
@@ -33,6 +37,7 @@ export const useVotingList = () => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
+  const { update: updateVoting } = useUpdateVoting();
 
   const handleGetData = useCallback(async () => {
     const params: Params = {
@@ -100,7 +105,18 @@ export const useVotingList = () => {
     setIsModalOpen(false);
   }, []);
 
-  const tableData = useTableRows({ data, onDelete: handleOpenModal });
+  const handleMarkAsFailed = useCallback(
+    (id: number | string) => async () => {
+      await updateVoting({ body: { status_id: 3 }, id });
+      handleGetData();
+    },
+    [handleGetData, updateVoting],
+  );
+  const tableData = useTableRows({
+    data,
+    onDelete: handleOpenModal,
+    onMarkAsFailed: handleMarkAsFailed,
+  });
 
   const handleToggleIsDeleted = useCallback(() => {
     setIsDeleted((val) => !val);

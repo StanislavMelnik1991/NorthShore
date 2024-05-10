@@ -30,7 +30,7 @@ type ValuesType = {
 export const useUpdatePage = () => {
   const { t } = useTranslation('voting');
   const { id } = useParams<{ id: string }>();
-  const { update, validate } = useUpdateVoting(id as string);
+  const { update, validate } = useUpdateVoting();
   const { getData, isLoading } = useGetCurrentVoting(id as string);
   const navigate = useNavigate();
   const [isSendToAll, setIsSendToAll] = useState(true);
@@ -56,9 +56,12 @@ export const useUpdatePage = () => {
       validate: (values) => validate(values),
       onSubmit: async ({ recipient_groups, date_finish, ...body }) => {
         const data = await update({
-          ...body,
-          recipient_groups: isSendToAll ? [] : recipient_groups,
-          date_finish: date_finish || undefined,
+          body: {
+            ...body,
+            recipient_groups: isSendToAll ? [] : recipient_groups,
+            date_finish: date_finish || undefined,
+          },
+          id: id as string,
         });
         if (data && data.id && String(data.id) === String(id)) {
           navigate(
@@ -71,6 +74,9 @@ export const useUpdatePage = () => {
   useEffect(() => {
     getData().then((data) => {
       if (data) {
+        if (data.status.id !== 1) {
+          navigate(AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](data.id));
+        }
         const {
           recipient_groups,
           date_finish,
@@ -122,7 +128,7 @@ export const useUpdatePage = () => {
         setIsSendToAll(!access.length);
       }
     });
-  }, [getData, setValues]);
+  }, [getData, navigate, setValues]);
 
   return {
     errors,

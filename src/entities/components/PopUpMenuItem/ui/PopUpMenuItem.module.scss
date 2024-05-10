@@ -8,4 +8,8 @@
   &:hover {
     background-color: var(--gray-10);
   }
+
+  svg {
+    flex-shrink: 0;
+  }
 }
