@@ -33,8 +33,12 @@ jobs:
     - name: Install Netlify CLI
       run: npm install netlify-cli -g
 
+    - name: Get last commit message
+      id: commit
+      run: echo "::set-output name=message::$(git log --format=%B -n 1)"
+
     - name: Deploy to Netlify
-      run: netlify deploy --dir=build --prod
+      run: netlify deploy --dir=build --prod --message "${{ steps.commit.outputs.message }}"
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
