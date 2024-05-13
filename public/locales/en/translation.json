@@ -32,7 +32,9 @@
     "video": "Video Surveillance",
     "energy": "Energy resources",
     "heating": "Heating points",
-    "lifts": "Lifts"
+    "lifts": "Lifts",
+    "accessRights": "Access rights",
+    "roles": "Roles"
   },
   "header": {
     "login": "Log In",

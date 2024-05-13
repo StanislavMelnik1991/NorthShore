@@ -53,6 +53,9 @@
     "notification": "уведомление",
     "deadline": "дедлайн",
     "showResults": "отображение результатов",
-    "status": "статус"
+    "status": "статус",
+    "roles": "роли",
+    "rolesDescription": "описание ролей",
+    "staff": "сотрудники"
   }
 }

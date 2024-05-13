@@ -60,7 +60,10 @@ export enum AppRoutesEnum {
   INFORM,
   PASSPORT,
   USERS,
-  ADMIN_SETTINGS,
+
+  ADMIN_ROLES,
+  ADMIN_ROLES_CREATE,
+  ADMIN_ROLES_UPDATE,
 
   ADMIN_REQUESTS,
   ADMIN_REQUESTS_CURRENT,
@@ -131,7 +134,11 @@ export const AppRoutes = {
   [AppRoutesEnum.KNOWLEDGE]: () => '/knowledge',
   [AppRoutesEnum.SETTINGS]: () => '/settings',
 
-  [AppRoutesEnum.ADMIN_SETTINGS]: () => '/admin/settings',
+  [AppRoutesEnum.ADMIN_ROLES]: () => '/admin/roles',
+  [AppRoutesEnum.ADMIN_ROLES_CREATE]: () => '/admin/roles/create',
+  [AppRoutesEnum.ADMIN_ROLES_UPDATE]: (id: number | string) =>
+    `/admin/roles/${id}/update`,
+
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
   [AppRoutesEnum.INFORM]: () => '/admin/inform',

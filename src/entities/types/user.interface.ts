@@ -1,6 +1,6 @@
 import { BaseEntity } from './global.interface';
 
-export interface IRole extends BaseEntity {
+interface IRole extends BaseEntity {
   access: Array<number> | null;
 }
 

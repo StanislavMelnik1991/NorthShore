@@ -16,3 +16,4 @@ export * from './voting.interface';
 export * from './formik.interface';
 export * from './technicalWork.interface';
 export * from './announcement.interface';
+export * from './roles.interface';

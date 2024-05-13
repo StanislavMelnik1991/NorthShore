@@ -53,6 +53,9 @@
     "notification": "notification",
     "deadline": "deadline",
     "showResults": "result display",
-    "status": "status"
+    "status": "status",
+    "roles": "roles",
+    "rolesDescription": "role description",
+    "staff": "staff"
   }
 }

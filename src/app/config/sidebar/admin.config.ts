@@ -162,10 +162,15 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       isLink: true,
     },
     {
-      title: t('sidebar.settings'),
+      title: t('sidebar.accessRights'),
       icon: IconGear,
-      href: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
       isLink: true,
+      breadcrumbs: [
+        {
+          title: t('sidebar.roles'),
+          href: AppRoutes[AppRoutesEnum.ADMIN_ROLES](),
+        },
+      ],
     },
   ];
 };

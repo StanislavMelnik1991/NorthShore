@@ -1,3 +1,8 @@
+import {
+  CreateRolePage,
+  RolesListPage,
+  UpdateRolePage,
+} from '@pages/accessRights';
 import { UserCurrentVotingPage, UserVotingPage } from '@pages/activity';
 import { UserMeetingsPage } from '@pages/activity/Meetings/list';
 import {
@@ -221,9 +226,21 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ADMIN_SETTINGS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ADMIN_ROLES]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES](),
+    element: <RolesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ROLES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES_CREATE](),
+    element: <CreateRolePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ROLES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES_UPDATE](':id'),
+    element: <UpdateRolePage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

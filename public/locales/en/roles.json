@@ -1,0 +1,27 @@
+{
+  "modules": {
+    "list": "Roles",
+    "create": "Create new role",
+    "update": "Edit role",
+    "accessRights": "Access rights"
+  },
+  "actions": {
+    "add": "Create",
+    "edit": "Update",
+    "delete": "Delete"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete this role",
+    "text": "This action cannot be undone"
+  },
+  "editor": {
+    "name": {
+      "label": "Role name",
+      "placeholder": "Enter role name"
+    },
+    "description": {
+      "label": "Role description",
+      "placeholder": "Enter role description"
+    }
+  }
+}
