@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'use-debounce';
 import {
   useDeleteVoting,
-  useGetUserVotingList,
+  useGetVotingList,
   useUpdateVoting,
 } from '@features/Admin';
 import { useVotingStatusList } from '@features/Admin/Voting/hooks/getStatusList';
@@ -19,7 +19,7 @@ interface Params extends ListParams {
 
 export const useVotingList = () => {
   const { t } = useTranslation();
-  const { getData, isLoading, total, data } = useGetUserVotingList();
+  const { getData, isLoading, total, data } = useGetVotingList();
   const { deleteVoting } = useDeleteVoting();
   const {
     getData: getVotingList,

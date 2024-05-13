@@ -27,7 +27,7 @@ export const NavItem = ({
     isActive,
   } = useNavItem({ href, pathname, breadcrumbs });
 
-  if (isLink) {
+  if (isLink && href) {
     return (
       <NavLink
         to={href}

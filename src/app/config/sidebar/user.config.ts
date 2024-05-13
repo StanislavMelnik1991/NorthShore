@@ -36,8 +36,17 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.activity'),
       icon: IconLoudspeaker,
-      href: AppRoutes[AppRoutesEnum.ACTIVITY](),
-      isLink: true,
+      isLink: false,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.ACTIVITY_VOTING](),
+          title: t('sidebar.voting'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS](),
+          title: t('sidebar.meetings'),
+        },
+      ],
     },
     {
       title: t('sidebar.services'),
@@ -48,7 +57,6 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.invocation'),
       icon: IconDocumentHolder,
-      href: '',
       isLink: false,
       breadcrumbs: [
         {

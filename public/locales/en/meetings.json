@@ -1,6 +1,7 @@
 {
   "routes": {
     "meetings": "Meetings",
+    "meeting": "Meeting",
     "edit": "Meeting Editing",
     "create": "Meeting Creation"
   },
@@ -53,6 +54,12 @@
     "createError": "Failed to create meeting",
     "notFound": "Failed to get meeting",
     "listError": "Failed to get meeting list"
+  },
+  "filters": {
+    "all": "All",
+    "actual": "Actual",
+    "closed": "Closed",
+    "failed": "Failed"
   },
   "table": {
     "index": "№",

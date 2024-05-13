@@ -28,7 +28,9 @@ export const VotingContent = ({ className, data, language }: Props) => {
       <Text className={styles.dark} variant="body14" fontWeight="medium">
         {format(publishDate, 'dd.MM.yyyy')}
       </Text>
-      <Title>{data?.title[language] || ' '}</Title>
+      <Title variant="h2" fontWeight="semibold">
+        {data?.title[language] || ' '}
+      </Title>
       <Text className={styles.dark} variant="body14" fontWeight="medium">
         {t('editor.titles.recipients')}
       </Text>

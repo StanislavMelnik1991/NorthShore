@@ -1,3 +1,5 @@
+import { UserCurrentVotingPage, UserVotingPage } from '@pages/activity';
+import { UserMeetingsPage } from '@pages/activity/Meetings/list';
 import {
   AdminNewsListPage,
   CreateNewsPage,
@@ -420,11 +422,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <CurrentEventPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.MEETINGS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](':id'),
-    element: <CurrentMeetingPage />,
-    authOnly: false,
-  },
+
   [AppRoutesEnum.LOGIN]: {
     path: AppRoutes[AppRoutesEnum.LOGIN](),
     element: <LoginPage />,
@@ -451,9 +449,24 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <EventsListPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.ACTIVITY]: {
-    path: AppRoutes[AppRoutesEnum.ACTIVITY](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ACTIVITY_VOTING]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_VOTING](),
+    element: <UserVotingPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_VOTING_CURRENT](':id'),
+    element: <UserCurrentVotingPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_MEETINGS]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS](),
+    element: <UserMeetingsPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT](':id'),
+    element: <CurrentMeetingPage />,
     authOnly: false,
   },
   [AppRoutesEnum.SERVICES]: {

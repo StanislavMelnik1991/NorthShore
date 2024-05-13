@@ -29,7 +29,11 @@ export const Radio = ({
   ...props
 }: Props) => {
   return (
-    <label className={classNames(styles.wrapper, wrapperClassName)}>
+    <label
+      className={classNames(styles.wrapper, wrapperClassName, {
+        [styles.disabled]: disabled,
+      })}
+    >
       <input
         className={styles.input}
         type="radio"

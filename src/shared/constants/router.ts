@@ -2,12 +2,14 @@ export enum AppRoutesEnum {
   // User pages
   NEWS_CURRENT,
   EVENT_CURRENT,
-  MEETINGS_CURRENT,
   MAIN,
   FORBIDDEN,
   NEWS,
   POSTER,
-  ACTIVITY,
+  ACTIVITY_VOTING,
+  ACTIVITY_VOTING_CURRENT,
+  ACTIVITY_MEETINGS,
+  ACTIVITY_MEETINGS_CURRENT,
   SERVICES,
 
   REQUESTS,
@@ -106,13 +108,17 @@ export const AppRoutes = {
     '/admin/info/technical_works',
   [AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS]: () => '/admin/info/announcements',
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
-  [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
+  [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: (id: number | string) =>
+    `/meeting/${id}`,
   [AppRoutesEnum.LOGIN]: () => '/login',
   [AppRoutesEnum.REGISTRATION]: () => '/registration',
   [AppRoutesEnum.NEWS]: () => '/news',
   [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
   [AppRoutesEnum.POSTER]: () => '/poster',
-  [AppRoutesEnum.ACTIVITY]: () => '/activity',
+  [AppRoutesEnum.ACTIVITY_MEETINGS]: () => '/activity/meetings',
+  [AppRoutesEnum.ACTIVITY_VOTING]: () => '/activity/voting',
+  [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: (id: number | string) =>
+    `/activity/voting/${id}`,
   [AppRoutesEnum.SERVICES]: () => '/services',
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',

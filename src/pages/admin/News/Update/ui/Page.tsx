@@ -4,7 +4,7 @@ import { Modal, PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconEyeOpen } from '@shared/icons';
 import { Button } from '@shared/ui';
-import { useUpdateNewsPage } from '../hook/useUpdateNews';
+import { useUpdateNewsPage } from '../hook';
 
 const Page = () => {
   const {

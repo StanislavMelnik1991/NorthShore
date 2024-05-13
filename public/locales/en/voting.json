@@ -20,7 +20,8 @@
     "addVariant": "Add a variant",
     "addQuestion": "Add a new question",
     "back": "Back",
-    "edit": "Edit"
+    "edit": "Edit",
+    "send": "Send"
   },
   "editor": {
     "titles": {
@@ -60,5 +61,15 @@
       "label": "answer",
       "placeholder": "Enter an answer choice"
     }
-  }
+  },
+  "filters": {
+    "all": "All",
+    "actual": "Actual",
+    "closed": "Closed"
+  },
+  "deadline": "Until the end",
+  "unexpected": "Something went wrong",
+  "confident": "Are you confident in your choice?",
+  "yes": "Yes" ,
+  "back":"Back"
 }

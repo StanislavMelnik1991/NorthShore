@@ -1,0 +1,24 @@
+.wrapper {
+  height: 156px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.dark {
+  color: var(--dark-50);
+}
+
+.deadline {
+  margin-top: auto;
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 6px;
+  background-color: var(--dark-10);
+  border-radius: var(--radius-sm);
+}

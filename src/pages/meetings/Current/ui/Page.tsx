@@ -19,7 +19,7 @@ export default () => {
         hideTitle
         breadcrumbs={[
           {
-            href: AppRoutes[AppRoutesEnum.ADMIN_MEETINGS](),
+            href: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS](),
             title: t('routes.meetings'),
           },
           {

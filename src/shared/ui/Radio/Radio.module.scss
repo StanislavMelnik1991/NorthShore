@@ -46,3 +46,7 @@
   text-align: left;
   user-select: none;
 }
+
+.disabled {
+  pointer-events: none;
+}
