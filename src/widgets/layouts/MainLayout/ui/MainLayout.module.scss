@@ -10,6 +10,7 @@
   grid-column: 1 / -1;
   background: var(--white-100);
   position: relative;
+  height: var(--header-height);
 }
 
 .sidebar {
@@ -66,13 +67,13 @@
 }
 
 .popup {
-  position: absolute;
+  position: fixed;
   background-color: var(--white-100);
   border: var(--border-width) solid var(--dark-20);
   border-top: none;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   right: 0;
-  top: 0;
+  top: var(--header-height);
   z-index: 5;
   transition: all var(--animation-duration) ease;
   max-height: 100%;
