@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetInfinityTechnicalWorksList } from '@features/technicalWorks';
-import { ITechWork, ListParams } from '@entities/types';
-import { LanguageEnum } from '@shared/constants';
+import { useGetInfinityAnnouncementsList } from '@features/announcements';
+import { IAnnouncement, ListParams } from '@entities/types';
 
 export const useTechnicalWorks = () => {
-  const { t, i18n } = useTranslation('technicalWorks');
-  const { getData, isLoading, hasMore } = useGetInfinityTechnicalWorksList();
+  const { t, i18n } = useTranslation('announcements');
+  const { getData, isLoading, hasMore } = useGetInfinityAnnouncementsList();
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<Array<ITechWork>>([]);
+  const [data, setData] = useState<Array<IAnnouncement>>([]);
   const [from, setFrom] = useState<Date | null>(null);
   const [to, setTo] = useState<Date | null>(null);
   const [showSelect, setShowSelect] = useState(false);
@@ -19,16 +18,16 @@ export const useTechnicalWorks = () => {
     to?: number;
   }
 
-  const handleLoadTechnicalWorks = useCallback(async () => {
-    const techWorksParams: Params = {
+  const handleLoadAnnouncements = useCallback(async () => {
+    const announcementParams: Params = {
       page: page,
-      perPage: 5,
+      perPage: 6,
       from: to && from ? Math.ceil(from.getTime() / 1000) : undefined,
       to: to ? Math.ceil(to.getTime() / 1000) : undefined,
     };
-    const techWorks = await getData(techWorksParams);
-    if (techWorks) {
-      setData((val) => [...val, ...techWorks]);
+    const announcements = await getData(announcementParams);
+    if (announcements) {
+      setData((val) => [...val, ...announcements]);
       setPage((val) => val + 1);
     }
   }, [getData, page, from, to]);
@@ -51,15 +50,15 @@ export const useTechnicalWorks = () => {
   }, [from, to]);
 
   useEffect(() => {
-    const techWorksParams: Params = {
+    const announcementParams: Params = {
       page: 1,
       perPage: 5,
       from: to && from ? Math.ceil(from.getTime() / 1000) : undefined,
       to: to ? Math.ceil(to.getTime() / 1000) : undefined,
     };
-    getData(techWorksParams).then((techWorks) => {
-      if (techWorks) {
-        setData((val) => [...val, ...techWorks]);
+    getData(announcementParams).then((announcements) => {
+      if (announcements) {
+        setData((val) => [...val, ...announcements]);
         setPage((val) => val + 1);
       }
     });
@@ -81,12 +80,11 @@ export const useTechnicalWorks = () => {
   }, []);
 
   return {
-    techWorks: data,
+    announcements: data,
     t,
     i18n,
-    lang: i18n.language as LanguageEnum,
     hasMore,
-    handleLoadTechnicalWorks,
+    handleLoadAnnouncements,
     isLoading,
     from,
     to,

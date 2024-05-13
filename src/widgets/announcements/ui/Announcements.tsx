@@ -1,27 +1,32 @@
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { TechWork, StyledRangeDatePicker } from '@entities/components';
-import { ITechWork } from '@entities/types';
+import sanitizeHtml from 'sanitize-html';
+import { Announcement, StyledRangeDatePicker } from '@entities/components';
+import { IAnnouncement } from '@entities/types';
+import {
+  allowedAttributesSchema,
+  allowedIframeHostnamesSchema,
+  allowedTagsSanitizer,
+} from '@shared/constants';
 import { SCROLLING_CONTAINER_ID } from '@shared/constants/scrolling';
 import { IconCalendar, IconArrow } from '@shared/icons';
 import { Loader } from '@shared/ui';
 import { useTechnicalWorks } from '../hook';
-import styles from './TechnicalWorks.module.scss';
+import styles from './Announcements.module.scss';
 
 interface Props {
   showFilter?: boolean;
   className?: string;
-  onClick?: (value: { item: ITechWork; period: string }) => void;
+  onClick?: (value: IAnnouncement) => void;
 }
 
-export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
+export const Announcements = ({ showFilter, className, onClick }: Props) => {
   const {
-    techWorks,
+    announcements,
     t,
     i18n,
-    handleLoadTechnicalWorks,
+    handleLoadAnnouncements,
     hasMore,
-    lang,
     from,
     to,
     handleChange,
@@ -32,10 +37,7 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
   return (
     <div>
       {showFilter && (
-        <div
-          ref={selectWrapper}
-          className={classNames(styles.select__wrapper, className)}
-        >
+        <div ref={selectWrapper} className={styles.select__wrapper}>
           <div className={styles.select} onClick={handleSelectClick}>
             <div className={styles.select__inner}>
               <IconCalendar fill={'var(--dark-60)'} width={16} height={16} />
@@ -73,8 +75,8 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
       <InfiniteScroll
         className={classNames(styles.cards__wrapper, className)}
         scrollableTarget={SCROLLING_CONTAINER_ID}
-        dataLength={techWorks.length}
-        next={handleLoadTechnicalWorks}
+        dataLength={announcements.length}
+        next={handleLoadAnnouncements}
         hasMore={hasMore}
         loader={
           <div className={styles.loader}>
@@ -83,45 +85,19 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
         }
         endMessage={''}
       >
-        {techWorks.map((el, index) => {
-          let period = '';
-          if (el.date_start)
-            period +=
-              t('from') +
-              ' ' +
-              new Date(el.date_start).toLocaleDateString(i18n.language, {
-                day: 'numeric',
-                month: 'long',
-                year:
-                  new Date(el.date_end).getFullYear >
-                  new Date(el.date_start).getFullYear
-                    ? 'numeric'
-                    : undefined,
-              }) +
-              ' ';
-          if (el.date_end)
-            period +=
-              t('to') +
-              ' ' +
-              new Date(el.date_end).toLocaleDateString(i18n.language, {
-                day: 'numeric',
-                month: 'long',
-                year:
-                  new Date(el.date_end).getFullYear >
-                  new Date(el.date_start).getFullYear
-                    ? 'numeric'
-                    : undefined,
-              });
-          period = period[0].toUpperCase() + period.slice(1);
+        {announcements.map((el, index) => {
           return (
-            <TechWork
-              title={el.title[lang] || ''}
-              text={el.body[lang] || ''}
+            <Announcement
+              title={el.title}
+              html={sanitizeHtml(el.body, {
+                allowedTags: allowedTagsSanitizer,
+                allowedAttributes: allowedAttributesSchema,
+                allowedIframeHostnames: allowedIframeHostnamesSchema,
+              })}
               key={index}
-              period={period}
-              image={el.type.icon_site}
+              date={el.date_add}
               onClick={() => {
-                if (onClick) onClick({ item: el, period: period });
+                if (onClick) onClick(el);
               }}
             />
           );

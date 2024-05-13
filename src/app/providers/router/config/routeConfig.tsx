@@ -17,6 +17,7 @@ import {
   UpdateVotingPage,
   UpdateVotingQuestionsPage,
   AdminTechnicalWorks,
+  AdminAnnouncements,
   CurrentVotingPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
@@ -76,6 +77,12 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS](),
     element: <AdminTechnicalWorks />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS](),
+    element: <AdminAnnouncements />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

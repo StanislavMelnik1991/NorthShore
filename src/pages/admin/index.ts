@@ -5,3 +5,4 @@ export * from './Notifications';
 export * from './Main';
 export * from './Voting';
 export * from './TechnicalWorks';
+export * from './Announcements';

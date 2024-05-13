@@ -27,9 +27,27 @@
   grid-template-columns: 60% 40%;
 }
 
+.left {
+  padding-right: 20px;
+
+  &__inner div {
+    max-width: 100% !important;
+    cursor: auto;
+  }
+}
+
 .right {
   padding-left: 20px;
   border-left: 1px solid var(--gray-30);
+
+  &__inner div {
+    height: auto;
+    cursor: auto;
+
+    & main p:last-child {
+      display: none;
+    }
+  }
 }
 
 .block__header {
@@ -47,5 +65,6 @@
     color: var(--dark-60);
     font-weight: 500;
     font-size: 14;
+    margin-right: 12px;
   }
 }
