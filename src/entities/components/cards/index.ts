@@ -6,3 +6,4 @@ export * from './techWorks';
 export * from './announcements';
 export * from './voting';
 export * from './meeting';
+export * from './accident';

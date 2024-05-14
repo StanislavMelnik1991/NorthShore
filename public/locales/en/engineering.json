@@ -1,9 +1,11 @@
 {
   "routes": {
-    "energy": "Energy resources"
+    "energy": "Energy resources",
+    "heating": "Heating points"
   },
   "energy": {
     "total": "Total consumption",
     "periodTotal": "Total for the period:"
-  }
+  },
+  "outsideTemperature": "Outside air temperature"
 }

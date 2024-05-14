@@ -49,3 +49,4 @@ export * from './Check';
 export * from './Logout';
 export * from './Settings';
 export * from './Image';
+export * from './Sheild';

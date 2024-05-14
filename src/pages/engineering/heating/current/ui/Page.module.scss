@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 20px;
+}
+
+.schema {
+  width: 100%;
+  height: auto;
+  margin-top: -45px;
+  margin-bottom: 60px;
+}
+
+.thermometer {
+  background-color: var(--dark-10);
+  width: fit-content;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accidents {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

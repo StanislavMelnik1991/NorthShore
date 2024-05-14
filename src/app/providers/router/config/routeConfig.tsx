@@ -28,8 +28,11 @@ import {
   CurrentVotingPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
-import { EnergyListPage } from '@pages/engineering/energy';
-import { CurrentEnergyPage } from '@pages/engineering/energy/current';
+import {
+  CurrentEnergyPage,
+  CurrentHeatingPage,
+  EnergyListPage,
+} from '@pages/engineering';
 import { CurrentEventPage } from '@pages/events';
 import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
@@ -219,7 +222,6 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-
   [AppRoutesEnum.ADMIN_VOTING_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](':id'),
     element: <CurrentVotingPage />,
@@ -294,7 +296,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ENGINEERING_HEATING]: {
     path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
-    element: <NotFoundPage />,
+    element: <CurrentHeatingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
