@@ -1,4 +1,4 @@
-import { IRecipientGroup } from './address.interface';
+import { IRecipientAddressGroup } from './address.interface';
 import { BaseEntity } from './global.interface';
 import { IFile } from './image.interface';
 import { ILocalizedData } from './localization.interface';
@@ -11,7 +11,7 @@ export interface INotification extends BaseEntity {
   image: IFile | null;
   image_id: IFile['id'] | null;
   need_push: 0 | 1;
-  recipient_groups: Array<IRecipientGroup>;
+  recipient_groups: Array<IRecipientAddressGroup>;
   unread: 0 | 1;
   url: string | null;
   user_id: IUser['id'] | null;

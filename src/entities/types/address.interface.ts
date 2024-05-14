@@ -41,7 +41,7 @@ export interface IApartmentFull extends IApartment {
   entrance: IEntranceFull;
 }
 
-export interface IRecipientGroup {
+export interface IRecipientAddressGroup {
   apartment: IApartment | null;
   entrance: IEntrance | null;
   building: IBuilding | null;

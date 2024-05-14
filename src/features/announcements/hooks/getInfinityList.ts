@@ -17,6 +17,7 @@ export const useGetInfinityAnnouncementsList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(false);
+  const [total, setTotal] = useState(0);
 
   const getData = useCallback(
     async (params: ListParams) => {
@@ -27,6 +28,7 @@ export const useGetInfinityAnnouncementsList = () => {
           { params },
         );
         if (data?.data?.data) {
+          setTotal(data.data.total_pages);
           if (params.page) {
             setHasMore(params.page < data.data.total_pages);
           }
@@ -50,5 +52,6 @@ export const useGetInfinityAnnouncementsList = () => {
     getData,
     isLoading,
     hasMore,
+    total,
   };
 };

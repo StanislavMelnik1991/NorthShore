@@ -84,7 +84,10 @@ export enum AppRoutesEnum {
   ADMIN_LOYALTY,
   ADMIN_SERVICES,
   ADMIN_ADVERTISEMENT,
+
   ADMIN_EMPLOYEE_ANNOUNCEMENTS,
+  ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE,
+  ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE,
   // Auth
   LOGIN,
   REGISTRATION,
@@ -197,8 +200,14 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
   [AppRoutesEnum.ADMIN_SERVICES]: () => '/admin/services',
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: () => '/admin/advertisement',
+
   [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: () =>
     '/admin/employee_announcements',
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE]: () =>
+    '/admin/employee_announcements/create',
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE]: (id: number | string) =>
+    `/admin/employee_announcements/${id}/update`,
+
   [AppRoutesEnum.ADMIN_NOTIFICATIONS]: () => '/admin/notifications',
   [AppRoutesEnum.ADMIN_NOTIFICATIONS_CREATE]: () =>
     '/admin/notifications/create',

@@ -41,9 +41,6 @@ export const StyledSelect = ({
             }
             return styles.container;
           },
-          menu: () => {
-            return styles.menu;
-          },
           option: (state) => {
             if (state.isSelected) {
               return styles.optionSelected;
@@ -53,9 +50,9 @@ export const StyledSelect = ({
             }
             return styles.option;
           },
-          input: () => {
-            return styles.input;
-          },
+          menu: () => styles.menu,
+          input: () => styles.input,
+          multiValue: () => styles.multiValue,
         }}
         styles={{
           control: (baseStyles) => ({

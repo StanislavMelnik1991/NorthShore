@@ -26,6 +26,9 @@ import {
   AdminTechnicalWorks,
   AdminAnnouncements,
   CurrentVotingPage,
+  CreateAnnouncementPage,
+  AdminAnnouncementsTablePage,
+  UpdateAnnouncementPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import {
@@ -170,7 +173,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS](),
-    element: <NotFoundPage />,
+    element: <AdminAnnouncementsTablePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE](),
+    element: <CreateAnnouncementPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE](':id'),
+    element: <UpdateAnnouncementPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

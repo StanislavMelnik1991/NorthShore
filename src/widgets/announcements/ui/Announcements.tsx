@@ -1,13 +1,8 @@
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import sanitizeHtml from 'sanitize-html';
+import { extractTextFromHtml } from '@features/utils';
 import { Announcement, StyledRangeDatePicker } from '@entities/components';
 import { IAnnouncement } from '@entities/types';
-import {
-  allowedAttributesSchema,
-  allowedIframeHostnamesSchema,
-  allowedTagsSanitizer,
-} from '@shared/constants';
 import { SCROLLING_CONTAINER_ID } from '@shared/constants/scrolling';
 import { IconCalendar, IconArrow } from '@shared/icons';
 import { Loader } from '@shared/ui';
@@ -89,11 +84,7 @@ export const Announcements = ({ showFilter, className, onClick }: Props) => {
           return (
             <Announcement
               title={el.title}
-              html={sanitizeHtml(el.body, {
-                allowedTags: allowedTagsSanitizer,
-                allowedAttributes: allowedAttributesSchema,
-                allowedIframeHostnames: allowedIframeHostnamesSchema,
-              })}
+              html={extractTextFromHtml(el.body)}
               key={index}
               date={el.date_add}
               onClick={() => {

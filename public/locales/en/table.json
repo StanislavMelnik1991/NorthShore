@@ -56,6 +56,7 @@
     "status": "status",
     "roles": "roles",
     "rolesDescription": "role description",
-    "staff": "staff"
+    "staff": "staff",
+    "date": "date"
   }
 }
