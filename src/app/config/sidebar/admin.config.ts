@@ -9,7 +9,6 @@ import {
   IconLock,
   IconWrench,
   IconDocumentHolder,
-  IconLoudspeaker,
   IconPassport,
   IconPeople,
   IconGear,
@@ -142,12 +141,6 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
           title: t('sidebar.employee_announcements'),
         },
       ],
-    },
-    {
-      title: t('sidebar.inform'),
-      icon: IconLoudspeaker,
-      href: AppRoutes[AppRoutesEnum.INFORM](),
-      isLink: true,
     },
     {
       title: t('sidebar.passport'),

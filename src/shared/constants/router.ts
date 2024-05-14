@@ -57,7 +57,6 @@ export enum AppRoutesEnum {
   ENGINEERING_HEATING,
   ENGINEERING_LIFTS,
 
-  INFORM,
   PASSPORT,
   USERS,
 
@@ -144,7 +143,6 @@ export const AppRoutes = {
 
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
-  [AppRoutesEnum.INFORM]: () => '/admin/inform',
 
   [AppRoutesEnum.ADMIN_REQUESTS]: () => '/admin/requests',
   [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: (id: number | string) =>

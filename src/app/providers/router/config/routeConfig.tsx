@@ -273,12 +273,6 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.INFORM]: {
-    path: AppRoutes[AppRoutesEnum.INFORM](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_STAFF,
-  },
   [AppRoutesEnum.ADMIN_REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
     element: <RequestMainPage />,
