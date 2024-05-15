@@ -23,6 +23,14 @@
   overflow: auto;
   box-sizing: content-box;
 
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--dark-20);
+  }
+
   @media (width < 1280px) {
     display: none;
   }
