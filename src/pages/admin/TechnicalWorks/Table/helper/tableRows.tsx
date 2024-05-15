@@ -56,7 +56,7 @@ export const useTableRows = ({ data, onDelete }: Props) => {
         responsible: (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <TableText fontWeight="semibold">{responsible.name}</TableText>
-            <TableText>{responsible.department.name}</TableText>
+            <TableText>{responsible.phone_number}</TableText>
           </div>
         ),
         controls: (

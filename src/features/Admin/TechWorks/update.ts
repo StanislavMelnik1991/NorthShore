@@ -66,14 +66,14 @@ export const useUpdateTechWork = () => {
           { ...body, is_archive: 0, status_id: 1 },
         );
         if (data && data.data && data.data.id) {
-          toast.success(t('toast.createSuccess'));
+          toast.success(t('toast.updateSuccess'));
           return data.data;
         } else {
-          toast.error(t('toast.createError'));
+          toast.error(t('toast.updateError'));
         }
       } catch (error) {
         console.error(error);
-        toast.error(t('toast.createError'));
+        toast.error(t('toast.updateError'));
       }
     },
     [t, validate],

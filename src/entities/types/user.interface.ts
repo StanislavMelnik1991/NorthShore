@@ -36,4 +36,5 @@ export interface IParent extends BaseEntity {
 
 export interface IEmployee extends IUserShort {
   department: BaseEntity;
+  phone_number: string;
 }
