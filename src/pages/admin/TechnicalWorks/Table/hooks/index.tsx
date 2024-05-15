@@ -2,32 +2,50 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'use-debounce';
 import {
-  useDeleteVoting,
-  useGetVotingList,
-  useUpdateVoting,
-  useVotingStatusList,
-} from '@features/Admin';
+  useGetTechnicalWorksList,
+  useGetTechnicalWorksTypesList,
+  useGetTechnicalWorksNaturesList,
+  useDeleteTechnicalWork,
+  useGetTechnicalWorksStatusesList,
+} from '@features/technicalWorks';
 import { ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Params extends ListParams {
-  from?: Date;
-  to?: Date;
+  from?: number;
+  to?: number;
   status_id?: number;
+  type_id?: number;
+  nature_id?: number;
 }
 
 export const useVotingList = () => {
   const { t } = useTranslation();
-  const { getData, isLoading, total, data } = useGetVotingList();
-  const { deleteVoting } = useDeleteVoting();
+  const { getData, isLoading, total, data } = useGetTechnicalWorksList();
+  const { handleDelete } = useDeleteTechnicalWork();
   const {
-    getData: getVotingList,
-    isLoading: isVotingListLoading,
-    options,
-    selected,
-    setSelected,
-  } = useVotingStatusList();
+    getData: getTypes,
+    isLoading: isTypesLoading,
+    options: types,
+    selected: selectedType,
+    setSelected: setSelectedType,
+  } = useGetTechnicalWorksTypesList();
+  const {
+    getData: getNatures,
+    isLoading: isNaturesLoading,
+    options: natures,
+    selected: selectedNature,
+    setSelected: setSelectedNature,
+  } = useGetTechnicalWorksNaturesList();
+  const {
+    getData: getStatuses,
+    isLoading: isStatusesLoading,
+    options: statuses,
+    selected: selectedStatus,
+    setSelected: setSelectedStatus,
+  } = useGetTechnicalWorksStatusesList();
+
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -37,24 +55,38 @@ export const useVotingList = () => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
-  const { update: updateVoting } = useUpdateVoting();
 
   const handleGetData = useCallback(async () => {
     const params: Params = {
       page,
       perPage,
       searchValue: debounced.length ? debounced : undefined,
-      from: to && from ? from : undefined,
-      to: to || undefined,
-      status_id: selected?.value,
-      is_deleted: isDeleted,
+      from: from ? Math.ceil(from.getTime() / 1000) : undefined,
+      to: to ? Math.ceil(to.getTime() / 1000) : undefined,
+      status_id: selectedStatus?.value,
+      nature_id: selectedNature?.value,
+      type_id: selectedType?.value,
+      is_deleted: isDeleted || undefined,
     };
     getData(params);
-  }, [debounced, from, getData, isDeleted, page, perPage, selected?.value, to]);
+  }, [
+    debounced,
+    from,
+    getData,
+    isDeleted,
+    page,
+    perPage,
+    selectedNature?.value,
+    selectedStatus?.value,
+    selectedType?.value,
+    to,
+  ]);
 
   useEffect(() => {
-    getVotingList();
-  }, [getVotingList]);
+    getTypes();
+    getNatures();
+    getStatuses();
+  }, [getNatures, getStatuses, getTypes]);
 
   useEffect(() => {
     handleGetData();
@@ -70,7 +102,7 @@ export const useVotingList = () => {
     setPage(1);
   }, []);
 
-  const handleChange = (val: [Date | null, Date | null]) => {
+  const handleChangeDate = (val: [Date | null, Date | null]) => {
     setFrom(val?.[0] || null);
     setTo(val?.[1] || null);
   };
@@ -78,20 +110,36 @@ export const useVotingList = () => {
   const tableHeader = useTableHeader({
     from,
     to,
-    onChange: handleChange,
-    onSelect: setSelected,
-    options,
-    selected,
-    isSelectLoading: isVotingListLoading,
+    onDateChange: handleChangeDate,
+    loading: {
+      nature: isNaturesLoading,
+      status: isStatusesLoading,
+      type: isTypesLoading,
+    },
+    onChange: {
+      nature: setSelectedNature,
+      status: setSelectedStatus,
+      type: setSelectedType,
+    },
+    options: {
+      nature: natures,
+      status: statuses,
+      type: types,
+    },
+    value: {
+      nature: selectedNature,
+      status: selectedStatus,
+      type: selectedType,
+    },
   });
 
-  const handleDelete = useCallback(async () => {
+  const handleDeleteActive = useCallback(async () => {
     if (activeId) {
-      await deleteVoting(activeId);
+      await handleDelete(activeId);
       setIsModalOpen(false);
       handleGetData();
     }
-  }, [activeId, deleteVoting, handleGetData]);
+  }, [activeId, handleGetData, handleDelete]);
 
   const handleOpenModal = useCallback(
     (id: number) => () => {
@@ -105,17 +153,9 @@ export const useVotingList = () => {
     setIsModalOpen(false);
   }, []);
 
-  const handleMarkAsFailed = useCallback(
-    (id: number | string) => async () => {
-      await updateVoting({ body: { status_id: 3 }, id });
-      handleGetData();
-    },
-    [handleGetData, updateVoting],
-  );
   const tableData = useTableRows({
     data,
     onDelete: handleOpenModal,
-    onMarkAsFailed: handleMarkAsFailed,
   });
 
   const handleToggleIsDeleted = useCallback(() => {
@@ -131,7 +171,7 @@ export const useVotingList = () => {
     isDeleted,
     perPage,
     setPerPage: handleSetPerPage,
-    handleDelete,
+    handleDelete: handleDeleteActive,
     total,
     t,
     tableHeader,

@@ -10,3 +10,10 @@ export const getEndOfMonth = (date = new Date()) => {
   date.setHours(23, 59, 59, 999);
   return date;
 };
+
+export const convertToSeconds = (date?: Date | null) => {
+  if (!date) {
+    return 0;
+  }
+  return Math.ceil(date.getTime() / 1000);
+};

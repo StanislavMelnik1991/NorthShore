@@ -73,6 +73,8 @@ export enum AppRoutesEnum {
   ADMIN_NOTIFICATIONS_CURRENT,
 
   ADMIN_TECHNICAL_WORKS,
+  ADMIN_TECHNICAL_WORKS_CREATE,
+  ADMIN_TECHNICAL_WORKS_UPDATE,
 
   ADMIN_VOTING,
   ADMIN_VOTING_CREATE,
@@ -213,6 +215,10 @@ export const AppRoutes = {
     `/admin/notifications/${id}`,
 
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: () => '/admin/technical_works',
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE]: () =>
+    '/admin/technical_works/create',
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE]: (id: number | string) =>
+    `/admin/technical_works/${id}/update`,
 
   [AppRoutesEnum.ADMIN_VOTING]: () => '/admin/voting',
   [AppRoutesEnum.ADMIN_VOTING_CREATE]: () => '/admin/voting/create',

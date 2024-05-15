@@ -57,6 +57,9 @@
     "roles": "roles",
     "rolesDescription": "role description",
     "staff": "staff",
-    "date": "date"
+    "date": "date",
+    "period": "period",
+    "nature": "Nature of work",
+    "responsible": "responsible"
   }
 }

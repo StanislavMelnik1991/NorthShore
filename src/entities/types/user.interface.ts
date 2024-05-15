@@ -1,3 +1,4 @@
+import { LanguageEnum } from '@shared/constants';
 import { BaseEntity } from './global.interface';
 
 interface IRole extends BaseEntity {
@@ -8,6 +9,7 @@ export interface IUserShort extends BaseEntity {
   group: BaseEntity;
   avatar: string;
   childs: Array<IUserShort>;
+  lang: LanguageEnum;
 }
 
 export interface IUser extends IUserShort {
@@ -16,7 +18,6 @@ export interface IUser extends IUserShort {
   email: string;
   accept_intercom?: number;
   role: IRole;
-  lang: 'en' | 'ru';
   account_numbers: {
     id: number;
     user_id: number;
@@ -31,4 +32,8 @@ export interface IParent extends BaseEntity {
   group: BaseEntity;
   avatar: string;
   parent?: IParent;
+}
+
+export interface IEmployee extends IUserShort {
+  department: BaseEntity;
 }

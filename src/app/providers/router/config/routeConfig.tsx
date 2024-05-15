@@ -23,12 +23,15 @@ import {
   CreateVotingPage,
   UpdateVotingPage,
   UpdateVotingQuestionsPage,
-  AdminTechnicalWorks,
   AdminAnnouncements,
   CurrentVotingPage,
   CreateAnnouncementPage,
   AdminAnnouncementsTablePage,
   UpdateAnnouncementPage,
+  TechnicalWorksInfo,
+  AdminTechnicalWorksListPage,
+  CreateTechWorkPage,
+  UpdateTechWorkPage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import {
@@ -89,7 +92,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS](),
-    element: <AdminTechnicalWorks />,
+    element: <TechnicalWorksInfo />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -209,7 +212,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](),
-    element: <NotFoundPage />,
+    element: <AdminTechnicalWorksListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE](),
+    element: <CreateTechWorkPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE](':id'),
+    element: <UpdateTechWorkPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

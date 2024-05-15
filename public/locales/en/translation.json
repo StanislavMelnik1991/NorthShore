@@ -106,5 +106,9 @@
     "delete": "Delete",
     "open": "Open",
     "markAsFailed": "Mark as failed"
+  },
+  "period": {
+    "from": "From",
+    "to": "To"
   }
 }

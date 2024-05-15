@@ -38,6 +38,7 @@ export const NavItem = ({
         <Icon
           className={styles.icon}
           width={20}
+          height={20}
           theme={isActive ? 'dark' : 'light'}
         />
         <Text fontWeight="medium" variant="body14">
@@ -54,12 +55,22 @@ export const NavItem = ({
             [styles.active]: isActive,
           })}
         >
-          <Icon width={20} theme={isActive ? 'dark' : 'light'} />
+          <Icon
+            className={styles.icon}
+            width={20}
+            height={20}
+            theme={isActive ? 'dark' : 'light'}
+          />
           <Text fontWeight="medium" variant="body14">
             {title}
           </Text>
           {!!breadcrumbElementArr?.length && (
-            <IconArrow rotate={isExpanded ? 180 : 270} />
+            <IconArrow
+              className={styles.icon}
+              width={20}
+              height={20}
+              rotate={isExpanded ? 180 : 270}
+            />
           )}
         </div>
         {breadcrumbElementArr && !!breadcrumbElementArr.length && (

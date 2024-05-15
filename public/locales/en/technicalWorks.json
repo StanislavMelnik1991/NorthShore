@@ -4,5 +4,55 @@
   "to": "to",
   "details": "More details",
   "main": "Main",
-  "select": "For the period"
+  "select": "For the period",
+  "create": "Create Technical Work",
+  "update": "Update Technical Work",
+  "editor": {
+    "titles": {
+      "recipients": "Recipient Groups",
+      "en": "English Version",
+      "ru": "Russian Version"
+    },
+    "type": {
+      "label": "Type",
+      "placeholder": "Select work type"
+    },
+    "nature": {
+      "label": "Nature",
+      "placeholder": "Select work nature"
+    },
+    "url": {
+      "label": "Link to Additional Information",
+      "placeholder": "Enter link"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Technical Work Title"
+    },
+    "text": {
+      "label": "Text",
+      "placeholder": "Technical Work Text"
+    },
+    "staff": {
+      "label": "Responsible Person",
+      "placeholder": "Select Responsible Person"
+    },
+    "date_start": {
+      "label": "Work Start Date"
+    },
+    "date_end": {
+      "label": "Work End Date"
+    },
+    "need_push": {
+      "label": "Send Push Notification"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "update": "Update"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete?",
+    "text": "This action cannot be undone"
+  }
 }
