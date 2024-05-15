@@ -10,7 +10,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card, Divider, TextField } from '@shared/ui';
-import { useCreateIntercomPage } from '../hook';
+import { useCreatePage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
@@ -35,7 +35,7 @@ const Page = () => {
     selectedStaff,
     staffOptions,
     handleChangeStaffSelection,
-  } = useCreateIntercomPage();
+  } = useCreatePage();
 
   return (
     <PageSkeleton>

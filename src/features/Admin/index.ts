@@ -4,3 +4,4 @@ export * from './Notifications';
 export * from './Meetings';
 export * from './Voting';
 export * from './TechWorks';
+export * from './Loyalty';

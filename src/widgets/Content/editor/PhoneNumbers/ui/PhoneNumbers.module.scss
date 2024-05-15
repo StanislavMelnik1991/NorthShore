@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  gap: 24px;
+}
+
+.element {
+  width: calc((100% - 24px) / 2);
+}
+
+.button {
+  padding-bottom: 8px;
+  justify-content: flex-start;
+}

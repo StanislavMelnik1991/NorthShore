@@ -36,7 +36,7 @@ type Group = {
   apartment_id?: number | undefined;
 };
 
-export const useCreateIntercomPage = () => {
+export const useUpdatePage = () => {
   const { t } = useTranslation('technicalWorks');
   const { id } = useParams<{ id: string }>() as { id: string };
   const { update, validate } = useUpdateTechWork();

@@ -1,0 +1,56 @@
+{
+  "routes": {
+    "create": "Create Loyalty Program",
+    "update": "Editing the loyalty programme",
+    "list": "Loyalty Programs",
+    "notification": "Edit Loyalty Program"
+  },
+  "editor": {
+    "titles": {
+      "ru": "Russian Version",
+      "en": "English Version"
+    },
+    "company_name": {
+      "label": "Company Name",
+      "placeholder": "Enter company name"
+    },
+    "company_address": {
+      "label": "Company Address",
+      "placeholder": "Enter company address"
+    },
+    "phone": {
+      "label": "Company Phone Number",
+      "placeholder": "Enter company phone number"
+    },
+    "url": {
+      "label": "Company Website Link",
+      "placeholder": "Enter website link"
+    },
+    "contact_fio": {
+      "label": "Contact Name",
+      "placeholder": "Enter contact name"
+    },
+    "contact_phone": {
+      "label": "Contact Phone Number",
+      "placeholder": "Enter contact phone number"
+    },
+    "discount_value": {
+      "label": "Discount Value",
+      "placeholder": "Enter discount value"
+    },
+    "title": {
+      "label": "Program Title",
+      "placeholder": "Enter loyalty program title"
+    },
+    "text": {
+      "label": "Program Description",
+      "placeholder": "Enter loyalty program description"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "update": "Update",
+    "addPhone": "Add Phone Number",
+    "upload": "Upload Image"
+  }
+}

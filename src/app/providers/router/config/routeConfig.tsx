@@ -32,6 +32,9 @@ import {
   AdminTechnicalWorksListPage,
   CreateTechWorkPage,
   UpdateTechWorkPage,
+  CreateLoyaltyPage,
+  AdminLoyaltyListPage,
+  UpdateLoyalty,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import {
@@ -158,7 +161,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_LOYALTY]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
-    element: <NotFoundPage />,
+    element: <AdminLoyaltyListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_LOYALTY_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY_CREATE](),
+    element: <CreateLoyaltyPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_LOYALTY_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY_UPDATE](':id'),
+    element: <UpdateLoyalty />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

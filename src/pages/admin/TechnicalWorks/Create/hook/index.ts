@@ -34,7 +34,7 @@ type Group = {
   apartment_id?: number | undefined;
 };
 
-export const useCreateIntercomPage = () => {
+export const useCreatePage = () => {
   const { t } = useTranslation('technicalWorks');
   const { create, validate } = useCreateTechWork();
   const {

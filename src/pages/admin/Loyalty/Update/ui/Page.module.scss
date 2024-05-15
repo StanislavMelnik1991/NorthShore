@@ -1,0 +1,38 @@
+.card {
+  padding: 32px 24px;
+  margin-bottom: 128px;
+}
+
+.actions {
+  margin-top: 32px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+
+.select {
+  width: 100%;
+}
+
+.recipients {
+  z-index: 1;
+}
+
+.date {
+  z-index: 2;
+}
+
+.url {
+  z-index: 3;
+}
+
+.staff {
+  z-index: 4;
+}
+
+.workType {
+  z-index: 5;
+}

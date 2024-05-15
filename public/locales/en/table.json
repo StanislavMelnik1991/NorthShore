@@ -60,6 +60,8 @@
     "date": "date",
     "period": "period",
     "nature": "Nature of work",
-    "responsible": "responsible"
+    "responsible": "responsible",
+    "company": "company",
+    "discount": "discount"
   }
 }

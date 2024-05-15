@@ -12,7 +12,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card, Divider, TextField } from '@shared/ui';
-import { useCreateIntercomPage } from '../hook';
+import { useUpdatePage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
@@ -43,7 +43,7 @@ const Page = () => {
     isLoading,
     isModalOpen,
     handleDelete,
-  } = useCreateIntercomPage();
+  } = useUpdatePage();
 
   return (
     <PageSkeleton>

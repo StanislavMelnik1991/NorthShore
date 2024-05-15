@@ -76,7 +76,8 @@
     "find": "Search",
     "delete": "Delete",
     "greetings": "Good day",
-    "preview": "Preview"
+    "preview": "Preview",
+    "addPhone": "Add a phone number"
   },
   "remove": {
     "title": "Are you sure you want to delete?",

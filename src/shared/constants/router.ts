@@ -83,6 +83,9 @@ export enum AppRoutesEnum {
   ADMIN_VOTING_CURRENT,
 
   ADMIN_LOYALTY,
+  ADMIN_LOYALTY_CREATE,
+  ADMIN_LOYALTY_UPDATE,
+
   ADMIN_SERVICES,
   ADMIN_ADVERTISEMENT,
 
@@ -197,7 +200,12 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_NEWS]: () => '/admin/news',
   [AppRoutesEnum.ADMIN_EVENTS]: () => '/admin/events',
   [AppRoutesEnum.ADMIN_MEETINGS]: () => '/admin/meeting',
+
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
+  [AppRoutesEnum.ADMIN_LOYALTY_CREATE]: () => '/admin/loyalty/create',
+  [AppRoutesEnum.ADMIN_LOYALTY_UPDATE]: (id: number | string) =>
+    `/admin/loyalty/${id}`,
+
   [AppRoutesEnum.ADMIN_SERVICES]: () => '/admin/services',
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: () => '/admin/advertisement',
 
