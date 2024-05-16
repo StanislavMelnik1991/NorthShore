@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'use-debounce';
-import { useDeleteLoyalty, useGetServiceList } from '@features/Admin';
+import { useDeleteService, useGetServiceList } from '@features/Admin';
 import { ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
@@ -11,7 +11,7 @@ interface Params extends ListParams {}
 export const useVotingList = () => {
   const { t } = useTranslation();
   const { getData, isLoading, total, data } = useGetServiceList();
-  const { handleDelete } = useDeleteLoyalty();
+  const { handleDelete } = useDeleteService();
 
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
