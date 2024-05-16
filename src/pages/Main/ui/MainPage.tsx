@@ -36,6 +36,7 @@ const MainPage = () => {
         {advertisements.map((el) => {
           return (
             <AdvertisementCard
+              className={styles.advertisement}
               url={el.url}
               image={el[`image_${i18n.language as LanguageEnum}`].url}
               key={`advertisement-card-${el.id}`}

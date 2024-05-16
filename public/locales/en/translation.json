@@ -111,5 +111,12 @@
   "period": {
     "from": "From",
     "to": "To"
+  },
+  "footer": {
+    "northWaterfront": "«North Waterfront» Managing Organisation LLC",
+    "address": "Minsk, Sverdlova str. 11, office 329",
+    "advertisement": "Buy a flat in «North Waterfront»",
+    "therms": "Conditions of use",
+    "privacy": "Privacy Policy"
   }
 }
