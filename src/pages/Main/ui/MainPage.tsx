@@ -1,8 +1,11 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { EventsSlider } from '@widgets/events';
 import { NewsSlider } from '@widgets/news';
-import { PageSkeleton, UserGreetings } from '@entities/components';
+import {
+  AdvertisementCard,
+  PageSkeleton,
+  UserGreetings,
+} from '@entities/components';
 import {
   BREAK_POINT_MOBILE,
   BREAK_POINT_TAB,
@@ -32,17 +35,11 @@ const MainPage = () => {
       <div className={styles.advertisements} style={{ gap: sliderConfig.gap }}>
         {advertisements.map((el) => {
           return (
-            <Link
-              to={el.url}
-              target="_blank"
+            <AdvertisementCard
+              url={el.url}
+              image={el[`image_${i18n.language as LanguageEnum}`].url}
               key={`advertisement-card-${el.id}`}
-              className={styles.imageWrapper}
-            >
-              <img
-                className={styles.image}
-                src={el[`image_${i18n.language as LanguageEnum}`]?.filename}
-              />
-            </Link>
+            />
           );
         })}
       </div>

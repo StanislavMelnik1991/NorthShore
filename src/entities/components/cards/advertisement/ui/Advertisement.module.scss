@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  height: auto;
+  aspect-ratio: 471 / 160;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  width: 100%;
+}
