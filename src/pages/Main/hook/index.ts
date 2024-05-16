@@ -1,11 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useGetAdvertisementsList } from '@features/Admin';
 import { useUser } from '@features/User/hook';
 
 export const useMainPage = () => {
   const { t, i18n } = useTranslation();
   const { user } = useUser();
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const { getData, data: advertisements } = useGetAdvertisementsList();
+
+  useEffect(() => {
+    getData({ page: 1, perPage: 2 });
+  }, [getData]);
 
   useEffect(() => {
     const handleResize = () => setInnerWidth(window.innerWidth);
@@ -24,5 +30,13 @@ export const useMainPage = () => {
   };
   const dateString = new Date().toLocaleDateString(i18n.language, dateOptions);
 
-  return { innerWidth, t, userGreetingsMessage, dateString, isLogin: !!user };
+  return {
+    innerWidth,
+    t,
+    userGreetingsMessage,
+    dateString,
+    isLogin: !!user,
+    advertisements,
+    i18n,
+  };
 };

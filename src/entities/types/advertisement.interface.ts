@@ -2,7 +2,7 @@ import { BaseEntity } from './global.interface';
 import { IFile } from './image.interface';
 
 export interface IAdvertisement extends BaseEntity {
-  url?: string;
+  url: string;
   title: string;
   date_add: number;
   date_start?: number;
@@ -10,6 +10,6 @@ export interface IAdvertisement extends BaseEntity {
   image_en_id?: IFile['id'];
   image_ru_id?: IFile['id'];
   company_name: string;
-  image_en?: IFile;
-  image_ru?: IFile;
+  image_en: IFile;
+  image_ru: IFile;
 }
