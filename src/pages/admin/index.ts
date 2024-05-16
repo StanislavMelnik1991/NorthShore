@@ -7,3 +7,4 @@ export * from './Voting';
 export * from './TechnicalWorks';
 export * from './Announcements';
 export * from './Loyalty';
+export * from './Services';

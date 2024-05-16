@@ -35,6 +35,9 @@ import {
   CreateLoyaltyPage,
   AdminLoyaltyListPage,
   UpdateLoyalty,
+  AdminServicesListPage,
+  UpdateService,
+  CreateServicePage,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import {
@@ -179,7 +182,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_SERVICES]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
-    element: <NotFoundPage />,
+    element: <AdminServicesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_SERVICES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES_UPDATE](':id'),
+    element: <UpdateService />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_SERVICES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES_CREATE](),
+    element: <CreateServicePage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

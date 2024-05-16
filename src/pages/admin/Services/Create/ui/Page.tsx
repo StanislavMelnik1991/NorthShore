@@ -1,8 +1,6 @@
 import { PhoneNumbersEditor, TextContentEditor } from '@widgets/Content';
 import {
   Cover,
-  Modal,
-  ModalDelete,
   PageHeader,
   PageSkeleton,
   SubmitActions,
@@ -10,7 +8,7 @@ import {
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconStaple } from '@shared/icons';
 import { Button, Card, Divider, TextField } from '@shared/ui';
-import { useUpdatePage } from '../hook';
+import { useCreatePage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
@@ -26,38 +24,24 @@ const Page = () => {
     handleSetImage,
     image,
     loadingImage,
-    handleCloseModal,
-    handleDelete,
-    handleOpenModal,
-    isModalOpen,
-    isLoading,
-  } = useUpdatePage();
+  } = useCreatePage();
 
   return (
     <PageSkeleton>
       <input {...getInputProps()} />
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <ModalDelete
-          handleCloseModal={handleCloseModal}
-          handleDelete={handleDelete}
-          text={t('remove.text')}
-          title={t('remove.title')}
-        />
-      </Modal>
       <PageHeader
         breadcrumbs={[
           {
             title: t('routes.list'),
-            href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
+            href: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
           },
           {
-            title: t('routes.update'),
+            title: t('routes.create'),
           },
         ]}
       />
       <form onSubmit={handleSubmit}>
         <Card
-          loading={isLoading}
           className={styles.card}
           radius={24}
           flexDirection="column"
@@ -120,15 +104,6 @@ const Page = () => {
               placeholder={t('editor.contact_phone.placeholder')}
             />
           </div>
-          <TextField
-            value={values.discount_value}
-            error={errors.discount_value}
-            onChange={(ev) => {
-              setFieldValue('discount_value', ev.target.value);
-            }}
-            label={t('editor.discount_value.label')}
-            placeholder={t('editor.discount_value.placeholder')}
-          />
           <div className={styles.cover}>
             {!image ? (
               <Button
@@ -195,8 +170,7 @@ const Page = () => {
             variant="textarea"
           />
           <SubmitActions
-            submitText={t('controls.update')}
-            onDelete={handleOpenModal}
+            submitText={t('controls.publish')}
             className={styles.actions}
             isValid={isValid}
           />

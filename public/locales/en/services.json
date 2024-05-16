@@ -1,0 +1,56 @@
+{
+  "routes": {
+    "create": "Create service",
+    "update": "Update service",
+    "list": "Services",
+    "notification": "Service updated"
+  },
+  "editor": {
+    "titles": {
+      "ru": "Russian version",
+      "en": "English version"
+    },
+    "company_name": {
+      "label": "Company name",
+      "placeholder": "Enter company name"
+    },
+    "company_address": {
+      "label": "Company address",
+      "placeholder": "Enter company address"
+    },
+    "phone": {
+      "label": "Company phone number",
+      "placeholder": "Enter phone number"
+    },
+    "url": {
+      "label": "Website URL",
+      "placeholder": "Enter URL"
+    },
+    "contact_fio": {
+      "label": "Contact name",
+      "placeholder": "Enter contact name"
+    },
+    "contact_phone": {
+      "label": "Contact phone number",
+      "placeholder": "Enter phone number"
+    },
+    "discount_value": {
+      "label": "Discount amount",
+      "placeholder": "Enter discount amount"
+    },
+    "title": {
+      "label": "Service title",
+      "placeholder": "Enter service title"
+    },
+    "text": {
+      "label": "Service description",
+      "placeholder": "Enter service description"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "update": "Update",
+    "addPhone": "Add phone number",
+    "upload": "Upload image"
+  }
+}

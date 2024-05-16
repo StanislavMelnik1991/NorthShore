@@ -33,7 +33,7 @@ const Page = () => {
         breadcrumbs={[
           {
             title: t('routes.list'),
-            href: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](),
+            href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
           },
           {
             title: t('routes.create'),

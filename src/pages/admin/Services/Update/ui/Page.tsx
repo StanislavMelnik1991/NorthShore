@@ -48,7 +48,7 @@ const Page = () => {
         breadcrumbs={[
           {
             title: t('routes.list'),
-            href: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
+            href: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
           },
           {
             title: t('routes.update'),
@@ -120,15 +120,6 @@ const Page = () => {
               placeholder={t('editor.contact_phone.placeholder')}
             />
           </div>
-          <TextField
-            value={values.discount_value}
-            error={errors.discount_value}
-            onChange={(ev) => {
-              setFieldValue('discount_value', ev.target.value);
-            }}
-            label={t('editor.discount_value.label')}
-            placeholder={t('editor.discount_value.placeholder')}
-          />
           <div className={styles.cover}>
             {!image ? (
               <Button
