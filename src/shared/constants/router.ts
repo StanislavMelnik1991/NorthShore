@@ -91,6 +91,8 @@ export enum AppRoutesEnum {
   ADMIN_SERVICES_UPDATE,
 
   ADMIN_ADVERTISEMENT,
+  ADMIN_ADVERTISEMENT_CREATE,
+  ADMIN_ADVERTISEMENT_UPDATE,
 
   ADMIN_EMPLOYEE_ANNOUNCEMENTS,
   ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE,
@@ -215,6 +217,10 @@ export const AppRoutes = {
     `/admin/services/${id}/update`,
 
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: () => '/admin/advertisement',
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE]: () =>
+    '/admin/advertisement/create',
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE]: (id: number | string) =>
+    `/admin/advertisement/${id}/update`,
 
   [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: () =>
     '/admin/employee_announcements',

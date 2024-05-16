@@ -52,5 +52,9 @@
     "update": "Update",
     "addPhone": "Add phone number",
     "upload": "Upload image"
+  },
+  "remove": {
+    "title": "Are you sure you want to remove this service?",
+    "text": "This action cannot be undone"
   }
 }

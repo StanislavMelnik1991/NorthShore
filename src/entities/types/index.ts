@@ -18,3 +18,4 @@ export * from './technicalWork.interface';
 export * from './announcement.interface';
 export * from './roles.interface';
 export * from './loyalty.interface';
+export * from './advertisement.interface';

@@ -8,3 +8,4 @@ export * from './TechnicalWorks';
 export * from './Announcements';
 export * from './Loyalty';
 export * from './Services';
+export * from './Advertisement';

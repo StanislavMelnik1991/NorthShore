@@ -38,6 +38,9 @@ import {
   AdminServicesListPage,
   UpdateService,
   CreateServicePage,
+  AdminAdvertisementsListPage,
+  CreateAdvertisementPage,
+  UpdateAdvertisement,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
 import {
@@ -200,7 +203,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT](),
-    element: <NotFoundPage />,
+    element: <AdminAdvertisementsListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE](),
+    element: <CreateAdvertisementPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE](':id'),
+    element: <UpdateAdvertisement />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

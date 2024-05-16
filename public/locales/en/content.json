@@ -17,7 +17,8 @@
     "find": "Search",
     "delete": "Delete",
     "preview": "Preview",
-    "add": "Add"
+    "add": "Add",
+    "upload": "Upload image"
   },
   "actions": {
     "addAddress": "Add an address",

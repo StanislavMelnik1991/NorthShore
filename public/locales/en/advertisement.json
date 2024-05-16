@@ -1,9 +1,9 @@
 {
   "routes": {
-    "create": "Create Loyalty Program",
-    "update": "Editing the loyalty programme",
-    "list": "Loyalty Programs",
-    "notification": "Edit Loyalty Program"
+    "create": "Creating Route",
+    "update": "Updating Route",
+    "list": "Routes",
+    "notification": "Updating Route"
   },
   "editor": {
     "titles": {
@@ -20,11 +20,11 @@
     },
     "phone": {
       "label": "Company Phone Number",
-      "placeholder": "Enter company phone number"
+      "placeholder": "Enter phone number"
     },
     "url": {
-      "label": "Company Website Link",
-      "placeholder": "Enter website link"
+      "label": "Website URL",
+      "placeholder": "Enter URL"
     },
     "contact_fio": {
       "label": "Contact Name",
@@ -32,19 +32,25 @@
     },
     "contact_phone": {
       "label": "Contact Phone Number",
-      "placeholder": "Enter contact phone number"
+      "placeholder": "Enter phone number"
     },
     "discount_value": {
-      "label": "Discount Value",
-      "placeholder": "Enter discount value"
+      "label": "Discount Amount",
+      "placeholder": "Enter discount amount"
     },
     "title": {
-      "label": "Program Title",
-      "placeholder": "Enter loyalty program title"
+      "label": "Route Title",
+      "placeholder": "Enter route title"
     },
     "text": {
-      "label": "Program Description",
-      "placeholder": "Enter loyalty program description"
+      "label": "Route Description",
+      "placeholder": "Enter route description"
+    },
+    "date_start": {
+      "label": "Start Date"
+    },
+    "date_end": {
+      "label": "End Date"
     }
   },
   "controls": {
@@ -54,7 +60,7 @@
     "upload": "Upload Image"
   },
   "remove": {
-    "title": "Are you sure you want to delete?",
-    "text": "This action cannot be undone"
+    "title": "Are you sure you want to delete this route? This action cannot be undone.",
+    "text": "Delete Route"
   }
 }

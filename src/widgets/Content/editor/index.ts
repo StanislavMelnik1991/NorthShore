@@ -3,3 +3,4 @@ export * from './RecipientGroups';
 export * from './AdditionalImages';
 export * from './Text';
 export * from './PhoneNumbers';
+export * from './Image';

@@ -121,6 +121,7 @@ export const useUpdatePage = () => {
     });
     setImage(oldData?.image);
   }, [getData, id, setValues]);
+
   useEffect(() => {
     handleGetData();
   }, [handleGetData]);
