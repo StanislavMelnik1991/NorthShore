@@ -13,3 +13,5 @@ export * from './TextField';
 export * from './Title';
 export * from './Toggle';
 export * from './Divider';
+export * from './Radio';
+export * from './Progress';

@@ -30,21 +30,12 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
     selectWrapper,
   } = useTechnicalWorks();
   return (
-    <InfiniteScroll
-      className={classNames(styles.cards__wrapper, className)}
-      scrollableTarget={SCROLLING_CONTAINER_ID}
-      dataLength={techWorks.length}
-      next={handleLoadTechnicalWorks}
-      hasMore={hasMore}
-      loader={
-        <div className={styles.loader}>
-          <Loader size={80} />
-        </div>
-      }
-      endMessage={''}
-    >
+    <div>
       {showFilter && (
-        <div ref={selectWrapper} className={styles.select__wrapper}>
+        <div
+          ref={selectWrapper}
+          className={classNames(styles.select__wrapper, className)}
+        >
           <div className={styles.select} onClick={handleSelectClick}>
             <div className={styles.select__inner}>
               <IconCalendar fill={'var(--dark-60)'} width={16} height={16} />
@@ -79,50 +70,63 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
           )}
         </div>
       )}
-
-      {techWorks.map((el, index) => {
-        let period = '';
-        if (el.date_start)
-          period +=
-            t('from') +
-            ' ' +
-            new Date(el.date_start).toLocaleDateString(i18n.language, {
-              day: 'numeric',
-              month: 'long',
-              year:
-                new Date(el.date_end).getFullYear >
-                new Date(el.date_start).getFullYear
-                  ? 'numeric'
-                  : undefined,
-            }) +
-            ' ';
-        if (el.date_end)
-          period +=
-            t('to') +
-            ' ' +
-            new Date(el.date_end).toLocaleDateString(i18n.language, {
-              day: 'numeric',
-              month: 'long',
-              year:
-                new Date(el.date_end).getFullYear >
-                new Date(el.date_start).getFullYear
-                  ? 'numeric'
-                  : undefined,
-            });
-        period = period[0].toUpperCase() + period.slice(1);
-        return (
-          <TechWork
-            title={el.title[lang] || ''}
-            text={el.body[lang] || ''}
-            key={index}
-            period={period}
-            image={el.type.icon_site}
-            onClick={() => {
-              if (onClick) onClick({ item: el, period: period });
-            }}
-          />
-        );
-      })}
-    </InfiniteScroll>
+      <InfiniteScroll
+        className={classNames(styles.cards__wrapper, className)}
+        scrollableTarget={SCROLLING_CONTAINER_ID}
+        dataLength={techWorks.length}
+        next={handleLoadTechnicalWorks}
+        hasMore={hasMore}
+        loader={
+          <div className={styles.loader}>
+            <Loader size={80} />
+          </div>
+        }
+        endMessage={''}
+      >
+        {techWorks.map((el, index) => {
+          let period = '';
+          if (el.date_start)
+            period +=
+              t('from') +
+              ' ' +
+              new Date(el.date_start).toLocaleDateString(i18n.language, {
+                day: 'numeric',
+                month: 'long',
+                year:
+                  new Date(el.date_end).getFullYear >
+                  new Date(el.date_start).getFullYear
+                    ? 'numeric'
+                    : undefined,
+              }) +
+              ' ';
+          if (el.date_end)
+            period +=
+              t('to') +
+              ' ' +
+              new Date(el.date_end).toLocaleDateString(i18n.language, {
+                day: 'numeric',
+                month: 'long',
+                year:
+                  new Date(el.date_end).getFullYear >
+                  new Date(el.date_start).getFullYear
+                    ? 'numeric'
+                    : undefined,
+              });
+          period = period[0].toUpperCase() + period.slice(1);
+          return (
+            <TechWork
+              title={el.title[lang] || ''}
+              text={el.body[lang] || ''}
+              key={index}
+              period={period}
+              image={el.type.icon_site}
+              onClick={() => {
+                if (onClick) onClick({ item: el, period: period });
+              }}
+            />
+          );
+        })}
+      </InfiniteScroll>
+    </div>
   );
 };

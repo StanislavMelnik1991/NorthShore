@@ -12,12 +12,13 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Current",
     "find": "Search",
     "delete": "Delete",
     "preview": "Preview",
-    "add": "Add"
+    "add": "Add",
+    "upload": "Upload image"
   },
   "actions": {
     "addAddress": "Add an address",

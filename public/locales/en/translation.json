@@ -19,6 +19,7 @@
     "applications": "Applications",
     "knowledge": "Knowledge Base",
     "settings": "Settings",
+    "announcements": "Announcements",
     "accounting": "Accounting",
     "statistic": "Reporting and Statistics",
     "security": "Security",
@@ -31,7 +32,9 @@
     "video": "Video Surveillance",
     "energy": "Energy resources",
     "heating": "Heating points",
-    "lifts": "Lifts"
+    "lifts": "Lifts",
+    "accessRights": "Access rights",
+    "roles": "Roles"
   },
   "header": {
     "login": "Log In",
@@ -68,12 +71,13 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Actual",
     "find": "Search",
     "delete": "Delete",
     "greetings": "Good day",
-    "preview": "Preview"
+    "preview": "Preview",
+    "addPhone": "Add a phone number"
   },
   "remove": {
     "title": "Are you sure you want to delete?",
@@ -95,5 +99,24 @@
     "October",
     "November",
     "December"
-  ]
+  ],
+  "popup": {
+    "preview": "Preview",
+    "edit": "Edit",
+    "map": "Open on Map",
+    "delete": "Delete",
+    "open": "Open",
+    "markAsFailed": "Mark as failed"
+  },
+  "period": {
+    "from": "From",
+    "to": "To"
+  },
+  "footer": {
+    "northWaterfront": "«North Waterfront» Managing Organisation LLC",
+    "address": "Minsk, Sverdlova str. 11, office 329",
+    "advertisement": "Buy a flat in «North Waterfront»",
+    "therms": "Conditions of use",
+    "privacy": "Privacy Policy"
+  }
 }

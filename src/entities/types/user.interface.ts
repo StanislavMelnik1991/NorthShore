@@ -1,6 +1,7 @@
+import { LanguageEnum } from '@shared/constants';
 import { BaseEntity } from './global.interface';
 
-export interface IRole extends BaseEntity {
+interface IRole extends BaseEntity {
   access: Array<number> | null;
 }
 
@@ -8,6 +9,7 @@ export interface IUserShort extends BaseEntity {
   group: BaseEntity;
   avatar: string;
   childs: Array<IUserShort>;
+  lang: LanguageEnum;
 }
 
 export interface IUser extends IUserShort {
@@ -30,4 +32,9 @@ export interface IParent extends BaseEntity {
   group: BaseEntity;
   avatar: string;
   parent?: IParent;
+}
+
+export interface IEmployee extends IUserShort {
+  department: BaseEntity;
+  phone_number: string;
 }

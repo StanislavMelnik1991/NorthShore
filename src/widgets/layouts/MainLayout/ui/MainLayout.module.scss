@@ -10,17 +10,26 @@
   grid-column: 1 / -1;
   background: var(--white-100);
   position: relative;
+  height: var(--header-height);
 }
 
 .sidebar {
   position: relative;
   grid-row: 2 / 4;
   background: var(--white-100);
-  width: var(--nav-bar-width);
+  width: calc(var(--nav-bar-width) - var(--border-width));
   border-right: var(--border-width) solid var(--dark-20);
   height: 100%;
   overflow: auto;
   box-sizing: content-box;
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--dark-20);
+  }
 
   @media (width < 1280px) {
     display: none;
@@ -54,11 +63,10 @@
 }
 
 .footer {
-  height: var(--footer-height);
   grid-row: 3;
   grid-column: 2;
   position: relative;
-  background-color: var(--dark-80);
+  background-color: var(--dark-20);
 
   @media (width < 1280px) {
     display: none;
@@ -66,13 +74,13 @@
 }
 
 .popup {
-  position: absolute;
+  position: fixed;
   background-color: var(--white-100);
   border: var(--border-width) solid var(--dark-20);
   border-top: none;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   right: 0;
-  top: 0;
+  top: var(--header-height);
   z-index: 5;
   transition: all var(--animation-duration) ease;
   max-height: 100%;

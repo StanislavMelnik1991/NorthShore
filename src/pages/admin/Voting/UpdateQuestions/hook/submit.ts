@@ -23,7 +23,7 @@ export const useVotingSubmit = (electionId: string | number) => {
   const navigate = useNavigate();
   const { update: updateQuestion } = useUpdateQuestion(electionId);
   const { update: updateAnswer } = useUpdateAnswer(electionId);
-  const { update: updateVoting } = useUpdateVoting(electionId);
+  const { update: updateVoting } = useUpdateVoting();
   const onSubmit = useCallback(
     async (data: Array<Record<LanguageEnum, QuestionType>>) => {
       const tasks: Array<Promise<BaseEntity | undefined>> = [];
@@ -66,10 +66,10 @@ export const useVotingSubmit = (electionId: string | number) => {
         });
       });
       await Promise.all(tasks);
-      await updateVoting({ is_archive: false });
+      await updateVoting({ body: { is_archive: false }, id: electionId });
       navigate(AppRoutes[AppRoutesEnum.ADMIN_VOTING]());
     },
-    [updateVoting, navigate, updateQuestion, updateAnswer],
+    [updateVoting, electionId, navigate, updateQuestion, updateAnswer],
   );
 
   const back = useCallback(() => {

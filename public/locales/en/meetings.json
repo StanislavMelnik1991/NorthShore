@@ -1,6 +1,7 @@
 {
   "routes": {
     "meetings": "Meetings",
+    "meeting": "Meeting",
     "edit": "Meeting Editing",
     "create": "Meeting Creation"
   },
@@ -33,7 +34,7 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Current",
     "find": "Search",
     "delete": "Delete",
@@ -53,6 +54,12 @@
     "createError": "Failed to create meeting",
     "notFound": "Failed to get meeting",
     "listError": "Failed to get meeting list"
+  },
+  "filters": {
+    "all": "All",
+    "actual": "Actual",
+    "closed": "Closed",
+    "failed": "Failed"
   },
   "table": {
     "index": "№",

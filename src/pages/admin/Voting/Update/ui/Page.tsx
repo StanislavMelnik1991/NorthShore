@@ -52,6 +52,8 @@ const Page = () => {
             title={t('editor.titles.recipients')}
           />
           <CustomDatePicker
+            showTimeSelect={false}
+            dateFormat="dd MM yyyy"
             value={values.date_finish || null}
             label={t('editor.date_finish.label')}
             setDate={(val) => setFieldValue('date_finish', val)}

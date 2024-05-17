@@ -25,17 +25,21 @@ export const useMainLayout = () => {
     [closeUserMenu],
   );
   const handleClickOutsideBurgerMenu = useCallback(
-    (event: MouseEvent) => {
+    (event?: MouseEvent) => {
       if (
         burgerMenuRef &&
         burgerMenuRef.current &&
-        !burgerMenuRef.current.contains(event.target as Node)
+        !burgerMenuRef.current.contains(event?.target as Node)
       ) {
         closeBurgerMenu?.();
       }
     },
     [closeBurgerMenu],
   );
+
+  useEffect(() => {
+    closeUserMenu?.();
+  }, [location, closeUserMenu]);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutsideUserMenu, true);

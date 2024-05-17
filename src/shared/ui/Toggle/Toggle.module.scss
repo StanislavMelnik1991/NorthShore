@@ -30,6 +30,7 @@
 
   &:disabled {
     background-color: var(--dark-30);
+    pointer-events: none;
 
     & .thumb {
       background-color: var(--gray-30);

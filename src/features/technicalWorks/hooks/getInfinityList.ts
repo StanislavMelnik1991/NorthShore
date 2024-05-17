@@ -13,13 +13,22 @@ interface ResponseDataType extends PaginationResponse {
   data: Array<ITechWork>;
 }
 
+interface Params extends ListParams {
+  from?: number;
+  to?: number;
+  status_id?: number;
+  type_id?: number;
+  nature_id?: number;
+}
+
 export const useGetInfinityTechnicalWorksList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(false);
+  const [total, setTotal] = useState(0);
 
   const getData = useCallback(
-    async (params: ListParams) => {
+    async (params: Params) => {
       setIsLoading(true);
       try {
         const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
@@ -27,6 +36,7 @@ export const useGetInfinityTechnicalWorksList = () => {
           { params },
         );
         if (data?.data?.data) {
+          setTotal(data.data.total_pages);
           if (params.page) {
             setHasMore(params.page < data.data.total_pages);
           }
@@ -50,5 +60,6 @@ export const useGetInfinityTechnicalWorksList = () => {
     getData,
     isLoading,
     hasMore,
+    total,
   };
 };

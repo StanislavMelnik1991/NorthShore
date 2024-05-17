@@ -21,7 +21,7 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to Archive",
+    "archive": "Go to deleted",
     "actual": "Go to Actual",
     "find": "Search",
     "delete": "Delete",
@@ -53,6 +53,16 @@
     "notification": "notification",
     "deadline": "deadline",
     "showResults": "result display",
-    "status": "status"
+    "status": "status",
+    "roles": "roles",
+    "rolesDescription": "role description",
+    "staff": "staff",
+    "date": "date",
+    "period": "period",
+    "nature": "Nature of work",
+    "responsible": "responsible",
+    "company": "company",
+    "discount": "discount",
+    "link": "link"
   }
 }

@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { MouseEventHandler } from 'react';
 import {
   IconBasket,
+  IconCalendarX,
   IconDottedLine,
   IconEyeOpen,
   IconLock,
@@ -20,10 +21,11 @@ interface Props {
     lat?: number;
     lon?: number;
   };
-  getUpdateRoute?: (id: number) => string;
-  getDetailsRoute?: (id: number) => string;
-  onDelete?: MouseEventHandler<HTMLDivElement>;
-  onOpen?: MouseEventHandler<HTMLDivElement>;
+  getUpdateRoute?: false | ((id: number) => string);
+  getDetailsRoute?: false | ((id: number) => string);
+  onDelete?: MouseEventHandler<HTMLDivElement> | false;
+  onOpen?: MouseEventHandler<HTMLDivElement> | false;
+  onMarkAsFailed?: MouseEventHandler<HTMLDivElement> | false;
   rotateIcon?: boolean;
 }
 
@@ -36,6 +38,7 @@ export const TableControls = ({
   onDelete,
   onOpen,
   rotateIcon,
+  onMarkAsFailed,
 }: Props) => {
   const {
     handleGoToDetails,
@@ -66,7 +69,7 @@ export const TableControls = ({
           flexDirection="column"
           className={classNames(styles.popup, className)}
         >
-          {getDetailsRoute && (
+          {!!getDetailsRoute && (
             <PopUpMenuItem
               onClick={handleGoToDetails}
               icon={<IconEyeOpen width={20} hanging={20} />}
@@ -92,6 +95,13 @@ export const TableControls = ({
               onClick={onOpen}
               icon={<IconLock width={20} hanging={20} />}
               text={t('popup.open')}
+            />
+          )}
+          {onMarkAsFailed && (
+            <PopUpMenuItem
+              onClick={onMarkAsFailed}
+              icon={<IconCalendarX width={20} hanging={20} />}
+              text={t('popup.markAsFailed')}
             />
           )}
           {onDelete && (

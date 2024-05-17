@@ -46,6 +46,11 @@ export const useTechnicalWorks = () => {
   };
 
   useEffect(() => {
+    setData([]);
+    setPage(1);
+  }, [from, to]);
+
+  useEffect(() => {
     const techWorksParams: Params = {
       page: 1,
       perPage: 5,

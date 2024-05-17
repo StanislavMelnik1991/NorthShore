@@ -10,6 +10,10 @@ interface Props {
   filter: JSX.Element;
   isActive?: boolean;
   disabled?: boolean;
+  popupPosition?: {
+    left?: number | string;
+    right?: number | string;
+  };
 }
 
 export const TableFilter = ({
@@ -18,6 +22,9 @@ export const TableFilter = ({
   filter,
   isActive,
   disabled,
+  popupPosition = {
+    left: 0,
+  },
 }: Props) => {
   const { isFilterShow, toggleShowFilter, wrapperRef } = useFiler({ isActive });
   return (
@@ -44,6 +51,7 @@ export const TableFilter = ({
         )}
       </div>
       <div
+        style={{ left: popupPosition.left, right: popupPosition.right }}
         className={classNames(styles.filter, { [styles.show]: isFilterShow })}
       >
         {filter}

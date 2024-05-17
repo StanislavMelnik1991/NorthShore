@@ -23,6 +23,7 @@ export const Default: Story = {
   args: {
     label: 'label',
     value: false,
+    disabled: false,
   },
   decorators: [WhiteBgDecorator],
 };
@@ -30,6 +31,7 @@ export const Checked: Story = {
   args: {
     label: 'label',
     value: true,
+    disabled: false,
   },
   decorators: [WhiteBgDecorator],
 };
@@ -37,6 +39,7 @@ export const Checked: Story = {
 export const OnPage: Story = {
   args: {
     label: 'label',
+    disabled: false,
   },
   decorators: [PageDecorator],
 };

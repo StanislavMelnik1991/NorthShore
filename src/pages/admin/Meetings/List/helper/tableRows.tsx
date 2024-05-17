@@ -23,7 +23,7 @@ export const useTableRows = (data: Array<INews>) => {
       ),
       controls: (
         <TableControls
-          getDetailsRoute={AppRoutes[AppRoutesEnum.MEETINGS_CURRENT]}
+          getDetailsRoute={AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]}
           getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_MEETINGS]}
           id={id}
         />

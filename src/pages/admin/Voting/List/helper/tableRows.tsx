@@ -13,9 +13,10 @@ import { Badge } from '@shared/ui';
 interface Props {
   data: Array<IVoting>;
   onDelete: (id: number) => () => void;
+  onMarkAsFailed: (id: number) => () => void;
 }
 
-export const useTableRows = ({ data, onDelete }: Props) => {
+export const useTableRows = ({ data, onDelete, onMarkAsFailed }: Props) => {
   const { i18n } = useTranslation();
   return data.map(
     ({ id, title, date_finish, status, recipient_groups, show_result }) => {
@@ -46,8 +47,11 @@ export const useTableRows = ({ data, onDelete }: Props) => {
         controls: (
           <TableControls
             getDetailsRoute={AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT]}
-            getUpdateRoute={AppRoutes[AppRoutesEnum.ADMIN_VOTING_UPDATE]}
+            getUpdateRoute={
+              status.id === 1 && AppRoutes[AppRoutesEnum.ADMIN_VOTING_UPDATE]
+            }
             onDelete={onDelete(id)}
+            onMarkAsFailed={status.id === 2 && onMarkAsFailed(id)}
             rotateIcon={false}
             id={id}
           />

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useGetCurrentVoting } from '@features/Admin';
 import { IFile, IVoting } from '@entities/types';
-import { LanguageEnum } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum, LanguageEnum } from '@shared/constants';
 import { useCreateNewQuestion } from './createQuestion';
 import { useVotingSubmit } from './submit';
 
@@ -21,6 +21,7 @@ type QuestionType = {
 
 export const useUpdatePage = () => {
   const { t } = useTranslation('voting');
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { getData, isLoading } = useGetCurrentVoting(id as string);
   const { onSubmit, back } = useVotingSubmit(id as string);
@@ -36,6 +37,13 @@ export const useUpdatePage = () => {
 
   const handleGetData = useCallback(async () => {
     const voting = await getData();
+    if (!voting) {
+      navigate(-1);
+      return;
+    }
+    if (voting.status.id !== 1) {
+      navigate(AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](id as string));
+    }
     setData(voting);
 
     if (!voting) {
@@ -71,7 +79,7 @@ export const useUpdatePage = () => {
         };
       });
     setQuestions(newQuestions);
-  }, [getData]);
+  }, [getData, id, navigate]);
 
   useEffect(() => {
     handleGetData();

@@ -5,7 +5,7 @@ import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
 import { BaseResponse, IVoting } from '@entities/types';
 
-export const useUpdateVoting = (id: string | number) => {
+export const useUpdateVoting = () => {
   const { t } = useTranslation();
   const schema = z.object({
     title_en: z
@@ -46,9 +46,13 @@ export const useUpdateVoting = (id: string | number) => {
     },
     [schema],
   );
+  interface UpdateProps {
+    body: Partial<ValuesType>;
+    id: string | number;
+  }
 
   const update = useCallback(
-    async (body: Partial<ValuesType>) => {
+    async ({ body, id }: UpdateProps) => {
       const errors = validate(body);
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
@@ -72,7 +76,7 @@ export const useUpdateVoting = (id: string | number) => {
         toast.error(t('toast.updateError'));
       }
     },
-    [id, t, validate],
+    [t, validate],
   );
 
   return {

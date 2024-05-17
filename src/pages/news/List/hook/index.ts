@@ -13,7 +13,7 @@ export const useNewsListPage = () => {
   const handleLoadNews = useCallback(async () => {
     const newsParams: ListParams = {
       page: page,
-      perPage: 6,
+      perPage: 18,
     };
     const news = await getData(newsParams);
     if (news) {
@@ -25,11 +25,11 @@ export const useNewsListPage = () => {
   useEffect(() => {
     const newsParams: ListParams = {
       page: 1,
-      perPage: 6,
+      perPage: 18,
     };
     getData(newsParams).then((news) => {
       if (news) {
-        setData((val) => [...val, ...news]);
+        setData(news);
         setPage((val) => val + 1);
       }
     });

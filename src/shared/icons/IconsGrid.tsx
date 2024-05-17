@@ -52,6 +52,11 @@ import {
   IconBattery,
   IconCheck,
   IconImage,
+  IconShield,
+  IconMail,
+  IconPhone,
+  IconTelegram,
+  IconViber,
 } from '.';
 
 interface Props {
@@ -62,6 +67,18 @@ interface Props {
 export const IconsGrid = ({ size, theme }: Props) => {
   return (
     <div className={classNames(styles.wrapper)}>
+      <Item name="IconViber">
+        <IconViber width={size} height={size} />
+      </Item>
+      <Item name="IconTelegram">
+        <IconTelegram width={size} height={size} />
+      </Item>
+      <Item name="IconPhone">
+        <IconPhone width={size} height={size} />
+      </Item>
+      <Item name="IconMail">
+        <IconMail width={size} height={size} />
+      </Item>
       <Item name="IconImage">
         <IconImage width={size} height={size} />
       </Item>
@@ -208,6 +225,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconStar">
         <IconStar width={size} height={size} />
+      </Item>
+      <Item name="IconShield">
+        <IconShield width={size} height={size} />
       </Item>
     </div>
   );

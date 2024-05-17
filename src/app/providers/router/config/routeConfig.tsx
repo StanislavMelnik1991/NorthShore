@@ -1,4 +1,11 @@
 import {
+  CreateRolePage,
+  RolesListPage,
+  UpdateRolePage,
+} from '@pages/accessRights';
+import { UserCurrentVotingPage, UserVotingPage } from '@pages/activity';
+import { UserMeetingsPage } from '@pages/activity/Meetings/list';
+import {
   AdminNewsListPage,
   CreateNewsPage,
   UpdateMeetingPage,
@@ -16,11 +23,31 @@ import {
   CreateVotingPage,
   UpdateVotingPage,
   UpdateVotingQuestionsPage,
-  AdminTechnicalWorks,
+  AdminAnnouncements,
+  CurrentVotingPage,
+  CreateAnnouncementPage,
+  AdminAnnouncementsTablePage,
+  UpdateAnnouncementPage,
+  TechnicalWorksInfo,
+  AdminTechnicalWorksListPage,
+  CreateTechWorkPage,
+  UpdateTechWorkPage,
+  CreateLoyaltyPage,
+  AdminLoyaltyListPage,
+  UpdateLoyalty,
+  AdminServicesListPage,
+  UpdateService,
+  CreateServicePage,
+  AdminAdvertisementsListPage,
+  CreateAdvertisementPage,
+  UpdateAdvertisement,
 } from '@pages/admin';
 import { LoginPage, RegistrationPage } from '@pages/Auth';
-import { EnergyListPage } from '@pages/engineering/energy';
-import { CurrentEnergyPage } from '@pages/engineering/energy/current';
+import {
+  CurrentEnergyPage,
+  CurrentHeatingPage,
+  EnergyListPage,
+} from '@pages/engineering';
 import { CurrentEventPage } from '@pages/events';
 import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
@@ -55,6 +82,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
+import { SettingsPage } from '@pages/Settings';
 import { TechnicalWorks } from '@pages/TechnicalWorks';
 import {
   AppRoutesEnum,
@@ -73,7 +101,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS](),
-    element: <AdminTechnicalWorks />,
+    element: <TechnicalWorksInfo />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS](),
+    element: <AdminAnnouncements />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -133,25 +167,73 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_LOYALTY]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY](),
-    element: <NotFoundPage />,
+    element: <AdminLoyaltyListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_LOYALTY_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY_CREATE](),
+    element: <CreateLoyaltyPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_LOYALTY_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_LOYALTY_UPDATE](':id'),
+    element: <UpdateLoyalty />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ADMIN_SERVICES]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES](),
-    element: <NotFoundPage />,
+    element: <AdminServicesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_SERVICES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES_UPDATE](':id'),
+    element: <UpdateService />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_SERVICES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_SERVICES_CREATE](),
+    element: <CreateServicePage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT](),
-    element: <NotFoundPage />,
+    element: <AdminAdvertisementsListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE](),
+    element: <CreateAdvertisementPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE](':id'),
+    element: <UpdateAdvertisement />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS](),
-    element: <NotFoundPage />,
+    element: <AdminAnnouncementsTablePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE](),
+    element: <CreateAnnouncementPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE](':id'),
+    element: <UpdateAnnouncementPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -175,7 +257,19 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS](),
-    element: <NotFoundPage />,
+    element: <AdminTechnicalWorksListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE](),
+    element: <CreateTechWorkPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE](':id'),
+    element: <UpdateTechWorkPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -203,16 +297,27 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-
   [AppRoutesEnum.ADMIN_VOTING_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_VOTING_CURRENT](':id'),
-    element: <NotFoundPage />,
+    element: <CurrentVotingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ADMIN_SETTINGS]: {
-    path: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ADMIN_ROLES]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES](),
+    element: <RolesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ROLES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES_CREATE](),
+    element: <CreateRolePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ADMIN_ROLES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ADMIN_ROLES_UPDATE](':id'),
+    element: <UpdateRolePage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -224,12 +329,6 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.PASSPORT]: {
     path: AppRoutes[AppRoutesEnum.PASSPORT](),
-    element: <NotFoundPage />,
-    authOnly: true,
-    acceptedRoles: ROLES_STAFF,
-  },
-  [AppRoutesEnum.INFORM]: {
-    path: AppRoutes[AppRoutesEnum.INFORM](),
     element: <NotFoundPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
@@ -266,7 +365,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.ENGINEERING_HEATING]: {
     path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
-    element: <NotFoundPage />,
+    element: <CurrentHeatingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -411,11 +510,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <CurrentEventPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.MEETINGS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.MEETINGS_CURRENT](':id'),
-    element: <CurrentMeetingPage />,
-    authOnly: false,
-  },
+
   [AppRoutesEnum.LOGIN]: {
     path: AppRoutes[AppRoutesEnum.LOGIN](),
     element: <LoginPage />,
@@ -442,9 +537,24 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <EventsListPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.ACTIVITY]: {
-    path: AppRoutes[AppRoutesEnum.ACTIVITY](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ACTIVITY_VOTING]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_VOTING](),
+    element: <UserVotingPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_VOTING_CURRENT](':id'),
+    element: <UserCurrentVotingPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_MEETINGS]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS](),
+    element: <UserMeetingsPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT](':id'),
+    element: <CurrentMeetingPage />,
     authOnly: false,
   },
   [AppRoutesEnum.SERVICES]: {
@@ -494,8 +604,8 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SETTINGS]: {
     path: AppRoutes[AppRoutesEnum.SETTINGS](),
-    element: <NotFoundPage />,
-    authOnly: false,
+    element: <SettingsPage />,
+    authOnly: true,
   },
 
   [AppRoutesEnum.FORBIDDEN]: {

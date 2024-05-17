@@ -8,8 +8,8 @@ interface Props {
     lat?: number;
     lon?: number;
   };
-  getUpdateRoute?: (id: number) => string;
-  getDetailsRoute?: (id: number) => string;
+  getUpdateRoute?: ((id: number) => string) | false;
+  getDetailsRoute?: ((id: number) => string) | false;
 }
 
 export const useVideoCardControls = ({
@@ -20,7 +20,7 @@ export const useVideoCardControls = ({
 }: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { t } = useTranslation('security');
+  const { t } = useTranslation();
 
   const [isShow, setIsShow] = useState(false);
 

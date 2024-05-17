@@ -1,0 +1,44 @@
+.wrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.loader {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select {
+  width: 245px;
+  margin-bottom: 18px;
+}
+
+.deadline {
+  margin-top: auto;
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background-color: var(--dark-10);
+  width: fit-content;
+  border-radius: var(--radius-sm);
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.submit {
+  width: 270px;
+}

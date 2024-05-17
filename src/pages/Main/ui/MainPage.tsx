@@ -1,22 +1,49 @@
 import classNames from 'classnames';
 import { EventsSlider } from '@widgets/events';
 import { NewsSlider } from '@widgets/news';
-import { PageSkeleton, UserGreetings } from '@entities/components';
-import { BREAK_POINT_MOBILE, BREAK_POINT_TAB } from '@shared/constants';
+import {
+  AdvertisementCard,
+  PageSkeleton,
+  UserGreetings,
+} from '@entities/components';
+import {
+  BREAK_POINT_MOBILE,
+  BREAK_POINT_TAB,
+  LanguageEnum,
+} from '@shared/constants';
 import { Card, Title } from '@shared/ui';
 import { sliderConfig } from '../config';
 import { useMainPage } from '../hook';
 import styles from './Main.module.scss';
 
 const MainPage = () => {
-  const { innerWidth, t, dateString, userGreetingsMessage, isLogin } =
-    useMainPage();
+  const {
+    innerWidth,
+    t,
+    dateString,
+    userGreetingsMessage,
+    isLogin,
+    advertisements,
+    i18n,
+  } = useMainPage();
 
   return (
     <PageSkeleton className={styles.wrapper}>
       {isLogin && (
         <UserGreetings date={dateString} title={userGreetingsMessage} />
       )}
+      <div className={styles.advertisements} style={{ gap: sliderConfig.gap }}>
+        {advertisements.map((el) => {
+          return (
+            <AdvertisementCard
+              className={styles.advertisement}
+              url={el.url}
+              image={el[`image_${i18n.language as LanguageEnum}`].url}
+              key={`advertisement-card-${el.id}`}
+            />
+          );
+        })}
+      </div>
       <Card
         className={classNames(styles.card, styles.transparent)}
         flexDirection="column"

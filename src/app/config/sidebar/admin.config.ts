@@ -9,7 +9,6 @@ import {
   IconLock,
   IconWrench,
   IconDocumentHolder,
-  IconLoudspeaker,
   IconPassport,
   IconPeople,
   IconGear,
@@ -78,7 +77,6 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.invocation'),
       icon: IconDocumentHolder,
-      href: '',
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
@@ -145,12 +143,6 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       ],
     },
     {
-      title: t('sidebar.inform'),
-      icon: IconLoudspeaker,
-      href: AppRoutes[AppRoutesEnum.INFORM](),
-      isLink: true,
-    },
-    {
       title: t('sidebar.passport'),
       icon: IconPassport,
       href: AppRoutes[AppRoutesEnum.PASSPORT](),
@@ -163,10 +155,15 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       isLink: true,
     },
     {
-      title: t('sidebar.settings'),
+      title: t('sidebar.accessRights'),
       icon: IconGear,
-      href: AppRoutes[AppRoutesEnum.ADMIN_SETTINGS](),
       isLink: true,
+      breadcrumbs: [
+        {
+          title: t('sidebar.roles'),
+          href: AppRoutes[AppRoutesEnum.ADMIN_ROLES](),
+        },
+      ],
     },
   ];
 };

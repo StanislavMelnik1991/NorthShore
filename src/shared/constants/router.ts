@@ -2,12 +2,14 @@ export enum AppRoutesEnum {
   // User pages
   NEWS_CURRENT,
   EVENT_CURRENT,
-  MEETINGS_CURRENT,
   MAIN,
   FORBIDDEN,
   NEWS,
   POSTER,
-  ACTIVITY,
+  ACTIVITY_VOTING,
+  ACTIVITY_VOTING_CURRENT,
+  ACTIVITY_MEETINGS,
+  ACTIVITY_MEETINGS_CURRENT,
   SERVICES,
 
   REQUESTS,
@@ -22,6 +24,7 @@ export enum AppRoutesEnum {
 
   ADMIN,
   ADMIN_INFO_TECHNICAL_WORKS,
+  ADMIN_INFO_ANNOUNCEMENTS,
 
   ACCOUNTING,
   STATISTIC,
@@ -54,10 +57,12 @@ export enum AppRoutesEnum {
   ENGINEERING_HEATING,
   ENGINEERING_LIFTS,
 
-  INFORM,
   PASSPORT,
   USERS,
-  ADMIN_SETTINGS,
+
+  ADMIN_ROLES,
+  ADMIN_ROLES_CREATE,
+  ADMIN_ROLES_UPDATE,
 
   ADMIN_REQUESTS,
   ADMIN_REQUESTS_CURRENT,
@@ -68,6 +73,8 @@ export enum AppRoutesEnum {
   ADMIN_NOTIFICATIONS_CURRENT,
 
   ADMIN_TECHNICAL_WORKS,
+  ADMIN_TECHNICAL_WORKS_CREATE,
+  ADMIN_TECHNICAL_WORKS_UPDATE,
 
   ADMIN_VOTING,
   ADMIN_VOTING_CREATE,
@@ -76,9 +83,20 @@ export enum AppRoutesEnum {
   ADMIN_VOTING_CURRENT,
 
   ADMIN_LOYALTY,
+  ADMIN_LOYALTY_CREATE,
+  ADMIN_LOYALTY_UPDATE,
+
   ADMIN_SERVICES,
+  ADMIN_SERVICES_CREATE,
+  ADMIN_SERVICES_UPDATE,
+
   ADMIN_ADVERTISEMENT,
+  ADMIN_ADVERTISEMENT_CREATE,
+  ADMIN_ADVERTISEMENT_UPDATE,
+
   ADMIN_EMPLOYEE_ANNOUNCEMENTS,
+  ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE,
+  ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE,
   // Auth
   LOGIN,
   REGISTRATION,
@@ -103,14 +121,19 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN]: () => '/admin',
   [AppRoutesEnum.ADMIN_INFO_TECHNICAL_WORKS]: () =>
     '/admin/info/technical_works',
+  [AppRoutesEnum.ADMIN_INFO_ANNOUNCEMENTS]: () => '/admin/info/announcements',
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
-  [AppRoutesEnum.MEETINGS_CURRENT]: (id: number | string) => `/meeting/${id}`,
+  [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: (id: number | string) =>
+    `/meeting/${id}`,
   [AppRoutesEnum.LOGIN]: () => '/login',
   [AppRoutesEnum.REGISTRATION]: () => '/registration',
   [AppRoutesEnum.NEWS]: () => '/news',
   [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
   [AppRoutesEnum.POSTER]: () => '/poster',
-  [AppRoutesEnum.ACTIVITY]: () => '/activity',
+  [AppRoutesEnum.ACTIVITY_MEETINGS]: () => '/activity/meetings',
+  [AppRoutesEnum.ACTIVITY_VOTING]: () => '/activity/voting',
+  [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: (id: number | string) =>
+    `/activity/voting/${id}`,
   [AppRoutesEnum.SERVICES]: () => '/services',
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',
@@ -123,10 +146,13 @@ export const AppRoutes = {
   [AppRoutesEnum.KNOWLEDGE]: () => '/knowledge',
   [AppRoutesEnum.SETTINGS]: () => '/settings',
 
-  [AppRoutesEnum.ADMIN_SETTINGS]: () => '/admin/settings',
+  [AppRoutesEnum.ADMIN_ROLES]: () => '/admin/roles',
+  [AppRoutesEnum.ADMIN_ROLES_CREATE]: () => '/admin/roles/create',
+  [AppRoutesEnum.ADMIN_ROLES_UPDATE]: (id: number | string) =>
+    `/admin/roles/${id}/update`,
+
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
-  [AppRoutesEnum.INFORM]: () => '/admin/inform',
 
   [AppRoutesEnum.ADMIN_REQUESTS]: () => '/admin/requests',
   [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: (id: number | string) =>
@@ -179,11 +205,30 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_NEWS]: () => '/admin/news',
   [AppRoutesEnum.ADMIN_EVENTS]: () => '/admin/events',
   [AppRoutesEnum.ADMIN_MEETINGS]: () => '/admin/meeting',
+
   [AppRoutesEnum.ADMIN_LOYALTY]: () => '/admin/loyalty',
+  [AppRoutesEnum.ADMIN_LOYALTY_CREATE]: () => '/admin/loyalty/create',
+  [AppRoutesEnum.ADMIN_LOYALTY_UPDATE]: (id: number | string) =>
+    `/admin/loyalty/${id}`,
+
   [AppRoutesEnum.ADMIN_SERVICES]: () => '/admin/services',
+  [AppRoutesEnum.ADMIN_SERVICES_CREATE]: () => '/admin/services/create',
+  [AppRoutesEnum.ADMIN_SERVICES_UPDATE]: (id: number | string) =>
+    `/admin/services/${id}/update`,
+
   [AppRoutesEnum.ADMIN_ADVERTISEMENT]: () => '/admin/advertisement',
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE]: () =>
+    '/admin/advertisement/create',
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE]: (id: number | string) =>
+    `/admin/advertisement/${id}/update`,
+
   [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: () =>
     '/admin/employee_announcements',
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE]: () =>
+    '/admin/employee_announcements/create',
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE]: (id: number | string) =>
+    `/admin/employee_announcements/${id}/update`,
+
   [AppRoutesEnum.ADMIN_NOTIFICATIONS]: () => '/admin/notifications',
   [AppRoutesEnum.ADMIN_NOTIFICATIONS_CREATE]: () =>
     '/admin/notifications/create',
@@ -191,6 +236,10 @@ export const AppRoutes = {
     `/admin/notifications/${id}`,
 
   [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: () => '/admin/technical_works',
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE]: () =>
+    '/admin/technical_works/create',
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE]: (id: number | string) =>
+    `/admin/technical_works/${id}/update`,
 
   [AppRoutesEnum.ADMIN_VOTING]: () => '/admin/voting',
   [AppRoutesEnum.ADMIN_VOTING_CREATE]: () => '/admin/voting/create',

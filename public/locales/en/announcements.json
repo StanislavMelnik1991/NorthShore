@@ -1,0 +1,31 @@
+{
+  "title": "Informational Messages",
+  "main": "Main",
+  "select": "For the period",
+  "table": "Employee Announcements",
+  "create": "Create Employee Announcement",
+  "edit": "Edit Employee Announcement",
+  "editor": {
+    "group": {
+      "label": "Recipient Group",
+      "placeholder": "Select a group"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Announcement Title"
+    },
+    "body": {
+      "label": "Announcement Text",
+      "placeholder": "Announcement Text"
+    }
+  },
+  "controls": {
+    "publish": "Publish",
+    "preview": "Preview",
+    "update": "Update"
+  },
+  "remove": {
+    "title": "Are you sure you want to delete? This action is irreversible.",
+    "text": "This action cannot be undone"
+  }
+}

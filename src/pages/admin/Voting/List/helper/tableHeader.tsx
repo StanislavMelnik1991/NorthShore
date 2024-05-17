@@ -71,6 +71,7 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
           }
         />
       ),
+      width: 125,
     },
     {
       name: 'title',

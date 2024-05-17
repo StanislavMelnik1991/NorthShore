@@ -20,3 +20,4 @@ export * from './ModalDelete';
 export * from './NoResults';
 export * from './AuthButton';
 export * from './UserGreetings';
+export * from './content';
