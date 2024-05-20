@@ -43,7 +43,15 @@
   "poster": "Poster",
   "not_found": {
     "title": "Page Not Found",
-    "back": "Go Back"
+    "text": "Wrong address or this page does not exist",
+    "back": "Go Back",
+    "toMain": "Home"
+  },
+  "forbidden": {
+    "title": "Access error",
+    "text": "The page may not be available or you may not have permission to open it.",
+    "back": "Go Back",
+    "toMain": "Home"
   },
   "toast": {
     "deleteSuccess": "Deleted successfully",
