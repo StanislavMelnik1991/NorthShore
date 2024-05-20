@@ -51,10 +51,13 @@
     "publish": "Publish",
     "update": "Update",
     "addPhone": "Add Phone Number",
-    "upload": "Upload Image"
+    "upload": "Upload Image",
+    "goSite": "To the company's website"
   },
   "remove": {
     "title": "Are you sure you want to delete?",
     "text": "This action cannot be undone"
-  }
+  },
+  "address": "Address",
+  "phone": "Phone"
 }

@@ -38,7 +38,12 @@ export const Footer = ({ className }: Props) => {
         </div>
         <div className={styles.column}>
           <div className={styles.contacts}>
-            <IconPhone className={styles.icon} width={24} height={24} />
+            <IconPhone
+              theme="dark"
+              className={styles.icon}
+              width={24}
+              height={24}
+            />
             <div className={styles.phone}>
               <a href={'tel:+375173116888'}>
                 <Text>{'+375 17 311-68-88'}</Text>

@@ -10,6 +10,7 @@ import {
   IconDocumentHolder,
   IconCalendarX,
   IconQuestion,
+  IconShoppingBag,
 } from '@shared/icons';
 
 export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
@@ -52,6 +53,12 @@ export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.services'),
       icon: IconWrench,
       href: AppRoutes[AppRoutesEnum.SERVICES](),
+      isLink: true,
+    },
+    {
+      title: t('sidebar.loyalty'),
+      icon: IconShoppingBag,
+      href: AppRoutes[AppRoutesEnum.LOYALTY](),
       isLink: true,
     },
     {

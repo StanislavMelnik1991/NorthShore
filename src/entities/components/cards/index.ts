@@ -8,3 +8,4 @@ export * from './voting';
 export * from './meeting';
 export * from './accident';
 export * from './advertisement';
+export * from './services';

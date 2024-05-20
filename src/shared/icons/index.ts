@@ -54,3 +54,4 @@ export * from './Mail';
 export * from './Phone';
 export * from './Telegram';
 export * from './Viber';
+export * from './ShoppingBag';

@@ -3,8 +3,6 @@ import {
   RolesListPage,
   UpdateRolePage,
 } from '@pages/accessRights';
-import { UserCurrentVotingPage, UserVotingPage } from '@pages/activity';
-import { UserMeetingsPage } from '@pages/activity/Meetings/list';
 import {
   AdminNewsListPage,
   CreateNewsPage,
@@ -52,12 +50,26 @@ import {
   SendCodeForPhonePage,
 } from '@pages/Auth';
 import {
+  CurrentEventPage,
+  CurrentMeetingPage,
+  CurrentNewsPage,
+  EventsListPage,
+  MainPage,
+  NewsListPage,
+  SettingsPage,
+  UserCurrentVotingPage,
+  UserVotingPage,
+  UserMeetingsPage,
+  UserServicesListPage,
+  UserCurrentServicePage,
+  UserCurrentLoyaltyPage,
+  UserLoyaltyListPage,
+} from '@pages/Clients';
+import {
   CurrentEnergyPage,
   CurrentHeatingPage,
   EnergyListPage,
 } from '@pages/engineering';
-import { CurrentEventPage } from '@pages/events';
-import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
 import {
   CreateRequestPage,
@@ -66,10 +78,6 @@ import {
   ApplicationsMainPage,
   CreateApplicationPage,
 } from '@pages/invocation';
-import { MainPage } from '@pages/Main';
-import { CurrentMeetingPage } from '@pages/meetings';
-import { CurrentNewsPage } from '@pages/news';
-import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
 import {
   CreateCameraPage,
@@ -90,8 +98,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
-import { SettingsPage } from '@pages/Settings';
-import { TechnicalWorks } from '@pages/TechnicalWorks';
+import { TechnicalWorks } from '@widgets/technicalWorks';
 import {
   AppRoutesEnum,
   AppRoutes,
@@ -592,7 +599,22 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SERVICES]: {
     path: AppRoutes[AppRoutesEnum.SERVICES](),
-    element: <NotFoundPage />,
+    element: <UserServicesListPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.LOYALTY]: {
+    path: AppRoutes[AppRoutesEnum.LOYALTY](),
+    element: <UserLoyaltyListPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.SERVICES_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.SERVICES_CURRENT](':id'),
+    element: <UserCurrentServicePage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.LOYALTY_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.LOYALTY_CURRENT](':id'),
+    element: <UserCurrentLoyaltyPage />,
     authOnly: false,
   },
   [AppRoutesEnum.REQUESTS]: {

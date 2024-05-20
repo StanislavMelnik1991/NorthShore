@@ -1,0 +1,45 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.imageWrapper {
+  display: flex;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.timeStamp {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 2;
+  font-weight: 400;
+}
+
+.title {
+  max-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-80);
+}
+
+.textContent {
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}

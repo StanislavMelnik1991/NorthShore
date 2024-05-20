@@ -11,7 +11,11 @@ export enum AppRoutesEnum {
   ACTIVITY_VOTING_CURRENT,
   ACTIVITY_MEETINGS,
   ACTIVITY_MEETINGS_CURRENT,
+
   SERVICES,
+  LOYALTY,
+  SERVICES_CURRENT,
+  LOYALTY_CURRENT,
 
   REQUESTS,
   REQUESTS_CURRENT,
@@ -149,7 +153,11 @@ export const AppRoutes = {
   [AppRoutesEnum.ACTIVITY_VOTING]: () => '/activity/voting',
   [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: (id: number | string) =>
     `/activity/voting/${id}`,
+
   [AppRoutesEnum.SERVICES]: () => '/services',
+  [AppRoutesEnum.LOYALTY]: () => '/loyalty',
+  [AppRoutesEnum.SERVICES_CURRENT]: (id: number | string) => `/services/${id}`,
+  [AppRoutesEnum.LOYALTY_CURRENT]: (id: number | string) => `/loyalty/${id}`,
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',
   [AppRoutesEnum.REQUESTS_CREATE]: () => '/requests/create',
