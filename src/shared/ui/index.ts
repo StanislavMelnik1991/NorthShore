@@ -15,3 +15,4 @@ export * from './Toggle';
 export * from './Divider';
 export * from './Radio';
 export * from './Progress';
+export * from './CodeEditor';

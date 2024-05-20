@@ -26,7 +26,7 @@ export const AuthButton = ({ className, isLogin, logout }: Props) => {
     );
   }
   return (
-    <Link to={AppRoutes[AppRoutesEnum.LOGIN]()}>
+    <Link to={AppRoutes[AppRoutesEnum.AUTH_LOGIN]()}>
       <Button size="small" variant="primary" className={className}>
         <IconHuman width={20} />
         {t('header.login')}

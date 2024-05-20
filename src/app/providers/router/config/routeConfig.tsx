@@ -42,7 +42,15 @@ import {
   CreateAdvertisementPage,
   UpdateAdvertisement,
 } from '@pages/admin';
-import { LoginPage, RegistrationPage } from '@pages/Auth';
+import {
+  ConfirmMailPage,
+  ConfirmPhonePage,
+  LoginPage,
+  RegistrationPage,
+  ResetPasswordPage,
+  SendCodeForMailPage,
+  SendCodeForPhonePage,
+} from '@pages/Auth';
 import {
   CurrentEnergyPage,
   CurrentHeatingPage,
@@ -511,14 +519,39 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: false,
   },
 
-  [AppRoutesEnum.LOGIN]: {
-    path: AppRoutes[AppRoutesEnum.LOGIN](),
+  [AppRoutesEnum.AUTH_LOGIN]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_LOGIN](),
     element: <LoginPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.REGISTRATION]: {
-    path: AppRoutes[AppRoutesEnum.REGISTRATION](),
+  [AppRoutesEnum.AUTH_REGISTRATION]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_REGISTRATION](),
     element: <RegistrationPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL](),
+    element: <SendCodeForMailPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE](),
+    element: <SendCodeForPhonePage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.RESET_PASSWORD]: {
+    path: AppRoutes[AppRoutesEnum.RESET_PASSWORD](),
+    element: <ResetPasswordPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_MAIL](':id'),
+    element: <ConfirmMailPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_PHONE](':id'),
+    element: <ConfirmPhonePage />,
     authOnly: false,
   },
   [AppRoutesEnum.MAIN]: {

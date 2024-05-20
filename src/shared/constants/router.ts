@@ -1,5 +1,6 @@
 export enum AppRoutesEnum {
   // User pages
+  RESET_PASSWORD,
   NEWS_CURRENT,
   EVENT_CURRENT,
   MAIN,
@@ -98,8 +99,12 @@ export enum AppRoutesEnum {
   ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE,
   ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE,
   // Auth
-  LOGIN,
-  REGISTRATION,
+  AUTH_LOGIN,
+  AUTH_REGISTRATION,
+  AUTH_RESTORE_PASSWORD_EMAIL,
+  AUTH_RESTORE_PASSWORD_PHONE,
+  AUTH_CONFIRM_PHONE,
+  AUTH_CONFIRM_MAIL,
   // Admin news
   ADMIN_NEWS,
   UPDATE_NEWS,
@@ -125,8 +130,18 @@ export const AppRoutes = {
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
   [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: (id: number | string) =>
     `/meeting/${id}`,
-  [AppRoutesEnum.LOGIN]: () => '/login',
-  [AppRoutesEnum.REGISTRATION]: () => '/registration',
+
+  [AppRoutesEnum.RESET_PASSWORD]: () => '/reset_password',
+
+  [AppRoutesEnum.AUTH_LOGIN]: () => '/login',
+  [AppRoutesEnum.AUTH_REGISTRATION]: () => '/registration',
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL]: () => '/restore_password/email',
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE]: () => '/restore_password/phone',
+  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: (id: number | string) =>
+    `/confirm/${id}/mail`,
+  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: (id: number | string) =>
+    `/confirm/${id}/phone`,
+
   [AppRoutesEnum.NEWS]: () => '/news',
   [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
   [AppRoutesEnum.POSTER]: () => '/poster',

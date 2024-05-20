@@ -18,7 +18,7 @@ export const useUserMenuConfig: () => Array<NavItemProps> = () => {
         {
           title: user ? t('header.logout') : t('header.login'),
           icon: IconLogout,
-          href: AppRoutes[AppRoutesEnum.LOGIN](),
+          href: AppRoutes[AppRoutesEnum.AUTH_LOGIN](),
           isLink: !user,
           onClick: handleLogOut,
         },
@@ -27,7 +27,7 @@ export const useUserMenuConfig: () => Array<NavItemProps> = () => {
         {
           title: user ? t('header.logout') : t('header.login'),
           icon: IconLogout,
-          href: AppRoutes[AppRoutesEnum.LOGIN](),
+          href: AppRoutes[AppRoutesEnum.AUTH_LOGIN](),
           isLink: !user,
           onClick: handleLogOut,
         },
