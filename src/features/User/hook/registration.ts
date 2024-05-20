@@ -83,10 +83,10 @@ export const useRegistration = () => {
         if (error instanceof AxiosError) {
           switch (error.request.status as number) {
             case 403:
-              toast.error(t('toast.incorrect'));
+              toast.error(t('toast.incorrect_account_number'));
               break;
             case 404:
-              toast.error(t('toast.incorrect'));
+              toast.error(t('toast.incorrect_account_number'));
               break;
             default:
               toast.error(t('toast.loginError'));

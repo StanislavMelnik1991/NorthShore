@@ -35,7 +35,9 @@ export default () => {
             >
               {t('actions.resend')}
             </Button>
-            <Button type="submit">{t('actions.confirm')}</Button>
+            <Button size="large" type="submit">
+              {t('actions.confirm')}
+            </Button>
           </div>
         </form>
       </AuthSkeleton>

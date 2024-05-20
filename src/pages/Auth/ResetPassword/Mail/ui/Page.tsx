@@ -18,7 +18,11 @@ export default () => {
             <Title fontWeight="semibold" variant="h2">
               {t('routes.restore.title')}
             </Title>
-            <Text variant="body14" fontWeight="regular">
+            <Text
+              className={styles.description}
+              variant="body14"
+              fontWeight="regular"
+            >
               {t('routes.restore.description')}
             </Text>
           </div>
@@ -37,7 +41,9 @@ export default () => {
                 {t('actions.usePhone')}
               </Text>
             </Link>
-            <Button type="submit">{t('actions.continue')}</Button>
+            <Button size="large" type="submit">
+              {t('actions.continue')}
+            </Button>
           </div>
           <div className={styles.text}>
             <Link

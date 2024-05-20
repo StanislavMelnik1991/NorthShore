@@ -22,8 +22,8 @@ export const useLoginPage = () => {
   const { signUp, validate } = useRegistration();
 
   const initialValues = {};
-  const { values, errors, setFieldValue, handleSubmit } = useFormik<ValuesType>(
-    {
+  const { values, errors, setFieldValue, handleSubmit, isValid } =
+    useFormik<ValuesType>({
       initialValues,
       validate,
       onSubmit: async (body) => {
@@ -36,8 +36,7 @@ export const useLoginPage = () => {
           }
         }
       },
-    },
-  );
+    });
 
   return {
     values,
@@ -45,5 +44,6 @@ export const useLoginPage = () => {
     setFieldValue: setFieldValue as ISetFieldValue<ValuesType>,
     handleSubmit,
     t,
+    isValid,
   };
 };

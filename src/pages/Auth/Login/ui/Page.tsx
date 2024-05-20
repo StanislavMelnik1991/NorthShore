@@ -44,7 +44,9 @@ export default () => {
                 {t('actions.forget')}
               </Text>
             </Link>
-            <Button type="submit">{t('actions.login')}</Button>
+            <Button size="large" type="submit">
+              {t('actions.login')}
+            </Button>
           </div>
           <div className={styles.text}>
             <Text variant="body14" fontWeight="regular">

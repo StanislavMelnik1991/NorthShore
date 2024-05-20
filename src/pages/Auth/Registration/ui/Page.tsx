@@ -12,7 +12,8 @@ import { useLoginPage } from '../hook';
 import styles from './Page.module.scss';
 
 export default () => {
-  const { errors, handleSubmit, setFieldValue, values, t } = useLoginPage();
+  const { errors, handleSubmit, setFieldValue, values, t, isValid } =
+    useLoginPage();
   return (
     <FullWidthSkeleton>
       <AuthSkeleton>
@@ -98,7 +99,13 @@ export default () => {
                 </Link>
               </label>
             </div>
-            <Button type="submit">{t('actions.registration')}</Button>
+            <Button
+              size="large"
+              type="submit"
+              disabled={!isValid || !values.is_accepted}
+            >
+              {t('actions.registration')}
+            </Button>
           </div>
           <div className={styles.text}>
             <Text variant="body14" fontWeight="regular">
