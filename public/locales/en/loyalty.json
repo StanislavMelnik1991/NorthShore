@@ -59,5 +59,6 @@
     "text": "This action cannot be undone"
   },
   "address": "Address",
-  "phone": "Phone"
+  "phone": "Phone",
+  "discount": "Discount"
 }

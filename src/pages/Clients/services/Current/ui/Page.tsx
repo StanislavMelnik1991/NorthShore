@@ -31,7 +31,9 @@ export default () => {
             {data?.title[language] || ''}
           </Title>
           {data?.image && <img src={data.image.url} className={styles.image} />}
-          <Text>{data?.body[language]}</Text>
+          <Text variant="body16" fontWeight="regular">
+            {data?.body[language]}
+          </Text>
         </CurrentSkeleton>
 
         {data && (

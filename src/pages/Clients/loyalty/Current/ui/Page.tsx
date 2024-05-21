@@ -6,7 +6,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPhone, IconPoint } from '@shared/icons';
-import { Button, Text, Title } from '@shared/ui';
+import { Badge, Button, Text, Title } from '@shared/ui';
 import { useCurrent } from '../hook';
 import styles from './Page.module.scss';
 
@@ -30,8 +30,17 @@ export default () => {
           <Title variant="h2" fontWeight="semibold">
             {data?.title[language] || ''}
           </Title>
-          {data?.image && <img src={data.image.url} className={styles.image} />}
-          <Text>{data?.body[language]}</Text>
+          {data?.image && (
+            <div className={styles.imageWrapper}>
+              <img src={data.image.url} className={styles.image} />
+              <Badge color="primary" className={styles.badge}>
+                {`${t('discount')} ${data.discount_value}`}
+              </Badge>
+            </div>
+          )}
+          <Text variant="body16" fontWeight="regular">
+            {data?.body[language]}
+          </Text>
         </CurrentSkeleton>
 
         {data && (
