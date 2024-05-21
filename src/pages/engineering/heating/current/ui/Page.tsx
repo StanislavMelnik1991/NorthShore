@@ -12,7 +12,7 @@ import { useCurrentEnergy } from '../hook';
 import styles from './Page.module.scss';
 
 export default () => {
-  const { t, data, isLoading } = useCurrentEnergy();
+  const { t, data } = useCurrentEnergy();
 
   return (
     <PageSkeleton>
@@ -28,11 +28,7 @@ export default () => {
         ]}
       />
       <CurrentSkeleton className={styles.wrapper}>
-        <Card
-          hideShadow
-          className={styles.thermometer}
-          loading={isLoading && !data}
-        >
+        <Card hideShadow className={styles.thermometer}>
           {data?.parameters.air_temp && (
             <div className={styles.row}>
               <IconThermometer height={72} />
