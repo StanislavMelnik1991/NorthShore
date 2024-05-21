@@ -1,6 +1,5 @@
-import { extractTextFromHtml } from '@features/utils/html';
 import { imageParser } from '@features/utils/imageParser';
-import { NewsCard, PageHeader, PageSkeleton } from '@entities/components';
+import { EventsCard, PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useEventsListPage } from '../hook';
 import styles from './Page.module.scss';
@@ -19,13 +18,12 @@ export default () => {
         {events.map((el) => {
           const cover = el.cover || imageParser(el.html_content[lang])[0];
           return (
-            <NewsCard
+            <EventsCard
               link={AppRoutes[AppRoutesEnum.EVENT_CURRENT](el.id)}
               title={el.title[lang]}
-              text={extractTextFromHtml(el.html_content[lang])}
+              date={new Date(el.target_date * 1000)}
               image={cover}
               key={`news-card-${el.id}`}
-              published_date={new Date(el.published_at * 1000)}
             />
           );
         })}
