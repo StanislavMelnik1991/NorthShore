@@ -1,0 +1,137 @@
+.wrapper {
+  position: relative;
+}
+
+.schema {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.badge {
+  z-index: 2;
+  position: absolute;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  gap: 5px;
+}
+
+.t_gvs_contour_1 {
+  top: 41%;
+  left: 71.5%;
+}
+
+.t_supplied {
+  top: 41%;
+  left: 11%;
+}
+
+.t_reverse {
+  top: 61%;
+  left: 9%;
+}
+
+.t_gvs_reverse_contour_1 {
+  top: 61%;
+  left: 38%;
+}
+
+.t_gvs_contour_2 {
+  top: 3%;
+  left: 70%;
+}
+
+.t_gvs_reverse_contour_2 {
+  top: 23%;
+  left: 45%;
+}
+
+.p_delta_contour_1_0 {
+  top: 52.8%;
+  left: 71.5%;
+}
+
+.p_delta_contour_1_1 {
+  top: 74%;
+  left: 65%;
+}
+
+.p_delta_contour_2 {
+  top: 9%;
+  left: 78.5%;
+}
+
+.p_contour_1_0 {
+  top: 62%;
+  left: 82%;
+}
+
+.p_contour_1_1 {
+  top: 62%;
+  left: 92%;
+}
+
+.p_contour_1_2 {
+  top: 62%;
+  left: 44%;
+}
+
+.p_contour_2 {
+  top: 12%;
+  left: 88%;
+}
+
+.work_time_pomp_2 {
+  top: 19%;
+  left: 75%;
+}
+
+.is_pump_open_contour_1_1 {
+  top: 90.5%;
+  left: 63.5%;
+}
+
+.is_pump_open_contour_1_1_helper {
+  top: 81.5%;
+  left: 55%;
+}
+
+.is_pump_open_contour_1 {
+  top: 67%;
+  left: 74%;
+}
+
+.is_pump_open_contour_1_helper {
+  top: 60%;
+  left: 65%;
+}
+
+.is_pump_open_contour_2 {
+  top: 25%;
+  left: 75%;
+}
+
+.is_pump_open_contour_2_helper {
+  top: 35%;
+  left: 82%;
+}
+
+.work_time_pomp_2_helper {
+  top: 29.5%;
+  left: 82%;
+}
+
+.offset_valve_contour_1 {
+  top: 36%;
+  left: 47.5%;
+}
+
+.offset_valve_contour_2 {
+  top: -3%;
+  left: 47.6%;
+}
+
+.is_relay_open {
+  top: 78%;
+  left: 76%;
+}

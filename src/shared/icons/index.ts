@@ -55,3 +55,4 @@ export * from './Phone';
 export * from './Telegram';
 export * from './Viber';
 export * from './ShoppingBag';
+export * from './Thermometer';

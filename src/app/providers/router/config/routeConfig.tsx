@@ -69,6 +69,7 @@ import {
   CurrentEnergyPage,
   CurrentHeatingPage,
   EnergyListPage,
+  HeatingListPage,
 } from '@pages/engineering';
 import { ForbiddenPage } from '@pages/Forbidden';
 import {
@@ -378,8 +379,20 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
+  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS_CURRENT](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
   [AppRoutesEnum.ENGINEERING_HEATING]: {
     path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
+    element: <HeatingListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_HEATING_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING_CURRENT](':id'),
     element: <CurrentHeatingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,

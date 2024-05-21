@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCamerasList } from '@features/security';
+import { useGetUserHeatingList } from '@features/engineering';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
-export const useSecurityVideoPage = () => {
-  const { t } = useTranslation('security');
-  const { data, getData, isLoading, total } = useCamerasList();
+export const useList = () => {
+  const { t } = useTranslation('engineering');
+  const { data, getData, isLoading, total } = useGetUserHeatingList();
+  const [isAccident, setIsAccident] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
-  const [isFaulty, setIsFaulty] = useState(false);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [filters, setFilters] = useState<{
     street?: number;
@@ -19,16 +19,16 @@ export const useSecurityVideoPage = () => {
     entrance: undefined,
   });
 
-  useEffect(() => {
+  const handleGetData = useCallback(() => {
     getData({
       page,
       perPage,
       building_id: filters.building,
       entrance_id: filters.entrance,
       street_id: filters.street,
-      is_faulty: isFaulty ? 1 : undefined,
+      is_accident: isAccident || undefined,
     });
-  }, [filters, getData, isFaulty, page, perPage]);
+  }, [filters, getData, isAccident, page, perPage]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
@@ -40,17 +40,30 @@ export const useSecurityVideoPage = () => {
     setPage(1);
   }, []);
 
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleGetData();
+    }, 10000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [handleGetData]);
+
   return {
-    setFilters,
-    isFaulty,
-    setIsFaulty,
-    t,
     data,
     isLoading,
-    setPage: handleSetPage,
     total,
-    setPerPage: handleSetPerPage,
-    perPage,
+    handleSetPage,
+    handleSetPerPage,
+    setFilters,
+    setIsAccident,
+    t,
+    isAccident,
     page,
+    perPage,
   };
 };

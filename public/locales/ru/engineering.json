@@ -1,11 +1,20 @@
 {
   "routes": {
     "energy": "Энергоресурсы",
-    "heating": "Тепловые пункты"
+    "heating": "Тепловые пункты",
+    "heatingSingle": "Тепловой пункт"
   },
   "energy": {
     "total": "Общее потребление",
     "periodTotal": "Итого за период:"
   },
-  "outsideTemperature": "Наружная температура воздуха"
+  "outsideTemperature": "Наружная температура воздуха",
+  "faulty": {
+    "label": "Показать аварии"
+  },
+  "operationMode": {
+    "title": "Режим работы",
+    "auto": "Автоматический",
+    "manual": "Ручной"
+  }
 }

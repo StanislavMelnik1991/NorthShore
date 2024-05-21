@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+  padding: 16px 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.address {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: -8px;
+}
+
+.alarmIcon {
+  path {
+    fill: var(--red-100);
+  }
+}
