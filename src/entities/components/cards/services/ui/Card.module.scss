@@ -4,6 +4,10 @@
   height: 120px;
   gap: 4px;
   margin-top: 12px;
+
+  @media (width < 640px) {
+    height: fit-content;
+  }
 }
 
 .imageWrapper {
@@ -14,6 +18,11 @@
   flex-shrink: 0;
   border-radius: var(--radius-md);
   overflow: hidden;
+
+  @media (width < 640px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .image {
