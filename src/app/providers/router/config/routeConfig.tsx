@@ -64,6 +64,7 @@ import {
   UserCurrentServicePage,
   UserCurrentLoyaltyPage,
   UserLoyaltyListPage,
+  KBasePage,
 } from '@pages/Clients';
 import {
   CurrentEnergyPage,
@@ -667,7 +668,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.KNOWLEDGE]: {
     path: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
-    element: <NotFoundPage />,
+    element: <KBasePage />,
     authOnly: false,
   },
   [AppRoutesEnum.SETTINGS]: {

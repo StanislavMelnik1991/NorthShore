@@ -12,11 +12,9 @@ export const useList = () => {
   const [filters, setFilters] = useState<{
     street?: number;
     building?: number;
-    entrance?: number;
   }>({
     street: undefined,
     building: undefined,
-    entrance: undefined,
   });
 
   const handleGetData = useCallback(() => {
@@ -24,7 +22,6 @@ export const useList = () => {
       page,
       perPage,
       building_id: filters.building,
-      entrance_id: filters.entrance,
       street_id: filters.street,
       is_accident: isAccident || undefined,
     });

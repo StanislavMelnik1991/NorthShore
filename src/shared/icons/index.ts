@@ -56,3 +56,4 @@ export * from './Telegram';
 export * from './Viber';
 export * from './ShoppingBag';
 export * from './Thermometer';
+export * from './Minus';

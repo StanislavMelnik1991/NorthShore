@@ -6,3 +6,4 @@ export * from './events';
 export * from './news';
 export * from './services';
 export * from './loyalty';
+export * from './kBase';
