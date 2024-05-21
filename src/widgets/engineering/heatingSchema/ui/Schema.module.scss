@@ -14,6 +14,10 @@
   border-radius: var(--radius-sm);
   align-items: center;
   gap: 5px;
+
+  &:hover {
+    transform: scale(1.1) translate(-2.5%, 2.5%);
+  }
 }
 
 .t_gvs_contour_1 {

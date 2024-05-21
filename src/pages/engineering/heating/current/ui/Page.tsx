@@ -31,7 +31,7 @@ export default () => {
         <Card hideShadow className={styles.thermometer}>
           {data?.parameters.air_temp && (
             <div className={styles.row}>
-              <IconThermometer height={72} />
+              <IconThermometer height={56} />
 
               <div className={styles.column}>
                 <Text variant="body14" fontWeight="regular">
