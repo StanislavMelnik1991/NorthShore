@@ -38,7 +38,7 @@ const MainPage = () => {
       />
       <div className={styles.content}>
         <div className={styles.filters}>
-          <AddressFilters setFilters={setFilters} />
+          <AddressFilters setFilters={setFilters} showEntries={false} />
           <CheckBox
             wrapperClassName={styles.checkbox}
             value={isAccident}
@@ -55,7 +55,7 @@ const MainPage = () => {
               to={AppRoutes[AppRoutesEnum.ENGINEERING_HEATING_CURRENT](el.id)}
             >
               <HeatingCard
-                address={formatAddress(el.entrance)}
+                address={formatAddress(el.building || el.entrance)}
                 alarms={el.alarms || []}
                 id={el.id}
                 work_mode={el.work_mode}

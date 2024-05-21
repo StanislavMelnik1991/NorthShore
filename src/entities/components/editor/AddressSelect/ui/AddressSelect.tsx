@@ -14,6 +14,7 @@ interface Props {
   className?: string;
   showLabel?: boolean;
   showApartment?: boolean;
+  showEntries?: boolean;
   options: AddressWrapper<Array<ISelectOption>>;
   values: AddressWrapper<ISelectOption | null>;
   onChange: AddressWrapper<(val: unknown) => void>;
@@ -32,6 +33,7 @@ export const AddressSelect = ({
   values,
   showApartment,
   disabled,
+  showEntries = true,
 }: Props) => {
   const { t } = useAddressSelect();
   return (
@@ -68,22 +70,24 @@ export const AddressSelect = ({
           };
         })}
       />
-      <StyledSelect
-        className={classNames(styles.select, styles.entrance)}
-        isDisabled={disabled?.entrance || !options.entrance.length}
-        isLoading={loading.entrance}
-        error={errors?.entrance}
-        value={values.entrance}
-        label={showLabel ? t('editor.entrance.label') : undefined}
-        placeholder={t('editor.entrance.placeholder')}
-        onChange={onChange.entrance}
-        options={options.entrance.map(({ label, value }) => {
-          return {
-            value,
-            label,
-          };
-        })}
-      />
+      {showEntries && (
+        <StyledSelect
+          className={classNames(styles.select, styles.entrance)}
+          isDisabled={disabled?.entrance || !options.entrance.length}
+          isLoading={loading.entrance}
+          error={errors?.entrance}
+          value={values.entrance}
+          label={showLabel ? t('editor.entrance.label') : undefined}
+          placeholder={t('editor.entrance.placeholder')}
+          onChange={onChange.entrance}
+          options={options.entrance.map(({ label, value }) => {
+            return {
+              value,
+              label,
+            };
+          })}
+        />
+      )}
       {showApartment && (
         <StyledSelect
           className={classNames(styles.select, styles.entrance)}

@@ -1,5 +1,9 @@
 import { WorkModeEnum } from '@shared/constants';
-import { IApartmentFull, IEntranceFull } from './address.interface';
+import {
+  IApartmentFull,
+  IBuildingFull,
+  IEntranceFull,
+} from './address.interface';
 import { BaseEntity } from './global.interface';
 
 export interface IEngineeringType extends BaseEntity {
@@ -38,6 +42,8 @@ export interface IHeatingPoint extends BaseEntity {
   work_mode: WorkModeEnum;
   alarms: Array<string>;
   entrance: IEntranceFull;
+  building: IBuildingFull;
+  building_id: IBuildingFull['id'];
   parameters: HeatingParametersType;
 }
 
