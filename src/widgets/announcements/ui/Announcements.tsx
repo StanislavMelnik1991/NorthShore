@@ -86,7 +86,7 @@ export const Announcements = ({ showFilter, className, onClick }: Props) => {
               title={el.title}
               html={extractTextFromHtml(el.body)}
               key={index}
-              date={el.date_add}
+              date={el.date_add * 1000}
               onClick={() => {
                 if (onClick) onClick(el);
               }}

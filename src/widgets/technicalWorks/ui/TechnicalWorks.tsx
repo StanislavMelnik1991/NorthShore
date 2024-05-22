@@ -89,12 +89,12 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
             period +=
               t('from') +
               ' ' +
-              new Date(el.date_start).toLocaleDateString(i18n.language, {
+              new Date(el.date_start * 1000).toLocaleDateString(i18n.language, {
                 day: 'numeric',
                 month: 'long',
                 year:
-                  new Date(el.date_end).getFullYear >
-                  new Date(el.date_start).getFullYear
+                  new Date(el.date_end * 1000).getFullYear >
+                  new Date(el.date_start * 1000).getFullYear
                     ? 'numeric'
                     : undefined,
               }) +
@@ -103,12 +103,12 @@ export const TechnicalWorks = ({ showFilter, className, onClick }: Props) => {
             period +=
               t('to') +
               ' ' +
-              new Date(el.date_end).toLocaleDateString(i18n.language, {
+              new Date(el.date_end * 1000).toLocaleDateString(i18n.language, {
                 day: 'numeric',
                 month: 'long',
                 year:
-                  new Date(el.date_end).getFullYear >
-                  new Date(el.date_start).getFullYear
+                  new Date(el.date_end * 1000).getFullYear >
+                  new Date(el.date_start * 1000).getFullYear
                     ? 'numeric'
                     : undefined,
               });

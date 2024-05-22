@@ -73,7 +73,7 @@ const MainPage = () => {
               variant="body14"
               fontWeight="regular"
             >
-              {new Date(activeAnnouncement.date_add).toLocaleDateString(
+              {new Date(activeAnnouncement.date_add * 1000).toLocaleDateString(
                 i18n.language,
                 {
                   day: 'numeric',
