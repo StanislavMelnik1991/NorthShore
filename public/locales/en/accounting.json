@@ -1,0 +1,11 @@
+{
+  "title": "Accounting",
+  "modules": {
+    "buildings": "Buildings and premises",
+    "equipment": "Equipment",
+    "resourses": "Material resources",
+    "documentation": "Documentation",
+    "subsections": "Additional subsections"
+  },
+  "subtitle": "Transition to 1C Rarus"
+}

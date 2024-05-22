@@ -75,24 +75,10 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       ],
     },
     {
-      title: t('sidebar.invocation'),
+      title: t('sidebar.requests'),
       icon: IconDocumentHolder,
-      breadcrumbs: [
-        {
-          href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
-          title: t('sidebar.requests'),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.ADMIN_APPLICATIONS](),
-          title: t('sidebar.applications'),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
-        },
-      ],
+      href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
+      isLink: true,
     },
     {
       title: t('sidebar.admin'),

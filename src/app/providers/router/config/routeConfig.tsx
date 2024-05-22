@@ -106,6 +106,10 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
+import { AccountingPage } from '@pages/Accounting';
+import { StatisticPage } from '@pages/Statistic';
+import { ApplicationsPage } from '@pages/Applications/ui';
+import { PassportPage } from '@pages/Passport';
 import { TechnicalWorks } from '@widgets/technicalWorks';
 import {
   AppRoutesEnum,
@@ -388,13 +392,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.PASSPORT]: {
     path: AppRoutes[AppRoutesEnum.PASSPORT](),
-    element: <NotFoundPage />,
+    element: <PassportPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ADMIN_REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
-    element: <RequestMainPage />,
+    element: <ApplicationsPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -561,13 +565,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
 
   [AppRoutesEnum.STATISTIC]: {
     path: AppRoutes[AppRoutesEnum.STATISTIC](),
-    element: <NotFoundPage />,
+    element: <StatisticPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ACCOUNTING]: {
     path: AppRoutes[AppRoutesEnum.ACCOUNTING](),
-    element: <NotFoundPage />,
+    element: <AccountingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
