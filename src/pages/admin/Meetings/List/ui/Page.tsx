@@ -1,4 +1,6 @@
+import { ContentWithLanguageSelection } from '@widgets/Content';
 import {
+  Modal,
   PageHeader,
   PageSkeleton,
   Pagination,
@@ -26,9 +28,20 @@ const Page = () => {
     page,
     toggleStatusFilter,
     t,
+    config,
+    open,
+    setOpen,
   } = useMeetingsList();
   return (
     <PageSkeleton>
+      <Modal
+        isOpen={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <ContentWithLanguageSelection config={config} />
+      </Modal>
       <PageHeader breadcrumbs={[{ title: t('routes.meetings') }]} />
       <Card padding={12} gap={20} loaderSize={32}>
         <Button onClick={handleCreateClick}>
