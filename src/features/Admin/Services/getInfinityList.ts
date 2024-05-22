@@ -32,7 +32,7 @@ export const useGetInfinityServiceList = () => {
       setIsLoading(true);
       try {
         const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
-          `/user_services`,
+          '/user_services',
           { params },
         );
         if (data?.data?.data) {

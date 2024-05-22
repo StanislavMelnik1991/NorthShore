@@ -32,7 +32,6 @@
 
   &__inner div {
     max-width: 100% !important;
-    cursor: auto;
   }
 }
 
@@ -41,9 +40,6 @@
   border-left: 1px solid var(--gray-30);
 
   &__inner div {
-    height: auto;
-    cursor: auto;
-
     & main p:last-child {
       display: none;
     }
@@ -59,7 +55,8 @@
 
 .title {
   font-size: 24px;
-  font-weight: 600;
+    font-weight: 700;
+    line-height: 32px;
 
   &__text {
     color: var(--dark-60);
@@ -67,4 +64,38 @@
     font-size: 14;
     margin-right: 12px;
   }
+}
+
+.textContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}
+
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 55vw;
+  min-width: 300px;
+}
+
+.modal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text {
+  margin-top: 8px;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-100);
 }

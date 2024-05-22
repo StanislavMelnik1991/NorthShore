@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { Card, Title } from '@shared/ui';
+import { RarusCard } from '@shared/ui';
 import accessImage from '../assets/access.png';
 import intercomImage from '../assets/intercom.png';
 import sls_intercom from '../assets/sls_intercom.png';
@@ -22,74 +21,32 @@ const MainPage = () => {
           },
         ]}
       />
-      <Link to={AppRoutes[AppRoutesEnum.SECURITY_ACCESS]()}>
-        <Card
-          className={styles.card}
-          gap={20}
-          flexDirection="column"
-          padding={20}
-        >
-          <Title fontWeight="semibold" variant="h4">
-            {t('modules.access')}
-          </Title>
-          <img
-            src={accessImage}
-            className={styles.image}
-            alt={t('modules.access')}
-          />
-        </Card>
-      </Link>
-      <Link to={AppRoutes[AppRoutesEnum.SECURITY_INTERCOM]()}>
-        <Card
-          className={styles.card}
-          gap={20}
-          flexDirection="column"
-          padding={20}
-        >
-          <Title fontWeight="semibold" variant="h4">
-            {t('modules.intercom')}
-          </Title>
-          <img
-            src={intercomImage}
-            className={styles.image}
-            alt={t('modules.intercom')}
-          />
-        </Card>
-      </Link>
-      <Link to={AppRoutes[AppRoutesEnum.SECURITY_VIDEO]()}>
-        <Card
-          className={styles.card}
-          gap={20}
-          flexDirection="column"
-          padding={20}
-        >
-          <Title fontWeight="semibold" variant="h4">
-            {t('modules.video')}
-          </Title>
-          <img
-            src={videoImage}
-            className={styles.image}
-            alt={t('modules.video')}
-          />
-        </Card>
-      </Link>
-      <Link to={AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM]()}>
-        <Card
-          className={styles.card}
-          gap={20}
-          flexDirection="column"
-          padding={20}
-        >
-          <Title fontWeight="semibold" variant="h4">
-            {t('modules.sls_intercom')}
-          </Title>
-          <img
-            src={sls_intercom}
-            className={styles.image}
-            alt={t('modules.video')}
-          />
-        </Card>
-      </Link>
+      <div className={styles.wrapper}>
+        <RarusCard
+          link={AppRoutes[AppRoutesEnum.SECURITY_ACCESS]()}
+          title={t('modules.access')}
+          img={accessImage}
+          linkIsLocal
+        ></RarusCard>
+        <RarusCard
+          link={AppRoutes[AppRoutesEnum.SECURITY_INTERCOM]()}
+          title={t('modules.intercom')}
+          img={intercomImage}
+          linkIsLocal
+        ></RarusCard>
+        <RarusCard
+          link={AppRoutes[AppRoutesEnum.SECURITY_VIDEO]()}
+          title={t('modules.video')}
+          img={videoImage}
+          linkIsLocal
+        ></RarusCard>
+        <RarusCard
+          link={AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM]()}
+          title={t('modules.sls_intercom')}
+          img={sls_intercom}
+          linkIsLocal
+        ></RarusCard>
+      </div>
     </PageSkeleton>
   );
 };

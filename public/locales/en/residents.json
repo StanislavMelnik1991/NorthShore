@@ -1,0 +1,102 @@
+{
+  "routes": {
+    "residents": "Residents",
+    "resident": "Resident"
+  },
+  "toast": {
+    "listError": "Failed to get residents list",
+    "send_notification": "Notification sent successfully",
+    "notificationsError": "Failed to send notification",
+    "createSuccess": "Created successfully",
+    "createError": "Failed to create",
+    "deleteSuccess": "Deleted successfully",
+    "deleteError": "Failed to delete"
+  },
+  "langs": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "filters": {
+    "street": "Choose street",
+    "building": "Choose building",
+    "apartment": "Choose apartment"
+  },
+  "controls": {
+    "find": "Enter last name or first name",
+    "personal_notification": "Personal notification"
+  },
+  "popUp_fields": {
+    "sent_push": "Send Push Notification",
+    "title": "Title",
+    "title_notification": "Notification title",
+    "text": "Notification text"
+  },
+  "btns": {
+    "send": "Send",
+    "cancel": "Cancel",
+    "add": "Add",
+    "change": "Change"
+  },
+  "tabs": {
+    "general_info": "Basic information",
+    "requests": "Applications",
+    "access_points": "Access points",
+    "notifications_history": "Notification history",
+    "main": "Main Information",
+    "config": "Configuration",
+    "access": "Addresses with Access to the Camera"
+  },
+  "info_fields": {
+    "name": "Full name",
+    "phone_number": "Phone",
+    "address": "Address",
+    "account": "Account",
+    "objects": "Real estate object",
+    "lang": "Communication language",
+    "mail": "E-mail",
+    "password": "Password",
+    "reset": "Reset the password",
+    "additional_access_points": "Additional access points",
+    "intercom": "Intercom",
+    "additional_intercoms": "Additional intercoms",
+    "cctv": "CCTV",
+    "additional_cameras": "Additional cameras",
+    "barrier": "Barrier",
+    "gate": "Gate",
+    "paw_washing": "Paw washing",
+    "bike_box": "Bicycle box",
+    "stroller": "Stroller",
+    "gates": "Gates",
+    "intercom_one": "Intercom",
+    "camera": "Camera",
+    "sliding_gates": "Sliding gates",
+    "sls": "video eyes",
+    "floor": "Floor",
+    "add": "Add"
+  },
+  "modal": {
+    "request": "Request",
+    "notification": "Notification",
+    "comment": "Technician's comment for the mc",
+    "titles": {
+      "access_point": "Add an additional access point",
+      "intercom": "Add an additional intercom",
+      "camera": "Add an additional camera"
+    },
+    "subtitles": {
+      "access_point_type": "Access point type",
+      "access_point": "Access point number",
+      "intercom": "Intercom number",
+      "camera": "Camera number"
+    },
+    "placeholders": {
+      "type": "Select type",
+      "number": "Enter number"
+    }
+  },
+  "remove": {
+    "title": "Deletion confirmation",
+    "delete": "Delete ",
+    "text": "? The action cannot be undone. "
+  }
+}

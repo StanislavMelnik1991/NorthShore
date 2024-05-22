@@ -38,6 +38,10 @@
       fill: var(--dark-100);
     }
   }
+
+  & p {
+    flex: 1;
+  }
 }
 
 .active {

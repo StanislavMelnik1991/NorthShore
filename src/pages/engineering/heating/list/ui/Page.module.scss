@@ -1,0 +1,33 @@
+.wrapper {
+  min-height: 100%;
+  gap: 0;
+}
+
+.controls {
+  grid-column: 1 / -1;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 32px 0;
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+}
+
+.checkbox {
+  text-wrap: nowrap;
+}
+
+.filter {
+  width: 500px;
+}

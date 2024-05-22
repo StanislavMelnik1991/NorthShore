@@ -1,0 +1,46 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.logo {
+  margin-bottom: 16px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link {
+  color: var(--primary-100);
+}
+
+.right {
+  margin-left: auto;
+  margin-bottom: 16px;
+}
+
+.text {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  text-wrap: nowrap;
+  flex-wrap: wrap;
+  margin: auto auto 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.resend {
+  justify-content: flex-start;
+}

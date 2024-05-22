@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@features/User/hook';
+import { ITechWork, IAnnouncement } from '@entities/types';
+import { LanguageEnum } from '@shared/constants';
 
 export const useMainPage = () => {
   const { t, i18n } = useTranslation();
   const { user } = useUser();
+
+  const [activeTechWork, setActiveTechWork] = useState<{
+    item: ITechWork;
+    period: string;
+  }>();
+  const [activeAnnouncement, setActiveAnnouncement] = useState<IAnnouncement>();
 
   const userGreetingsMessage = `${t('controls.greetings')}, ${user?.name}`;
   const dateOptions = {
@@ -14,5 +23,14 @@ export const useMainPage = () => {
   };
   const dateString = new Date().toLocaleDateString(i18n.language, dateOptions);
 
-  return { userGreetingsMessage, dateString };
+  return {
+    userGreetingsMessage,
+    dateString,
+    activeTechWork,
+    setActiveTechWork,
+    activeAnnouncement,
+    setActiveAnnouncement,
+    lang: i18n.language as LanguageEnum,
+    i18n,
+  };
 };

@@ -1,0 +1,39 @@
+.textContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--dark-50);
+}
+
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 55vw;
+  min-width: 300px;
+}
+
+.modal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.text {
+  margin-top: 8px;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-100);
+}

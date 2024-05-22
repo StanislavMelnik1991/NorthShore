@@ -20,7 +20,7 @@
 
 .popup {
   position: absolute;
-  width: 210px;
+  min-width: 210px;
   right: calc(100% + 5px);
   top: 8px;
   box-shadow: var(--shadow-2);

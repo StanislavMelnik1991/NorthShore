@@ -3,8 +3,6 @@ import {
   RolesListPage,
   UpdateRolePage,
 } from '@pages/accessRights';
-import { UserCurrentVotingPage, UserVotingPage } from '@pages/activity';
-import { UserMeetingsPage } from '@pages/activity/Meetings/list';
 import {
   AdminNewsListPage,
   CreateNewsPage,
@@ -15,6 +13,10 @@ import {
   CreateMeetingPage,
   MeetingsListPage,
   UpdateNewsPage,
+  AdminResidentsListPage,
+  AdminCurrentResidentPage,
+  AdminEmployeesListPage,
+  AdminCurrentEmployeePage,
   CreateNotificationPage,
   NotificationsListPage,
   CurrentNotificationPage,
@@ -41,15 +43,41 @@ import {
   AdminAdvertisementsListPage,
   CreateAdvertisementPage,
   UpdateAdvertisement,
+  CreateEmployeePage,
+  UpdateEmployeePage,
 } from '@pages/admin';
-import { LoginPage, RegistrationPage } from '@pages/Auth';
+import {
+  ConfirmMailPage,
+  ConfirmPhonePage,
+  LoginPage,
+  RegistrationPage,
+  ResetPasswordPage,
+  SendCodeForMailPage,
+  SendCodeForPhonePage,
+} from '@pages/Auth';
+import {
+  CurrentEventPage,
+  CurrentMeetingPage,
+  CurrentNewsPage,
+  EventsListPage,
+  MainPage,
+  NewsListPage,
+  SettingsPage,
+  UserCurrentVotingPage,
+  UserVotingPage,
+  UserMeetingsPage,
+  UserServicesListPage,
+  UserCurrentServicePage,
+  UserCurrentLoyaltyPage,
+  UserLoyaltyListPage,
+  KBasePage,
+} from '@pages/Clients';
 import {
   CurrentEnergyPage,
   CurrentHeatingPage,
   EnergyListPage,
+  HeatingListPage,
 } from '@pages/engineering';
-import { CurrentEventPage } from '@pages/events';
-import { EventsListPage } from '@pages/events';
 import { ForbiddenPage } from '@pages/Forbidden';
 import {
   CreateRequestPage,
@@ -58,10 +86,6 @@ import {
   ApplicationsMainPage,
   CreateApplicationPage,
 } from '@pages/invocation';
-import { MainPage } from '@pages/Main';
-import { CurrentMeetingPage } from '@pages/meetings';
-import { CurrentNewsPage } from '@pages/news';
-import { NewsListPage } from '@pages/news';
 import { NotFoundPage } from '@pages/NotFound';
 import {
   CreateCameraPage,
@@ -82,8 +106,11 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
-import { SettingsPage } from '@pages/Settings';
-import { TechnicalWorks } from '@pages/TechnicalWorks';
+import { AccountingPage } from '@pages/Accounting';
+import { StatisticPage } from '@pages/Statistic';
+import { ApplicationsPage } from '@pages/Applications/ui';
+import { PassportPage } from '@pages/Passport';
+import { TechnicalWorks } from '@widgets/technicalWorks';
 import {
   AppRoutesEnum,
   AppRoutes,
@@ -321,6 +348,42 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
+  [AppRoutesEnum.RESIDENTS]: {
+    path: AppRoutes[AppRoutesEnum.RESIDENTS](),
+    element: <AdminResidentsListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.RESIDENTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.RESIDENTS_CURRENT](':id'),
+    element: <AdminCurrentResidentPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES](),
+    element: <AdminEmployeesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_CURRENT](':id'),
+    element: <AdminCurrentEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_CREATE](),
+    element: <CreateEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_UPDATE](':id'),
+    element: <UpdateEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
   [AppRoutesEnum.USERS]: {
     path: AppRoutes[AppRoutesEnum.USERS](),
     element: <NotFoundPage />,
@@ -329,13 +392,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.PASSPORT]: {
     path: AppRoutes[AppRoutesEnum.PASSPORT](),
-    element: <NotFoundPage />,
+    element: <PassportPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ADMIN_REQUESTS]: {
     path: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
-    element: <RequestMainPage />,
+    element: <ApplicationsPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -363,8 +426,20 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
+  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS_CURRENT](':id'),
+    element: <NotFoundPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
   [AppRoutesEnum.ENGINEERING_HEATING]: {
     path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING](),
+    element: <HeatingListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_HEATING_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_HEATING_CURRENT](':id'),
     element: <CurrentHeatingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
@@ -490,13 +565,13 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
 
   [AppRoutesEnum.STATISTIC]: {
     path: AppRoutes[AppRoutesEnum.STATISTIC](),
-    element: <NotFoundPage />,
+    element: <StatisticPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.ACCOUNTING]: {
     path: AppRoutes[AppRoutesEnum.ACCOUNTING](),
-    element: <NotFoundPage />,
+    element: <AccountingPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -511,14 +586,39 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: false,
   },
 
-  [AppRoutesEnum.LOGIN]: {
-    path: AppRoutes[AppRoutesEnum.LOGIN](),
+  [AppRoutesEnum.AUTH_LOGIN]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_LOGIN](),
     element: <LoginPage />,
     authOnly: false,
   },
-  [AppRoutesEnum.REGISTRATION]: {
-    path: AppRoutes[AppRoutesEnum.REGISTRATION](),
+  [AppRoutesEnum.AUTH_REGISTRATION]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_REGISTRATION](),
     element: <RegistrationPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL](),
+    element: <SendCodeForMailPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE](),
+    element: <SendCodeForPhonePage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.RESET_PASSWORD]: {
+    path: AppRoutes[AppRoutesEnum.RESET_PASSWORD](),
+    element: <ResetPasswordPage />,
+    authOnly: true,
+  },
+  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_MAIL](':id'),
+    element: <ConfirmMailPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_PHONE](':id'),
+    element: <ConfirmPhonePage />,
     authOnly: false,
   },
   [AppRoutesEnum.MAIN]: {
@@ -559,7 +659,22 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.SERVICES]: {
     path: AppRoutes[AppRoutesEnum.SERVICES](),
-    element: <NotFoundPage />,
+    element: <UserServicesListPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.LOYALTY]: {
+    path: AppRoutes[AppRoutesEnum.LOYALTY](),
+    element: <UserLoyaltyListPage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.SERVICES_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.SERVICES_CURRENT](':id'),
+    element: <UserCurrentServicePage />,
+    authOnly: false,
+  },
+  [AppRoutesEnum.LOYALTY_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.LOYALTY_CURRENT](':id'),
+    element: <UserCurrentLoyaltyPage />,
     authOnly: false,
   },
   [AppRoutesEnum.REQUESTS]: {
@@ -599,7 +714,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
   },
   [AppRoutesEnum.KNOWLEDGE]: {
     path: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
-    element: <NotFoundPage />,
+    element: <KBasePage />,
     authOnly: false,
   },
   [AppRoutesEnum.SETTINGS]: {

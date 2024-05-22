@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+
+  @media (width < 980px) {
+    flex-direction: column;
+  }
+}
+
+.content {
+  width: 100%;
+}
+
+.card {
+  height: fit-content;
+  min-width: 306px;
+
+  path {
+    fill: var(--dark-60);
+  }
+
+  @media (width < 980px) {
+    width: 100%;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.imageWrapper {
+  display: flex;
+  width: 100%;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.dark {
+  color: var(--dark-70);
+}
+
+.button {
+  width: 100%;
+}
+
+.badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 2;
+  font-weight: 400;
+}

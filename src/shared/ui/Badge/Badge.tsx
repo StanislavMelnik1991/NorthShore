@@ -7,7 +7,15 @@ interface Props {
     | JSX.Element
     | string
     | Array<JSX.Element | string | false | undefined>;
-  color?: 'blue' | 'dark' | 'green' | 'orange' | 'red' | 'violet' | 'white';
+  color?:
+    | 'blue'
+    | 'dark'
+    | 'green'
+    | 'orange'
+    | 'red'
+    | 'violet'
+    | 'white'
+    | 'primary';
 }
 
 export const Badge = ({ className, children, color = 'green' }: Props) => {

@@ -10,11 +10,13 @@ interface Props {
   };
   getUpdateRoute?: ((id: number) => string) | false;
   getDetailsRoute?: ((id: number) => string) | false;
+  getNotificationRoute?: (id: number) => string;
 }
 
 export const useVideoCardControls = ({
   getDetailsRoute,
   getUpdateRoute,
+  getNotificationRoute,
   id,
   point,
 }: Props) => {
@@ -30,6 +32,13 @@ export const useVideoCardControls = ({
     }
     navigate(getUpdateRoute(id));
   }, [getUpdateRoute, id, navigate]);
+
+  const handleGoToNotificate = useCallback(async () => {
+    if (!getNotificationRoute) {
+      return;
+    }
+    navigate(getNotificationRoute(id));
+  }, [getNotificationRoute, id, navigate]);
 
   const handleGoToDetails = useCallback(async () => {
     if (!getDetailsRoute) {
@@ -67,6 +76,7 @@ export const useVideoCardControls = ({
   return {
     handleGoToUpdate,
     handleGoToDetails,
+    handleGoToNotificate,
     isShow,
     setIsShow,
     handleMapOpen,

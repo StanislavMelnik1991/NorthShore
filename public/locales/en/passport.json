@@ -1,0 +1,10 @@
+{
+  "title": "Passport Office",
+  "modules": {
+    "residents": "Residents",
+    "registr_res": "Registration at place of residence",
+    "registr_stay": "Registration at the place of stay",
+    "log_books": "Log books"
+  },
+  "subtitle": "Transition to 1C Rarus"
+}

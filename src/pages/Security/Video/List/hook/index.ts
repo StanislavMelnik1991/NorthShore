@@ -23,7 +23,9 @@ export const useSecurityVideoPage = () => {
     getData({
       page,
       perPage,
-      ...filters,
+      building_id: filters.building,
+      entrance_id: filters.entrance,
+      street_id: filters.street,
       is_faulty: isFaulty ? 1 : undefined,
     });
   }, [filters, getData, isFaulty, page, perPage]);

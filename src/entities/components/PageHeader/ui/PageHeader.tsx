@@ -9,6 +9,7 @@ interface Props {
   breadcrumbs: AtLeastOne<{ href?: string; title: string }>;
   hideTitle?: boolean;
   controls?: JSX.Element;
+  lastTitle?: string;
 }
 
 type AtLeastOne<T> = [T, ...T[]];
@@ -18,6 +19,7 @@ export const PageHeader = ({
   breadcrumbs,
   hideTitle = false,
   controls,
+  lastTitle,
 }: Props) => {
   const last = breadcrumbs[breadcrumbs.length - 1];
   return (
@@ -42,7 +44,7 @@ export const PageHeader = ({
           variant="h1"
           className={classNames({ [styles.hide]: hideTitle })}
         >
-          {last.title}
+          {lastTitle || last.title}
         </Title>
         {controls}
       </div>

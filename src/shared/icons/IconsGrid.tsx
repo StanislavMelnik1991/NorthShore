@@ -57,6 +57,9 @@ import {
   IconPhone,
   IconTelegram,
   IconViber,
+  IconShoppingBag,
+  IconThermometer,
+  IconMinus,
 } from '.';
 
 interface Props {
@@ -142,6 +145,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       <Item name="IconPlus">
         <IconPlus width={size} height={size} />
       </Item>
+      <Item name="IconMinus">
+        <IconMinus width={size} height={size} />
+      </Item>
       <Item name="IconPlusRounded">
         <IconPlusRounded width={size} height={size} />
       </Item>
@@ -217,6 +223,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       <Item name="IconPeople">
         <IconPeople theme={theme} width={size} height={size} />
       </Item>
+      <Item name="IconShoppingBag">
+        <IconShoppingBag theme={theme} width={size} height={size} />
+      </Item>
       <Item name="IconClockPast">
         <IconClockPast width={size} height={size} />
       </Item>
@@ -228,6 +237,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconShield">
         <IconShield width={size} height={size} />
+      </Item>
+      <Item name="IconThermometer">
+        <IconThermometer height={size} />
       </Item>
     </div>
   );

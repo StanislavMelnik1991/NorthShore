@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.header {
+  grid-column: 1 / -1;
+}

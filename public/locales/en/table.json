@@ -9,7 +9,7 @@
     "publish": "Posted",
     "archive": "Archive",
     "serviceable": "serviceable",
-    "defective": "defective" 
+    "defective": "defective"
   },
   "toast": {
     "archiveSuccess": "Successfully moved to the archive",
@@ -43,6 +43,17 @@
     "lastUpdate": "date of last poll",
     "voltage": "voltage",
     "chargingStatus": "charging status",
+    "account": "account",
+    "name": "full name",
+    "phone_number": "phone",
+    "objects": "objects",
+    "lang": "communication language",
+    "topic": "topic",
+    "comment": "Technician's comment for the mc",
+    "disp_date": "dispatch date",
+    "notif_text": "notification text",
+    "department": "department",
+    "role": "role",
     "periodTotal": "Total for the period",
     "readingDate": "date of reading",
     "absoluteConsumption": "absolute consumption",

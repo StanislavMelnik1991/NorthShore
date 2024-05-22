@@ -1,11 +1,20 @@
 {
   "routes": {
-    "energy": "Energy resources",
-    "heating": "Heating points"
+    "energy": "Energy Resources",
+    "heating": "Heating Points",
+    "heatingSingle": "Heating Point"
   },
   "energy": {
-    "total": "Total consumption",
-    "periodTotal": "Total for the period:"
+    "total": "Total Consumption",
+    "periodTotal": "Total for period:"
   },
-  "outsideTemperature": "Outside air temperature"
+  "outsideTemperature": "Outside Air Temperature",
+  "faulty": {
+    "label": "Show Faults"
+  },
+  "operationMode": {
+    "title": "Operating Mode",
+    "auto": "Automatic",
+    "manual": "Manual"
+  }
 }

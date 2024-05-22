@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border-bottom: var(--border-width) solid var(--dark-20);
+  padding: 24px 0 16px;
+  gap: 16px;
+}
+
+.button {
+  path {
+    fill: var(--dark-100);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  height: 0;
+  overflow: hidden;
+}
+
+.show {
+  height: unset;
+}

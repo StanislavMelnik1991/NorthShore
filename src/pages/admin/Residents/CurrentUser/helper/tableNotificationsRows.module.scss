@@ -1,0 +1,19 @@
+.htmlContent {
+  max-height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  h2,
+  h3 {
+    font-weight: 600;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: var(--radius-sm);
+  }
+
+  ul {
+    padding-left: 1.5em;
+  }
+}

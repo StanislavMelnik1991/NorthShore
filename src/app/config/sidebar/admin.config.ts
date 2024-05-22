@@ -75,24 +75,10 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       ],
     },
     {
-      title: t('sidebar.invocation'),
+      title: t('sidebar.requests'),
       icon: IconDocumentHolder,
-      breadcrumbs: [
-        {
-          href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
-          title: t('sidebar.requests'),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.ADMIN_APPLICATIONS](),
-          title: t('sidebar.applications'),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.REQUESTS_CREATE](),
-        },
-        {
-          href: AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE](),
-        },
-      ],
+      href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
+      isLink: true,
     },
     {
       title: t('sidebar.admin'),
@@ -151,8 +137,18 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.users'),
       icon: IconPeople,
-      href: AppRoutes[AppRoutesEnum.USERS](),
-      isLink: true,
+      href: '',
+      isLink: false,
+      breadcrumbs: [
+        {
+          href: AppRoutes[AppRoutesEnum.RESIDENTS](),
+          title: t('sidebar.residents'),
+        },
+        {
+          href: AppRoutes[AppRoutesEnum.EMPLOYEES](),
+          title: t('sidebar.employees'),
+        },
+      ],
     },
     {
       title: t('sidebar.accessRights'),

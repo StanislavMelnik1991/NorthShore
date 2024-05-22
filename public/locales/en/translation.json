@@ -8,23 +8,23 @@
     "notifications": "Notifications",
     "voting": "Voting",
     "technicalWorks": "Technical Works",
-    "loyalty": "Loyalty Programs",
-    "advertisement": "Advertisement",
-    "employee_announcements": "Employee announcements",
+    "loyalty": "Loyalty Program",
+    "advertisement": "Advertising",
+    "employee_announcements": "Employee Announcements",
     "poster": "Poster",
     "activity": "Activities",
     "services": "Services",
-    "invocation": "Requests and Appeals",
+    "invocation": "Requests and Applications",
     "requests": "Requests",
     "applications": "Applications",
     "knowledge": "Knowledge Base",
     "settings": "Settings",
     "announcements": "Announcements",
     "accounting": "Accounting",
-    "statistic": "Reporting and Statistics",
+    "statistic": "Reports and Statistics",
     "security": "Security",
     "engineering": "Engineering Systems",
-    "inform": "Informing",
+    "inform": "Information",
     "passport": "Passport Desk",
     "users": "Users",
     "access": "Access Control",
@@ -33,34 +33,47 @@
     "energy": "Energy resources",
     "heating": "Heating points",
     "lifts": "Lifts",
-    "accessRights": "Access rights",
+    "residents": "Residents",
+    "employees": "Employees",
+    "accessRights": "Access Rights",
     "roles": "Roles"
   },
   "header": {
-    "login": "Log In",
+    "login": "Login",
     "logout": "Logout"
   },
   "poster": "Poster",
   "not_found": {
     "title": "Page Not Found",
-    "back": "Go Back"
+    "text": "Wrong address or this page does not exist",
+    "back": "Go Back",
+    "toMain": "Home"
+  },
+  "forbidden": {
+    "title": "Access error",
+    "text": "The page may not be available or you may not have permission to open it.",
+    "back": "Go Back",
+    "toMain": "Home"
   },
   "toast": {
     "deleteSuccess": "Deleted successfully",
-    "deleteError": "Failed to delete",
+    "deleteError": "Could not delete",
     "updateSuccess": "Updated successfully",
-    "updateError": "Failed to update",
+    "updateError": "Could not update",
     "createSuccess": "Created successfully",
-    "createError": "Failed to create",
-    "notFound": "Failed to get data from the server"
+    "createError": "Could not create",
+    "notFound": "Could not retrieve data from server",
+    "unforeseen": "Unforeseen error"
   },
   "errors": {
-    "required": "Field is required ",
-    "max256": "Title must not be longer than 256 characters ",
-    "invalidFormat": "Incorrect format ",
+    "required": "Field is required",
+    "max256": "Title should be less than 256 characters",
+    "invalidFormat": "Invalid format",
     "invalidIp": "Invalid IP address",
-    "getError": "Failed to retrieve data from the server ",
-    "video": "Sorry, your browser does not support embedded video. "
+    "getError": "Could not retrieve data from server",
+    "video": "Sorry, your browser does not support embedded video.",
+    "passwordPattern": "Password must be at least 8 characters and contain at least one number and one uppercase letter",
+    "passwordMatch": "Passwords do not match"
   },
   "actions": {
     "reset": "Reset"
@@ -71,20 +84,20 @@
     "cancel": "Cancel",
     "draft": "Save Draft",
     "create": "Create",
-    "archive": "Go to deleted",
-    "actual": "Go to Actual",
+    "archive": "Go to Archived",
+    "actual": "Go to Current",
     "find": "Search",
     "delete": "Delete",
-    "greetings": "Good day",
+    "greetings": "Good Day",
     "preview": "Preview",
-    "addPhone": "Add a phone number"
+    "addPhone": "Add Phone Number"
   },
   "remove": {
-    "title": "Are you sure you want to delete?",
+    "title": "Are you sure you want to delete? This action cannot be undone",
     "text": "This action cannot be undone"
   },
-  "search": "search",
-  "greetings": "Good day",
+  "search": "Search",
+  "greetings": "Good Day",
   "all": "All",
   "month": [
     "January",
@@ -106,17 +119,24 @@
     "map": "Open on Map",
     "delete": "Delete",
     "open": "Open",
-    "markAsFailed": "Mark as failed"
+    "markAsFailed": "Mark as failed",
+    "personal_notification": "Personal notification"
   },
   "period": {
     "from": "From",
     "to": "To"
   },
   "footer": {
-    "northWaterfront": "«North Waterfront» Managing Organisation LLC",
-    "address": "Minsk, Sverdlova str. 11, office 329",
-    "advertisement": "Buy a flat in «North Waterfront»",
-    "therms": "Conditions of use",
+    "northWaterfront": "OOO «Managing Organization North Waterfront»",
+    "address": "g. Minsk, ul. Sverdlova 11, of.329",
+    "advertisement": "Buy an apartment in 'North Waterfront'",
+    "therms": "Terms of Use",
     "privacy": "Privacy Policy"
-  }
+  },
+  "filters": {
+    "all": "All",
+    "actual": "Actual",
+    "closed": "Closed"
+  },
+  "discount": "Discount"
 }

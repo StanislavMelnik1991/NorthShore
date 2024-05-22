@@ -1,5 +1,6 @@
 export enum AppRoutesEnum {
   // User pages
+  RESET_PASSWORD,
   NEWS_CURRENT,
   EVENT_CURRENT,
   MAIN,
@@ -10,7 +11,11 @@ export enum AppRoutesEnum {
   ACTIVITY_VOTING_CURRENT,
   ACTIVITY_MEETINGS,
   ACTIVITY_MEETINGS_CURRENT,
+
   SERVICES,
+  LOYALTY,
+  SERVICES_CURRENT,
+  LOYALTY_CURRENT,
 
   REQUESTS,
   REQUESTS_CURRENT,
@@ -56,6 +61,8 @@ export enum AppRoutesEnum {
 
   ENGINEERING_HEATING,
   ENGINEERING_LIFTS,
+  ENGINEERING_HEATING_CURRENT,
+  ENGINEERING_LIFTS_CURRENT,
 
   PASSPORT,
   USERS,
@@ -63,6 +70,13 @@ export enum AppRoutesEnum {
   ADMIN_ROLES,
   ADMIN_ROLES_CREATE,
   ADMIN_ROLES_UPDATE,
+
+  RESIDENTS,
+  RESIDENTS_CURRENT,
+  EMPLOYEES,
+  EMPLOYEES_CURRENT,
+  EMPLOYEES_CREATE,
+  EMPLOYEES_UPDATE,
 
   ADMIN_REQUESTS,
   ADMIN_REQUESTS_CURRENT,
@@ -98,8 +112,12 @@ export enum AppRoutesEnum {
   ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE,
   ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE,
   // Auth
-  LOGIN,
-  REGISTRATION,
+  AUTH_LOGIN,
+  AUTH_REGISTRATION,
+  AUTH_RESTORE_PASSWORD_EMAIL,
+  AUTH_RESTORE_PASSWORD_PHONE,
+  AUTH_CONFIRM_PHONE,
+  AUTH_CONFIRM_MAIL,
   // Admin news
   ADMIN_NEWS,
   UPDATE_NEWS,
@@ -125,8 +143,18 @@ export const AppRoutes = {
   [AppRoutesEnum.EVENT_CURRENT]: (id: number | string) => `/event/${id}`,
   [AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]: (id: number | string) =>
     `/meeting/${id}`,
-  [AppRoutesEnum.LOGIN]: () => '/login',
-  [AppRoutesEnum.REGISTRATION]: () => '/registration',
+
+  [AppRoutesEnum.RESET_PASSWORD]: () => '/reset_password',
+
+  [AppRoutesEnum.AUTH_LOGIN]: () => '/login',
+  [AppRoutesEnum.AUTH_REGISTRATION]: () => '/registration',
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL]: () => '/restore_password/email',
+  [AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE]: () => '/restore_password/phone',
+  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: (id: number | string) =>
+    `/confirm/${id}/mail`,
+  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: (id: number | string) =>
+    `/confirm/${id}/phone`,
+
   [AppRoutesEnum.NEWS]: () => '/news',
   [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,
   [AppRoutesEnum.POSTER]: () => '/poster',
@@ -134,7 +162,11 @@ export const AppRoutes = {
   [AppRoutesEnum.ACTIVITY_VOTING]: () => '/activity/voting',
   [AppRoutesEnum.ACTIVITY_VOTING_CURRENT]: (id: number | string) =>
     `/activity/voting/${id}`,
+
   [AppRoutesEnum.SERVICES]: () => '/services',
+  [AppRoutesEnum.LOYALTY]: () => '/loyalty',
+  [AppRoutesEnum.SERVICES_CURRENT]: (id: number | string) => `/services/${id}`,
+  [AppRoutesEnum.LOYALTY_CURRENT]: (id: number | string) => `/loyalty/${id}`,
 
   [AppRoutesEnum.REQUESTS]: () => '/requests',
   [AppRoutesEnum.REQUESTS_CREATE]: () => '/requests/create',
@@ -150,9 +182,18 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_ROLES_CREATE]: () => '/admin/roles/create',
   [AppRoutesEnum.ADMIN_ROLES_UPDATE]: (id: number | string) =>
     `/admin/roles/${id}/update`,
-
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
+
+  [AppRoutesEnum.RESIDENTS]: () => '/admin/residents',
+  [AppRoutesEnum.RESIDENTS_CURRENT]: (id: number | string) =>
+    `/admin/residents/${id}`,
+  [AppRoutesEnum.EMPLOYEES]: () => '/admin/employees',
+  [AppRoutesEnum.EMPLOYEES_CURRENT]: (id: number | string) =>
+    `/admin/employees/${id}`,
+  [AppRoutesEnum.EMPLOYEES_CREATE]: () => '/admin/employees/create',
+  [AppRoutesEnum.EMPLOYEES_UPDATE]: (id: number | string) =>
+    `/admin/employees/update/${id}`,
 
   [AppRoutesEnum.ADMIN_REQUESTS]: () => '/admin/requests',
   [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: (id: number | string) =>
@@ -166,6 +207,10 @@ export const AppRoutes = {
 
   [AppRoutesEnum.ENGINEERING_HEATING]: () => '/admin/engineering/heating',
   [AppRoutesEnum.ENGINEERING_LIFTS]: () => '/admin/engineering/lifts',
+  [AppRoutesEnum.ENGINEERING_HEATING_CURRENT]: (id: number | string) =>
+    `/admin/engineering/heating/${id}`,
+  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: (id: number | string) =>
+    `/admin/engineering/lifts/${id}`,
 
   [AppRoutesEnum.SECURITY]: () => '/admin/security',
 

@@ -124,7 +124,8 @@
     "edit": "Edit",
     "map": "Open on Map",
     "delete": "Delete",
-    "open": "Open"
+    "open": "Open",
+    "personal_notification": "Personal notification"
   },
   "errors": {
     "required": "Field is required ",
