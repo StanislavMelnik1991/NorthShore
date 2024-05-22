@@ -9,7 +9,7 @@
     "publish": "Размещено",
     "archive": "Архив",
     "serviceable": "исправен",
-    "defective": "не исправен" 
+    "defective": "не исправен"
   },
   "toast": {
     "archiveSuccess": "Успешно перемещено в архив",
@@ -43,6 +43,17 @@
     "lastUpdate": "дата оследниего опроса",
     "voltage": "напряжение",
     "chargingStatus": "статус заряда",
+    "account": "лицевой счёт",
+    "name": "фио",
+    "phone_number": "телефон",
+    "objects": "объекты",
+    "lang": "язык коммуникации",
+    "topic": "тема",
+    "comment": "комментарий техника для ук",
+    "disp_date": "дата отправки",
+    "notif_text": "текст уведомления",
+    "department": "отдел",
+    "role": "должность",
     "periodTotal": "Итого за период",
     "readingDate": "дата показаний",
     "absoluteConsumption": "абсолютное потребление",

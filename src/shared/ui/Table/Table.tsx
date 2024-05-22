@@ -5,6 +5,7 @@ interface Props {
   className?: string;
   config: Array<ConfigItemType>;
   items: Array<Record<string, JSX.Element>>;
+  handler?: (val: string) => void;
 }
 
 export type ConfigItemType = {
@@ -14,7 +15,7 @@ export type ConfigItemType = {
   name: string;
 };
 
-export const Table = ({ className, config, items }: Props) => {
+export const Table = ({ className, config, items, handler }: Props) => {
   return (
     <table className={classNames(styles.wrapper, className)}>
       <thead>
@@ -35,7 +36,14 @@ export const Table = ({ className, config, items }: Props) => {
       <tbody>
         {items.map((el, index) => {
           return (
-            <tr key={`table-row-${index}`}>
+            <tr
+              key={`table-row-${index}`}
+              onClick={() => {
+                if (handler) {
+                  handler(el.id.props.children as string);
+                }
+              }}
+            >
               {config.map(({ name, colClassName, width }, index) => {
                 return (
                   <th

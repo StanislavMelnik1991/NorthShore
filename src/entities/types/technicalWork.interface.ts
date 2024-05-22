@@ -1,7 +1,7 @@
 import { IRecipientAddressGroup } from './address.interface';
+import { IEmployee } from './employees.interface';
 import { BaseEntity } from './global.interface';
 import { ILocalizedData } from './localization.interface';
-import { IEmployee } from './user.interface';
 
 export interface ITechWorkType extends BaseEntity {
   icon_site: string;

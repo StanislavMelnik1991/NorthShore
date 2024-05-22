@@ -1,0 +1,21 @@
+.status_raw {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.green {
+  color: var(--green-100);
+}
+
+.primary {
+  color: var(--primary-100);
+}
+
+.orange {
+  color: #f19811;
+}
+
+.gray {
+  color: #878175;
+}

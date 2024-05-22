@@ -1,0 +1,56 @@
+.card {
+  padding: 32px 24px;
+  margin-bottom: 128px;
+}
+
+.actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 24px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+
+.select {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+
+  &_role {
+    width: 448px;
+    z-index: 1;
+  }
+}
+
+.workType {
+  z-index: 2;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-100);
+  margin-top: 8px;
+  margin-bottom: -4px;
+}
+
+.password {
+  width: 290px;
+}
+
+.submitBlock {
+  display: flex;
+  gap: 24px;
+}
+
+.submitButton {
+  width: 207px;
+}
+
+.deleteBtn {
+  margin-left: auto;
+}

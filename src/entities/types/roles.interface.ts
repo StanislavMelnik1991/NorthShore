@@ -9,3 +9,7 @@ export interface IRole extends BaseEntity {
   access_codes: Array<IAccessCode>;
   users: Array<BaseEntity>;
 }
+
+export interface IRoleFull extends IRole {
+  users: Array<BaseEntity>;
+}

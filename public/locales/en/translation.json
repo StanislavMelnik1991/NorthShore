@@ -29,10 +29,12 @@
     "users": "Users",
     "access": "Access Control",
     "intercom": "Intercom",
-    "video": "Video Monitoring",
-    "energy": "Energy Resources",
-    "heating": "Heating Points",
-    "lifts": "Elevators",
+    "video": "Video Surveillance",
+    "energy": "Energy resources",
+    "heating": "Heating points",
+    "lifts": "Lifts",
+    "residents": "Residents",
+    "employees": "Employees",
     "accessRights": "Access Rights",
     "roles": "Roles"
   },
@@ -117,7 +119,8 @@
     "map": "Open on Map",
     "delete": "Delete",
     "open": "Open",
-    "markAsFailed": "Mark as Failed"
+    "markAsFailed": "Mark as failed",
+    "personal_notification": "Personal notification"
   },
   "period": {
     "from": "From",

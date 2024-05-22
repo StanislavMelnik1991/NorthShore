@@ -14,6 +14,7 @@ interface Props
   error?: string;
   leftItem?: JSX.Element;
   rightItem?: JSX.Element;
+  placeholder?: string;
 }
 
 export const TextField = ({
@@ -23,6 +24,7 @@ export const TextField = ({
   label,
   leftItem,
   rightItem,
+  placeholder,
   ...props
 }: Props) => {
   return (
@@ -39,6 +41,7 @@ export const TextField = ({
       >
         {leftItem}
         <input
+          placeholder={placeholder}
           {...props}
           className={classNames(styles.input, inputClassName, {
             [styles.error]: !!error,

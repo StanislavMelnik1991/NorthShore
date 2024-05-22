@@ -1,6 +1,5 @@
+import { IDepartment } from './employees.interface';
 import { BaseEntity } from './global.interface';
-
-export interface IDepartment extends BaseEntity {}
 
 export interface IRecipientRolesGroup {
   department: IDepartment;

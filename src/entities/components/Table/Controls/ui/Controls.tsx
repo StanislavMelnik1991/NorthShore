@@ -8,6 +8,7 @@ import {
   IconLock,
   IconMap,
   IconPencil,
+  IconMail,
 } from '@shared/icons';
 import { Card } from '@shared/ui';
 import { PopUpMenuItem } from '../../../';
@@ -21,6 +22,8 @@ interface Props {
     lat?: number;
     lon?: number;
   };
+  getNotificationRoute?: (id: number) => string;
+  notificationFunction?: (id: number) => void;
   getUpdateRoute?: false | ((id: number) => string);
   getDetailsRoute?: false | ((id: number) => string);
   onDelete?: MouseEventHandler<HTMLDivElement> | false;
@@ -35,14 +38,17 @@ export const TableControls = ({
   point,
   getDetailsRoute,
   getUpdateRoute,
+  getNotificationRoute,
   onDelete,
   onOpen,
   rotateIcon,
+  notificationFunction,
   onMarkAsFailed,
 }: Props) => {
   const {
     handleGoToDetails,
     handleGoToUpdate,
+    handleGoToNotificate,
     isShow,
     setIsShow,
     handleMapOpen,
@@ -52,6 +58,7 @@ export const TableControls = ({
     id,
     getDetailsRoute,
     getUpdateRoute,
+    getNotificationRoute,
     point,
   });
   return (
@@ -81,6 +88,20 @@ export const TableControls = ({
               onClick={handleGoToUpdate}
               icon={<IconPencil width={20} hanging={20} />}
               text={t('popup.edit')}
+            />
+          )}
+          {getNotificationRoute && (
+            <PopUpMenuItem
+              onClick={handleGoToNotificate}
+              icon={<IconMail width={20} hanging={20} />}
+              text={t('popup.personal_notification')}
+            />
+          )}
+          {notificationFunction && (
+            <PopUpMenuItem
+              onClick={() => notificationFunction(id)}
+              icon={<IconMail width={20} hanging={20} />}
+              text={t('popup.personal_notification')}
             />
           )}
           {point && (

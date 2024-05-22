@@ -13,6 +13,10 @@ import {
   CreateMeetingPage,
   MeetingsListPage,
   UpdateNewsPage,
+  AdminResidentsListPage,
+  AdminCurrentResidentPage,
+  AdminEmployeesListPage,
+  AdminCurrentEmployeePage,
   CreateNotificationPage,
   NotificationsListPage,
   CurrentNotificationPage,
@@ -39,6 +43,8 @@ import {
   AdminAdvertisementsListPage,
   CreateAdvertisementPage,
   UpdateAdvertisement,
+  CreateEmployeePage,
+  UpdateEmployeePage,
 } from '@pages/admin';
 import {
   ConfirmMailPage,
@@ -337,6 +343,42 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     element: <UpdateRolePage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.RESIDENTS]: {
+    path: AppRoutes[AppRoutesEnum.RESIDENTS](),
+    element: <AdminResidentsListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.RESIDENTS_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.RESIDENTS_CURRENT](':id'),
+    element: <AdminCurrentResidentPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES](),
+    element: <AdminEmployeesListPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_CURRENT](':id'),
+    element: <AdminCurrentEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_CREATE](),
+    element: <CreateEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
+  },
+  [AppRoutesEnum.EMPLOYEES_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.EMPLOYEES_UPDATE](':id'),
+    element: <UpdateEmployeePage />,
+    authOnly: true,
+    acceptedRoles: ROLES_ADMIN,
   },
   [AppRoutesEnum.USERS]: {
     path: AppRoutes[AppRoutesEnum.USERS](),

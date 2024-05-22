@@ -1,0 +1,102 @@
+{
+  "routes": {
+    "residents": "Жильцы",
+    "resident": "Жилец"
+  },
+  "toast": {
+    "listError": "Не удалось получить список жильцов",
+    "send_notification": "Уведомление успешно отправлено",
+    "notificationsError": "Не удалось отправить уведомление",
+    "createSuccess": "Создано успешно",
+    "createError": "Ошибка при создании",
+    "deleteSuccess": "Удалено успешно",
+    "deleteError": "Не удалось удалить"
+  },
+  "langs": {
+    "ru": "Русский",
+    "en": "Английский"
+  },
+  "filters": {
+    "street": "Выберите улицу",
+    "building": "Выберите дом",
+    "apartment": "Выберите квартиру"
+  },
+  "controls": {
+    "find": "Введите фамилию или имя",
+    "personal_notification": "Персональное уведомление"
+  },
+  "popUp_fields": {
+    "sent_push": "Отправить Push-уведомление",
+    "title": "Заголовок",
+    "title_notification": "Заголовок уведомления",
+    "text": "Текст уведомления"
+  },
+  "btns": {
+    "send": "Отправить",
+    "cancel": "Отмена",
+    "add": "Добавить",
+    "change": "Изменить"
+  },
+  "tabs": {
+    "general_info": "Основная информация",
+    "requests": "Заявки",
+    "access_points": "Точки доступа",
+    "notifications_history": "История уведомлений",
+    "main": "Основная информация",
+    "config": "Конфигурация",
+    "access": "Адреса с доступом к видеокамере"
+  },
+  "info_fields": {
+    "name": "ФИО",
+    "phone_number": "Телефон",
+    "address": "Адрес прописки",
+    "account": "Лицевой счет",
+    "objects": "Объект недвижимости",
+    "lang": "Язык коммуникации",
+    "mail": "E-mail",
+    "password": "Пароль",
+    "reset": "Сбросить пароль",
+    "additional_access_points": "Дополнительные точки доступа",
+    "intercom": "Домофония",
+    "additional_intercoms": "Дополнительные домофоны",
+    "cctv": "Видеонаблюдение",
+    "additional_cameras": "Дополнительные камеры",
+    "barrier": "Шлагбаум",
+    "gate": "Калитка",
+    "paw_washing": "Лапомойка",
+    "bike_box": "Велобокс",
+    "stroller": "Колясочная",
+    "gates": "Ворота",
+    "intercom_one": "Домофон",
+    "camera": "Камера",
+    "sliding_gates": "Откатные ворота",
+    "sls": "Видеоглазки",
+    "floor": "Этаж",
+    "add": "Добавить"
+  },
+  "modal": {
+    "request": "Заявка",
+    "notification": "Уведомление",
+    "comment": "Комментарий техника для ук",
+    "titles": {
+      "access_point": "Добавить дополнительную точку доступа",
+      "intercom": "Добавить дополнительный домофон",
+      "camera": "Добавить дополнительную камеру"
+    },
+    "subtitles": {
+      "access_point_type": "Тип точки доступа",
+      "access_point": "Номер точки доступа",
+      "intercom": "Номер домофона",
+      "camera": "Номер камеры"
+    },
+    "placeholders": {
+      "type": "Выберите тип",
+      "number": "Введите номер"
+    }
+  },
+  "remove": {
+    "title": "Подтверждение удаления",
+    "delete": "Удалить ",
+    "text": "? Действие нельзя будет отменить. "
+  }
+}

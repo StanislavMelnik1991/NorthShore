@@ -71,6 +71,13 @@ export enum AppRoutesEnum {
   ADMIN_ROLES_CREATE,
   ADMIN_ROLES_UPDATE,
 
+  RESIDENTS,
+  RESIDENTS_CURRENT,
+  EMPLOYEES,
+  EMPLOYEES_CURRENT,
+  EMPLOYEES_CREATE,
+  EMPLOYEES_UPDATE,
+
   ADMIN_REQUESTS,
   ADMIN_REQUESTS_CURRENT,
   ADMIN_APPLICATIONS,
@@ -175,9 +182,18 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_ROLES_CREATE]: () => '/admin/roles/create',
   [AppRoutesEnum.ADMIN_ROLES_UPDATE]: (id: number | string) =>
     `/admin/roles/${id}/update`,
-
   [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
+
+  [AppRoutesEnum.RESIDENTS]: () => '/admin/residents',
+  [AppRoutesEnum.RESIDENTS_CURRENT]: (id: number | string) =>
+    `/admin/residents/${id}`,
+  [AppRoutesEnum.EMPLOYEES]: () => '/admin/employees',
+  [AppRoutesEnum.EMPLOYEES_CURRENT]: (id: number | string) =>
+    `/admin/employees/${id}`,
+  [AppRoutesEnum.EMPLOYEES_CREATE]: () => '/admin/employees/create',
+  [AppRoutesEnum.EMPLOYEES_UPDATE]: (id: number | string) =>
+    `/admin/employees/update/${id}`,
 
   [AppRoutesEnum.ADMIN_REQUESTS]: () => '/admin/requests',
   [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: (id: number | string) =>

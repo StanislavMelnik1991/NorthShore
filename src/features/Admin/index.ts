@@ -1,5 +1,7 @@
 export * from './News';
 export * from './Events';
+export * from './Residents';
+export * from './Employees';
 export * from './Notifications';
 export * from './Meetings';
 export * from './Voting';
