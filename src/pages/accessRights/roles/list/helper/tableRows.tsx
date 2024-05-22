@@ -9,10 +9,11 @@ interface Props {
 
 export const useTableRows = ({ data, onDelete }: Props) => {
   return data.map(({ id, name, users, description }) => {
+    const staff = users.map((el) => el.name).join(', ');
     return {
       roles: <TableText>{name}</TableText>,
       description: <TableText>{description}</TableText>,
-      staff: <TableText>{users.join(', ')}</TableText>,
+      staff: <TableText>{staff}</TableText>,
       controls: (
         <TableControls
           getUpdateRoute={AppRoutes[AppRoutesEnum.ADMIN_ROLES_UPDATE]}
