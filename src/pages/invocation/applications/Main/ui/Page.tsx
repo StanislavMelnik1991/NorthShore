@@ -24,7 +24,9 @@ const Page = () => {
   return (
     <PageSkeleton>
       <PageHeader
-        breadcrumbs={[{ href: location.pathname, title: t('routes.requests') }]}
+        breadcrumbs={[
+          { href: location.pathname, title: t('routes.applications') },
+        ]}
         controls={
           <Link to={AppRoutes[AppRoutesEnum.APPLICATIONS_CREATE]()}>
             <Button>
