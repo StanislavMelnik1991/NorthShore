@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useUser } from '@features/User';
 import { NavItemProps } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import {
@@ -15,6 +16,48 @@ import {
 
 export const useUserSidebarConfig: () => Array<NavItemProps> = () => {
   const { t } = useTranslation();
+  const { user } = useUser();
+  if (!user) {
+    return [
+      {
+        title: t('sidebar.main'),
+        icon: IconHome,
+        href: AppRoutes[AppRoutesEnum.MAIN](),
+        isLink: true,
+      },
+      {
+        title: t('sidebar.news'),
+        icon: IconNewspaper,
+        href: AppRoutes[AppRoutesEnum.NEWS](),
+        isLink: true,
+      },
+      {
+        title: t('sidebar.poster'),
+        icon: IconMask,
+        href: AppRoutes[AppRoutesEnum.POSTER](),
+        isLink: true,
+      },
+
+      {
+        title: t('sidebar.services'),
+        icon: IconWrench,
+        href: AppRoutes[AppRoutesEnum.SERVICES](),
+        isLink: true,
+      },
+      {
+        title: t('sidebar.loyalty'),
+        icon: IconShoppingBag,
+        href: AppRoutes[AppRoutesEnum.LOYALTY](),
+        isLink: true,
+      },
+      {
+        title: t('sidebar.knowledge'),
+        icon: IconQuestion,
+        href: AppRoutes[AppRoutesEnum.KNOWLEDGE](),
+        isLink: true,
+      },
+    ];
+  }
   return [
     {
       title: t('sidebar.main'),
