@@ -49,7 +49,7 @@ export const InvocationCard = ({
         {title}
       </Text>
       <div className={styles.status}>
-        <StatusLabel type={'application'} status={status} />
+        <StatusLabel type={type} status={status} />
       </div>
     </Card>
   );
