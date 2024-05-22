@@ -1,9 +1,14 @@
 import { useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import { LogoutData } from '@entities/types';
-import { TOKEN_LOCAL_STORAGE_KEY } from '@shared/constants';
+import {
+  AppRoutes,
+  AppRoutesEnum,
+  TOKEN_LOCAL_STORAGE_KEY,
+} from '@shared/constants';
 import { UserContext } from '../context';
 
 interface Params extends LogoutData {
@@ -12,6 +17,7 @@ interface Params extends LogoutData {
 
 export const useUser = () => {
   const { t } = useTranslation('auth');
+  const navigate = useNavigate();
   const { user, isLoading, setUser, setToken, isAdmin } =
     useContext(UserContext);
 
@@ -21,6 +27,7 @@ export const useUser = () => {
         const { data } = await axiosApi.get('/auth/logout', { params });
         if (data?.data?.logout) {
           toast.success(t('toast.logoutSuccess'));
+          navigate(AppRoutes[AppRoutesEnum.MAIN]());
           return true;
         }
         return false;
@@ -37,7 +44,7 @@ export const useUser = () => {
     setUser?.();
     localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
     setToken?.(null);
-  }, [setToken, setUser, t]);
+  }, [navigate, setToken, setUser, t]);
   return {
     user,
     isLoading,
