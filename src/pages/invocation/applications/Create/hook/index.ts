@@ -30,7 +30,7 @@ export const useCreateApplicationPage = () => {
     onSubmit: async (body) => {
       const data = await create(body);
       if (data) {
-        navigate(AppRoutes[AppRoutesEnum.REQUESTS]());
+        navigate(AppRoutes[AppRoutesEnum.APPLICATIONS]());
       }
     },
   });
