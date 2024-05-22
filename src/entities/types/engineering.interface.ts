@@ -22,7 +22,9 @@ export interface IEngineering extends BaseEntity {
 
 export interface IEngineeringFull extends IEngineering {
   type: IEngineeringType;
-  apartment: IApartmentFull;
+  apartment?: IApartmentFull;
+  entrance?: IEntranceFull;
+  building?: IBuildingFull;
   charge_status: BaseEntity;
   operating_mode: BaseEntity;
 }

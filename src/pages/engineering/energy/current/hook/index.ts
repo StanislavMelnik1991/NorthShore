@@ -2,7 +2,7 @@ import { differenceInDays } from 'date-fns';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useGetCurrentEnergyConsumers } from '@features/engineering/energy/hooks/getCurrent';
+import { useGetCurrentEnergyConsumers } from '@features/engineering';
 import { formatAddress, getEndOfMonth, getStartOfMonth } from '@features/utils';
 import { MAX_DAYS_PERIOD } from '@shared/constants';
 

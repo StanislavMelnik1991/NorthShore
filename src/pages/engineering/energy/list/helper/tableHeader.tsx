@@ -1,8 +1,28 @@
 import { useTranslation } from 'react-i18next';
+import { TableFilter } from '@widgets/Table';
+import { ISelectOption, TableSelect } from '@entities/components';
 import { Text } from '@shared/ui';
 import { ConfigItemType } from '@shared/ui';
 
-export const useTableHeader: () => Array<ConfigItemType> = () => {
+interface AddressWrapper<T> {
+  state: T;
+  type: T;
+  chargingStatus: T;
+}
+
+interface Props {
+  value: AddressWrapper<ISelectOption | null>;
+  onChange: AddressWrapper<(val: ISelectOption | null) => void>;
+  options: Partial<AddressWrapper<ISelectOption[] | undefined>>;
+  isLoading: AddressWrapper<boolean>;
+}
+
+export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
+  onChange,
+  isLoading,
+  options,
+  value,
+}) => {
   const { t } = useTranslation('table');
   return [
     {
@@ -13,12 +33,28 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
         </Text>
       ),
     },
+
     {
       name: 'type',
       label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('header.type')}
-        </Text>
+        <TableFilter
+          label={t('header.type')}
+          isActive={!!value.type}
+          filter={
+            <TableSelect
+              value={value.type}
+              isLoading={isLoading.type}
+              placeholder={t('controls.find')}
+              onChange={(val) => onChange.type(val as ISelectOption)}
+              options={options.type?.map(({ label, value }) => {
+                return {
+                  value,
+                  label,
+                };
+              })}
+            />
+          }
+        />
       ),
       width: 100,
     },
@@ -35,9 +71,24 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
     {
       name: 'state',
       label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('header.state')}
-        </Text>
+        <TableFilter
+          label={t('header.state')}
+          isActive={!!value.state}
+          filter={
+            <TableSelect
+              value={value.state}
+              placeholder={t('controls.find')}
+              isLoading={isLoading.state}
+              onChange={(val) => onChange.state(val as ISelectOption)}
+              options={options.state?.map(({ label, value }) => {
+                return {
+                  value,
+                  label,
+                };
+              })}
+            />
+          }
+        />
       ),
     },
     {
@@ -67,10 +118,27 @@ export const useTableHeader: () => Array<ConfigItemType> = () => {
     {
       name: 'chargingStatus',
       label: (
-        <Text fontWeight="regular" variant="body14">
-          {t('header.chargingStatus')}
-        </Text>
+        <TableFilter
+          label={t('header.chargingStatus')}
+          isActive={!!value.chargingStatus}
+          popupPosition={{ left: 'calc(-100% - 20px)' }}
+          filter={
+            <TableSelect
+              value={value.chargingStatus}
+              isLoading={isLoading.chargingStatus}
+              placeholder={t('controls.find')}
+              onChange={(val) => onChange.chargingStatus(val as ISelectOption)}
+              options={options.chargingStatus?.map(({ label, value }) => {
+                return {
+                  value,
+                  label,
+                };
+              })}
+            />
+          }
+        />
       ),
+      width: 170,
     },
     {
       name: 'controls',

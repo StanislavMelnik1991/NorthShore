@@ -1,3 +1,4 @@
+import { AddressFilters } from '@features/address';
 import {
   PageHeader,
   PageSkeleton,
@@ -20,12 +21,22 @@ const Page = () => {
     isLoading,
     t,
     page,
+    handleChangeAddressFilter,
   } = useNewsList();
   return (
     <PageSkeleton>
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t('routes.energy') }]}
       />
+      <Card padding={12} gap={20} loaderSize={32}>
+        <div className={styles.filters}>
+          <AddressFilters
+            showEntries={false}
+            showApartment={false}
+            setFilters={handleChangeAddressFilter}
+          />
+        </div>
+      </Card>
       <Card className={styles.card} flexDirection="column" loading={isLoading}>
         <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
