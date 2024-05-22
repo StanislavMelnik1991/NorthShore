@@ -22,11 +22,20 @@
     "preview": "Preview"
   },
   "status": {
-    "new": "New application",
-    "passed": "Transmitted for execution",
-    "accepted": "Accepted for execution",
-    "done": "Done",
-    "closed": "Closed"
+    "request": {
+      "new": "New request",
+      "passed": "Passed for execution",
+      "accepted": "Accepted for execution",
+      "done": "Done",
+      "closed": "Closed"
+    },
+    "application": {
+      "new": "New application",
+      "passed": "Passed for execution",
+      "accepted": "Accepted for execution",
+      "done": "Done",
+      "closed": "Closed"
+    }
   },
   "themes": {
     "defect": "Fault",

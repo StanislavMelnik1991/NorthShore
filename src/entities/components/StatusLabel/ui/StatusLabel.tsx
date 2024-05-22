@@ -5,12 +5,15 @@ import { IconClockPast, IconDone, IconStar } from '@shared/icons';
 import { Text } from '@shared/ui';
 import styles from './StatusLabel.module.scss';
 
+type CardType = 'request' | 'application';
+
 interface Props {
   className?: string;
   status: keyof typeof RequestStatusEnum;
+  type: CardType;
 }
 
-export const StatusLabel = ({ className, status }: Props) => {
+export const StatusLabel = ({ className, status, type }: Props) => {
   const { t } = useTranslation('invocation');
   const iconConfig = {
     '1': <IconStar />,
@@ -28,7 +31,7 @@ export const StatusLabel = ({ className, status }: Props) => {
       )}
     >
       {iconConfig[status]}
-      <Text>{t(`status.${RequestStatusEnum[status]}`)}</Text>
+      <Text>{t(`status.${type}.${RequestStatusEnum[status]}`)}</Text>
     </div>
   );
 };

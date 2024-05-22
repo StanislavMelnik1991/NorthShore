@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     status: 1,
+    type: 'application',
   },
   decorators: [WhiteBgDecorator],
 };
@@ -24,6 +25,7 @@ export const Main: Story = {
 export const OnPage: Story = {
   args: {
     status: 1,
+    type: 'application',
   },
   decorators: [PageDecorator],
 };
