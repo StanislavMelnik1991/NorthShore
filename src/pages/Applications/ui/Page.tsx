@@ -5,7 +5,7 @@ import applications from '../assets/applications.png';
 import styles from './Page.module.scss';
 
 const MainPage = () => {
-  const { t } = useTranslation('accounting');
+  const { t } = useTranslation();
 
   return (
     <PageSkeleton className={styles.wrapper}>
@@ -13,15 +13,15 @@ const MainPage = () => {
         className={styles.header}
         breadcrumbs={[
           {
-            title: t('title'),
+            title: t('sidebar.requests'),
           },
         ]}
       />
       <div className={styles.wrapper}>
         <RarusCard
           link={'#'}
-          title={t('title')}
-          subtitle={t('subtitle')}
+          title={t('sidebar.requests')}
+          subtitle={t('rarus')}
           img={applications}
         ></RarusCard>
       </div>

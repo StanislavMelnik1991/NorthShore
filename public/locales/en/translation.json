@@ -138,5 +138,6 @@
     "actual": "Actual",
     "closed": "Closed"
   },
-  "discount": "Discount"
+  "discount": "Discount",
+  "rarus": "Migration to 1C Rarus"
 }
