@@ -2,7 +2,7 @@
   "routes": {
     "applications": "Обращения",
     "requests": "Заявки",
-    "create_application": "Новая обращение",
+    "create_application": "Новое обращение",
     "create_request": "Новая заявка"
   },
   "tabs": {
