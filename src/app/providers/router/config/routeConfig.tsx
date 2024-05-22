@@ -3,6 +3,7 @@ import {
   RolesListPage,
   UpdateRolePage,
 } from '@pages/accessRights';
+import { AccountingPage } from '@pages/Accounting';
 import {
   AdminNewsListPage,
   CreateNewsPage,
@@ -46,6 +47,7 @@ import {
   CreateEmployeePage,
   UpdateEmployeePage,
 } from '@pages/admin';
+import { ApplicationsPage } from '@pages/Applications';
 import {
   ConfirmMailPage,
   ConfirmPhonePage,
@@ -87,6 +89,7 @@ import {
   CreateApplicationPage,
 } from '@pages/invocation';
 import { NotFoundPage } from '@pages/NotFound';
+import { PassportPage } from '@pages/Passport';
 import {
   CreateCameraPage,
   SecurityAccessPage,
@@ -106,10 +109,7 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
-import { AccountingPage } from '@pages/Accounting';
 import { StatisticPage } from '@pages/Statistic';
-import { ApplicationsPage } from '@pages/Applications/ui';
-import { PassportPage } from '@pages/Passport';
 import { TechnicalWorks } from '@widgets/technicalWorks';
 import {
   AppRoutesEnum,

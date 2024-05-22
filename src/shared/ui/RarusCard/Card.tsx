@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { Card, Title, Text } from '@shared/ui';
-import styles from './Card.module.scss';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { Card, Title, Text } from '../';
+import styles from './Card.module.scss';
 
 interface Props {
   className?: string;

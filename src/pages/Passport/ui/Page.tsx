@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { RarusCard } from '@shared/ui';
-import residents from '../assets/residents.png';
+import log_books from '../assets/log_books.png';
 import registr_res from '../assets/registr_res.png';
 import registr_stay from '../assets/registr_stay.png';
-import log_books from '../assets/log_books.png';
+import residents from '../assets/residents.png';
 import styles from './Page.module.scss';
 
 const MainPage = () => {

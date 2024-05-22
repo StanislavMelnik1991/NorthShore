@@ -14,7 +14,6 @@ import {
   Tab,
   Modal,
   CurrentSkeleton,
-  StyledSelect,
   ModalDelete,
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -68,10 +67,6 @@ const Page = () => {
     setAccessPoint,
     addType,
     setAddType,
-    accessPointsTypes,
-    isAccessPointsTypesLoading,
-    accessPointType,
-    setAccessPointType,
     addNumber,
     setAddNumber,
     isAddLoading,
