@@ -1,4 +1,6 @@
+import { ContentWithLanguageSelection } from '@widgets/Content';
 import {
+  Modal,
   PageHeader,
   PageSkeleton,
   Pagination,
@@ -26,9 +28,20 @@ const Page = () => {
     toggleStatusFilter,
     status,
     page,
+    config,
+    open,
+    setOpen,
   } = useNewsList();
   return (
     <PageSkeleton>
+      <Modal
+        isOpen={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <ContentWithLanguageSelection config={config} />
+      </Modal>
       <PageHeader
         breadcrumbs={[{ href: location.pathname, title: t('routes.news') }]}
       />

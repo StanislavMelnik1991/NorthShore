@@ -63,18 +63,24 @@ export default () => {
           <Text variant="body16" fontWeight="regular">
             {data.body[i18n.language as LanguageEnum] || ' '}
           </Text>
-          <div className={styles.deadline}>
-            <IconClock width={20} height={20} />
-            <Text variant="body14" fontWeight="medium" className={styles.dark}>
-              {`${t('deadline')}: `}
-            </Text>
-            <Text variant="body14" fontWeight="medium">
-              {formatDistanceToNowStrict(data.date_finish, {
-                locale: localeConfig[i18n.language as LanguageEnum],
-                addSuffix: false,
-              })}
-            </Text>
-          </div>
+          {data.status.id === 1 && (
+            <div className={styles.deadline}>
+              <IconClock width={20} height={20} />
+              <Text
+                variant="body14"
+                fontWeight="medium"
+                className={styles.dark}
+              >
+                {`${t('deadline')}: `}
+              </Text>
+              <Text variant="body14" fontWeight="medium">
+                {formatDistanceToNowStrict(data.date_finish * 1000, {
+                  locale: localeConfig[i18n.language as LanguageEnum],
+                  addSuffix: false,
+                })}
+              </Text>
+            </div>
+          )}
           {data.election_questions.map((el, index) => {
             return (
               <div

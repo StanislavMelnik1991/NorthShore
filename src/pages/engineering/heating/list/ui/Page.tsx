@@ -55,7 +55,7 @@ const MainPage = () => {
               to={AppRoutes[AppRoutesEnum.ENGINEERING_HEATING_CURRENT](el.id)}
             >
               <HeatingCard
-                address={formatAddress(el.building || el.entrance)}
+                address={formatAddress(el.building)}
                 alarms={el.alarms || []}
                 id={el.id}
                 work_mode={el.work_mode}

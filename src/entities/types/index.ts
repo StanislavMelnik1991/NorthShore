@@ -24,3 +24,4 @@ export * from './roles.interface';
 export * from './loyalty.interface';
 export * from './advertisement.interface';
 export * from './kbase.interface';
+export * from './activity.interface';

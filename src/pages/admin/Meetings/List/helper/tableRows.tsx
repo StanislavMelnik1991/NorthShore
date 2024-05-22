@@ -4,7 +4,12 @@ import { TableBadge, TableControls, TableText } from '@entities/components';
 import { INews } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
-export const useTableRows = (data: Array<INews>) => {
+interface Props {
+  data: Array<INews>;
+  handleOpen: (id: number | string) => () => void;
+}
+
+export const useTableRows = ({ data, handleOpen }: Props) => {
   const { i18n } = useTranslation();
   return data.map(({ id, title, published_at, status, target_date }) => {
     return {
@@ -23,7 +28,7 @@ export const useTableRows = (data: Array<INews>) => {
       ),
       controls: (
         <TableControls
-          getDetailsRoute={AppRoutes[AppRoutesEnum.ACTIVITY_MEETINGS_CURRENT]}
+          getDetails={handleOpen(id)}
           getUpdateRoute={AppRoutes[AppRoutesEnum.UPDATE_MEETINGS]}
           id={id}
         />

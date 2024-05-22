@@ -14,7 +14,7 @@
     "poster": "Афиша",
     "activity": "Активности",
     "services": "Услуги",
-    "invocation": "Заявки и обращение",
+    "invocation": "Заявки и обращения",
     "requests": "Заявки",
     "applications": "Обращения",
     "knowledge": "База знаний",
@@ -138,5 +138,6 @@
     "actual": "Актуальные",
     "closed": "Завершенные"
   },
-  "discount": "Скидка"
+  "discount": "Скидка",
+  "rarus": "Переход в 1С Рарус"
 }

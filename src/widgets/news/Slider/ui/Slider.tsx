@@ -21,7 +21,7 @@ export const NewsSlider = ({
   defaultSlide = 0,
   gap,
 }: Props) => {
-  const { lang, news, setSlide, slide, total } = useNewsSlider({
+  const { lang, news, setSlide, slide } = useNewsSlider({
     defaultSlide,
   });
   const newsSlides = news.map((el) => {
@@ -59,7 +59,7 @@ export const NewsSlider = ({
           setSlide((val) => val + 1);
         }}
         className={classNames(styles.next, styles.icon)}
-        disabled={slide === total - slidesOnPage}
+        disabled={slide >= news.length - slidesOnPage}
       >
         <IconArrow rotate={180} />
       </button>

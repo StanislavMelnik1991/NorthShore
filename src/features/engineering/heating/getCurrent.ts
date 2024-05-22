@@ -2,7 +2,11 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, IHeatingPoint } from '@entities/types';
+import {
+  BaseResponse,
+  HeatingParametersType,
+  IHeatingPoint,
+} from '@entities/types';
 
 export const useGetCurrentHeating = () => {
   const { t } = useTranslation();
@@ -17,6 +21,12 @@ export const useGetCurrentHeating = () => {
           `/heating_point/${id}`,
         );
         if (data?.data) {
+          Object.entries(data.data.parameters).forEach(([key, value]) => {
+            data.data.parameters[key as keyof HeatingParametersType] = Number(
+              value.toFixed(1),
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ) as any;
+          });
           setData(data.data);
           return data.data;
         } else {

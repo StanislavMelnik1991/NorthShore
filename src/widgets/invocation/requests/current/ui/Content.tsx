@@ -60,7 +60,13 @@ export const RequestContentWidget = ({
       <Title className={styles.title} fontWeight="semibold" variant="h4">
         {title}
       </Title>
-      {status && <StatusLabel className={styles.status} status={status} />}
+      {status && (
+        <StatusLabel
+          type={'request'}
+          className={styles.status}
+          status={status}
+        />
+      )}
       {date && <DateDetails date={date} />}
       {link && <LinkDetails href={link} />}
       {text && <Text variant="body14">{text}</Text>}

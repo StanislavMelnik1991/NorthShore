@@ -9,7 +9,7 @@ interface Params extends ListParams {
   is_accident?: true;
 }
 
-export const useGetUserHeatingList = () => {
+export const useGetHeatingList = () => {
   const { getData: fetchData, isLoading, total } = useGetInfinityHeatingList();
   const [data, setData] = useState<Array<IHeatingPoint>>([]);
 

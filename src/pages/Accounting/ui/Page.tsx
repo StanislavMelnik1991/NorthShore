@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { PageHeader, PageSkeleton } from '@entities/components';
 import { RarusCard } from '@shared/ui';
 import buildings from '../assets/buildings.png';
+import documentation from '../assets/documentation.png';
 import equipment from '../assets/equipment.png';
 import resourses from '../assets/resourses.png';
-import documentation from '../assets/documentation.png';
 import styles from './Page.module.scss';
 
 const MainPage = () => {

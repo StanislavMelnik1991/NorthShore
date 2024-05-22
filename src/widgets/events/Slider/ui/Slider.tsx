@@ -20,7 +20,7 @@ export const EventsSlider = ({
   defaultSlide = 0,
   gap,
 }: Props) => {
-  const { lang, events, setSlide, slide, total } = useEventsSlider({
+  const { lang, events, setSlide, slide } = useEventsSlider({
     defaultSlide,
   });
   const newsSlides = events.map((el) => {
@@ -57,7 +57,7 @@ export const EventsSlider = ({
           setSlide((val) => val + 1);
         }}
         className={classNames(styles.next, styles.icon)}
-        disabled={slide === total - slidesOnPage}
+        disabled={slide >= events.length - slidesOnPage}
       >
         <IconArrow rotate={180} />
       </button>

@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetUserHeatingList } from '@features/engineering';
+import { useGetHeatingList } from '@features/engineering';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
 export const useList = () => {
   const { t } = useTranslation('engineering');
-  const { data, getData, isLoading, total } = useGetUserHeatingList();
+  const { data, getData, isLoading, total } = useGetHeatingList();
   const [isAccident, setIsAccident] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);

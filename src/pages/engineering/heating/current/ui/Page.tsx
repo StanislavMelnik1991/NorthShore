@@ -12,7 +12,7 @@ import { useCurrentEnergy } from '../hook';
 import styles from './Page.module.scss';
 
 export default () => {
-  const { t, data } = useCurrentEnergy();
+  const { t, data, id } = useCurrentEnergy();
 
   return (
     <PageSkeleton>
@@ -23,7 +23,7 @@ export default () => {
             title: t('routes.heating'),
           },
           {
-            title: `${t('routes.heatingSingle')} № ${data?.id || 0}`,
+            title: `${t('routes.heatingSingle')} № ${id || 0}`,
           },
         ]}
       />

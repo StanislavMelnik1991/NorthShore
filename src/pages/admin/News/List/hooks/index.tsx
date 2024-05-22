@@ -20,6 +20,20 @@ interface Params extends ListParams {
 export const useNewsList = () => {
   const { t } = useTranslation('news');
   const { getData, isLoading, total, data } = useGetUserNewsList();
+  const [open, setOpen] = useState(false);
+  const [config, setConfig] = useState({
+    en: {
+      created_at: new Date(),
+      html: '',
+      title: '',
+    },
+    ru: {
+      created_at: new Date(),
+      html: '',
+      title: '',
+    },
+  });
+
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
@@ -64,8 +78,30 @@ export const useNewsList = () => {
     setStatus((val) => (val ? undefined : 2));
   }, []);
 
+  const handleOpenModal = useCallback(
+    (id: string | number) => () => {
+      const entity = data.find((el) => el.id === id);
+      if (entity) {
+        setConfig({
+          en: {
+            created_at: new Date(),
+            html: entity.html_content.en,
+            title: entity.title.en,
+          },
+          ru: {
+            created_at: new Date(),
+            html: entity.html_content.ru,
+            title: entity.title.ru,
+          },
+        });
+        setOpen(true);
+      }
+    },
+    [data],
+  );
+
   const tableHeader = useTableHeader();
-  const tableData = useTableRows(data);
+  const tableData = useTableRows({ data, handleOpen: handleOpenModal });
 
   return {
     handleCreateClick,
@@ -82,5 +118,8 @@ export const useNewsList = () => {
     page,
     tableData,
     toggleStatusFilter: handleToggleStatusFilter,
+    config,
+    open,
+    setOpen,
   };
 };

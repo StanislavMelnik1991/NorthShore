@@ -17,9 +17,9 @@ type Data = {
 };
 
 export const useCreateCameraPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const { data, getData, isLoading } = useGetCurrentSlsIntercom(id as string);
-  const { update, validate } = useUpdateSlsIntercom(id as string);
+  const { id } = useParams<{ id: string }>() as { id: string };
+  const { data, getData, isLoading } = useGetCurrentSlsIntercom(id);
+  const { update, validate } = useUpdateSlsIntercom(id);
   const [initialAddress, setInitialAddress] = useState<{
     street?: ISelectOption;
     building?: ISelectOption;

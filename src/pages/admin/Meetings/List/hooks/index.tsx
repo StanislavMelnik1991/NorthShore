@@ -22,6 +22,19 @@ export const useMeetingsList = () => {
   const { t } = useTranslation('meetings');
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [config, setConfig] = useState({
+    en: {
+      created_at: new Date(),
+      html: '',
+      title: '',
+    },
+    ru: {
+      created_at: new Date(),
+      html: '',
+      title: '',
+    },
+  });
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
   const [debounced] = useDebounce(search, 500);
@@ -64,8 +77,30 @@ export const useMeetingsList = () => {
     setStatus((val) => (val ? undefined : 2));
   }, []);
 
+  const handleOpenModal = useCallback(
+    (id: string | number) => () => {
+      const entity = data.find((el) => el.id === id);
+      if (entity) {
+        setConfig({
+          en: {
+            created_at: new Date(),
+            html: entity.html_content.en,
+            title: entity.title.en,
+          },
+          ru: {
+            created_at: new Date(),
+            html: entity.html_content.ru,
+            title: entity.title.ru,
+          },
+        });
+        setOpen(true);
+      }
+    },
+    [data],
+  );
+
   const tableHeader = useTableHeader();
-  const tableData = useTableRows(data);
+  const tableData = useTableRows({ data, handleOpen: handleOpenModal });
 
   return {
     handleCreateClick,
@@ -78,9 +113,12 @@ export const useMeetingsList = () => {
     total,
     t,
     status,
-    tableData,
     tableHeader,
-    toggleStatusFilter: handleToggleStatusFilter,
     page,
+    tableData,
+    toggleStatusFilter: handleToggleStatusFilter,
+    config,
+    open,
+    setOpen,
   };
 };

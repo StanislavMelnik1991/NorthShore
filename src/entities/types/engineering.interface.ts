@@ -38,10 +38,8 @@ export interface IEngineeringResults extends IEngineeringFull {
 
 export interface IHeatingPoint extends BaseEntity {
   type_id: BaseEntity['id'];
-  entrance_id: IEntranceFull['id'];
   work_mode: WorkModeEnum;
   alarms: Array<string>;
-  entrance: IEntranceFull;
   building: IBuildingFull;
   building_id: IBuildingFull['id'];
   parameters: HeatingParametersType;
@@ -80,3 +78,12 @@ export type HeatingParametersType = {
 
   is_relay_open: 0 | 1; // 43122
 };
+
+export interface IElevation extends BaseEntity {
+  entrance?: IEntranceFull;
+  entrance_id?: IEntranceFull['id'];
+  work_mode?: WorkModeEnum;
+  alarms?: Array<string>;
+  ip_address?: string;
+  registry_address?: string;
+}

@@ -53,7 +53,7 @@ export const PersonalNotification = ({ id, open, setOpen }: Props) => {
         </div>
         <div className={styles.textarea_wrapper}>
           <StyledTextAria
-            label={t('popUp_fields.sent_push')}
+            label={t('popUp_fields.text')}
             inputClassName={styles.textarea}
             value={text}
             onChange={(ev) => setText(ev.target.value)}

@@ -13,7 +13,7 @@
 }
 
 .avatar__wrapper {
-  height: 164px;
+  min-height: 164px;
   border-bottom: 1px solid var(--dark-20);
   display: flex;
   flex-direction: column;
@@ -27,6 +27,7 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
+  flex-shrink: 0;
   background-size: cover !important;
 
   &__circle {
@@ -49,4 +50,5 @@
 
 .name {
   font-weight: 600;
+  text-align: center;
 }

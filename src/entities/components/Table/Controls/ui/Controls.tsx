@@ -26,6 +26,7 @@ interface Props {
   notificationFunction?: (id: number) => void;
   getUpdateRoute?: false | ((id: number) => string);
   getDetailsRoute?: false | ((id: number) => string);
+  getDetails?: false | (() => void);
   onDelete?: MouseEventHandler<HTMLDivElement> | false;
   onOpen?: MouseEventHandler<HTMLDivElement> | false;
   onMarkAsFailed?: MouseEventHandler<HTMLDivElement> | false;
@@ -44,6 +45,7 @@ export const TableControls = ({
   rotateIcon,
   notificationFunction,
   onMarkAsFailed,
+  getDetails,
 }: Props) => {
   const {
     handleGoToDetails,
@@ -76,6 +78,13 @@ export const TableControls = ({
           flexDirection="column"
           className={classNames(styles.popup, className)}
         >
+          {!!getDetails && (
+            <PopUpMenuItem
+              onClick={getDetails}
+              icon={<IconEyeOpen width={20} hanging={20} />}
+              text={t('popup.preview')}
+            />
+          )}
           {!!getDetailsRoute && (
             <PopUpMenuItem
               onClick={handleGoToDetails}

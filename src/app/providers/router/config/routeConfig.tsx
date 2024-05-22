@@ -3,6 +3,7 @@ import {
   RolesListPage,
   UpdateRolePage,
 } from '@pages/accessRights';
+import { AccountingPage } from '@pages/Accounting';
 import {
   AdminNewsListPage,
   CreateNewsPage,
@@ -46,6 +47,7 @@ import {
   CreateEmployeePage,
   UpdateEmployeePage,
 } from '@pages/admin';
+import { ApplicationsPage } from '@pages/Applications';
 import {
   ConfirmMailPage,
   ConfirmPhonePage,
@@ -72,11 +74,16 @@ import {
   UserLoyaltyListPage,
   KBasePage,
 } from '@pages/Clients';
+import { TechnicalWorks } from '@pages/Clients';
 import {
+  CreateElevatorPage,
   CurrentEnergyPage,
   CurrentHeatingPage,
+  CurrentLiftPage,
   EnergyListPage,
   HeatingListPage,
+  LiftListPage,
+  UpdateElevatorPage,
 } from '@pages/engineering';
 import { ForbiddenPage } from '@pages/Forbidden';
 import {
@@ -87,6 +94,7 @@ import {
   CreateApplicationPage,
 } from '@pages/invocation';
 import { NotFoundPage } from '@pages/NotFound';
+import { PassportPage } from '@pages/Passport';
 import {
   CreateCameraPage,
   SecurityAccessPage,
@@ -106,17 +114,8 @@ import {
   UpdateCameraPage,
   UpdateIntercomPage,
 } from '@pages/Security';
-import { AccountingPage } from '@pages/Accounting';
 import { StatisticPage } from '@pages/Statistic';
-import { ApplicationsPage } from '@pages/Applications/ui';
-import { PassportPage } from '@pages/Passport';
-import { TechnicalWorks } from '@widgets/technicalWorks';
-import {
-  AppRoutesEnum,
-  AppRoutes,
-  ROLES_STAFF,
-  ROLES_ADMIN,
-} from '@shared/constants';
+import { AppRoutesEnum, AppRoutes, ROLES_STAFF } from '@shared/constants';
 import { AppRoutesProps } from '@shared/types';
 
 export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
@@ -352,37 +351,37 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.RESIDENTS](),
     element: <AdminResidentsListPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.RESIDENTS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.RESIDENTS_CURRENT](':id'),
     element: <AdminCurrentResidentPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.EMPLOYEES]: {
     path: AppRoutes[AppRoutesEnum.EMPLOYEES](),
     element: <AdminEmployeesListPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.EMPLOYEES_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.EMPLOYEES_CURRENT](':id'),
     element: <AdminCurrentEmployeePage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.EMPLOYEES_CREATE]: {
     path: AppRoutes[AppRoutesEnum.EMPLOYEES_CREATE](),
     element: <CreateEmployeePage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.EMPLOYEES_UPDATE]: {
     path: AppRoutes[AppRoutesEnum.EMPLOYEES_UPDATE](':id'),
     element: <UpdateEmployeePage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.USERS]: {
     path: AppRoutes[AppRoutesEnum.USERS](),
@@ -420,15 +419,27 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ENGINEERING_LIFTS]: {
-    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ENGINEERING_ELEVATORS]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATORS](),
+    element: <LiftListPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS_CURRENT](':id'),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE](),
+    element: <CreateElevatorPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT](':id'),
+    element: <CurrentLiftPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE](':id'),
+    element: <UpdateElevatorPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
@@ -473,7 +484,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CREATE](),
     element: <CreateAccessPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.SECURITY_ACCESS_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_CURRENT](':id'),
@@ -485,7 +496,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_ACCESS_UPDATE](':id'),
     element: <UpdateAccessPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
 
   [AppRoutesEnum.SECURITY_INTERCOM]: {
@@ -498,7 +509,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_CREATE](),
     element: <CreateIntercomPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.SECURITY_INTERCOM_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_CURRENT](':id'),
@@ -510,7 +521,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_UPDATE](':id'),
     element: <UpdateIntercomPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
 
   [AppRoutesEnum.SECURITY_SLS_INTERCOM]: {
@@ -523,7 +534,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_CREATE](),
     element: <CreateSlsIntercomPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT](':id'),
@@ -535,7 +546,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_UPDATE](':id'),
     element: <UpdateSlsIntercomPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
 
   [AppRoutesEnum.SECURITY_VIDEO]: {
@@ -548,7 +559,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CREATE](),
     element: <CreateCameraPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
   [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_CURRENT](':id'),
@@ -560,7 +571,7 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     path: AppRoutes[AppRoutesEnum.SECURITY_VIDEO_UPDATE](':id'),
     element: <UpdateCameraPage />,
     authOnly: true,
-    acceptedRoles: ROLES_ADMIN,
+    acceptedRoles: ROLES_STAFF,
   },
 
   [AppRoutesEnum.STATISTIC]: {

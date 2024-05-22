@@ -60,9 +60,12 @@ export enum AppRoutesEnum {
   ENGINEERING_ENERGY_CURRENT,
 
   ENGINEERING_HEATING,
-  ENGINEERING_LIFTS,
   ENGINEERING_HEATING_CURRENT,
-  ENGINEERING_LIFTS_CURRENT,
+
+  ENGINEERING_ELEVATORS,
+  ENGINEERING_ELEVATOR_CREATE,
+  ENGINEERING_ELEVATOR_UPDATE,
+  ENGINEERING_ELEVATOR_CURRENT,
 
   PASSPORT,
   USERS,
@@ -206,11 +209,16 @@ export const AppRoutes = {
     `/admin/engineering/energy/${id}`,
 
   [AppRoutesEnum.ENGINEERING_HEATING]: () => '/admin/engineering/heating',
-  [AppRoutesEnum.ENGINEERING_LIFTS]: () => '/admin/engineering/lifts',
   [AppRoutesEnum.ENGINEERING_HEATING_CURRENT]: (id: number | string) =>
     `/admin/engineering/heating/${id}`,
-  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: (id: number | string) =>
-    `/admin/engineering/lifts/${id}`,
+
+  [AppRoutesEnum.ENGINEERING_ELEVATORS]: () => '/admin/engineering/elevators',
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE]: () =>
+    '/admin/engineering/elevator/create',
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE]: (id: number | string) =>
+    `/admin/engineering/elevator/${id}/update`,
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT]: (id: number | string) =>
+    `/admin/engineering/elevator/${id}`,
 
   [AppRoutesEnum.SECURITY]: () => '/admin/security',
 

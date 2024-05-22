@@ -64,8 +64,12 @@
 
 .badge {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
+  top: 8px;
+  right: 8px;
   z-index: 2;
   font-weight: 400;
+  padding: 6px 18px;
+  font-size: 18px;
+  line-height: 26px;
+  border-radius: var(--radius-sm);
 }

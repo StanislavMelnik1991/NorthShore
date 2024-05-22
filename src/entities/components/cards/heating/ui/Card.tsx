@@ -2,14 +2,14 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { WorkModeEnum } from '@shared/constants';
 import { IconInfo, IconPoint } from '@shared/icons';
-import { Card, Divider, Text } from '@shared/ui';
+import { Card, Divider, Dot, Text } from '@shared/ui';
 import styles from './Card.module.scss';
 
 interface Props {
   className?: string;
   id: string | number;
   address: string;
-  work_mode: WorkModeEnum;
+  work_mode?: WorkModeEnum;
   alarms: Array<string>;
   actions?: JSX.Element;
 }
@@ -38,14 +38,27 @@ export const HeatingCard = ({
         {address}
       </Text>
       <Divider />
-      <div className={styles.row}>
-        <Text variant="body14" fontWeight="regular">
-          {t('operationMode.title')}
-        </Text>
-        <Text variant="body14" fontWeight="medium">
-          {t(`operationMode.${work_mode}`)}
-        </Text>
-      </div>
+      {work_mode && (
+        <div className={styles.row}>
+          <Text variant="body14" fontWeight="regular">
+            {t('operationMode.title')}
+          </Text>
+          <Text variant="body14" fontWeight="medium">
+            {t(`operationMode.${work_mode}`)}
+          </Text>
+        </div>
+      )}
+      {!work_mode && !alarms.length && (
+        <div className={styles.row}>
+          <Text variant="body14" fontWeight="regular">
+            {t('state.title')}
+          </Text>
+          <Text variant="body14" fontWeight="medium" className={styles.green}>
+            <Dot color="green" />
+            {t(`state.serviceable`)}
+          </Text>
+        </div>
+      )}
       {alarms.map((el, index) => {
         return (
           <div className={styles.row} key={`HeatingCard-alarm-${index}`}>

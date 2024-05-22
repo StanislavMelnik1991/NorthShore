@@ -28,5 +28,6 @@ export const useCurrentEnergy = () => {
     t,
     data,
     isLoading,
+    id,
   };
 };
