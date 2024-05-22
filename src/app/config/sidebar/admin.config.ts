@@ -69,7 +69,7 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
           title: t('sidebar.heating'),
         },
         {
-          href: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
+          href: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATORS](),
           title: t('sidebar.lifts'),
         },
       ],

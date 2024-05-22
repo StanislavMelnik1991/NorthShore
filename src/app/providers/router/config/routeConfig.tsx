@@ -75,10 +75,14 @@ import {
   KBasePage,
 } from '@pages/Clients';
 import {
+  CreateElevatorPage,
   CurrentEnergyPage,
   CurrentHeatingPage,
+  CurrentLiftPage,
   EnergyListPage,
   HeatingListPage,
+  LiftListPage,
+  UpdateElevatorPage,
 } from '@pages/engineering';
 import { ForbiddenPage } from '@pages/Forbidden';
 import {
@@ -420,15 +424,27 @@ export const routeConfig: Record<AppRoutesEnum, AppRoutesProps> = {
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ENGINEERING_LIFTS]: {
-    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS](),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ENGINEERING_ELEVATORS]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATORS](),
+    element: <LiftListPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },
-  [AppRoutesEnum.ENGINEERING_LIFTS_CURRENT]: {
-    path: AppRoutes[AppRoutesEnum.ENGINEERING_LIFTS_CURRENT](':id'),
-    element: <NotFoundPage />,
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE](),
+    element: <CreateElevatorPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT](':id'),
+    element: <CurrentLiftPage />,
+    authOnly: true,
+    acceptedRoles: ROLES_STAFF,
+  },
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE]: {
+    path: AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE](':id'),
+    element: <UpdateElevatorPage />,
     authOnly: true,
     acceptedRoles: ROLES_STAFF,
   },

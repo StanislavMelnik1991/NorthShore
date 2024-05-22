@@ -7,9 +7,11 @@ import {
   PageSkeleton,
   Pagination,
   PerPage,
+  TableControls,
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { CheckBox, Divider } from '@shared/ui';
+import { IconPlus } from '@shared/icons';
+import { Button, CheckBox, Divider } from '@shared/ui';
 import { useList } from '../hook';
 import styles from './Page.module.scss';
 
@@ -32,13 +34,21 @@ const MainPage = () => {
       <PageHeader
         breadcrumbs={[
           {
-            title: t('routes.heating'),
+            title: t('routes.elevators.list'),
           },
         ]}
+        controls={
+          <Link to={AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE]()}>
+            <Button variant="primary" size="small">
+              <IconPlus width={20} height={20} />
+              {t('routes.elevators.add')}
+            </Button>
+          </Link>
+        }
       />
       <div className={styles.content}>
         <div className={styles.filters}>
-          <AddressFilters setFilters={setFilters} showEntries={false} />
+          <AddressFilters setFilters={setFilters} />
           <CheckBox
             wrapperClassName={styles.checkbox}
             value={isAccident}
@@ -50,17 +60,24 @@ const MainPage = () => {
 
         {data.map((el) => {
           return (
-            <Link
-              key={`HeatingCard-${el.id}`}
-              to={AppRoutes[AppRoutesEnum.ENGINEERING_HEATING_CURRENT](el.id)}
-            >
-              <HeatingCard
-                address={formatAddress(el.building)}
-                alarms={el.alarms || []}
-                id={el.id}
-                work_mode={el.work_mode}
-              />
-            </Link>
+            <HeatingCard
+              address={formatAddress(el.entrance || {})}
+              alarms={el.alarms || []}
+              id={el.id}
+              key={`ElevationCard-${el.id}`}
+              actions={
+                <TableControls
+                  rotateIcon
+                  getDetailsRoute={
+                    AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT]
+                  }
+                  getUpdateRoute={
+                    AppRoutes[AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE]
+                  }
+                  id={el.id}
+                />
+              }
+            />
           );
         })}
       </div>

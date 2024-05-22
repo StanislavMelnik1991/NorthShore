@@ -1,20 +1,22 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetHeatingList } from '@features/engineering';
+import { useGetIElevatorsList } from '@features/engineering';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 
 export const useList = () => {
   const { t } = useTranslation('engineering');
-  const { data, getData, isLoading, total } = useGetHeatingList();
+  const { data, getData, isLoading, total } = useGetIElevatorsList();
   const [isAccident, setIsAccident] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [filters, setFilters] = useState<{
     street?: number;
     building?: number;
+    entrance?: number;
   }>({
     street: undefined,
     building: undefined,
+    entrance: undefined,
   });
 
   const handleGetData = useCallback(() => {
@@ -23,6 +25,7 @@ export const useList = () => {
       perPage,
       building_id: filters.building,
       street_id: filters.street,
+      entrance_id: filters.entrance,
       is_accident: isAccident || undefined,
     });
   }, [filters, getData, isAccident, page, perPage]);

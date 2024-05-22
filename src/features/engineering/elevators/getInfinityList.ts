@@ -4,31 +4,38 @@ import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import {
   BaseResponse,
-  HeatingParametersType,
-  IHeatingPoint,
+  IElevation,
+  ListParams,
+  PaginationResponse,
 } from '@entities/types';
 
-export const useGetCurrentHeating = () => {
+interface Params extends ListParams {
+  building_id?: number;
+  entrance_id?: number;
+  street_id?: number;
+  is_accident?: true;
+}
+
+interface ResponseDataType extends PaginationResponse {
+  data: Array<IElevation>;
+}
+
+export const useGetInfinityElevatorsList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<IHeatingPoint>();
+  const [total, setTotal] = useState(0);
 
   const getData = useCallback(
-    async (id: string | number) => {
+    async (params: Params) => {
       setIsLoading(true);
       try {
-        const { data } = await axiosApi.get<BaseResponse<IHeatingPoint>>(
-          `/heating_point/${id}`,
+        const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
+          `/elevators`,
+          { params },
         );
-        if (data?.data) {
-          Object.entries(data.data.parameters).forEach(([key, value]) => {
-            data.data.parameters[key as keyof HeatingParametersType] = Number(
-              value.toFixed(1),
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ) as any;
-          });
-          setData(data.data);
-          return data.data;
+        if (data?.data?.data) {
+          setTotal(data.data.total_pages);
+          return data.data.data;
         } else {
           toast.error(t('errors.getError'));
         }
@@ -45,6 +52,6 @@ export const useGetCurrentHeating = () => {
   return {
     getData,
     isLoading,
-    data,
+    total,
   };
 };

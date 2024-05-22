@@ -2,31 +2,21 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
-import {
-  BaseResponse,
-  HeatingParametersType,
-  IHeatingPoint,
-} from '@entities/types';
+import { BaseResponse, IElevation } from '@entities/types';
 
-export const useGetCurrentHeating = () => {
+export const useGetCurrentElevator = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<IHeatingPoint>();
+  const [data, setData] = useState<IElevation>();
 
   const getData = useCallback(
     async (id: string | number) => {
       setIsLoading(true);
       try {
-        const { data } = await axiosApi.get<BaseResponse<IHeatingPoint>>(
-          `/heating_point/${id}`,
+        const { data } = await axiosApi.get<BaseResponse<IElevation>>(
+          `/elevator/${id}`,
         );
         if (data?.data) {
-          Object.entries(data.data.parameters).forEach(([key, value]) => {
-            data.data.parameters[key as keyof HeatingParametersType] = Number(
-              value.toFixed(1),
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ) as any;
-          });
           setData(data.data);
           return data.data;
         } else {

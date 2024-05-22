@@ -1,11 +1,11 @@
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useGetCurrentHeating } from '@features/engineering';
+import { useGetCurrentElevator } from '@features/engineering';
 
 export const useCurrentEnergy = () => {
   const { t } = useTranslation('engineering');
-  const { data, getData, isLoading } = useGetCurrentHeating();
+  const { data, getData, isLoading } = useGetCurrentElevator();
   const { id } = useParams<{ id: string }>() as { id: string };
 
   const handleGetData = useCallback(() => {
@@ -27,7 +27,7 @@ export const useCurrentEnergy = () => {
   return {
     t,
     data,
-    isLoading,
+    isLoading: !data && isLoading,
     id,
   };
 };

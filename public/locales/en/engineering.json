@@ -2,7 +2,14 @@
   "routes": {
     "energy": "Energy Resources",
     "heating": "Heating Points",
-    "heatingSingle": "Heating Point"
+    "heatingSingle": "Heating Point",
+    "elevators": {
+      "list": "Elevators",
+      "create": "Add Elevator",
+      "update": "Edit Elevator",
+      "current": "Elevator",
+      "add": "Add"
+    }
   },
   "energy": {
     "total": "Total Consumption",
@@ -16,5 +23,35 @@
     "title": "Operating Mode",
     "auto": "Automatic",
     "manual": "Manual"
+  },
+  "state": {
+    "title": "Status",
+    "serviceable": "Operational",
+    "faulty": "Non-operational"
+  },
+  "editor": {
+    "ip_address": {
+      "label": "Dispatcher Block IP Address",
+      "placeholder": "Enter IP address"
+    },
+    "registry_address": {
+      "label": "Registry Address",
+      "placeholder": "Enter registry address"
+    }
+  },
+  "controls": {
+    "publish": "Add",
+    "update": "Update",
+    "edit": "Edit"
+  },
+  "details": {
+    "tabs": {
+      "main": "Main Information",
+      "config": "Configuration"
+    },
+    "address": "Address",
+    "state": "Status",
+    "ip_address": "Dispatcher Block IP Address",
+    "registry": "Registry Address"
   }
 }

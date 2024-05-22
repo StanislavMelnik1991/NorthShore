@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import { IHeatingPoint, ListParams } from '@entities/types';
-import { useGetInfinityHeatingList } from './getInfinityList';
+import { IElevation, ListParams } from '@entities/types';
+import { useGetInfinityElevatorsList } from './getInfinityList';
 
 interface Params extends ListParams {
   building_id?: number;
@@ -9,9 +9,13 @@ interface Params extends ListParams {
   is_accident?: true;
 }
 
-export const useGetHeatingList = () => {
-  const { getData: fetchData, isLoading, total } = useGetInfinityHeatingList();
-  const [data, setData] = useState<Array<IHeatingPoint>>([]);
+export const useGetIElevatorsList = () => {
+  const {
+    getData: fetchData,
+    isLoading,
+    total,
+  } = useGetInfinityElevatorsList();
+  const [data, setData] = useState<Array<IElevation>>([]);
 
   const getData = useCallback(
     async (params: Params) => {

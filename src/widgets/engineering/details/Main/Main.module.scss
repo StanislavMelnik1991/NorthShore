@@ -1,0 +1,59 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stateRow {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+}
+
+.label {
+  display: flex;
+  gap: 4px;
+  color: var(--dark-70);
+  width: 120px;
+
+  path {
+    fill: var(--dark-70);
+  }
+}
+
+.errors {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.errorContent {
+  display: flex;
+  justify-content: space-between;
+  max-width: 605px;
+
+  path {
+    fill: var(--red-100);
+  }
+}
+
+.green {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--green-100);
+}
+
+.red {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--red-100);
+}

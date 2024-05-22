@@ -22,3 +22,10 @@
     fill: var(--red-100);
   }
 }
+
+.green {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--green-100);
+}
