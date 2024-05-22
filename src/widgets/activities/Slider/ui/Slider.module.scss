@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  border-radius: 50%;
+  background-color: var(--white-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  position: absolute;
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+  transition: all var(--animation-duration) ease;
+
+  &:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.next {
+  right: -12px;
+}
+
+.prev {
+  left: -12px;
+}

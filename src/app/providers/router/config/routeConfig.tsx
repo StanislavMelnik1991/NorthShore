@@ -74,6 +74,7 @@ import {
   UserLoyaltyListPage,
   KBasePage,
 } from '@pages/Clients';
+import { TechnicalWorks } from '@pages/Clients';
 import {
   CreateElevatorPage,
   CurrentEnergyPage,
@@ -114,7 +115,6 @@ import {
   UpdateIntercomPage,
 } from '@pages/Security';
 import { StatisticPage } from '@pages/Statistic';
-import { TechnicalWorks } from '@widgets/technicalWorks';
 import {
   AppRoutesEnum,
   AppRoutes,

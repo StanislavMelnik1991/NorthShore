@@ -41,3 +41,15 @@
 .advertisement {
   display: flex;
 }
+
+.text_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark-60);
+}
