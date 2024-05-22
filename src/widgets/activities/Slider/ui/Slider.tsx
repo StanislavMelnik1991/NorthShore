@@ -67,7 +67,7 @@ export const ActivitiesSlider = ({
           setSlide((val) => val + 1);
         }}
         className={classNames(styles.next, styles.icon)}
-        disabled={slide === activities.length - slidesOnPage}
+        disabled={slide >= activities.length - slidesOnPage}
       >
         <IconArrow rotate={180} />
       </button>
