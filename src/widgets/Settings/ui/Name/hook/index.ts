@@ -25,5 +25,12 @@ export const useUserName = () => {
       onSubmit,
     });
 
-  return { t, values, setFieldValue, handleSubmit, handleReset };
+  return {
+    t,
+    values,
+    setFieldValue,
+    handleSubmit,
+    handleReset,
+    isDisabled: values.name === user?.name,
+  };
 };

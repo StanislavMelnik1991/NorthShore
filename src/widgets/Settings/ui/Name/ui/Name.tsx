@@ -8,7 +8,8 @@ interface Props {
 }
 
 export const UserName = ({ className }: Props) => {
-  const { t, handleSubmit, setFieldValue, values, handleReset } = useUserName();
+  const { t, handleSubmit, setFieldValue, values, handleReset, isDisabled } =
+    useUserName();
   return (
     <form
       className={classNames(styles.wrapper, className)}
@@ -31,10 +32,15 @@ export const UserName = ({ className }: Props) => {
         placeholder={t('blocks.surname.placeholder')}
       /> */}
       <div className={styles.buttons}>
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" disabled={isDisabled}>
           {t('blocks.btns.save')}
         </Button>
-        <Button onClick={handleReset} type="button" variant="secondary">
+        <Button
+          onClick={handleReset}
+          type="button"
+          variant="secondary"
+          disabled={isDisabled}
+        >
           {t('blocks.btns.cancel')}
         </Button>
       </div>
