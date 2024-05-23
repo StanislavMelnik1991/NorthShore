@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   useGetSecuritySlsIntercomList,
-  useOpenSecurityIntercom,
   useRemoveSecurityIntercom,
 } from '@features/security';
 import { ISelectOption } from '@entities/components';
@@ -23,7 +22,6 @@ export const useSecurityAccessPage = () => {
   const [entrance, setActiveEntrance] = useState<ISelectOption | null>(null);
   const [apartment, setActiveApartment] = useState<ISelectOption | null>(null);
 
-  const { open } = useOpenSecurityIntercom();
   const { onDelete } = useRemoveSecurityIntercom();
 
   useEffect(() => {
@@ -55,12 +53,6 @@ export const useSecurityAccessPage = () => {
     setPage(1);
   }, []);
 
-  const handleOpen = useCallback(
-    (id: string | number) => () => {
-      open(id);
-    },
-    [open],
-  );
   const handleDelete = useCallback(async () => {
     if (activeId) {
       const active = data.find((val) => val.id === activeId);
@@ -131,7 +123,6 @@ export const useSecurityAccessPage = () => {
   const tableData = useTableRows({
     data,
     onDelete: handleOpenModal,
-    onOpen: handleOpen,
   });
   return {
     t,
