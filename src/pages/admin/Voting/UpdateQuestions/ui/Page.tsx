@@ -53,7 +53,9 @@ const Page = () => {
               {ACCEPTED_LANGUAGES.map((lang) => {
                 return (
                   <QuestionEditor
-                    onDelete={handleDeleteQuestion(index)}
+                    onDelete={
+                      questions.length > 1 && handleDeleteQuestion(index)
+                    }
                     onChange={{
                       en: handleChangeQuestion({
                         index,
@@ -72,16 +74,18 @@ const Page = () => {
                   />
                 );
               })}
-              <Button
-                variant="primary"
-                onClick={handleCreate}
-                loading={creationLoading}
-                disabled={questions.length >= QUESTIONS_LIMIT}
-                className={styles.addButton}
-              >
-                <IconPlus width={20} height={20} />
-                {t('controls.addQuestion')}
-              </Button>
+              {questions.length - 1 === index && (
+                <Button
+                  variant="primary"
+                  onClick={handleCreate}
+                  loading={creationLoading}
+                  disabled={questions.length >= QUESTIONS_LIMIT}
+                  className={styles.addButton}
+                >
+                  <IconPlus width={20} height={20} />
+                  {t('controls.addQuestion')}
+                </Button>
+              )}
               <Divider className={styles.divider} />
             </div>
           );

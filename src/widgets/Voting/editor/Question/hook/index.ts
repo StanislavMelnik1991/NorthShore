@@ -19,7 +19,7 @@ interface Props {
   votingId: number | string;
   data: Record<LanguageEnum, DataType>;
   onChange: Record<LanguageEnum, (data: DataType) => void>;
-  onDelete: () => void;
+  onDelete?: false | (() => void);
   language: LanguageEnum;
 }
 
@@ -121,6 +121,9 @@ export const useQuestionEditor = ({
   );
 
   const handleDeleteQuestion = useCallback(async () => {
+    if (!onDelete) {
+      return;
+    }
     await handleDelete();
     onDelete();
   }, [handleDelete, onDelete]);
