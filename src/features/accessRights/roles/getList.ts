@@ -1,11 +1,8 @@
 import { useCallback, useState } from 'react';
-import { IRole, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { IRole, ListParams } from '@entities/types';
 import { useGetInfinityRolesList } from './getInfinityList';
 
-interface Params extends ListParams {
-  sort?: INewsSort;
-  filter?: INewsFilter;
-}
+interface Params extends ListParams {}
 
 export const useGetRolesList = () => {
   const { getData: fetchData, isLoading, total } = useGetInfinityRolesList();

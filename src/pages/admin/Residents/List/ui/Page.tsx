@@ -56,9 +56,7 @@ const Page = () => {
         </div>
       </Card>
       <Card className={styles.card} flexDirection="column" loading={isLoading}>
-        <div className={styles.table__wrapper}>
-          <Table config={tableHeader} items={tableData} />
-        </div>
+        <Table config={tableHeader} items={tableData} />
         <div className={styles.controls}>
           <PerPage active={perPage} setActive={setPerPage} />
           <Pagination total={total} onChange={setPage} />

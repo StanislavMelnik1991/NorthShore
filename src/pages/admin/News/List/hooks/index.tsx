@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useDebounce } from 'use-debounce';
 import { useGetUserNewsList } from '@features/news';
-import { INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { ListParams } from '@entities/types';
 import {
   AppRoutes,
   AppRoutesEnum,
@@ -13,8 +13,7 @@ import {
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Params extends ListParams {
-  sort: INewsSort;
-  filter: INewsFilter;
+  status?: keyof typeof NewsStatusEnum;
 }
 
 export const useNewsList = () => {
@@ -46,12 +45,7 @@ export const useNewsList = () => {
       page,
       perPage,
       searchValue: debounced,
-      filter: {
-        status,
-      },
-      sort: {
-        created_at: 'asc',
-      },
+      status,
     };
     getData(params);
   }, [debounced, getData, page, perPage, status]);

@@ -54,8 +54,15 @@ export const useUpdatePage = () => {
       setJob_title(data.job_title);
       setPhone_number(data.phone_number);
       setWork_phone(data.work_phone);
+      data.role &&
+        setSelectedRole({ label: data.role.name, value: data.role.id });
+      data.department &&
+        setSelectedDepartment({
+          label: data.department.name,
+          value: data.department.id,
+        });
     }
-  }, [getEmployee]);
+  }, [getEmployee, setSelectedRole, setSelectedDepartment]);
 
   useEffect(() => {
     handleGetEmployee();
