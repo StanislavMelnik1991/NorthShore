@@ -1,13 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useUser } from '@features/User';
 
-export const useSettings = () => {
+export const useUserPhone = () => {
   const { t } = useTranslation('settings');
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
 
   return {
     t,
-    isLoading,
     user,
   };
 };

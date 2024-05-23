@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'react-toastify';
-import { axiosApi } from '@entities/api';
-import { BaseResponse, IUser } from '@entities/types';
-import { TOKEN_LOCAL_STORAGE_KEY, ROLES_STAFF } from '@shared/constants';
+import { useGetMe } from '@features/User/hook/getMe';
+import { IUser } from '@entities/types';
+import { TOKEN_LOCAL_STORAGE_KEY } from '@shared/constants';
 
 export const useUserProvider = () => {
   const { i18n } = useTranslation();
@@ -12,11 +11,25 @@ export const useUserProvider = () => {
     localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY),
   );
   const [isLoading, setIsLoading] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+
+  const { getData } = useGetMe();
+
+  const handleGetData = useCallback(async () => {
+    setIsLoading(true);
+    const data = await getData();
+    if (data) {
+      setUser(data);
+      if (data.lang) {
+        i18n.changeLanguage(data.lang);
+      }
+    } else {
+      localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
+      setToken(null);
+    }
+    setIsLoading(false);
+  }, [getData, i18n]);
 
   const handleSetUser = useCallback((user?: IUser) => {
-    const isUserAdmin = (user && ROLES_STAFF.includes(user?.group.id)) || false;
-    setIsAdmin(isUserAdmin);
     setUser(user);
   }, []);
 
@@ -24,29 +37,13 @@ export const useUserProvider = () => {
     if (!user) {
       if (token) {
         setToken(token);
-        setIsLoading(true);
-        axiosApi
-          .get<BaseResponse<IUser>>('/user')
-          .then(({ data: { data } }) => {
-            handleSetUser(data);
-            i18n.changeLanguage(data.lang);
-          })
-          .catch((err) => {
-            console.error(err);
-            toast.error('Не удалось получить данные юзера');
-            localStorage.removeItem(TOKEN_LOCAL_STORAGE_KEY);
-            setToken(null);
-          })
-          .finally(() => {
-            setIsLoading(false);
-          });
+        handleGetData();
       }
     }
-  }, [user, isLoading, token, handleSetUser, i18n]);
+  }, [handleGetData, token, user]);
 
   const value = useMemo(
     () => ({
-      isAdmin,
       user,
       setUser: handleSetUser,
       isLoading,
@@ -54,7 +51,7 @@ export const useUserProvider = () => {
       token,
       setToken,
     }),
-    [handleSetUser, isAdmin, isLoading, token, user],
+    [handleSetUser, isLoading, token, user],
   );
 
   return {

@@ -4,7 +4,7 @@ import { IRole } from './roles.interface';
 
 export interface IUserShort extends BaseEntity {
   group: BaseEntity;
-  avatar: string;
+  avatar?: string;
   childs: Array<IUserShort>;
   lang: LanguageEnum;
 }

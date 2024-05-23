@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}

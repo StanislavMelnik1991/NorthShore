@@ -1,26 +1,52 @@
 {
   "title": "Settings",
   "errors": {
-    "getError": "Failed to retrieve data from the server",
+    "getError": "Failed to retrieve data from server",
     "langError": "Failed to change language"
   },
   "blocks": {
     "titles": {
-      "profile_data": "Profile data",
-      "account_management": "Account management",
-      "profile_photo": "Profile photo",
-      "phone_number": "Phone number",
+      "profile_data": "Profile Data",
+      "account_management": "Account Management",
+      "profile_photo": "Profile Photo",
+      "phone_number": "Phone Number",
       "password": "Password",
-      "account_deleting": "Account deleting",
+      "account_deleting": "Delete Account",
       "language": "Language"
     },
     "descriptions": {
-      "account_deleting": "Deleting an account and everything associated with the account",
-      "language": "Select the language in which you want to use the site interface"
+      "account_deleting": "Delete account and all associated data",
+      "language": "Choose the language you want to use for the site interface"
     },
     "btns": {
       "edit": "Edit",
-      "delete": "Delete"
+      "delete": "Delete",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter name"
+    },
+    "surname": {
+      "label": "Surname",
+      "placeholder": "Enter surname"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "New email"
+    },
+    "phone": {
+      "label": "Phone Number",
+      "placeholder": "New phone number"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "New password"
+    },
+    "deleting": {
+      "label": "Delete Account",
+      "placeholder": "Delete account and all associated data"
     }
   }
 }
