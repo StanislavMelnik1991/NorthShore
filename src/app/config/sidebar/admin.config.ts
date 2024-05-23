@@ -22,24 +22,32 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       icon: IconHome,
       href: AppRoutes[AppRoutesEnum.ADMIN](),
       isLink: true,
+      authOnly: true,
+      name: AppRoutesEnum.ADMIN,
     },
     {
       title: t('sidebar.accounting'),
       icon: IconTable,
       href: AppRoutes[AppRoutesEnum.ACCOUNTING](),
       isLink: true,
+      authOnly: true,
+      name: AppRoutesEnum.ACCOUNTING,
     },
     {
       title: t('sidebar.statistic'),
       icon: IconDiagram,
       href: AppRoutes[AppRoutesEnum.STATISTIC](),
       isLink: true,
+      authOnly: true,
+      name: AppRoutesEnum.STATISTIC,
     },
     {
       title: t('sidebar.security'),
       icon: IconLock,
       href: AppRoutes[AppRoutesEnum.SECURITY](),
       isLink: true,
+      authOnly: true,
+      name: AppRoutesEnum.SECURITY,
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.SECURITY](),
@@ -58,7 +66,8 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
     {
       title: t('sidebar.engineering'),
       icon: IconWrench,
-      href: AppRoutes[AppRoutesEnum.ENGINEERING](),
+      authOnly: true,
+      name: AppRoutesEnum.ENGINEERING,
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY](),
@@ -78,13 +87,15 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.requests'),
       icon: IconDocumentHolder,
       href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
+      name: AppRoutesEnum.ADMIN_REQUESTS,
       isLink: true,
     },
     {
       title: t('sidebar.admin'),
       icon: IconBriefcase,
-      href: AppRoutes[AppRoutesEnum.ADMIN](),
       isLink: false,
+      authOnly: true,
+      name: AppRoutesEnum.ADMINISTRATE,
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.ADMIN_NEWS](),
@@ -132,13 +143,17 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.passport'),
       icon: IconPassport,
       href: AppRoutes[AppRoutesEnum.PASSPORT](),
+      name: AppRoutesEnum.PASSPORT,
       isLink: true,
+      authOnly: true,
     },
     {
       title: t('sidebar.users'),
       icon: IconPeople,
       href: '',
       isLink: false,
+      authOnly: true,
+      name: AppRoutesEnum.USERS,
       breadcrumbs: [
         {
           href: AppRoutes[AppRoutesEnum.RESIDENTS](),
@@ -154,6 +169,8 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       title: t('sidebar.accessRights'),
       icon: IconGear,
       isLink: true,
+      authOnly: true,
+      name: AppRoutesEnum.ADMIN_ROLES,
       breadcrumbs: [
         {
           title: t('sidebar.roles'),

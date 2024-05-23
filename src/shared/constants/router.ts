@@ -68,12 +68,12 @@ export enum AppRoutesEnum {
   ENGINEERING_ELEVATOR_CURRENT,
 
   PASSPORT,
-  USERS,
 
   ADMIN_ROLES,
   ADMIN_ROLES_CREATE,
   ADMIN_ROLES_UPDATE,
 
+  USERS,
   RESIDENTS,
   RESIDENTS_CURRENT,
   EMPLOYEES,
@@ -81,6 +81,7 @@ export enum AppRoutesEnum {
   EMPLOYEES_CREATE,
   EMPLOYEES_UPDATE,
 
+  ADMINISTRATE,
   ADMIN_REQUESTS,
   ADMIN_REQUESTS_CURRENT,
   ADMIN_APPLICATIONS,
@@ -185,7 +186,6 @@ export const AppRoutes = {
   [AppRoutesEnum.ADMIN_ROLES_CREATE]: () => '/admin/roles/create',
   [AppRoutesEnum.ADMIN_ROLES_UPDATE]: (id: number | string) =>
     `/admin/roles/${id}/update`,
-  [AppRoutesEnum.USERS]: () => '/admin/users',
   [AppRoutesEnum.PASSPORT]: () => '/admin/passport',
 
   [AppRoutesEnum.RESIDENTS]: () => '/admin/residents',
@@ -203,7 +203,6 @@ export const AppRoutes = {
     `/admin/requests/${id}`,
   [AppRoutesEnum.ADMIN_APPLICATIONS]: () => '/admin/applications',
 
-  [AppRoutesEnum.ENGINEERING]: () => '/admin/engineering',
   [AppRoutesEnum.ENGINEERING_ENERGY]: () => '/admin/engineering/energy',
   [AppRoutesEnum.ENGINEERING_ENERGY_CURRENT]: (id: number | string) =>
     `/admin/engineering/energy/${id}`,
@@ -315,4 +314,104 @@ export const AppRoutes = {
   [AppRoutesEnum.FORBIDDEN]: () => '/forbidden',
 
   [AppRoutesEnum.NOT_FOUND]: () => '*',
+};
+
+export const AccessRoles: Partial<Record<AppRoutesEnum, Array<number>>> = {
+  [AppRoutesEnum.ACCOUNTING]: [1, 2, 3, 4, 5],
+  [AppRoutesEnum.STATISTIC]: [6],
+
+  [AppRoutesEnum.SECURITY]: [7, 8, 9, 10],
+  [AppRoutesEnum.SECURITY_ACCESS]: [7],
+  [AppRoutesEnum.SECURITY_ACCESS_CREATE]: [7],
+  [AppRoutesEnum.SECURITY_ACCESS_CURRENT]: [7],
+  [AppRoutesEnum.SECURITY_ACCESS_UPDATE]: [7],
+
+  [AppRoutesEnum.SECURITY_INTERCOM]: [8],
+  [AppRoutesEnum.SECURITY_INTERCOM_CREATE]: [8],
+  [AppRoutesEnum.SECURITY_INTERCOM_CURRENT]: [8],
+  [AppRoutesEnum.SECURITY_INTERCOM_UPDATE]: [8],
+
+  [AppRoutesEnum.SECURITY_VIDEO]: [9],
+  [AppRoutesEnum.SECURITY_VIDEO_CREATE]: [9],
+  [AppRoutesEnum.SECURITY_VIDEO_CURRENT]: [9],
+  [AppRoutesEnum.SECURITY_VIDEO_UPDATE]: [9],
+
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM]: [10],
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CREATE]: [10],
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT]: [10],
+  [AppRoutesEnum.SECURITY_SLS_INTERCOM_UPDATE]: [10],
+
+  [AppRoutesEnum.ENGINEERING]: [11, 12, 13],
+  [AppRoutesEnum.ENGINEERING_ENERGY]: [11],
+  [AppRoutesEnum.ENGINEERING_ENERGY_CURRENT]: [11],
+
+  [AppRoutesEnum.ENGINEERING_ELEVATORS]: [12],
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CREATE]: [12],
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_UPDATE]: [12],
+  [AppRoutesEnum.ENGINEERING_ELEVATOR_CURRENT]: [12],
+
+  [AppRoutesEnum.ENGINEERING_HEATING]: [13],
+  [AppRoutesEnum.ENGINEERING_HEATING_CURRENT]: [13],
+
+  [AppRoutesEnum.ADMINISTRATE]: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+  [AppRoutesEnum.ADMIN_NEWS]: [14],
+  [AppRoutesEnum.CREATE_NEWS]: [14],
+  [AppRoutesEnum.UPDATE_NEWS]: [14],
+
+  [AppRoutesEnum.ADMIN_EVENTS]: [15],
+  [AppRoutesEnum.CREATE_EVENT]: [15],
+  [AppRoutesEnum.UPDATE_EVENT]: [15],
+
+  [AppRoutesEnum.ADMIN_MEETINGS]: [16],
+  [AppRoutesEnum.CREATE_MEETINGS]: [16],
+  [AppRoutesEnum.UPDATE_MEETINGS]: [16],
+
+  [AppRoutesEnum.ADMIN_NOTIFICATIONS]: [17],
+  [AppRoutesEnum.ADMIN_NOTIFICATIONS_CREATE]: [17],
+  [AppRoutesEnum.ADMIN_NOTIFICATIONS_CURRENT]: [17],
+
+  [AppRoutesEnum.ADMIN_VOTING]: [18],
+  [AppRoutesEnum.ADMIN_VOTING_CREATE]: [18],
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE]: [18],
+  [AppRoutesEnum.ADMIN_VOTING_UPDATE_QUESTIONS]: [18],
+  [AppRoutesEnum.ADMIN_VOTING_CURRENT]: [18],
+
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS]: [19],
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_CREATE]: [19],
+  [AppRoutesEnum.ADMIN_TECHNICAL_WORKS_UPDATE]: [19],
+
+  [AppRoutesEnum.ADMIN_LOYALTY]: [20],
+  [AppRoutesEnum.ADMIN_LOYALTY_CREATE]: [20],
+  [AppRoutesEnum.ADMIN_LOYALTY_UPDATE]: [20],
+
+  [AppRoutesEnum.ADMIN_SERVICES]: [21],
+  [AppRoutesEnum.ADMIN_SERVICES_CREATE]: [21],
+  [AppRoutesEnum.ADMIN_SERVICES_UPDATE]: [21],
+
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT]: [22],
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_CREATE]: [22],
+  [AppRoutesEnum.ADMIN_ADVERTISEMENT_UPDATE]: [22],
+
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS]: [23],
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_CREATE]: [23],
+  [AppRoutesEnum.ADMIN_EMPLOYEE_ANNOUNCEMENTS_UPDATE]: [23],
+
+  [AppRoutesEnum.PASSPORT]: [24, 25, 26, 27],
+
+  [AppRoutesEnum.USERS]: [28, 29],
+  [AppRoutesEnum.RESIDENTS]: [28],
+  [AppRoutesEnum.RESIDENTS_CURRENT]: [28],
+
+  [AppRoutesEnum.EMPLOYEES]: [29],
+  [AppRoutesEnum.EMPLOYEES_CURRENT]: [29],
+  [AppRoutesEnum.EMPLOYEES_CREATE]: [29],
+  [AppRoutesEnum.EMPLOYEES_UPDATE]: [29],
+
+  [AppRoutesEnum.ADMIN_ROLES]: [30],
+  [AppRoutesEnum.ADMIN_ROLES_CREATE]: [30],
+  [AppRoutesEnum.ADMIN_ROLES_UPDATE]: [30],
+
+  [AppRoutesEnum.ADMIN_REQUESTS]: [31],
+  [AppRoutesEnum.ADMIN_REQUESTS_CURRENT]: [31],
+  [AppRoutesEnum.ADMIN_APPLICATIONS]: [31],
 };
