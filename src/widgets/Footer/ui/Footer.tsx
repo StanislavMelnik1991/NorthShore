@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
-  IconLogo,
+  IconLogoRu,
   IconMail,
   IconPhone,
   IconTelegram,
@@ -20,7 +20,7 @@ export const Footer = ({ className }: Props) => {
   return (
     <footer className={classNames(styles.wrapper, className)}>
       <div className={styles.content}>
-        <IconLogo theme="dark" height={30} />
+        <IconLogoRu width={190} />
         <div className={styles.column}>
           <Title variant="h4" fontWeight="normal">
             {t('footer.northWaterfront')}
