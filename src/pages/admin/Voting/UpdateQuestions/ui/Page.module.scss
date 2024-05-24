@@ -8,21 +8,11 @@
   margin-top: 32px;
 }
 
-.addButton {
-  display: none;
-}
-
 .questions {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-
-  &:last-child {
-    .addButton {
-      display: flex;
-    }
-  }
 }
 
 .divider {

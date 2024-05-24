@@ -15,7 +15,6 @@ export * from './access_points.interface';
 export * from './employees.interface';
 export * from './localization.interface';
 export * from './notifications.interface';
-export * from './settings.interface';
 export * from './voting.interface';
 export * from './formik.interface';
 export * from './technicalWork.interface';

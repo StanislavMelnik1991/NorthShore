@@ -5,16 +5,11 @@ import { axiosApi } from '@entities/api';
 import {
   BaseResponse,
   INews,
-  INewsFilter,
-  INewsSort,
   ListParams,
   PaginationResponse,
 } from '@entities/types';
 
-interface Params extends ListParams {
-  sort: INewsSort;
-  filter: INewsFilter;
-}
+interface Params extends ListParams {}
 
 interface ResponseDataType extends PaginationResponse {
   events: Array<INews>;

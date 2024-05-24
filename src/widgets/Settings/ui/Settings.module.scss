@@ -1,124 +1,14 @@
 .wrapper {
-  background: var(--white-100);
-  border-radius: var(--radius-xl);
-  width: 100%;
-  padding: 32px 24px;
-  padding-bottom: 114px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
   gap: 32px;
+  padding: 32px 24px;
+  margin-bottom: 32px;
 }
 
-.block__title {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.block__wrapper {
+.smallContainer {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-.field__title {
-  color: var(--dark-70);
-}
-
-.photo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-size: cover !important;
-
-  &__circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 24px;
-    text-align: center;
-    color: var(--dark-30);
-    border: var(--border-width) solid var(--dark-20);
-    border-radius: 50%;
-    width: 72px;
-    height: 72px;
-    cursor: pointer;
-    background-size: cover !important;
-  }
-
-  &_block {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    &__info {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-
-      &__btns {
-        display: flex;
-        gap: 8px;
-      }
-    }
-
-    &__wrapper {
-      display: flex;
-      gap: 16px;
-    }
-  }
-}
-
-.basket {
-  width: 20px;
-  height: 20px;
-}
-
-.block {
-  width: 470px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-.descr_block {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-
-  &__info {
-    width: 415px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-.password div {
-  border: none;
-  padding-left: 0;
-}
-
-.text {
-  color: var(--dark-100);
-}
-
-.loader {
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 470px;
 }

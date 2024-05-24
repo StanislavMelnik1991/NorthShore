@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocalizedDate } from '@features/date';
-import { useGetCurrentEnergyConsumers } from '@features/engineering/energy/hooks/getCurrent';
+import { useGetCurrentEnergyConsumers } from '@features/engineering';
 import { getStartOfMonth, getEndOfMonth } from '@features/utils';
 import { useTableHeader, useTableRows } from '../helper';
 

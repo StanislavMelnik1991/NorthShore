@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetUserEventsList } from '@features/events';
-import { INewsFilter, INewsSort, ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE, LanguageEnum } from '@shared/constants';
+import { ListParams } from '@entities/types';
+import {
+  INITIAL_PER_PAGE,
+  LanguageEnum,
+  NewsStatusEnum,
+} from '@shared/constants';
 
 interface Params extends ListParams {
-  sort: INewsSort;
-  filter: INewsFilter;
+  status?: keyof typeof NewsStatusEnum;
 }
 
 export const useEventsListPage = () => {
@@ -17,12 +20,7 @@ export const useEventsListPage = () => {
     const newsParams: Params = {
       page: 1,
       perPage: INITIAL_PER_PAGE,
-      filter: {
-        status: 1,
-      },
-      sort: {
-        created_at: 'asc',
-      },
+      status: 1,
     };
     getData(newsParams);
   }, [getData]);

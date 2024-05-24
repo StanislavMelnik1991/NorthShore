@@ -1,11 +1,8 @@
 import { useCallback, useState } from 'react';
-import { INews, INewsFilter, INewsSort, ListParams } from '@entities/types';
+import { INews, ListParams } from '@entities/types';
 import { useGetInfinityMeetingsList } from './getInfinityList';
 
-interface Params extends ListParams {
-  sort?: INewsSort;
-  filter?: INewsFilter;
-}
+interface Params extends ListParams {}
 
 export const useGetUserMeetingsList = () => {
   const { getData: fetchData, isLoading, total } = useGetInfinityMeetingsList();

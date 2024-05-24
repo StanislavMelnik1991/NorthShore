@@ -37,7 +37,11 @@ export const VotingContent = ({ className, data, language }: Props) => {
       <div className={styles.wrap}>
         {groupArr.map((el, index) => {
           return (
-            <Badge color="white" key={`group-badge-${index}`}>
+            <Badge
+              color="white"
+              key={`group-badge-${index}`}
+              className={styles.badge}
+            >
               {el}
             </Badge>
           );

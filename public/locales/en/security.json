@@ -139,7 +139,8 @@
     "tabs": {
       "main": "Main Information",
       "config": "Configuration",
-      "access": "Addresses with Access to the Camera"
+      "access": "Addresses with Access to the Camera",
+      "addressAccess": "Addresses with access to the access point"
     },
     "ipAddress": "IP Address",
     "login": "Login",

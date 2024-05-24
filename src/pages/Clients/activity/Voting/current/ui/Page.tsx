@@ -9,7 +9,7 @@ import {
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum, LanguageEnum } from '@shared/constants';
 import { IconClock } from '@shared/icons';
-import { Button, Text, Title } from '@shared/ui';
+import { Badge, Button, Text, Title } from '@shared/ui';
 import { useCurrent } from '../hook';
 import { ModalSubmit } from './ModalSubmit';
 import styles from './Page.module.scss';
@@ -80,6 +80,19 @@ export default () => {
                 })}
               </Text>
             </div>
+          )}
+          {data.status.id !== 1 && (
+            <Badge
+              color={
+                data.status.id === 2
+                  ? 'green'
+                  : data.status.id === 1
+                    ? 'orange'
+                    : 'white'
+              }
+            >
+              {data.status.name}
+            </Badge>
           )}
           {data.election_questions.map((el, index) => {
             return (

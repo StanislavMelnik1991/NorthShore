@@ -1,36 +1,84 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGetEnergyList } from '@features/engineering';
+import {
+  useGetEnergyConsumersTypesList,
+  useGetEnergyList,
+  useGetChargingStatusesList,
+  useGetEnergyStatusesTypesList,
+} from '@features/engineering';
 import { ListParams } from '@entities/types';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Params extends ListParams {
   building_id?: number;
-  entrance_id?: number;
   street_id?: number;
-  apartment_id?: number;
   state_id?: number;
   type_id?: number;
+  power_consumer_type_id?: number;
+  power_consumer_operating_mode_id?: number;
+  power_consumer_charge_status_id?: number;
 }
+
+type AddressFilters = { street_id?: number; building_id?: number };
 
 export const useNewsList = () => {
   const { t } = useTranslation('engineering');
   const { getData, isLoading, total, data } = useGetEnergyList();
+  const {
+    getData: getTypes,
+    isLoading: isTypesLoading,
+    options: types,
+    selected: selectedType,
+    setSelected: setSelectedType,
+  } = useGetEnergyConsumersTypesList();
+  const {
+    getData: getStates,
+    isLoading: isStatesLoading,
+    options: states,
+    selected: selectedState,
+    setSelected: setSelectedState,
+  } = useGetChargingStatusesList();
+  const {
+    getData: getStatuses,
+    isLoading: isStatusesLoading,
+    options: statuses,
+    selected: selectedStatus,
+    setSelected: setSelectedStatus,
+  } = useGetEnergyStatusesTypesList();
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
+  const [address, setAddress] = useState<AddressFilters>({});
 
   const handleGetData = useCallback(async () => {
     const params: Params = {
       page,
       perPage,
+      power_consumer_charge_status_id: selectedStatus?.value,
+      power_consumer_operating_mode_id: selectedState?.value,
+      power_consumer_type_id: selectedType?.value,
+      ...address,
     };
     getData(params);
-  }, [getData, page, perPage]);
+  }, [
+    page,
+    perPage,
+    selectedStatus?.value,
+    selectedState?.value,
+    selectedType?.value,
+    address,
+    getData,
+  ]);
 
   useEffect(() => {
     handleGetData();
   }, [handleGetData]);
+
+  useEffect(() => {
+    getStatuses();
+    getStates();
+    getTypes();
+  }, [getStates, getStatuses, getTypes]);
 
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
@@ -42,7 +90,35 @@ export const useNewsList = () => {
     setPage(1);
   }, []);
 
-  const tableHeader = useTableHeader();
+  const handleChangeAddressFilter = useCallback(
+    ({ building, street }: { street?: number; building?: number }) => {
+      setAddress({ building_id: building, street_id: street });
+    },
+    [],
+  );
+
+  const tableHeader = useTableHeader({
+    onChange: {
+      state: setSelectedState,
+      type: setSelectedType,
+      chargingStatus: setSelectedStatus,
+    },
+    options: {
+      state: states,
+      type: types,
+      chargingStatus: statuses,
+    },
+    value: {
+      state: selectedState,
+      type: selectedType,
+      chargingStatus: selectedStatus,
+    },
+    isLoading: {
+      state: isStatesLoading,
+      type: isTypesLoading,
+      chargingStatus: isStatusesLoading,
+    },
+  });
   const tableData = useTableRows(data);
 
   return {
@@ -55,5 +131,6 @@ export const useNewsList = () => {
     tableHeader,
     tableData,
     page,
+    handleChangeAddressFilter,
   };
 };

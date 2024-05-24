@@ -29,7 +29,7 @@ interface Props {
   votingId: number | string;
   data: Record<LanguageEnum, DataType>;
   onChange: Record<LanguageEnum, (data: DataType) => void>;
-  onDelete: () => void;
+  onDelete?: false | (() => void);
   serialNumber: number;
   language: LanguageEnum;
   errors?: SafeParseError<DataType>['error'];
@@ -73,15 +73,17 @@ export const QuestionEditor = ({
             variant="body16"
             fontWeight="semibold"
           >{`${serialNumber} ${t('editor.question.label')}`}</Text>
-          <Button
-            onClick={handleDeleteQuestion}
-            loading={deleteLoading}
-            className={styles.deleteButton}
-            variant="text"
-          >
-            <IconBasket width={20} height={20} />
-            {t('controls.delete')}
-          </Button>
+          {onDelete && (
+            <Button
+              onClick={handleDeleteQuestion}
+              loading={deleteLoading}
+              className={styles.deleteButton}
+              variant="text"
+            >
+              <IconBasket width={20} height={20} />
+              {t('controls.delete')}
+            </Button>
+          )}
         </div>
         <TextField
           value={data[language].value}

@@ -40,7 +40,7 @@ const Page = () => {
       fontWeight="medium"
       key={`camera_details-tab-label-3`}
     >
-      {`${t('details.tabs.access')} (${data?.entrances.length})`}
+      {`${t('details.tabs.addressAccess')} (${data?.entrances.length})`}
     </Text>,
   ];
 

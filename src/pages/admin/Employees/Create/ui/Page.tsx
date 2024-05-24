@@ -1,6 +1,11 @@
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
-import { PageHeader, PageSkeleton, StyledSelect } from '@entities/components';
+import {
+  PageHeader,
+  PageSkeleton,
+  PasswordField,
+  StyledSelect,
+} from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { Card, TextField, Text, Button } from '@shared/ui';
 import { useCreatePage } from '../hook';
@@ -101,7 +106,7 @@ const Page = () => {
           className={classNames(styles.select_role, styles.select)}
         />
         <Text className={styles.title}>{t('titles.credentials')}</Text>
-        <TextField
+        <PasswordField
           value={password}
           onChange={(ev) => {
             setPassword(ev.target.value);

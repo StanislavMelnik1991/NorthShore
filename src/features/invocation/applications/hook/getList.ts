@@ -13,7 +13,7 @@ export const useGetApplicationsList = (isActual: boolean) => {
   const [data, setData] = useState<IRequest[]>([]);
 
   interface Params extends ListParams {
-    filter: { isActual: 0 | 1 };
+    isActual: 1 | 0;
   }
 
   const getData = useCallback(
@@ -22,9 +22,7 @@ export const useGetApplicationsList = (isActual: boolean) => {
         page,
         perPage,
         searchValue,
-        filter: {
-          isActual: isActual ? 1 : 0,
-        },
+        isActual: isActual ? 1 : 0,
       };
       try {
         const { data } = await axiosApi.get<BaseResponse<Array<IRequest>>>(

@@ -6,10 +6,9 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 interface Props {
   data: Array<SecuritySlsIntercom>;
   onDelete: (id: string | number) => MouseEventHandler<HTMLDivElement>;
-  onOpen: (id: string | number) => MouseEventHandler<HTMLDivElement>;
 }
 
-export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
+export const useTableRows = ({ data, onDelete }: Props) => {
   return data.map(({ id, apartment, uuid }) => {
     return {
       id: <TableText>{`№ ${String(id)}`}</TableText>,
@@ -28,7 +27,6 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
       controls: (
         <TableControls
           onDelete={onDelete(id)}
-          onOpen={onOpen(id)}
           getDetailsRoute={
             AppRoutes[AppRoutesEnum.SECURITY_SLS_INTERCOM_CURRENT]
           }

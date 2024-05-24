@@ -60,6 +60,7 @@ import {
   IconShoppingBag,
   IconThermometer,
   IconMinus,
+  IconLogoRu,
 } from '.';
 
 interface Props {
@@ -135,6 +136,9 @@ export const IconsGrid = ({ size, theme }: Props) => {
       </Item>
       <Item name="IconLogo">
         <IconLogo theme={theme} height={size} />
+      </Item>
+      <Item name="IconLogoRu">
+        <IconLogoRu height={size} />
       </Item>
       <Item name="IconLoupe">
         <IconLoupe width={size} height={size} />

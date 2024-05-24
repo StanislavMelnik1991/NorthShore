@@ -11,11 +11,12 @@ import {
 
 interface Params extends ListParams {
   building_id?: number;
-  entrance_id?: number;
   street_id?: number;
-  // apartment_id?: number;
   state_id?: number;
   type_id?: number;
+  power_consumer_type_id?: number;
+  power_consumer_operating_mode_id?: number;
+  power_consumer_charge_status_id?: number;
 }
 
 interface ResponseDataType extends PaginationResponse {

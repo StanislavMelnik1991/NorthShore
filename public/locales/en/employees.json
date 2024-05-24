@@ -8,6 +8,7 @@
   "controls": {
     "create": "Create",
     "find": "Enter last name or first name",
+    "update": "Update",
     "cancel": "Cancel"
   },
   "fields": {

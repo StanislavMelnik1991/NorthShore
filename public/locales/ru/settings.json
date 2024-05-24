@@ -20,7 +20,33 @@
     },
     "btns": {
       "edit": "Изменить",
-      "delete": "Удалить"
+      "delete": "Удалить",
+      "save": "Сохранить",
+      "cancel": "Отмена"
+    },
+    "name": {
+      "label": "Имя",
+      "placeholder": "Введите имя"
+    },
+    "surname": {
+      "label": "Фамилия",
+      "placeholder": "Введите фамилию"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "Новый e-mail"
+    },
+    "phone": {
+      "label": "Номер телефона",
+      "placeholder": "Новый номер телефона"
+    },
+    "password": {
+      "label": "Пароль",
+      "placeholder": "Новый пароль"
+    },
+    "deleting": {
+      "label": "Удаление аккаунта",
+      "placeholder": "Удаление аккаунта и всего, что связано с аккаунтом"
     }
   }
 }

@@ -9,14 +9,18 @@ export const useTableRows = (data: IEngineeringFull[]) => {
     ({
       id,
       type,
-      apartment,
       charge_status,
       operating_mode,
       voltage,
       last_check_date,
       current_value,
+      apartment,
+      building,
+      // ...address
     }) => {
-      const location = formatAddress({ apartment });
+      const location = formatAddress({
+        building: building || apartment?.entrance.building,
+      });
       return {
         id: <TableText>{String(id)}</TableText>,
         type: <TableText>{type?.name}</TableText>,
