@@ -1,0 +1,14 @@
+build/*
+extractedTranslations/*
+node_modules
+.idea
+.vscode
+/storybook-static
+.loki/report.html
+.loki/report.json
+/reports/unit
+.env
+*storybook.log
+.husky
+.github
+/reports
