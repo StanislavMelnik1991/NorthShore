@@ -2,51 +2,46 @@ import {
   AuthSkeleton,
   ConfirmCode,
   FullWidthSkeleton,
-  ResetPassword,
 } from '@entities/components';
-import { AppRoutes, AppRoutesEnum, ResendMethodsEnum } from '@shared/constants';
+import { ResendMethodsEnum } from '@shared/constants';
 import { Slider } from '@shared/ui';
 import { usePage } from '../hook';
 
 export default () => {
   const {
-    t,
-    slide,
-    handleResend,
-    setTarget,
-    target,
-    handleSendCode,
     errors,
     handleSubmit,
-    isValid,
     setFieldValue,
     values,
-    targetError,
+    t,
+    handleResend,
+    data,
+    setSlide,
+    slide,
+    isValid,
   } = usePage();
   const slides = [
-    <ResetPassword
-      setValue={setTarget}
-      changeMethod={{
-        text: t('actions.usePhone'),
-        to: AppRoutes[AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE](),
+    <ConfirmCode
+      handleResend={handleResend(ResendMethodsEnum.sms)}
+      handleSubmit={() => {
+        setSlide(1);
       }}
-      placeholder={t('email.placeholder')}
-      submitDisabled={!target || target.length < 2}
-      text={t('routes.restore.description')}
-      title={t('routes.restore.title')}
-      value={target}
-      error={targetError}
-      key={'reset_form'}
-      handleSubmit={handleSendCode}
+      setCode={(val) => setFieldValue('phone_code', val)}
+      code={values.phone_code}
+      text={`${t('code.phone')} ${data?.phone_number}`}
+      title={t('routes.code')}
+      error={errors.phone_code}
+      submitDisabled={!values.phone_code || !!errors.phone_code}
+      key={'confirm-code-phone'}
     />,
     <ConfirmCode
       handleResend={handleResend(ResendMethodsEnum.email)}
       setCode={(val) => setFieldValue('email_code', val)}
       code={values.email_code}
-      text={`${t('code.mail')} ${target}`}
+      text={`${t('code.mail')} ${data?.email}`}
       title={t('routes.code')}
-      submitDisabled={!isValid}
       error={errors.email_code}
+      submitDisabled={!isValid || !values.email_code}
       key={'confirm-code-email'}
     />,
   ];

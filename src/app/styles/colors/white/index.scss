@@ -1,4 +1,5 @@
 :root {
   --white-100-rgb: 255, 255, 255;
   --white-100: rgb(var(--white-100-rgb));
+  --white-50: rgba(var(--white-100-rgb), 50%);
 }

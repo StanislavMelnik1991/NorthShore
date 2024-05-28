@@ -118,10 +118,10 @@ export enum AppRoutesEnum {
   // Auth
   AUTH_LOGIN,
   AUTH_REGISTRATION,
+  AUTH_REGISTRATION_CONFIRM,
+
   AUTH_RESTORE_PASSWORD_EMAIL,
   AUTH_RESTORE_PASSWORD_PHONE,
-  AUTH_CONFIRM_PHONE,
-  AUTH_CONFIRM_MAIL,
   // Admin news
   ADMIN_NEWS,
   UPDATE_NEWS,
@@ -154,10 +154,8 @@ export const AppRoutes = {
   [AppRoutesEnum.AUTH_REGISTRATION]: () => '/registration',
   [AppRoutesEnum.AUTH_RESTORE_PASSWORD_EMAIL]: () => '/restore_password/email',
   [AppRoutesEnum.AUTH_RESTORE_PASSWORD_PHONE]: () => '/restore_password/phone',
-  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: (id: number | string) =>
-    `/confirm/${id}/mail`,
-  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: (id: number | string) =>
-    `/confirm/${id}/phone`,
+  [AppRoutesEnum.AUTH_REGISTRATION_CONFIRM]: (id: number | string) =>
+    `/registration/confirm/${id}`,
 
   [AppRoutesEnum.NEWS]: () => '/news',
   [AppRoutesEnum.NEWS_CURRENT]: (id: number | string) => `/news/${id}`,

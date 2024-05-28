@@ -3,16 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { SafeParseError, z } from 'zod';
 import { axiosApi } from '@entities/api';
-import { BaseResponse, ILoginResponse } from '@entities/types';
-import {
-  ResendMethodsEnum,
-  ResendReasonsEnum,
-  TOKEN_LOCAL_STORAGE_KEY,
-} from '@shared/constants';
-import { useUser } from './useUser';
+import { BaseResponse } from '@entities/types';
+import { ResendMethodsEnum, ResendReasonsEnum } from '@shared/constants';
 
-export const useResendCode = (id: string | number) => {
-  const { setUser } = useUser();
+interface Response {
+  user_id: number | string;
+  answer: string;
+}
+
+export const useResendCode = () => {
   const { t } = useTranslation('auth');
 
   const schema = z.object({
@@ -39,8 +38,13 @@ export const useResendCode = (id: string | number) => {
     [schema],
   );
 
+  interface ResendProps {
+    body: Partial<ValuesType>;
+    id: string | number;
+  }
+
   const resend = useCallback(
-    async (body: Partial<ValuesType>) => {
+    async ({ body, id }: ResendProps) => {
       const errors = validate(body);
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
@@ -50,14 +54,12 @@ export const useResendCode = (id: string | number) => {
       }
 
       try {
-        const { data } = await axiosApi.post<BaseResponse<ILoginResponse>>(
+        const { data } = await axiosApi.post<BaseResponse<Response>>(
           `/user/${id}/confirmation/send`,
           body,
         );
-        if (data && data.data && data.data.token) {
-          localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, data.data.token);
-          setUser?.(data.data);
-          toast.success(`${t('toast.resendSuccess')} ${data.data.name}`);
+        if (data && data.data) {
+          toast.success(t('toast.resendSuccess'));
           return data.data;
         } else {
           toast.error(t('toast.resendError'));
@@ -66,7 +68,7 @@ export const useResendCode = (id: string | number) => {
         toast.error(t('toast.resendError'));
       }
     },
-    [id, setUser, t, validate],
+    [t, validate],
   );
 
   return {

@@ -1,13 +1,13 @@
 :root {
-  --primary-dark-rgb: 73, 52, 8;
-  --primary-semi-dark-rgb: 125, 89, 13;
-  --primary-100-rgb: 147, 107, 24;
+  --primary-dark-rgb: 59, 48, 37; // Pressed
+  --primary-semi-dark-rgb: 92, 76, 58; // Hover
+  --primary-100-rgb: 133, 109, 85;
   --primary-70-rgb: 180, 152, 94;
   --primary-60-rgb: 190, 166, 116;
   --primary-50-rgb: 165, 144, 123;
-  --primary-30-rgb: 205, 193, 168;
-  --primary-20-rgb: 235, 227, 211;
-  --primary-10-rgb: 245, 241, 232;
+  --primary-30-rgb: 170, 153, 136;
+  --primary-20-rgb: 231, 226, 221;
+  --primary-10-rgb: 245, 240, 235;
   --primary-dark: rgb(var(--primary-dark-rgb));
   --primary-semi-dark: rgb(var(--primary-semi-dark-rgb));
   --primary-100: rgb(var(--primary-100-rgb));

@@ -8,9 +8,9 @@ import { BaseResponse, ILoginResponse } from '@entities/types';
 import { TOKEN_LOCAL_STORAGE_KEY } from '@shared/constants';
 import { useUser } from './useUser';
 
-export const useConfirmation = (id: string | number) => {
+export const useConfirmation = () => {
   const { setUser } = useUser();
-  const { t } = useTranslation();
+  const { t } = useTranslation('auth');
 
   const schema = z.object({
     phone_code: z
@@ -42,9 +42,12 @@ export const useConfirmation = (id: string | number) => {
     },
     [schema],
   );
-
+  interface ConfirmProps {
+    body: Partial<ValuesType>;
+    id: string | number;
+  }
   const confirm = useCallback(
-    async (body: Partial<ValuesType>) => {
+    async ({ body, id }: ConfirmProps) => {
       const errors = validate(body);
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
@@ -78,7 +81,7 @@ export const useConfirmation = (id: string | number) => {
         }
       }
     },
-    [id, setUser, t, validate],
+    [setUser, t, validate],
   );
 
   return {

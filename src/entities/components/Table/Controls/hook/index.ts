@@ -13,7 +13,7 @@ interface Props {
   getNotificationRoute?: (id: number) => string;
 }
 
-export const useVideoCardControls = ({
+export const useControls = ({
   getDetailsRoute,
   getUpdateRoute,
   getNotificationRoute,

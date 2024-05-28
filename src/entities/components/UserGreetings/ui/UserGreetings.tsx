@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { IconCalendar } from '@shared/icons';
 import { Card, Text, Title } from '@shared/ui';
-import image from '../assets/greetingsLogo.png';
 import styles from './UserGreetings.module.scss';
 
 interface Props {
@@ -24,7 +23,6 @@ export const UserGreetings = ({ className, title, date }: Props) => {
           </Text>
         </div>
       </div>
-      <img className={styles.image} src={image} />
     </Card>
   );
 };

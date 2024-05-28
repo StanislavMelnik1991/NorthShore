@@ -2,6 +2,11 @@ import { LanguageEnum } from '@shared/constants';
 import { BaseEntity } from './global.interface';
 import { IRole } from './roles.interface';
 
+export interface IUserInfoShort {
+  email: string;
+  phone_number: string;
+}
+
 export interface IUserShort extends BaseEntity {
   group: BaseEntity;
   avatar?: string;

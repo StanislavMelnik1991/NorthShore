@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '@features/User';
 import { ISetFieldValue } from '@entities/types';
-import { AppRoutes, AppRoutesEnum, ROLES_STAFF } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
 type ValuesType = {
   account_number?: string;
@@ -29,11 +29,7 @@ export const useLoginPage = () => {
       onSubmit: async (body) => {
         const user = await signUp(body);
         if (user) {
-          if (ROLES_STAFF.includes(user?.group.id)) {
-            navigate(AppRoutes[AppRoutesEnum.ADMIN]());
-          } else {
-            navigate(AppRoutes[AppRoutesEnum.MAIN]());
-          }
+          navigate(AppRoutes[AppRoutesEnum.AUTH_REGISTRATION_CONFIRM](user.id));
         }
       },
     });

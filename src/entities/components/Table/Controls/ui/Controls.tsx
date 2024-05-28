@@ -12,7 +12,7 @@ import {
 } from '@shared/icons';
 import { Card } from '@shared/ui';
 import { PopUpMenuItem } from '../../../';
-import { useVideoCardControls } from '../hook';
+import { useControls } from '../hook';
 import styles from './Controls.module.scss';
 
 interface Props {
@@ -56,7 +56,7 @@ export const TableControls = ({
     handleMapOpen,
     t,
     wrapperRef,
-  } = useVideoCardControls({
+  } = useControls({
     id,
     getDetailsRoute,
     getUpdateRoute,
