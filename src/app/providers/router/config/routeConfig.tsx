@@ -49,8 +49,7 @@ import {
 } from '@pages/admin';
 import { ApplicationsPage } from '@pages/Applications';
 import {
-  ConfirmMailPage,
-  ConfirmPhonePage,
+  RegistrationConfirmPage,
   LoginPage,
   RegistrationPage,
   ResetPasswordPage,
@@ -612,14 +611,9 @@ export const routeConfig: Partial<Record<AppRoutesEnum, AppRoutesProps>> = {
     element: <ResetPasswordPage />,
     authOnly: true,
   },
-  [AppRoutesEnum.AUTH_CONFIRM_MAIL]: {
-    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_MAIL](':id'),
-    element: <ConfirmMailPage />,
-    authOnly: false,
-  },
-  [AppRoutesEnum.AUTH_CONFIRM_PHONE]: {
-    path: AppRoutes[AppRoutesEnum.AUTH_CONFIRM_PHONE](':id'),
-    element: <ConfirmPhonePage />,
+  [AppRoutesEnum.AUTH_REGISTRATION_CONFIRM]: {
+    path: AppRoutes[AppRoutesEnum.AUTH_REGISTRATION_CONFIRM](':id'),
+    element: <RegistrationConfirmPage />,
     authOnly: false,
   },
   [AppRoutesEnum.MAIN]: {

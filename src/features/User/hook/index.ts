@@ -5,3 +5,4 @@ export * from './confirmation';
 export * from './resendCode';
 export * from './passwordResetRequest';
 export * from './changePassword';
+export * from './getShortInfo';

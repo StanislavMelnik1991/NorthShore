@@ -18,7 +18,7 @@ export * from './SipData';
 export * from './chart';
 export * from './ModalDelete';
 export * from './NoResults';
-export * from './AuthButton';
+export * from './auth';
 export * from './UserGreetings';
 export * from './content';
 export * from './heating';

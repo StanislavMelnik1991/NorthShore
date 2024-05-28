@@ -1,8 +1,12 @@
 import { useFormik } from 'formik';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useConfirmation, useResendCode } from '@features/User';
+import {
+  useConfirmation,
+  useResendCode,
+  useUserInfoShort,
+} from '@features/User';
 import { ISetFieldValue } from '@entities/types';
 import {
   AppRoutes,
@@ -17,36 +21,49 @@ type ValuesType = {
   email_code?: string | undefined;
 };
 
-export const useLoginPage = () => {
+export const usePage = () => {
   const { id } = useParams<{ id: string }>() as { id: string };
-  const { resend } = useResendCode(id);
+  const { resend } = useResendCode();
   const { t } = useTranslation('auth');
   const navigate = useNavigate();
-  const { confirm, validate } = useConfirmation(id);
+  const { confirm, validate } = useConfirmation();
+  const { data, getData } = useUserInfoShort();
+  const [slide, setSlide] = useState(0);
 
-  const { values, errors, setFieldValue, handleSubmit } = useFormik<ValuesType>(
-    {
+  useEffect(() => {
+    getData(id);
+  }, [id, getData]);
+
+  const { values, errors, setFieldValue, handleSubmit, isValid } =
+    useFormik<ValuesType>({
       initialValues: {},
       validate,
       onSubmit: async (body) => {
-        const user = await confirm(body);
+        const user = await confirm({ body, id });
         if (user) {
           if (ROLES_STAFF.includes(user?.group.id)) {
             navigate(AppRoutes[AppRoutesEnum.ADMIN]());
           } else {
             navigate(AppRoutes[AppRoutesEnum.MAIN]());
           }
+        } else {
+          setSlide(0);
         }
       },
-    },
-  );
-
-  const handleResend = useCallback(() => {
-    resend({
-      reason: ResendReasonsEnum.Register,
-      target_method: ResendMethodsEnum.email,
     });
-  }, [resend]);
+
+  const handleResend = useCallback(
+    (method: ResendMethodsEnum) => () => {
+      resend({
+        body: {
+          reason: ResendReasonsEnum.Register,
+          target_method: method,
+        },
+        id,
+      });
+    },
+    [id, resend],
+  );
 
   return {
     values,
@@ -54,6 +71,10 @@ export const useLoginPage = () => {
     setFieldValue: setFieldValue as ISetFieldValue<ValuesType>,
     handleSubmit,
     handleResend,
+    data,
     t,
+    slide,
+    setSlide,
+    isValid,
   };
 };
