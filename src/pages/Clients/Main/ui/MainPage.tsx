@@ -92,32 +92,28 @@ const MainPage = () => {
           gap={sliderConfig.gap}
         />
       </Card>
-      <Card
-        className={classNames(styles.card, styles.transparent)}
-        flexDirection="column"
-        gap={20}
-        radius={0}
-      >
-        <div className={styles.text_wrapper}>
-          <Title variant="h2" fontWeight="semibold">
-            {t('sidebar.activity')}
-          </Title>
-          <Link
-            className={styles.link}
-            to={AppRoutes[AppRoutesEnum.ACTIVITY_VOTING]()}
-          >
-            {t('all')}
-          </Link>
-        </div>
-        <ActivitiesSlider
-          slidesOnPage={
-            innerWidth >= BREAK_POINT_MOBILE
-              ? sliderConfig.slidesOnPage.tab
-              : sliderConfig.slidesOnPage.mobile
-          }
-          gap={sliderConfig.gap}
-        />
-      </Card>
+      {isLogin && (
+        <Card
+          className={classNames(styles.card, styles.transparent)}
+          flexDirection="column"
+          gap={20}
+          radius={0}
+        >
+          <div className={styles.text_wrapper}>
+            <Title variant="h2" fontWeight="semibold">
+              {t('sidebar.activity')}
+            </Title>
+          </div>
+          <ActivitiesSlider
+            slidesOnPage={
+              innerWidth >= BREAK_POINT_MOBILE
+                ? sliderConfig.slidesOnPage.tab
+                : sliderConfig.slidesOnPage.mobile
+            }
+            gap={sliderConfig.gap}
+          />
+        </Card>
+      )}
     </PageSkeleton>
   );
 };
