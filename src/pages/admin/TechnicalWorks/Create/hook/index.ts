@@ -127,10 +127,18 @@ export const useCreatePage = () => {
     [setFieldValue, setSelectedStaff],
   );
 
+  const handleOnChange: ISetFieldValue<Data> = useCallback(
+    (field, value) => {
+      const currentValue = value !== '' ? value : undefined;
+      return setFieldValue(field, currentValue);
+    },
+    [setFieldValue],
+  );
+
   return {
     values,
     errors,
-    setFieldValue: setFieldValue as ISetFieldValue<Data>,
+    setFieldValue: handleOnChange,
     handleSubmit,
     isValid,
     t,

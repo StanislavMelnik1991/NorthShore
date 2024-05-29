@@ -233,11 +233,19 @@ export const useUpdatePage = () => {
     setIsModalOpen(false);
   }, []);
 
+  const handleOnChange: ISetFieldValue<Data> = useCallback(
+    (field, value) => {
+      const currentValue = value !== '' ? value : undefined;
+      return setFieldValue(field, currentValue);
+    },
+    [setFieldValue],
+  );
+
   return {
     isLoading,
     values,
     errors,
-    setFieldValue: setFieldValue as ISetFieldValue<Data>,
+    setFieldValue: handleOnChange,
     handleSubmit,
     isValid,
     t,
