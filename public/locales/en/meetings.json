@@ -12,16 +12,16 @@
     },
     "title": {
       "label": "Title",
-      "placeholder": "Meeting Title"
+      "placeholder": "Title"
     },
     "date": {
-      "label": "Meeting Date and Time"
+      "label": "Date and Time"
     },
     "cover": {
       "label": "Cover Image"
     },
     "content": {
-      "label": "Meeting Text"
+      "label": "Text"
     },
     "link": {
       "label": "Link to Online Meeting",
