@@ -25,13 +25,24 @@
   margin-top: 32px;
   display: grid;
   grid-template-columns: 60% 40%;
+
+  @media (width < 980px) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    grid-template-columns: unset;
+  }
 }
 
 .left {
   padding-right: 20px;
 
   &__inner div {
-    max-width: 100% !important;
+    max-width: unset;
+  }
+
+  @media (width < 980px) {
+    padding: 0;
   }
 }
 
@@ -42,6 +53,14 @@
   &__inner div {
     & main p:last-child {
       display: none;
+    }
+  }
+
+  @media (width < 980px) {
+    padding: 0;
+
+    &__inner div {
+      max-width: unset;
     }
   }
 }
