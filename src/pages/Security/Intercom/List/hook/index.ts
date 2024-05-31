@@ -32,7 +32,7 @@ export const useSecurityAccessPage = () => {
     getStatusData();
   }, [getStatusData]);
 
-  useEffect(() => {
+  const handleGetData = useCallback(() => {
     getData({
       page,
       perPage,
@@ -51,6 +51,10 @@ export const useSecurityAccessPage = () => {
     street?.value,
   ]);
 
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
+
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
       setPage(selected + 1);
@@ -64,8 +68,9 @@ export const useSecurityAccessPage = () => {
   const handleOpen = useCallback(
     (id: string | number) => () => {
       open(id);
+      handleGetData();
     },
-    [open],
+    [open, handleGetData],
   );
   const handleDelete = useCallback(async () => {
     if (activeId) {
@@ -144,9 +149,19 @@ export const useSecurityAccessPage = () => {
     onDelete: handleOpenModal,
     onOpen: handleOpen,
   });
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleGetData();
+    }, 10000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [handleGetData]);
+
   return {
     t,
-    isLoading,
+    isLoading: !data && isLoading,
     perPage,
     setPage: handleSetPage,
     setPerPage: handleSetPerPage,

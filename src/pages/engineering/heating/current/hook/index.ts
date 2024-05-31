@@ -24,6 +24,7 @@ export const useCurrentEnergy = () => {
       clearInterval(intervalId);
     };
   }, [handleGetData]);
+
   return {
     t,
     data,
