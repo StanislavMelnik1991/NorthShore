@@ -101,6 +101,10 @@
       "label": "UUID",
       "placeholder": "Введите UUID"
     },
+    "name": {
+      "label": "Название",
+      "placeholder": "Введите название"
+    },
     "sipAddress": "Адрес SIP сервера",
     "sipPort": "Порт SIP сервера",
     "location": "Адрес местонахождения",

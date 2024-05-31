@@ -23,7 +23,7 @@ interface Props {
     apartment?: IApartment;
     lon?: number;
     lat?: number;
-    comment?: string;
+    name?: string;
     type?: { name: string };
     status?: { name: string };
     uuid?: string;
@@ -84,7 +84,7 @@ export const MainInformation = ({ className, data }: Props) => {
           </Text>
         </div>
       </div>
-      {data.comment && (
+      {data.name && (
         <div className={styles.row}>
           <div className={classNames(styles.column, styles.label)}>
             <IconComment width={20} height={20} />
@@ -94,7 +94,7 @@ export const MainInformation = ({ className, data }: Props) => {
           </div>
           <div className={styles.column}>
             <Text fontWeight="medium" variant="body14">
-              {data.comment}
+              {data.name}
             </Text>
           </div>
         </div>

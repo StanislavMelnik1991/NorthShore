@@ -12,6 +12,7 @@ type Data = {
   ip_address?: string;
   hls_url?: string;
   mp4_url?: string;
+  name?: string;
   rtsp_url?: string;
   type_id?: number;
   sip_account_id?: number;
@@ -74,6 +75,14 @@ export const SecurityIntercomDataEditor = ({
           onChange={(ev) => setFieldValue('ip_address', ev.target.value)}
         />
       </div>
+      <TextField
+        wrapperClassName={styles.editor}
+        label={t('editor.name.label')}
+        placeholder={t('editor.name.placeholder')}
+        error={errors.name}
+        value={values.name}
+        onChange={(ev) => setFieldValue('name', ev.target.value)}
+      />
       <TextField
         wrapperClassName={styles.editor}
         label={t('editor.rtspUrl.label')}
