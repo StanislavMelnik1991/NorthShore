@@ -1,7 +1,8 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { PopupContext } from '../context';
 
 export const usePopup = () => {
+  const iconBurgerRef = useRef<SVGSVGElement>(null);
   const {
     isShowBurgerMenu,
     isShowUserMenu,
@@ -17,5 +18,6 @@ export const usePopup = () => {
     toggleUserMenu,
     closeBurgerMenu,
     closeUserMenu,
+    iconBurgerRef,
   };
 };

@@ -6,8 +6,13 @@ export const useMainLayout = () => {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const { isShowBurgerMenu, isShowUserMenu, closeBurgerMenu, closeUserMenu } =
-    usePopup();
+  const {
+    isShowBurgerMenu,
+    isShowUserMenu,
+    closeBurgerMenu,
+    closeUserMenu,
+    iconBurgerRef,
+  } = usePopup();
 
   const isWebView =
     new URLSearchParams(location.search).get('mobile_view') === 'true';
@@ -27,14 +32,17 @@ export const useMainLayout = () => {
   const handleClickOutsideBurgerMenu = useCallback(
     (event?: MouseEvent) => {
       if (
+        isShowBurgerMenu &&
         burgerMenuRef &&
         burgerMenuRef.current &&
-        !burgerMenuRef.current.contains(event?.target as Node)
+        !burgerMenuRef.current.contains(event?.target as Node) &&
+        iconBurgerRef.current &&
+        !iconBurgerRef.current.contains(event?.target as Node)
       ) {
         closeBurgerMenu?.();
       }
     },
-    [closeBurgerMenu],
+    [closeBurgerMenu, iconBurgerRef, isShowBurgerMenu],
   );
 
   useEffect(() => {
