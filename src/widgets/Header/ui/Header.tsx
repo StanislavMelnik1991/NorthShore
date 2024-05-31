@@ -15,8 +15,7 @@ interface Props {
 
 export const Header = ({ className }: Props) => {
   const { user, isLoading, handleLogOut } = useUser();
-  const { isShowBurgerMenu, toggleBurgerMenu, toggleUserMenu, iconBurgerRef } =
-    usePopup();
+  const { isShowBurgerMenu, toggleBurgerMenu, toggleUserMenu } = usePopup();
 
   return (
     <>
@@ -42,7 +41,6 @@ export const Header = ({ className }: Props) => {
             className={styles.burger}
             width={24}
             height={24}
-            ref={iconBurgerRef}
           />
         </div>
       </header>

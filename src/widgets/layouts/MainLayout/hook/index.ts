@@ -6,13 +6,8 @@ export const useMainLayout = () => {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const {
-    isShowBurgerMenu,
-    isShowUserMenu,
-    closeBurgerMenu,
-    closeUserMenu,
-    iconBurgerRef,
-  } = usePopup();
+  const { isShowBurgerMenu, isShowUserMenu, closeBurgerMenu, closeUserMenu } =
+    usePopup();
 
   const isWebView =
     new URLSearchParams(location.search).get('mobile_view') === 'true';
@@ -35,14 +30,12 @@ export const useMainLayout = () => {
         isShowBurgerMenu &&
         burgerMenuRef &&
         burgerMenuRef.current &&
-        !burgerMenuRef.current.contains(event?.target as Node) &&
-        iconBurgerRef.current &&
-        !iconBurgerRef.current.contains(event?.target as Node)
+        !burgerMenuRef.current.contains(event?.target as Node)
       ) {
         closeBurgerMenu?.();
       }
     },
-    [closeBurgerMenu, iconBurgerRef, isShowBurgerMenu],
+    [closeBurgerMenu, isShowBurgerMenu],
   );
 
   useEffect(() => {
