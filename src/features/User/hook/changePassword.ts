@@ -18,6 +18,9 @@ export const useChangePassword = () => {
       confirmPassword: z
         .string({ required_error: t('errors.required') })
         .min(1, t('errors.required')),
+      old_password: z
+        .string({ required_error: t('errors.required') })
+        .min(1, t('errors.required')),
     })
     .refine((data) => data.password === data.confirmPassword, {
       message: t('errors.passwordMatch'),
@@ -37,8 +40,12 @@ export const useChangePassword = () => {
   );
 
   const update = useCallback(
-    async (body: Partial<ValuesType>) => {
-      const errors = validate(body);
+    async ({
+      confirmPassword,
+      password,
+      old_password,
+    }: Partial<ValuesType>) => {
+      const errors = validate({ confirmPassword, password, old_password });
       if (errors) {
         Object.entries(errors).forEach(([key, value]) => {
           toast.error(`${key}: ${value}`);
@@ -47,8 +54,8 @@ export const useChangePassword = () => {
       }
       try {
         const { data } = await axiosApi.post<BaseResponse<{ id: number }>>(
-          '/user/password',
-          body,
+          '/user/passwd',
+          { password, old_password },
         );
         if (data && data.data) {
           toast.success(`${t('toast.updateSuccess')}`);

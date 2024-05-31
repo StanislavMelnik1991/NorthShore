@@ -12,7 +12,9 @@
       "phone_number": "Номер телефона",
       "password": "Пароль",
       "account_deleting": "Удаление аккаунта",
-      "language": "Язык"
+      "language": "Язык",
+      "changeEmail": "Изменение e-mail",
+      "changePhone": "Изменение номера телефона"
     },
     "descriptions": {
       "account_deleting": "Удаление аккаунта и всего, что связано с аккаунтом",
@@ -22,7 +24,8 @@
       "edit": "Изменить",
       "delete": "Удалить",
       "save": "Сохранить",
-      "cancel": "Отмена"
+      "cancel": "Отмена",
+      "next": "Далее"
     },
     "name": {
       "label": "Имя",
@@ -42,7 +45,15 @@
     },
     "password": {
       "label": "Пароль",
-      "placeholder": "Новый пароль"
+      "placeholder": "Введите пароль"
+    },
+    "passwordOld": {
+      "label": "Старый пароль",
+      "placeholder": "Введите пароль"
+    },
+    "passwordConfirm": {
+      "label": "Повторите пароль",
+      "placeholder": "Введите пароль"
     },
     "deleting": {
       "label": "Удаление аккаунта",

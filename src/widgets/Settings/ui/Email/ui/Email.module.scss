@@ -13,3 +13,25 @@
 .dark {
   color: var(--dark-70);
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100vw;
+  max-width: 330px;
+}
+
+.formTitle {
+  align-self: center;
+  text-align: center;
+}
+
+.formButtons {
+  display: flex;
+  gap: 24px;
+}
+
+.button {
+  width: 100%;
+}
