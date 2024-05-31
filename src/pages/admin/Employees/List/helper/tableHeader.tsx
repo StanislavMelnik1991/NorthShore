@@ -32,7 +32,7 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = () => {
       name: 'name',
       label: (
         <Text fontWeight="regular" variant="body14">
-          {t('header.name')}
+          {t('header.fullName')}
         </Text>
       ),
       width: 200,

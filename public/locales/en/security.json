@@ -101,6 +101,10 @@
       "label": "UUID",
       "placeholder": "Enter the UUID"
     },
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter a name"
+    },
     "sipAddress": "SIP server address",
     "sipPort": "SIP server port",
     "location": "Location Address",

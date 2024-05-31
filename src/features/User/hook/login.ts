@@ -10,7 +10,7 @@ import { useUser } from './useUser';
 
 export const useLogin = () => {
   const { setUser } = useUser();
-  const { t } = useTranslation('auth');
+  const { t, i18n } = useTranslation('auth');
 
   const schema = z.object({
     account_number: z
@@ -49,6 +49,9 @@ export const useLogin = () => {
         );
         if (data && data.data && data.data.token) {
           localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, data.data.token);
+          if (data.data.lang) {
+            i18n.changeLanguage(data.data.lang);
+          }
           setUser?.(data.data);
           toast.success(`${t('toast.loginSuccess')} ${data.data.name}`);
           return data.data;
@@ -68,7 +71,7 @@ export const useLogin = () => {
         }
       }
     },
-    [setUser, t, validate],
+    [i18n, setUser, t, validate],
   );
 
   return {
