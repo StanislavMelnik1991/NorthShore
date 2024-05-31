@@ -50,7 +50,6 @@ export const useCreateCameraPage = () => {
         return validate({
           ...body,
           mp4_url: body.hls_url,
-          name: body.comment,
           type_id: body.type?.value,
           sip_account_id: body.sip_account?.value,
         });
@@ -59,7 +58,6 @@ export const useCreateCameraPage = () => {
         const data = await update({
           ...body,
           mp4_url: body.hls_url,
-          name: body.comment,
           type_id: type?.value,
           sip_account_id: sip_account?.value,
         });

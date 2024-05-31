@@ -55,7 +55,7 @@ const Page = () => {
               key={`main_camera_information-${data.id}`}
               data={{
                 ...data,
-                comment: undefined,
+                name: undefined,
                 apartment: data.apartment,
                 entrance: data.apartment.entrance,
                 building: data.apartment.entrance.building,
