@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 import { useUser } from '@features/User';
 import { NavItem, NavItemProps } from '@entities/components';
-import { AccessRoles } from '@shared/constants';
+import { AccessRoles, ROLES_ADMIN } from '@shared/constants';
 import styles from './SideBar.module.scss';
 
 interface Props {
@@ -17,6 +17,15 @@ export const SideBar = ({ className, config, children }: Props) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
       {config.map((elConfig, index) => {
+        if (user && ROLES_ADMIN.includes(user.group.id)) {
+          return (
+            <NavItem
+              key={`nav-item-${index}`}
+              pathname={location.pathname}
+              {...elConfig}
+            />
+          );
+        }
         if (elConfig.authOnly && !user) {
           return <></>;
         }
