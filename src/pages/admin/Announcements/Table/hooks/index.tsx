@@ -1,23 +1,27 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDebounce } from 'use-debounce';
 import {
   useGetAnnouncementsList,
   useRemoveAnnouncement,
 } from '@features/announcements';
+import { usePagination } from '@features/pagination';
 import { ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 export const useNewsList = () => {
   const { t } = useTranslation();
+  const {
+    handleSetPage,
+    handleSetPerPage,
+    page,
+    perPage,
+    debounced,
+    search,
+    setSearch,
+  } = usePagination();
   const { getData, isLoading, total, data } = useGetAnnouncementsList();
   const { handleRemove } = useRemoveAnnouncement();
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [debounced] = useDebounce(search, 500);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
 
@@ -34,16 +38,6 @@ export const useNewsList = () => {
   useEffect(() => {
     handleGetData();
   }, [handleGetData]);
-
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
 
   const handleToggleIsDeleted = useCallback(() => {
     setIsDeleted((val) => !val);

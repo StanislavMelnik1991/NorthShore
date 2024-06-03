@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePagination } from '@features/pagination';
 import { useCamerasList } from '@features/security';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 
 export const useSecurityVideoPage = () => {
   const { t } = useTranslation('security');
+  const { handleSetPage, handleSetPerPage, page, perPage } = usePagination();
   const { data, getData, isLoading, total } = useCamerasList();
-  const [page, setPage] = useState<number>(1);
   const [isFaulty, setIsFaulty] = useState(false);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [filters, setFilters] = useState<{
     street?: number;
     building?: number;
@@ -19,7 +18,7 @@ export const useSecurityVideoPage = () => {
     entrance: undefined,
   });
 
-  useEffect(() => {
+  const handleGetData = useCallback(() => {
     getData({
       page,
       perPage,
@@ -28,17 +27,19 @@ export const useSecurityVideoPage = () => {
       street_id: filters.street,
       is_faulty: isFaulty ? 1 : undefined,
     });
-  }, [filters, getData, isFaulty, page, perPage]);
+  }, [
+    filters.building,
+    filters.entrance,
+    filters.street,
+    getData,
+    isFaulty,
+    page,
+    perPage,
+  ]);
 
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
 
   return {
     setFilters,

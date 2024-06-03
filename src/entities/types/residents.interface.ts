@@ -1,3 +1,4 @@
+import { IApartmentFull } from './address.interface';
 import { IUser } from './user.interface';
 
 export interface IResident {
@@ -6,29 +7,7 @@ export interface IResident {
   account: string;
   apartment_id: number;
   user: IUser;
-  apartment: {
-    id: number;
-    name: string;
-    entrance_id: number;
-    comment: string;
-    entrance: {
-      id: number;
-      name: string;
-      building_id: number;
-      comment: string;
-      building: {
-        id: number;
-        name: string;
-        street_id: number;
-        building_type_id: number;
-        comment: string;
-        street: {
-          id: number;
-          name: string;
-        };
-      };
-    };
-  };
+  apartment: IApartmentFull;
 }
 
 export type IResidentsRequest = {

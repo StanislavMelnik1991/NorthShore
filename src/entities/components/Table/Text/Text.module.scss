@@ -3,7 +3,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: inline-flex;
-  align-items: center;
   justify-content: flex-start;
   gap: 8px;
+}
+
+.center {
+  align-items: center;
 }

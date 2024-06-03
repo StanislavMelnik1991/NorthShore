@@ -13,6 +13,7 @@ interface Props {
   className?: string;
   fontWeight?: 'medium' | 'regular' | 'semibold';
   title?: string;
+  center?: boolean;
 }
 
 export const TableText = ({
@@ -20,11 +21,14 @@ export const TableText = ({
   className,
   fontWeight = 'regular',
   title,
+  center,
 }: Props) => {
   return (
     <Text
       title={title}
-      className={classNames(styles.wrapper, className)}
+      className={classNames(styles.wrapper, className, {
+        [styles.center]: center,
+      })}
       fontWeight={fontWeight}
       variant="body14"
     >

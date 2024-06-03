@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDebounce } from 'use-debounce';
 import {
   useDeleteAdvertisement,
   useGetAdvertisementsList,
 } from '@features/Admin';
+import { usePagination } from '@features/pagination';
 import { convertToSeconds } from '@features/utils';
 import { ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Params extends ListParams {
@@ -17,13 +16,17 @@ interface Params extends ListParams {
 
 export const useVotingList = () => {
   const { t } = useTranslation();
+  const {
+    handleSetPage,
+    handleSetPerPage,
+    page,
+    perPage,
+    debounced,
+    search,
+    setSearch,
+  } = usePagination();
   const { getData, isLoading, total, data } = useGetAdvertisementsList();
   const { handleDelete } = useDeleteAdvertisement();
-
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
-  const [debounced] = useDebounce(search, 500);
   const [from, setFrom] = useState<Date | null>(null);
   const [to, setTo] = useState<Date | null>(null);
 
@@ -47,15 +50,6 @@ export const useVotingList = () => {
     handleGetData();
   }, [handleGetData]);
 
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
   const handleChangeDate = (val: [Date | null, Date | null]) => {
     setFrom(val?.[0] || null);
     setTo(val?.[1] || null);

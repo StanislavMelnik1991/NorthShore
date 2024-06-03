@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useDebounce } from 'use-debounce';
 import { useGetEmployeesList } from '@features/Admin';
+import { usePagination } from '@features/pagination';
 import { axiosApi } from '@entities/api';
 import { ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE, AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Options {
@@ -16,13 +16,18 @@ interface Options {
 
 export const useEmployeesList = () => {
   const { t } = useTranslation('employees');
+  const {
+    handleSetPage,
+    handleSetPerPage,
+    page,
+    perPage,
+    debounced,
+    search,
+    setSearch,
+  } = usePagination();
   const navigate = useNavigate();
   const { getData, isLoading, total, data } = useGetEmployeesList();
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [lang, setActiveLang] = useState<Options | null>(null);
-  const [debounced] = useDebounce(search, 500);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [active, setActive] = useState<number>();
 
@@ -38,11 +43,6 @@ export const useEmployeesList = () => {
   useEffect(() => {
     handleGetData();
   }, [handleGetData, lang, search]);
-
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
 
   const handleSelectLang = useCallback((val: Options | null) => {
     setActiveLang(val);
@@ -92,7 +92,7 @@ export const useEmployeesList = () => {
     isLoading,
     setPage: handleSetPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     total,
     t,
     tableHeader,

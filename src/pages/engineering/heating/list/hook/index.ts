@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetHeatingList } from '@features/engineering';
-import { INITIAL_PER_PAGE } from '@shared/constants';
+import { usePagination } from '@features/pagination';
 
 export const useList = () => {
   const { t } = useTranslation('engineering');
+  const { handleSetPage, handleSetPerPage, page, perPage } = usePagination();
   const { data, getData, isLoading, total } = useGetHeatingList();
   const [isAccident, setIsAccident] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
+
   const [filters, setFilters] = useState<{
     street?: number;
     building?: number;
@@ -26,16 +26,6 @@ export const useList = () => {
       is_accident: isAccident || undefined,
     });
   }, [filters, getData, isAccident, page, perPage]);
-
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
 
   useEffect(() => {
     handleGetData();

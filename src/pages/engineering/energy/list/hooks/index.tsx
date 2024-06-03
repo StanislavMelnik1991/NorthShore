@@ -6,8 +6,8 @@ import {
   useGetChargingStatusesList,
   useGetEnergyStatusesTypesList,
 } from '@features/engineering';
+import { usePagination } from '@features/pagination';
 import { ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Params extends ListParams {
@@ -24,6 +24,7 @@ type AddressFilters = { street_id?: number; building_id?: number };
 
 export const useNewsList = () => {
   const { t } = useTranslation('engineering');
+  const { handleSetPage, handleSetPerPage, page, perPage } = usePagination();
   const { getData, isLoading, total, data } = useGetEnergyList();
   const {
     getData: getTypes,
@@ -46,8 +47,6 @@ export const useNewsList = () => {
     selected: selectedStatus,
     setSelected: setSelectedStatus,
   } = useGetEnergyStatusesTypesList();
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [address, setAddress] = useState<AddressFilters>({});
 
   const handleGetData = useCallback(async () => {
@@ -79,16 +78,6 @@ export const useNewsList = () => {
     getStates();
     getTypes();
   }, [getStates, getStatuses, getTypes]);
-
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
 
   const handleChangeAddressFilter = useCallback(
     ({ building, street }: { street?: number; building?: number }) => {

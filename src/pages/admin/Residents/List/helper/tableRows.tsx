@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
+import { formatAddress } from '@features/utils';
 import { TableControls, TableText } from '@entities/components';
 import { IResident } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
@@ -16,9 +17,7 @@ export const useTableRows = (
       account: <TableText>{account}</TableText>,
       name: <TableText fontWeight="semibold">{user.name}</TableText>,
       phone_number: <TableText>{user.phone_number}</TableText>,
-      objects: (
-        <TableText>{`${apartment.entrance.building.street.name.trim()}, ${apartment.entrance.building.name}, ${apartment.name}`}</TableText>
-      ),
+      objects: <TableText>{formatAddress({ apartment })}</TableText>,
       lang: (
         <TableText>
           {user.lang === 'en' ? t('langs.en') : t('langs.ru')}

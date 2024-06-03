@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePagination } from '@features/pagination';
 import {
   useGetSecurityIntercomList,
   useIntercomStatusList,
@@ -7,17 +8,14 @@ import {
   useRemoveSecurityIntercom,
 } from '@features/security';
 import { ISelectOption } from '@entities/components';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 export const useSecurityAccessPage = () => {
   const { t } = useTranslation('security');
+  const { handleSetPage, handleSetPerPage, page, perPage } = usePagination();
   const { getData, isLoading, data, total } = useGetSecurityIntercomList();
   const { data: statusData, getData: getStatusData } = useIntercomStatusList();
-
-  const [page, setPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [activeId, setActiveId] = useState<string | number>();
 
   const [street, setActiveStreet] = useState<ISelectOption | null>(null);
@@ -55,16 +53,6 @@ export const useSecurityAccessPage = () => {
     handleGetData();
   }, [handleGetData]);
 
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
-  const handleSetPerPage = useCallback((val: number) => {
-    setPerPage(val);
-    setPage(1);
-  }, []);
-
   const handleOpen = useCallback(
     (id: string | number) => () => {
       const current = data.find((el) => el.id === id);
@@ -79,25 +67,9 @@ export const useSecurityAccessPage = () => {
       const active = data.find((val) => val.id === activeId);
       await onDelete(activeId, active?.comment);
       setIsModalOpen(false);
-      getData({
-        page,
-        perPage,
-        street_id: street?.value || undefined,
-        building_id: building?.value || undefined,
-        entrance_id: entrance?.value || undefined,
-      });
+      handleGetData();
     }
-  }, [
-    activeId,
-    building?.value,
-    data,
-    entrance?.value,
-    getData,
-    onDelete,
-    page,
-    perPage,
-    street?.value,
-  ]);
+  }, [activeId, data, handleGetData, onDelete]);
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -164,7 +136,6 @@ export const useSecurityAccessPage = () => {
   return {
     t,
     isLoading: !data && isLoading,
-    perPage,
     setPage: handleSetPage,
     setPerPage: handleSetPerPage,
     total,
@@ -173,6 +144,7 @@ export const useSecurityAccessPage = () => {
     handleDelete,
     isModalOpen: isModalOpen && !!activeId,
     handleCloseModal,
+    perPage,
     page,
   };
 };

@@ -20,7 +20,7 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
       building: <TableText>{entrance?.building?.name || ''}</TableText>,
       entrance: <TableText>{entrance?.name || ''}</TableText>,
       state: (
-        <TableText>
+        <TableText center>
           {(status?.id === 1 || status?.id === 2 || status?.id === 3) && (
             <Dot
               color={

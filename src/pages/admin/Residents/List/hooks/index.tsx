@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDebounce } from 'use-debounce';
 import { useGetResidentsList } from '@features/Admin';
+import { usePagination } from '@features/pagination';
 import { ListParams } from '@entities/types';
-import { INITIAL_PER_PAGE } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
 
 interface Options {
@@ -13,12 +12,17 @@ interface Options {
 
 export const useResidentsList = () => {
   const { t } = useTranslation('residents');
+  const {
+    handleSetPage,
+    handleSetPerPage,
+    page,
+    perPage,
+    debounced,
+    search,
+    setSearch,
+  } = usePagination();
   const { getData, isLoading, total, data } = useGetResidentsList();
-  const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
   const [lang, setActiveLang] = useState<Options | null>(null);
-  const [debounced] = useDebounce(search, 500);
   const [open, setOpen] = useState(false);
   const [popUpId, setPopUpId] = useState<string>();
   const [filters, setFilters] = useState<{
@@ -46,11 +50,6 @@ export const useResidentsList = () => {
     handleGetData();
   }, [handleGetData, lang, filters, search]);
 
-  const handleSetPage: (selectedItem: { selected: number }) => void =
-    useCallback(({ selected }) => {
-      setPage(selected + 1);
-    }, []);
-
   const handleSelectLang = useCallback((val: Options | null) => {
     setActiveLang(val);
   }, []);
@@ -70,7 +69,7 @@ export const useResidentsList = () => {
     isLoading,
     setPage: handleSetPage,
     perPage,
-    setPerPage,
+    setPerPage: handleSetPerPage,
     total,
     t,
     tableHeader,
