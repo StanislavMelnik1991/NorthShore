@@ -6,6 +6,7 @@ import styles from './Editor.module.scss';
 
 type Data = {
   type: ISelectOption | null;
+  name?: string;
   ip_address?: string;
   type_id?: number;
 };
@@ -30,22 +31,32 @@ export const SecurityAccessTypeEditor = ({
   });
   return (
     <div className={styles.wrapper}>
-      <StyledSelect
-        label={t('editor.accessType.label')}
-        placeholder={t('editor.accessType.placeholder')}
-        isLoading={isLoading}
-        options={data}
-        value={values.type}
-        error={errors.type_id}
-        onChange={handleChangeSelection}
-      />
+      <div className={styles.row}>
+        <StyledSelect
+          label={t('editor.accessType.label')}
+          placeholder={t('editor.accessType.placeholder')}
+          isLoading={isLoading}
+          options={data}
+          value={values.type}
+          error={errors.type_id}
+          onChange={handleChangeSelection}
+        />
+        <TextField
+          wrapperClassName={styles.editor}
+          label={t('editor.ipAddress.label')}
+          placeholder={t('editor.ipAddress.placeholder')}
+          error={errors.ip_address}
+          value={values.ip_address}
+          onChange={(ev) => setFieldValue('ip_address', ev.target.value)}
+        />
+      </div>
       <TextField
         wrapperClassName={styles.editor}
-        label={t('editor.ipAddress.label')}
-        placeholder={t('editor.ipAddress.placeholder')}
-        error={errors.ip_address}
-        value={values.ip_address}
-        onChange={(ev) => setFieldValue('ip_address', ev.target.value)}
+        label={t('editor.name.label')}
+        placeholder={t('editor.name.placeholder')}
+        error={errors.name}
+        value={values.name}
+        onChange={(ev) => setFieldValue('name', ev.target.value)}
       />
     </div>
   );

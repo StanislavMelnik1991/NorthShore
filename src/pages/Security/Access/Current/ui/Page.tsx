@@ -12,13 +12,13 @@ import {
   Tab,
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { IconPencil } from '@shared/icons';
+import { IconLock, IconPencil } from '@shared/icons';
 import { Button, Text } from '@shared/ui';
 import { useCreateCameraPage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
-  const { data, isLoading, t, id } = useCreateCameraPage();
+  const { data, isLoading, t, id, handleOpen } = useCreateCameraPage();
 
   const labels = [
     <Text
@@ -49,52 +49,60 @@ const Page = () => {
   }
 
   return (
-    <PageSkeleton className={styles.wrapper}>
-      <PageHeader
-        breadcrumbs={[
-          {
-            title: t('title'),
-            href: AppRoutes[AppRoutesEnum.SECURITY](),
-          },
-          {
-            title: t('modules.access'),
-            href: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
-          },
-          {
-            title: `${data.type.name} №${data.id}`,
-          },
-        ]}
-      />
-
-      <CurrentSkeleton className={styles.content} isLoading={isLoading}>
-        <Tab
-          labels={labels}
-          tabs={[
-            <MainInformation
-              key={`main_camera_information-${data.id}`}
-              data={data}
-            />,
-            <ConfigInformation
-              key={`main_camera_information-${data.id}`}
-              data={data}
-            />,
-            <AccessInformation
-              key={`main_camera_information-${data.id}`}
-              data={data}
-            />,
+    <CurrentSkeleton padding={0} radius={0} className={styles.wrapper}>
+      <PageSkeleton className={styles.column}>
+        <PageHeader
+          breadcrumbs={[
+            {
+              title: t('title'),
+              href: AppRoutes[AppRoutesEnum.SECURITY](),
+            },
+            {
+              title: t('modules.access'),
+              href: AppRoutes[AppRoutesEnum.SECURITY_ACCESS](),
+            },
+            {
+              title: `${data.type.name} №${data.id}`,
+            },
           ]}
+          controls={
+            <Button onClick={handleOpen} className={styles.openBtn}>
+              <IconLock width={20} height={20} />
+              {t('actions.open')}
+            </Button>
+          }
         />
-        <Link
-          className={styles.link}
-          to={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_UPDATE](id as string)}
-        >
-          <Button className={styles.button} variant="text">
-            <IconPencil />
-            {t('actions.edit')}
-          </Button>
-        </Link>
-      </CurrentSkeleton>
-    </PageSkeleton>
+
+        <CurrentSkeleton className={styles.content} isLoading={isLoading}>
+          <Tab
+            labels={labels}
+            tabs={[
+              <MainInformation
+                key={`main_camera_information-${data.id}`}
+                data={data}
+              />,
+              <ConfigInformation
+                key={`main_camera_information-${data.id}`}
+                data={data}
+              />,
+              <AccessInformation
+                key={`main_camera_information-${data.id}`}
+                data={data}
+              />,
+            ]}
+          />
+          <Link
+            className={styles.link}
+            to={AppRoutes[AppRoutesEnum.SECURITY_ACCESS_UPDATE](id as string)}
+          >
+            <Button className={styles.button} variant="text">
+              <IconPencil />
+              {t('actions.edit')}
+            </Button>
+          </Link>
+        </CurrentSkeleton>
+      </PageSkeleton>
+    </CurrentSkeleton>
   );
 };
 

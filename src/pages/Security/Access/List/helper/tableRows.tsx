@@ -11,9 +11,10 @@ interface Props {
 
 export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
   return data.map(
-    ({ id, street, building, entrance, status, lat, lon, type }) => {
+    ({ id, street, building, entrance, status, lat, lon, type, name }) => {
       return {
         id: <TableText>{`№ ${String(id)}`}</TableText>,
+        name: <TableText>{name}</TableText>,
         type: <TableText>{type.name}</TableText>,
         street: <TableText>{street?.name}</TableText>,
         building: <TableText>{building?.name}</TableText>,
