@@ -9,13 +9,13 @@ import {
   Tab,
 } from '@entities/components';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import { IconPencil } from '@shared/icons';
+import { IconLock, IconPencil } from '@shared/icons';
 import { Button, Text } from '@shared/ui';
 import { useCurrentIntercomPage } from '../hook';
 import styles from './Page.module.scss';
 
 const Page = () => {
-  const { data, isLoading, t, id } = useCurrentIntercomPage();
+  const { data, isLoading, t, id, handleOpen } = useCurrentIntercomPage();
 
   const labels = [
     <Text
@@ -39,54 +39,62 @@ const Page = () => {
   }
 
   return (
-    <PageSkeleton className={styles.wrapper}>
-      <PageHeader
-        breadcrumbs={[
-          {
-            title: t('title'),
-            href: AppRoutes[AppRoutesEnum.SECURITY](),
-          },
-          {
-            title: t('modules.intercom'),
-            href: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
-          },
-          {
-            title: `${t('modules.intercomSingle')} №${data.id}`,
-          },
-        ]}
-      />
-      <CurrentSkeleton padding={0} isLoading={isLoading}>
-        <CustomVideo src={data.mp4_url} status={1} controls muted={false} />
-      </CurrentSkeleton>
-      <CurrentSkeleton className={styles.content} isLoading={isLoading}>
-        <Tab
-          labels={labels}
-          tabs={[
-            <MainInformation
-              key={`main_camera_information-${data.id}`}
-              data={{
-                ...data,
-                building: data.entrance.building,
-                street: data.entrance.building.street,
-              }}
-            />,
-            <IntercomConfigInformation
-              key={`main_camera_information-${data.id}`}
-              data={data}
-            />,
+    <CurrentSkeleton padding={0} radius={0} className={styles.wrapper}>
+      <PageSkeleton className={styles.column}>
+        <PageHeader
+          breadcrumbs={[
+            {
+              title: t('title'),
+              href: AppRoutes[AppRoutesEnum.SECURITY](),
+            },
+            {
+              title: t('modules.intercom'),
+              href: AppRoutes[AppRoutesEnum.SECURITY_INTERCOM](),
+            },
+            {
+              title: `${t('modules.intercomSingle')} №${data.id}`,
+            },
           ]}
+          controls={
+            <Button onClick={handleOpen} className={styles.openBtn}>
+              <IconLock width={20} height={20} />
+              {t('actions.open')}
+            </Button>
+          }
         />
-        <Link
-          className={styles.link}
-          to={AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_UPDATE](id as string)}
-        >
-          <Button className={styles.button} variant="text">
-            <IconPencil />
-            {t('actions.edit')}
-          </Button>
-        </Link>
-      </CurrentSkeleton>
-    </PageSkeleton>
+        <CurrentSkeleton padding={0} isLoading={isLoading}>
+          <CustomVideo src={data.mp4_url} status={1} controls muted={false} />
+        </CurrentSkeleton>
+        <CurrentSkeleton className={styles.content} isLoading={isLoading}>
+          <Tab
+            labels={labels}
+            tabs={[
+              <MainInformation
+                key={`main_camera_information-${data.id}`}
+                data={{
+                  ...data,
+                  building: data.entrance.building,
+                  street: data.entrance.building.street,
+                }}
+              />,
+              <IntercomConfigInformation
+                key={`main_camera_information-${data.id}`}
+                data={data}
+              />,
+            ]}
+          />
+          <Link
+            className={styles.link}
+            to={AppRoutes[AppRoutesEnum.SECURITY_INTERCOM_UPDATE](id as string)}
+          >
+            <Button className={styles.button} variant="text">
+              <IconPencil />
+              {t('actions.edit')}
+            </Button>
+          </Link>
+        </CurrentSkeleton>
+      </PageSkeleton>
+    </CurrentSkeleton>
   );
 };
 

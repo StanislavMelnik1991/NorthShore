@@ -73,6 +73,7 @@ export const useSecurityAccessPage = () => {
     },
     [data, open, handleGetData],
   );
+
   const handleDelete = useCallback(async () => {
     if (activeId) {
       const active = data.find((val) => val.id === activeId);
