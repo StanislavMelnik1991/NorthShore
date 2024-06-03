@@ -56,7 +56,7 @@ const Page = () => {
         ]}
       />
       <CurrentSkeleton padding={0} isLoading={isLoading}>
-        <CustomVideo src={data.mp4_url} status={3} controls />
+        <CustomVideo src={data.mp4_url} status={1} controls muted={false} />
       </CurrentSkeleton>
       <CurrentSkeleton className={styles.content} isLoading={isLoading}>
         <Tab
