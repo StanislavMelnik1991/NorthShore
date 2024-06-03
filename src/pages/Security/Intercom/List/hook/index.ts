@@ -67,10 +67,11 @@ export const useSecurityAccessPage = () => {
 
   const handleOpen = useCallback(
     (id: string | number) => () => {
-      open(id);
+      const current = data.find((el) => el.id === id);
+      open(id, current?.name);
       handleGetData();
     },
-    [open, handleGetData],
+    [data, open, handleGetData],
   );
   const handleDelete = useCallback(async () => {
     if (activeId) {

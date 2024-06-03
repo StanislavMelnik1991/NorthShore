@@ -31,7 +31,7 @@ export const useSecurityAccessPage = () => {
     getTypeList();
   }, [getTypeList]);
 
-  useEffect(() => {
+  const handleGetData = useCallback(() => {
     getData({
       page,
       perPage,
@@ -50,6 +50,10 @@ export const useSecurityAccessPage = () => {
     type?.value,
   ]);
 
+  useEffect(() => {
+    handleGetData();
+  }, [handleGetData]);
+
   const handleSetPage: (selectedItem: { selected: number }) => void =
     useCallback(({ selected }) => {
       setPage(selected + 1);
@@ -62,9 +66,11 @@ export const useSecurityAccessPage = () => {
 
   const handleOpen = useCallback(
     (id: string | number) => () => {
-      open(id);
+      const current = data.find((el) => el.id === id);
+      open(id, current?.name);
+      handleGetData();
     },
-    [open],
+    [data, open, handleGetData],
   );
   const handleDelete = useCallback(async () => {
     if (activeId) {
