@@ -6,8 +6,13 @@ export const useMainLayout = () => {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-  const { isShowBurgerMenu, isShowUserMenu, closeBurgerMenu, closeUserMenu } =
-    usePopup();
+  const {
+    isShowBurgerMenu,
+    isShowUserMenu,
+    closeBurgerMenu,
+    closeUserMenu,
+    btnRef,
+  } = usePopup();
 
   const isWebView =
     new URLSearchParams(location.search).get('mobile_view') === 'true';
@@ -17,25 +22,30 @@ export const useMainLayout = () => {
       if (
         userMenuRef &&
         userMenuRef.current &&
-        !userMenuRef.current.contains(event.target as Node)
+        !userMenuRef.current.contains(event.target as Node) &&
+        btnRef &&
+        btnRef.current &&
+        !btnRef.current.contains(event?.target as Node)
       ) {
         closeUserMenu?.();
       }
     },
-    [closeUserMenu],
+    [btnRef, closeUserMenu],
   );
   const handleClickOutsideBurgerMenu = useCallback(
-    (event?: MouseEvent) => {
+    (event: MouseEvent) => {
       if (
-        isShowBurgerMenu &&
         burgerMenuRef &&
         burgerMenuRef.current &&
-        !burgerMenuRef.current.contains(event?.target as Node)
+        !burgerMenuRef.current.contains(event?.target as Node) &&
+        btnRef &&
+        btnRef.current &&
+        !btnRef.current.contains(event?.target as Node)
       ) {
         closeBurgerMenu?.();
       }
     },
-    [closeBurgerMenu, isShowBurgerMenu],
+    [btnRef, closeBurgerMenu],
   );
 
   useEffect(() => {

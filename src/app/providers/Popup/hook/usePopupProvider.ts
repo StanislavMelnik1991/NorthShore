@@ -1,8 +1,9 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 export const usePopupProvider = () => {
   const [isShowUserMenu, setIsShowUserMenu] = useState(false);
   const [isShowBurgerMenu, setIsShowBurgerMenu] = useState(false);
+  const btnRef = useRef<HTMLDivElement>(null);
 
   const toggleUserMenu = useCallback(() => {
     setIsShowUserMenu((val) => !val);
@@ -26,6 +27,7 @@ export const usePopupProvider = () => {
       toggleBurgerMenu,
       closeUserMenu,
       closeBurgerMenu,
+      btnRef,
     }),
     [
       closeBurgerMenu,

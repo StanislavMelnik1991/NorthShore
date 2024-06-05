@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { RefObject, createContext } from 'react';
 
 export interface PopupProps {
   isShowUserMenu?: boolean;
@@ -7,6 +7,7 @@ export interface PopupProps {
   isShowBurgerMenu?: boolean;
   toggleBurgerMenu?: () => void;
   closeBurgerMenu?: () => void;
+  btnRef?: RefObject<HTMLDivElement>;
 }
 
 export const PopupContext = createContext<PopupProps>({});

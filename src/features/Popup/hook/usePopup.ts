@@ -9,6 +9,7 @@ export const usePopup = () => {
     toggleUserMenu,
     closeBurgerMenu,
     closeUserMenu,
+    btnRef,
   } = useContext(PopupContext);
   return {
     isShowBurgerMenu,
@@ -17,5 +18,6 @@ export const usePopup = () => {
     toggleUserMenu,
     closeBurgerMenu,
     closeUserMenu,
+    btnRef,
   };
 };

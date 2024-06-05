@@ -32,10 +32,13 @@
   padding: 20px 32px;
 }
 
+.btnWrapper {
+  margin-left: auto;
+}
+
 .auth {
   display: flex;
   align-items: center;
-  margin-left: auto;
   height: 100%;
   gap: 20px;
 
@@ -49,7 +52,6 @@
   cursor: pointer;
 
   @media (width < 1280px) {
-    margin-left: auto;
     display: flex;
   }
 }

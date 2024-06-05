@@ -15,7 +15,8 @@ interface Props {
 
 export const Header = ({ className }: Props) => {
   const { user, isLoading, handleLogOut } = useUser();
-  const { isShowBurgerMenu, toggleBurgerMenu, toggleUserMenu } = usePopup();
+  const { isShowBurgerMenu, toggleBurgerMenu, toggleUserMenu, btnRef } =
+    usePopup();
 
   return (
     <>
@@ -26,22 +27,24 @@ export const Header = ({ className }: Props) => {
           </Link>
         </div>
         <div className={styles.header}>
-          <div className={styles.auth}>
-            {isLoading ? (
-              <Loader size={40} />
-            ) : user ? (
-              <UserIcon user={user} onClick={toggleUserMenu} />
-            ) : (
-              <AuthButton logout={handleLogOut} isLogin={!!user} />
-            )}
+          <div className={styles.btnWrapper} ref={btnRef}>
+            <div className={styles.auth}>
+              {isLoading ? (
+                <Loader size={40} />
+              ) : user ? (
+                <UserIcon user={user} onClick={toggleUserMenu} />
+              ) : (
+                <AuthButton logout={handleLogOut} isLogin={!!user} />
+              )}
+            </div>
+            <IconBurger
+              onClick={toggleBurgerMenu}
+              isMenuOpen={isShowBurgerMenu}
+              className={styles.burger}
+              width={24}
+              height={24}
+            />
           </div>
-          <IconBurger
-            onClick={toggleBurgerMenu}
-            isMenuOpen={isShowBurgerMenu}
-            className={styles.burger}
-            width={24}
-            height={24}
-          />
         </div>
       </header>
     </>
