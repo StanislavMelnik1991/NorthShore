@@ -9,13 +9,21 @@ interface Props {
   title: string;
   href: string;
   pathname: string;
+  onClick?: () => void;
 }
 
-export const Breadcrumb = ({ className, href, title, pathname }: Props) => {
+export const Breadcrumb = ({
+  className,
+  href,
+  title,
+  pathname,
+  onClick,
+}: Props) => {
   const isActive = href === '/' ? pathname === href : pathname.startsWith(href);
   return (
     <li>
       <NavLink
+        onClick={onClick}
         className={classNames(
           styles.wrapper,
           {

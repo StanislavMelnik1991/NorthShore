@@ -49,10 +49,6 @@ export const useMainLayout = () => {
   );
 
   useEffect(() => {
-    closeUserMenu?.();
-  }, [location, closeUserMenu]);
-
-  useEffect(() => {
     document.addEventListener('click', handleClickOutsideUserMenu, true);
     document.addEventListener('click', handleClickOutsideBurgerMenu, true);
     return () => {

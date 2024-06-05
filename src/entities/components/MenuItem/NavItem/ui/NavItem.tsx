@@ -8,6 +8,7 @@ import styles from './NavItem.module.scss';
 
 interface Props extends NavItemProps {
   pathname: string;
+  onLinkClick?: () => void;
 }
 
 export const NavItem = ({
@@ -19,17 +20,19 @@ export const NavItem = ({
   isLink,
   // acceptedGroups,
   onClick,
+  onLinkClick,
 }: Props) => {
   const {
     breadcrumbElementArr,
     isExpanded,
     handleToggleBreadcrumbs,
     isActive,
-  } = useNavItem({ href, pathname, breadcrumbs });
+  } = useNavItem({ href, pathname, breadcrumbs, onLinkClick });
 
   if (isLink && href) {
     return (
       <NavLink
+        onClick={onLinkClick}
         to={href}
         className={classNames(styles.item, styles.navLink, {
           [styles.active]: isActive,

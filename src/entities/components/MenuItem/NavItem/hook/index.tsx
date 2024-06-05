@@ -4,9 +4,15 @@ import { NavItemProps } from '../../types';
 
 interface Props extends Pick<NavItemProps, 'href' | 'breadcrumbs'> {
   pathname: string;
+  onLinkClick?: () => void;
 }
 
-export const useNavItem = ({ breadcrumbs, href, pathname }: Props) => {
+export const useNavItem = ({
+  breadcrumbs,
+  href,
+  pathname,
+  onLinkClick,
+}: Props) => {
   const breadcrumbsPathArr = breadcrumbs?.map(({ href }) => href);
   const isActive = breadcrumbsPathArr?.length
     ? breadcrumbsPathArr.includes(pathname)
@@ -20,6 +26,7 @@ export const useNavItem = ({ breadcrumbs, href, pathname }: Props) => {
       }
       return (
         <Breadcrumb
+          onClick={onLinkClick}
           href={el.href}
           title={el.title}
           pathname={pathname}

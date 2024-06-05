@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { useLocation } from 'react-router-dom';
 import { NavItem, NavItemProps } from '@entities/components';
 import { IUser } from '@entities/types';
 import { Text } from '@shared/ui';
+import { useUserMenu } from '../hook';
 import styles from './UserMenu.module.scss';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const UserMenu = ({ className, config, children, user }: Props) => {
-  const location = useLocation();
+  const { handleCloseMenu, location } = useUserMenu();
   return (
     <div className={styles.menu__wrapper}>
       <div className={styles.avatar__wrapper}>
@@ -33,6 +33,7 @@ export const UserMenu = ({ className, config, children, user }: Props) => {
         {config.map((elConfig, index) => {
           return (
             <NavItem
+              onLinkClick={handleCloseMenu}
               key={`nav-item-${index}`}
               pathname={location.pathname}
               {...elConfig}

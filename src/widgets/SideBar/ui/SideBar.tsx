@@ -1,8 +1,7 @@
 import classNames from 'classnames';
-import { useLocation } from 'react-router-dom';
-import { useUser } from '@features/User';
 import { NavItem, NavItemProps } from '@entities/components';
 import { AccessRoles, ROLES_ADMIN } from '@shared/constants';
+import { useSideBar } from '../hook';
 import styles from './SideBar.module.scss';
 
 interface Props {
@@ -12,8 +11,7 @@ interface Props {
 }
 
 export const SideBar = ({ className, config, children }: Props) => {
-  const location = useLocation();
-  const { user } = useUser();
+  const { user, handleCloseMenu, location } = useSideBar();
   return (
     <div className={classNames(styles.wrapper, className)}>
       {config.map((elConfig, index) => {
@@ -44,6 +42,7 @@ export const SideBar = ({ className, config, children }: Props) => {
         }
         return (
           <NavItem
+            onLinkClick={handleCloseMenu}
             key={`nav-item-${index}`}
             pathname={location.pathname}
             {...elConfig}
