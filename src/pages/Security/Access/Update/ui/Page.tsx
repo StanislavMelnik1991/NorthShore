@@ -66,6 +66,7 @@ const Page = () => {
             setFieldValue={setFieldValue}
             values={values}
           />
+
           <SecurityAddressEditor
             initialAddress={initialAddress}
             title={t('editor.location')}
@@ -75,7 +76,7 @@ const Page = () => {
           />
           <SecurityAccessEditor
             initialAccess={initialAccessAddress}
-            title={t('editor.access')}
+            title={t('details.tabs.addressAccess')}
             errors={errors}
             setFieldValue={setFieldValue}
             values={values}

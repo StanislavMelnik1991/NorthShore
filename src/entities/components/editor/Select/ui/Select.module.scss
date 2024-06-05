@@ -1,8 +1,8 @@
 .wrapper {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 2px;
-  z-index: 3;
 }
 
 .label {
