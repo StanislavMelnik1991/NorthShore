@@ -25,3 +25,10 @@
 .openBtn {
   min-width: 170px;
 }
+
+.video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
