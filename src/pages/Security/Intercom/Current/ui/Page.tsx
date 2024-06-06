@@ -3,6 +3,7 @@ import { PageLoader } from '@widgets/PageLoader';
 import { IntercomConfigInformation, MainInformation } from '@widgets/Security';
 import {
   CurrentSkeleton,
+  MJPEGVideo,
   PageHeader,
   PageSkeleton,
   Tab,
@@ -63,7 +64,7 @@ const Page = () => {
         />
         <Link to={data.mp4_url || ''} target="_blank">
           <CurrentSkeleton padding={0} isLoading={isLoading}>
-            <img className={styles.video} src={data.mp4_url} />
+            <MJPEGVideo src={data.mp4_url} />
           </CurrentSkeleton>
         </Link>
         <CurrentSkeleton className={styles.content} isLoading={isLoading}>

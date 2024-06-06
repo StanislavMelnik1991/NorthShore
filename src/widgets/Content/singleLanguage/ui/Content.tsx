@@ -11,7 +11,7 @@ import styles from './Content.module.scss';
 interface Props {
   className?: string;
   isLoading?: boolean;
-  created_at?: Date;
+  published_at?: Date;
   title?: string;
   html?: string;
   date?: Date;
@@ -21,7 +21,7 @@ interface Props {
 export const ContentWidget = ({
   className,
   isLoading,
-  created_at,
+  published_at,
   html = '',
   title,
   date,
@@ -32,8 +32,8 @@ export const ContentWidget = ({
       className={classNames(styles.wrapper, className)}
       isLoading={isLoading}
     >
-      {created_at && (
-        <Badge color="white">{format(created_at, 'dd.MM.yyyy')}</Badge>
+      {published_at && (
+        <Badge color="white">{format(published_at, 'dd.MM.yyyy')}</Badge>
       )}
       <Title fontWeight="semibold" variant="h2">
         {title}

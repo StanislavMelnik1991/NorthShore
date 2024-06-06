@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { EquipmentCondition } from '@shared/constants';
 import { Card, Text } from '@shared/ui';
-import { CustomVideo } from '../../../';
+import { HLSVideo } from '../../../';
 import styles from './Video.module.scss';
 
 interface Props {
@@ -27,7 +27,7 @@ export const VideoCard = ({
   const { t } = useTranslation('security');
   return (
     <Card padding={0} className={classNames(styles.wrapper, className)}>
-      <CustomVideo
+      <HLSVideo
         className={styles.videoWrapper}
         src={video}
         status={status}

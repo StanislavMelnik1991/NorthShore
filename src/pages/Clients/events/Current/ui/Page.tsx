@@ -36,7 +36,7 @@ export default () => {
             allowedIframeHostnames: allowedIframeHostnamesSchema,
           })
         }
-        created_at={event && new Date(event.created_at * 1000)}
+        published_at={event && new Date(event.created_at * 1000)}
         isLoading={isLoading}
         title={event?.title[i18n.language as LanguageEnum]}
         date={

@@ -7,7 +7,7 @@ import {
 } from '@widgets/Security';
 import {
   CurrentSkeleton,
-  CustomVideo,
+  HLSVideo,
   PageHeader,
   PageSkeleton,
   Tab,
@@ -67,11 +67,7 @@ const Page = () => {
         ]}
       />
       <CurrentSkeleton padding={0} isLoading={isLoading}>
-        <CustomVideo
-          src={data.rtsp_url}
-          status={data.status_id || 3}
-          controls
-        />
+        <HLSVideo src={data.rtsp_url} status={data.status_id || 3} controls />
       </CurrentSkeleton>
       <CurrentSkeleton className={styles.content} isLoading={isLoading}>
         <Tab
