@@ -48,6 +48,7 @@ export const MainLayout = memo(
             <div
               className={classNames(styles.popup, styles.burgerMenu, {
                 [styles.hidePopup]: !isShowBurgerMenu,
+                [styles.hide]: isWebView,
               })}
               ref={burgerMenuRef}
             >
@@ -56,6 +57,7 @@ export const MainLayout = memo(
             <div
               className={classNames(styles.popup, styles.userMenu, {
                 [styles.hidePopup]: !isShowUserMenu,
+                [styles.hide]: isWebView,
               })}
               ref={userMenuRef}
             >
