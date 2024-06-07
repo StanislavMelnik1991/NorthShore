@@ -67,6 +67,10 @@
     "password": {
       "label": "Password",
       "placeholder": "Enter password"
+    },
+    "id_1c": {
+      "label": "1C ID",
+      "placeholder": "Enter employee ID from 1C"
     }
   }
 }

@@ -67,6 +67,10 @@
     "password": {
       "label": "Пароль",
       "placeholder": "Введите пароль"
+    },
+    "id_1c": {
+      "label": "1C ID",
+      "placeholder": "Введите ID сотрудника из 1С"
     }
   }
 }

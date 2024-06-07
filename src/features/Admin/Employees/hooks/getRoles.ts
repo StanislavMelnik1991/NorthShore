@@ -5,11 +5,13 @@ import { axiosApi } from '@entities/api';
 import { ISelectOption } from '@entities/components';
 import { BaseResponse, IRole } from '@entities/types';
 
+const INITIAL_ROLE = { label: 'Без роли', value: 0 };
+
 export const useGetRoles = () => {
   const { t } = useTranslation();
   const [options, setOptions] = useState<Array<ISelectOption>>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [selected, setSelected] = useState<ISelectOption | null>(null);
+  const [selected, setSelected] = useState<ISelectOption | null>(INITIAL_ROLE);
 
   const getData = useCallback(async () => {
     setIsLoading(true);
@@ -20,7 +22,8 @@ export const useGetRoles = () => {
           label: name,
           value: id,
         }));
-        res.unshift({ label: 'Без роли', value: 0 });
+        res.unshift(INITIAL_ROLE);
+
         setOptions(res);
         return data.data;
       } else {

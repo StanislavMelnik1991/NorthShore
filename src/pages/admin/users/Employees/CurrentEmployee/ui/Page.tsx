@@ -64,6 +64,10 @@ const Page = () => {
               <th className={styles.raw_text}>{data?.name}</th>
             </tr>
             <tr>
+              <th className={styles.raw_title}>{t('editor.id_1c.label')}</th>
+              <th className={styles.raw_text}>{data?.id_1c || '-'}</th>
+            </tr>
+            <tr>
               <th className={styles.raw_title}>{t('info_fields.phone')}</th>
               <th className={styles.raw_text}>{data?.phone_number}</th>
             </tr>

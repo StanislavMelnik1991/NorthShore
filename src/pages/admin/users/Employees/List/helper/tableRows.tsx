@@ -10,9 +10,10 @@ export const useTableRows = (
 ) => {
   const { t } = useTranslation('employees');
   return data.map(
-    ({ id, name, phone_number, department, job_title, work_phone }) => {
+    ({ id, name, phone_number, department, job_title, work_phone, id_1c }) => {
       return {
         id: <TableText>{String(id)}</TableText>,
+        id_1c: <TableText>{id_1c || '-'}</TableText>,
         name: <TableText fontWeight="semibold">{name}</TableText>,
         phone_number: (
           <TableText className={styles.wrap}>

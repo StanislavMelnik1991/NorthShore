@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useFormik } from 'formik';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -7,9 +8,10 @@ import {
   useGetDepartments,
 } from '@features/Admin';
 import { ISelectOption } from '@entities/components';
+import { ISetFieldValue } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 
-type Data = {
+type ValuesType = {
   group_id: number;
   department_id?: number;
   phone_number?: string;
@@ -19,16 +21,12 @@ type Data = {
   work_phone?: string;
   password?: string;
   name?: string;
+  id_1c?: string;
 };
 
 export const useCreatePage = () => {
   const { t } = useTranslation('employees');
-  const { create } = useCreateEmployee();
-  const [name, setName] = useState<string>();
-  const [job_title, setJob_title] = useState<string>();
-  const [phone_number, setPhone_number] = useState<string>();
-  const [work_phone, setWork_phone] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const { create, validate } = useCreateEmployee();
   const {
     getData: getRoles,
     isLoading: isRolesLoading,
@@ -44,43 +42,46 @@ export const useCreatePage = () => {
     setSelected: setSelectedDepartment,
   } = useGetDepartments();
 
+  const { values, errors, setFieldValue, handleSubmit, isValid } =
+    useFormik<ValuesType>({
+      initialValues: { group_id: 10 },
+      validate: (body) => {
+        return validate(body);
+      },
+      onSubmit: async (body) => {
+        const data = await create(body);
+        if (data) {
+          navigate(AppRoutes[AppRoutesEnum.EMPLOYEES]());
+        }
+      },
+    });
+
   useEffect(() => {
     getRoles();
     getDepartments();
   }, [getRoles, getDepartments]);
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
-    const body: Data = { group_id: 10 };
-    if (name) body.name = name;
-    if (job_title) body.job_title = job_title;
-    if (phone_number) body.phone_number = phone_number;
-    if (work_phone) body.work_phone = work_phone;
-    if (password) body.password = password;
-    if (selectedRole) body.role_id = selectedRole.value;
-    if (selectedDepartment) body.department_id = selectedDepartment.value;
-    if (body.department_id === 0) body.department_id = undefined;
-    if (body.role_id === 0) body.role_id = undefined;
-    const data = await create({
-      ...body,
-    });
-    if (data) {
-      navigate(AppRoutes[AppRoutesEnum.EMPLOYEES]());
-    }
-  };
-
   const handleChangeRoleSelection = useCallback(
     (val: unknown) => {
       setSelectedRole(val as ISelectOption);
+      (setFieldValue as ISetFieldValue<ValuesType>)(
+        'role_id',
+        (val as ISelectOption).value,
+      );
     },
-    [setSelectedRole],
+    [setFieldValue, setSelectedRole],
   );
 
   const handleChangeDepartmentSelection = useCallback(
     (val: unknown) => {
       setSelectedDepartment(val as ISelectOption);
+      (setFieldValue as ISetFieldValue<ValuesType>)(
+        'department_id',
+        (val as ISelectOption).value,
+      );
     },
-    [setSelectedDepartment],
+    [setFieldValue, setSelectedDepartment],
   );
 
   return {
@@ -94,15 +95,9 @@ export const useCreatePage = () => {
     isDepartmentsLoading,
     departmentsOptions,
     selectedDepartment,
-    name,
-    setName,
-    job_title,
-    setJob_title,
-    phone_number,
-    setPhone_number,
-    work_phone,
-    setWork_phone,
-    password,
-    setPassword,
+    values,
+    errors,
+    setFieldValue: setFieldValue as ISetFieldValue<ValuesType>,
+    isValid,
   };
 };

@@ -7,6 +7,7 @@ export interface IEmployee extends IUser {
   job_title?: string;
   work_phone?: string;
   login: string;
+  id_1c?: string;
 }
 
 export interface IDepartment {

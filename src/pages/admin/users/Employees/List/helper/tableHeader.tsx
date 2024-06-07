@@ -29,6 +29,15 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = () => {
       width: 92,
     },
     {
+      name: 'id_1c',
+      label: (
+        <Text fontWeight="regular" variant="body14">
+          {t('header.id_1c')}
+        </Text>
+      ),
+      width: 92,
+    },
+    {
       name: 'name',
       label: (
         <Text fontWeight="regular" variant="body14">
