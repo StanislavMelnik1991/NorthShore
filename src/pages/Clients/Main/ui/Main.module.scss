@@ -6,12 +6,12 @@
   margin: 0 -32px;
   padding: 32px;
 
-  @media (width < 1280px) {
+  @media (max-width: 1280px) {
     padding: 16px;
     margin: 0 -16px;
   }
 
-  @media (width < 980px) {
+  @media (max-width: 980px) {
     padding: 8px;
     margin: 0;
   }
@@ -29,7 +29,7 @@
   overflow: hidden;
   margin-top: 16px;
 
-  @media (width < 500px) {
+  @media (max-width: 500px) {
     .advertisement {
       &:last-child {
         display: none;

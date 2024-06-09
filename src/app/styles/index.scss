@@ -11,7 +11,7 @@
   color: var(--dark-100);
   background: var(--background-color);
 
-  @media (width < 980px) {
+  @media (max-width: 980px) {
     font-size: 14px;
     line-height: 20px;
   }

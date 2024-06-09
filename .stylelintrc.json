@@ -4,7 +4,7 @@
     "indentation": [
       2
     ],
-    "media-feature-range-notation": "context",
+    "media-feature-range-notation": "prefix",
     "color-function-notation": null,
     "selector-class-pattern": null,
     "scss/at-rule-no-unknown": true,
