@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   useGetEnergyConsumersTypesList,
-  useGetEnergyList,
+  useGetBuildingConsumersList,
   useGetChargingStatusesList,
   useGetEnergyStatusesTypesList,
 } from '@features/engineering';
@@ -25,7 +25,7 @@ type AddressFilters = { street_id?: number; building_id?: number };
 export const useNewsList = () => {
   const { t } = useTranslation('engineering');
   const { handleSetPage, handleSetPerPage, page, perPage } = usePagination();
-  const { getData, isLoading, total, data } = useGetEnergyList();
+  const { getData, isLoading, total, data } = useGetBuildingConsumersList();
   const {
     getData: getTypes,
     isLoading: isTypesLoading,

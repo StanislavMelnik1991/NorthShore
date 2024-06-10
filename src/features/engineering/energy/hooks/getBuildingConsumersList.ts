@@ -20,10 +20,10 @@ interface Params extends ListParams {
 }
 
 interface ResponseDataType extends PaginationResponse {
-  power_consumers: Array<IEngineeringFull>;
+  data: Array<IEngineeringFull>;
 }
 
-export const useGetEnergyList = () => {
+export const useGetBuildingConsumersList = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<Array<IEngineeringFull>>([]);
@@ -34,11 +34,11 @@ export const useGetEnergyList = () => {
       setIsLoading(true);
       try {
         const { data } = await axiosApi.get<BaseResponse<ResponseDataType>>(
-          `/power_consumers`,
+          `/power_consumers/buildings`,
           { params },
         );
-        if (data?.data?.power_consumers) {
-          setData(data.data.power_consumers);
+        if (data?.data?.data) {
+          setData(data.data.data);
           setTotal(data.data.total_pages);
         } else {
           toast.error(t('errors.getError'));
