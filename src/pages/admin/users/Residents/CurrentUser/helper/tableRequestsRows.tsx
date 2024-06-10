@@ -36,7 +36,7 @@ export const useTableRequestsRows = (data: Array<IRequest>) => {
       date: (
         <TableText>
           {String(
-            new Date(data_add).toLocaleDateString(i18n.language, {
+            new Date(data_add * 1000).toLocaleDateString(i18n.language, {
               day: 'numeric',
               month: 'numeric',
               year: 'numeric',
