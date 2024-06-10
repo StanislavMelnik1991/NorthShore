@@ -16,7 +16,7 @@ export const useTableRows = ({ data, measures }: Props) => {
     return {
       date: <TableText>{format(timestamp * 1000, 'dd.MM.yyyy')}</TableText>,
       consumption: <TableText>{`${current_value}, ${measures}`}</TableText>,
-      delta: <TableText>{`${prevValue}, ${measures}`}</TableText>,
+      delta: <TableText>{`${prevValue.toFixed(2)}, ${measures}`}</TableText>,
     };
   });
 };

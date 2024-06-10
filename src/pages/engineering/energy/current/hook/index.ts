@@ -2,13 +2,14 @@ import { differenceInDays } from 'date-fns';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useGetCurrentEnergyConsumers } from '@features/engineering';
+import { useGetCurrentEnergyConsumer } from '@features/engineering';
 import { formatAddress, getEndOfMonth, getStartOfMonth } from '@features/utils';
 import { MAX_DAYS_PERIOD } from '@shared/constants';
 
 export const useCurrentEnergy = () => {
   const { t } = useTranslation('engineering');
-  const { data, getData, isLoading } = useGetCurrentEnergyConsumers();
+  const { data, getData, isLoading, total } = useGetCurrentEnergyConsumer();
+
   const { id } = useParams<{ id: string }>();
   const [from, setFrom] = useState<Date>(getStartOfMonth());
   const [to, setTo] = useState<Date>(getEndOfMonth());
@@ -49,10 +50,6 @@ export const useCurrentEnergy = () => {
     }
   }, []);
 
-  const total = data?.results.reduce((prev, current) => {
-    return prev + (current?.current_value || 0);
-  }, 0);
-
   return {
     isLoading,
     t,
@@ -64,6 +61,7 @@ export const useCurrentEnergy = () => {
     measures: data?.type.measures || '',
     location,
     results: data?.results || [],
+    delta: data?.delta || [],
     charge_status: data?.charge_status?.name,
     operating_mode: data?.operating_mode?.name,
     voltage: data?.voltage,

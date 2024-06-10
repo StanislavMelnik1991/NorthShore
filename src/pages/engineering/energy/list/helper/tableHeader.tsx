@@ -65,6 +65,7 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = ({
           {t('header.address')}
         </Text>
       ),
+      width: 250,
     },
     {
       name: 'state',

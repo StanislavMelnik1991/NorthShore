@@ -10,10 +10,16 @@ interface Params {
   id: number | string;
   variant: 'daily' | 'monthly';
 }
-export const useGetCurrentEnergyConsumers = () => {
+
+interface ExtendedIEngineeringResults extends IEngineeringResults {
+  delta?: IEngineeringResults['results'];
+}
+
+export const useGetCurrentEnergyConsumer = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<IEngineeringResults>();
+  const [data, setData] = useState<ExtendedIEngineeringResults>();
+  const [total, setTotal] = useState<number>();
 
   const getData = useCallback(
     async (params: Params) => {
@@ -24,7 +30,28 @@ export const useGetCurrentEnergyConsumers = () => {
           { params },
         );
         if (data?.data) {
-          setData(data.data);
+          const result: ExtendedIEngineeringResults = { ...data.data };
+          result.delta = data.data.results.map((el, index, arr) => {
+            if (!el) {
+              return el;
+            }
+            if (index === 0) {
+              return { ...el, current_value: 0 };
+            } else {
+              return {
+                ...el,
+                current_value:
+                  el?.current_value && arr[index - 1]?.current_value
+                    ? el?.current_value - arr[index - 1]?.current_value
+                    : 0,
+              };
+            }
+          });
+          const total = data.data.results.reduce((prev, current) => {
+            return prev + (current?.current_value || 0);
+          }, 0);
+          setTotal(total);
+          setData(result);
         } else {
           toast.error(t('errors.getError'));
         }
@@ -39,6 +66,7 @@ export const useGetCurrentEnergyConsumers = () => {
   );
 
   return {
+    total,
     getData,
     data,
     isLoading,

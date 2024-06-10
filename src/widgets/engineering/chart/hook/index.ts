@@ -39,5 +39,8 @@ export const useEngineeringChar = ({ measures, results, from, to }: Props) => {
     ],
   };
 
-  return { barData, t };
+  const minDate = new Date();
+  minDate.setFullYear(2024, 5, 1);
+
+  return { barData, t, minDate };
 };

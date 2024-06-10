@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocalizedDate } from '@features/date';
-import { useGetCurrentEnergyConsumers } from '@features/engineering';
+import { useGetCurrentEnergyConsumer } from '@features/engineering';
 import { getStartOfMonth, getEndOfMonth } from '@features/utils';
 import { useTableHeader, useTableRows } from '../helper';
 
@@ -13,7 +13,7 @@ interface Props {
 
 export const useTable = ({ date, id, measures }: Props) => {
   const { t } = useTranslation('table');
-  const { data, getData, isLoading } = useGetCurrentEnergyConsumers();
+  const { data, getData, isLoading } = useGetCurrentEnergyConsumer();
   const { getLocalizedMonth } = useLocalizedDate();
   const [isExpanded, setIsExpanded] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);

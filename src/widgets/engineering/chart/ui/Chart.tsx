@@ -32,7 +32,7 @@ export const EngineeringChart = ({
   isLoading,
   total,
 }: Props) => {
-  const { barData, t } = useEngineeringChar({
+  const { barData, t, minDate } = useEngineeringChar({
     measures,
     results,
     from,
@@ -53,6 +53,7 @@ export const EngineeringChart = ({
           showTimeSelect={false}
           value={from}
           setDate={setFrom}
+          minDate={minDate}
           dateFormat="dd MM yyyy"
         />
         <CustomDatePicker
@@ -60,6 +61,7 @@ export const EngineeringChart = ({
           dateFormat="dd MM yyyy"
           showTimeSelect={false}
           value={to}
+          minDate={from}
           setDate={setTo}
         />
         <div className={styles.badge}>

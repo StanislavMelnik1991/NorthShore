@@ -11,6 +11,8 @@ interface Props {
   timeFormat?: string;
   dateFormat?: string;
   borderClassName?: string;
+  minDate?: Date | null | undefined;
+  maxDate?: Date | null | undefined;
 }
 
 export const CustomDatePicker = ({

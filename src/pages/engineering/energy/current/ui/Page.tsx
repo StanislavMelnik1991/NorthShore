@@ -27,6 +27,7 @@ export default () => {
     month,
     total,
     isShowMonth,
+    delta,
   } = useCurrentEnergy();
 
   return (
@@ -53,7 +54,7 @@ export default () => {
       <EngineeringChart
         total={total}
         measures={measures}
-        results={results}
+        results={delta}
         from={from as Date}
         to={to as Date}
         setFrom={setFrom}
