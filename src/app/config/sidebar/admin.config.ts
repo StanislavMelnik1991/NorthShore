@@ -4,12 +4,8 @@ import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import {
   IconHome,
   IconBriefcase,
-  IconTable,
-  IconDiagram,
   IconLock,
   IconWrench,
-  IconDocumentHolder,
-  IconPassport,
   IconPeople,
   IconGear,
 } from '@shared/icons';
@@ -25,22 +21,22 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
       authOnly: true,
       name: AppRoutesEnum.ADMIN,
     },
-    {
+    /* {
       title: t('sidebar.accounting'),
       icon: IconTable,
       href: AppRoutes[AppRoutesEnum.ACCOUNTING](),
       isLink: true,
       authOnly: true,
       name: AppRoutesEnum.ACCOUNTING,
-    },
-    {
+    }, */
+    /* {
       title: t('sidebar.statistic'),
       icon: IconDiagram,
       href: AppRoutes[AppRoutesEnum.STATISTIC](),
       isLink: true,
       authOnly: true,
       name: AppRoutesEnum.STATISTIC,
-    },
+    }, */
     {
       title: t('sidebar.security'),
       icon: IconLock,
@@ -83,13 +79,13 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
         },
       ],
     },
-    {
+    /* {
       title: t('sidebar.requests'),
       icon: IconDocumentHolder,
       href: AppRoutes[AppRoutesEnum.ADMIN_REQUESTS](),
       name: AppRoutesEnum.ADMIN_REQUESTS,
       isLink: true,
-    },
+    }, */
     {
       title: t('sidebar.admin'),
       icon: IconBriefcase,
@@ -139,14 +135,14 @@ export const useAdminSidebarConfig: () => Array<NavItemProps> = () => {
         },
       ],
     },
-    {
+    /* {
       title: t('sidebar.passport'),
       icon: IconPassport,
       href: AppRoutes[AppRoutesEnum.PASSPORT](),
       name: AppRoutesEnum.PASSPORT,
       isLink: true,
       authOnly: true,
-    },
+    }, */
     {
       title: t('sidebar.users'),
       icon: IconPeople,
