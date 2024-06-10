@@ -31,18 +31,22 @@ export const useTableRows = ({ data, onDelete, onMarkAsFailed }: Props) => {
               status.id === 2 ? 'green' : status.id === 1 ? 'orange' : 'white'
             }
           >
-            {status.name}
+            {status?.name || '-'}
           </Badge>
         ),
         deadline: (
-          <TableText>{format(date_finish * 1000, 'dd.MM.yyyy')}</TableText>
+          <TableText>
+            {date_finish ? format(date_finish * 1000, 'dd.MM.yyyy') : '-'}
+          </TableText>
         ),
         title: (
           <TableText fontWeight="medium">
-            {title[i18n.language as 'en' | 'ru']}
+            {title?.[i18n.language as 'en' | 'ru'] || '-'}
           </TableText>
         ),
-        group: <TableText>{groupsArr.join('; ')}</TableText>,
+        group: (
+          <TableText>{groupsArr.length ? groupsArr.join('; ') : '-'}</TableText>
+        ),
         showResults: show_result ? <TableIconCheck /> : <TableIconClose />,
         controls: (
           <TableControls

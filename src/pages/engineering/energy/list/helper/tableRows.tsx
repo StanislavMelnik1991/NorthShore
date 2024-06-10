@@ -26,23 +26,23 @@ export const useTableRows = (data: IEngineeringFull[]) => {
         type: <TableText>{type?.name}</TableText>,
         address: <TableText title={location}>{location}</TableText>,
         state: (
-          <TableText>{operating_mode ? operating_mode.name : ''}</TableText>
+          <TableText>{operating_mode ? operating_mode.name : '-'}</TableText>
         ),
         lastData: (
           <TableText>
-            {current_value ? `${current_value} ${type.measures}` : ''}
+            {current_value ? `${current_value} ${type.measures}` : '-'}
           </TableText>
         ),
         lastUpdate: (
           <TableText>
             {last_check_date
               ? format(last_check_date * 1000, 'dd.MM.yyyy')
-              : ''}
+              : '-'}
           </TableText>
         ),
-        voltage: <TableText>{voltage || ''}</TableText>,
+        voltage: <TableText>{voltage || '-'}</TableText>,
         chargingStatus: (
-          <TableText>{charge_status ? charge_status.name : ''}</TableText>
+          <TableText>{charge_status ? charge_status.name : '-'}</TableText>
         ),
         controls: (
           <TableControls

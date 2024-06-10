@@ -20,9 +20,18 @@ export const useCurrentIntercomPage = () => {
     getData();
   }, [getData]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      getData();
+    }, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [getData]);
+
   return {
     data,
-    isLoading,
+    isLoading: !data && isLoading,
     t,
     id,
     handleOpen,

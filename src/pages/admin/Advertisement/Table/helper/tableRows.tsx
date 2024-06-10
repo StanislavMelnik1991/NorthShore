@@ -16,10 +16,12 @@ export const useTableRows = ({ data, onDelete }: Props) => {
     ({ id, title, company_name, url, date_start, date_finish }) => {
       return {
         id: <TableText>{String(id)}</TableText>,
-        title: <TableText fontWeight="medium">{title}</TableText>,
-        company: <TableText fontWeight="medium">{company_name}</TableText>,
+        title: <TableText fontWeight="medium">{title || '-'}</TableText>,
+        company: (
+          <TableText fontWeight="medium">{company_name || '-'}</TableText>
+        ),
         link: (
-          <Link target="_blank" to={url || ''}>
+          <Link target="_blank" to={url || '-'}>
             <TableText>{url}</TableText>
           </Link>
         ),
@@ -31,6 +33,7 @@ export const useTableRows = ({ data, onDelete }: Props) => {
             {date_finish && (
               <TableText>{`${t('period.to').toLocaleLowerCase()} ${format(date_finish * 1000, 'dd.MM.yyyy')}`}</TableText>
             )}
+            {!date_start && !date_finish && '-'}
           </div>
         ),
         controls: (

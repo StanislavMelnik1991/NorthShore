@@ -14,10 +14,12 @@ export const useTableRows = (
   return data.map(({ user_id, account, user, apartment }) => {
     return {
       id: <TableText>{String(user_id)}</TableText>,
-      account: <TableText>{account}</TableText>,
-      name: <TableText fontWeight="semibold">{user.name}</TableText>,
-      phone_number: <TableText>{user.phone_number}</TableText>,
-      objects: <TableText>{formatAddress({ apartment })}</TableText>,
+      account: <TableText>{account || '-'}</TableText>,
+      name: <TableText fontWeight="semibold">{user.name || '-'}</TableText>,
+      phone_number: <TableText>{user.phone_number || '-'}</TableText>,
+      objects: (
+        <TableText>{apartment ? formatAddress({ apartment }) : '-'}</TableText>
+      ),
       lang: (
         <TableText>
           {user.lang === 'en' ? t('langs.en') : t('langs.ru')}

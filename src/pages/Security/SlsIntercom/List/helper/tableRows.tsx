@@ -14,15 +14,15 @@ export const useTableRows = ({ data, onDelete }: Props) => {
       id: <TableText>{`№ ${String(id)}`}</TableText>,
       street: (
         <TableText>
-          {apartment?.entrance?.building?.street?.name || ''}
+          {apartment?.entrance?.building?.street?.name || '-'}
         </TableText>
       ),
       building: (
-        <TableText>{apartment?.entrance?.building?.name || ''}</TableText>
+        <TableText>{apartment?.entrance?.building?.name || '-'}</TableText>
       ),
-      entrance: <TableText>{apartment?.entrance.name || ''}</TableText>,
-      apartment: <TableText>{apartment?.name || ''}</TableText>,
-      uuid: <TableText>{uuid || ''}</TableText>,
+      entrance: <TableText>{apartment?.entrance.name || '-'}</TableText>,
+      apartment: <TableText>{apartment?.name || '-'}</TableText>,
+      uuid: <TableText>{uuid || '-'}</TableText>,
 
       controls: (
         <TableControls

@@ -23,17 +23,24 @@ export const useTableRows = ({ data, onDelete }: Props) => {
         id: <TableText>{String(id)}</TableText>,
         title: (
           <TableText fontWeight="medium">
-            {title[i18n.language as 'en' | 'ru']}
+            {title?.[i18n.language as 'en' | 'ru'] || '-'}
           </TableText>
         ),
-        company: <TableText fontWeight="medium">{company_name}</TableText>,
-        discount: <TableText fontWeight="medium">{discount_value}</TableText>,
-        responsible: (
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <TableText fontWeight="semibold">{contact_fio}</TableText>
-            <TableText>{contact_phone}</TableText>
-          </div>
+        company: (
+          <TableText fontWeight="medium">{company_name || '-'}</TableText>
         ),
+        discount: (
+          <TableText fontWeight="medium">{discount_value || '-'}</TableText>
+        ),
+        responsible:
+          contact_fio || contact_phone ? (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <TableText fontWeight="semibold">{contact_fio}</TableText>
+              <TableText>{contact_phone}</TableText>
+            </div>
+          ) : (
+            <TableText>{'-'}</TableText>
+          ),
         controls: (
           <TableControls
             getUpdateRoute={AppRoutes[AppRoutesEnum.ADMIN_LOYALTY_UPDATE]}

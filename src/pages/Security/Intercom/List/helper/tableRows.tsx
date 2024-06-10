@@ -16,9 +16,9 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
     return {
       id: <TableText>{`№ ${String(id)}`}</TableText>,
       name: <TableText>{name}</TableText>,
-      street: <TableText>{entrance?.building?.street?.name || ''}</TableText>,
-      building: <TableText>{entrance?.building?.name || ''}</TableText>,
-      entrance: <TableText>{entrance?.name || ''}</TableText>,
+      street: <TableText>{entrance?.building?.street?.name || '-'}</TableText>,
+      building: <TableText>{entrance?.building?.name || '-'}</TableText>,
+      entrance: <TableText>{entrance?.name || '-'}</TableText>,
       state: (
         <TableText center>
           {(status?.id === 1 || status?.id === 2 || status?.id === 3) && (

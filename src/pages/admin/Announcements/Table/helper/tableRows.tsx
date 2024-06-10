@@ -16,9 +16,13 @@ export const useTableRows = ({ data, onDelete }: Props) => {
     });
     return {
       id: <TableText>{String(id)}</TableText>,
-      title: <TableText fontWeight="medium">{title}</TableText>,
+      title: <TableText fontWeight="medium">{title || '-'}</TableText>,
       group: <TableText>{groupsArr.join('; ')}</TableText>,
-      date: <TableText>{format(date_add * 1000, 'dd.MM.yyyy')}</TableText>,
+      date: (
+        <TableText>
+          {date_add ? format(date_add * 1000, 'dd.MM.yyyy') : '-'}
+        </TableText>
+      ),
       controls: (
         <TableControls
           onDelete={onDelete(id)}

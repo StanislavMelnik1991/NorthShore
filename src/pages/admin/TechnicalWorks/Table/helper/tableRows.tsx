@@ -30,34 +30,39 @@ export const useTableRows = ({ data, onDelete }: Props) => {
       });
       return {
         id: <TableText>{String(id)}</TableText>,
-        status: (
+        status: status ? (
           <Badge
             color={
               status.id === 1 ? 'green' : status.id === 2 ? 'white' : 'red'
             }
           >
-            {status.name}
+            {status?.name}
           </Badge>
+        ) : (
+          <TableText>{'-'}</TableText>
         ),
         period: (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <TableText>{`${t('period.from').toLocaleLowerCase()} ${format(date_start * 1000, 'dd.MM.yyyy')}`}</TableText>
             <TableText>{`${t('period.to').toLocaleLowerCase()} ${format(date_end * 1000, 'dd.MM.yyyy')}`}</TableText>
+            {!date_start && !date_end && <TableText>{'-'}</TableText>}
           </div>
         ),
-        type: <TableText>{type.name}</TableText>,
-        nature: <TableText>{nature.name}</TableText>,
+        type: <TableText>{type?.name || '-'}</TableText>,
+        nature: <TableText>{nature?.name || '-'}</TableText>,
         title: (
           <TableText fontWeight="medium">
-            {title[i18n.language as 'en' | 'ru']}
+            {title?.[i18n.language as 'en' | 'ru'] || '-'}
           </TableText>
         ),
-        group: <TableText>{groupsArr.join('; ')}</TableText>,
-        responsible: (
+        group: <TableText>{groupsArr.join('; ') || '-'}</TableText>,
+        responsible: responsible ? (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <TableText fontWeight="semibold">{responsible.name}</TableText>
-            <TableText>{responsible.phone_number}</TableText>
+            <TableText fontWeight="semibold">{responsible?.name}</TableText>
+            <TableText>{responsible?.phone_number}</TableText>
           </div>
+        ) : (
+          <TableText fontWeight="semibold">{'-'}</TableText>
         ),
         controls: (
           <TableControls

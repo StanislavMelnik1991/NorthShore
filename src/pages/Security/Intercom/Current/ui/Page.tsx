@@ -64,7 +64,7 @@ const Page = () => {
         />
         <Link to={data.mp4_url || ''} target="_blank">
           <CurrentSkeleton padding={0} isLoading={isLoading}>
-            <MJPEGVideo src={data.mp4_url} />
+            <MJPEGVideo src={data.mp4_url} className={styles.video} />
           </CurrentSkeleton>
         </Link>
         <CurrentSkeleton className={styles.content} isLoading={isLoading}>

@@ -18,13 +18,19 @@ export const useTableRows = ({ data, handleOpen }: Props) => {
       status: <TableBadge status={status || 0} />,
       title: (
         <TableText fontWeight="medium">
-          {title[i18n.language as 'en' | 'ru']}
+          {title?.[i18n.language as 'en' | 'ru'] || '-'}
         </TableText>
       ),
-      date: <TableText>{format(published_at * 1000, 'dd.MM.yyyy')}</TableText>,
+      date: (
+        <TableText>
+          {published_at ? format(published_at * 1000, 'dd.MM.yyyy') : '-'}
+        </TableText>
+      ),
       text: (
         <TableText>
-          {extractTextFromHtml(html_content[i18n.language as 'en' | 'ru'])}
+          {extractTextFromHtml(
+            html_content?.[i18n.language as 'en' | 'ru'] || '-',
+          )}
         </TableText>
       ),
       controls: (

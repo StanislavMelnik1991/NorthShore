@@ -17,14 +17,18 @@ export const useTableRows = ({ data, handleOpen }: Props) => {
       status: <TableBadge status={status || 0} />,
       title: (
         <TableText fontWeight="medium">
-          {title[i18n.language as 'en' | 'ru']}
+          {title?.[i18n.language as 'en' | 'ru'] || '-'}
         </TableText>
       ),
       date: (
-        <TableText>{format(target_date * 1000, 'dd.MM.yyyy HH:mm')}</TableText>
+        <TableText>
+          {target_date ? format(target_date * 1000, 'dd.MM.yyyy HH:mm') : '-'}
+        </TableText>
       ),
       published: (
-        <TableText>{format(published_at * 1000, 'dd.MM.yyyy')}</TableText>
+        <TableText>
+          {published_at ? format(published_at * 1000, 'dd.MM.yyyy') : '-'}
+        </TableText>
       ),
       controls: (
         <TableControls

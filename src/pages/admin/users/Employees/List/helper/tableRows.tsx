@@ -14,20 +14,23 @@ export const useTableRows = (
       return {
         id: <TableText>{String(id)}</TableText>,
         id_1c: <TableText>{id_1c || '-'}</TableText>,
-        name: <TableText fontWeight="semibold">{name}</TableText>,
-        phone_number: (
-          <TableText className={styles.wrap}>
-            {phone_number}
-            {phone_number && !!work_phone ? ';\n' : '\n'}
-            {work_phone ? work_phone : ''}
-          </TableText>
-        ),
+        name: <TableText fontWeight="semibold">{name || '-'}</TableText>,
+        phone_number:
+          phone_number || work_phone ? (
+            <TableText className={styles.wrap}>
+              {phone_number}
+              {phone_number && !!work_phone ? ';\n' : '\n'}
+              {work_phone ? work_phone : ''}
+            </TableText>
+          ) : (
+            <TableText>{'-'}</TableText>
+          ),
         department: (
           <TableText>
             {department ? department.name : t('fields.other')}
           </TableText>
         ),
-        role: <TableText>{job_title}</TableText>,
+        role: <TableText>{job_title || '-'}</TableText>,
         controls: (
           <TableControls
             getDetailsRoute={AppRoutes[AppRoutesEnum.EMPLOYEES_CURRENT]}

@@ -17,11 +17,13 @@ export const useTableRows = (data: Array<INotification>) => {
       return {
         id: <TableText>{String(id)}</TableText>,
         sendDate: (
-          <TableText>{format(data_add * 1000, 'dd.MM.yyyy')}</TableText>
+          <TableText>
+            {data_add ? format(data_add * 1000, 'dd.MM.yyyy') : '-'}
+          </TableText>
         ),
         title: (
           <TableText fontWeight="medium">
-            {title[i18n.language as 'en' | 'ru']}
+            {title?.[i18n.language as 'en' | 'ru'] || '-'}
           </TableText>
         ),
         notification: (

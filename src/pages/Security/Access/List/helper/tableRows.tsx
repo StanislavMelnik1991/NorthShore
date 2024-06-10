@@ -14,12 +14,12 @@ export const useTableRows = ({ data, onDelete, onOpen }: Props) => {
     ({ id, street, building, entrance, status, lat, lon, type, name }) => {
       return {
         id: <TableText>{`№ ${String(id)}`}</TableText>,
-        name: <TableText>{name}</TableText>,
-        type: <TableText>{type.name}</TableText>,
-        street: <TableText>{street?.name}</TableText>,
-        building: <TableText>{building?.name}</TableText>,
-        entrance: <TableText>{entrance?.name}</TableText>,
-        state: <TableText>{status.name}</TableText>,
+        name: <TableText>{name || '-'}</TableText>,
+        type: <TableText>{type.name || '-'}</TableText>,
+        street: <TableText>{street?.name || '-'}</TableText>,
+        building: <TableText>{building?.name || '-'}</TableText>,
+        entrance: <TableText>{entrance?.name || '-'}</TableText>,
+        state: <TableText>{status.name || '-'}</TableText>,
         controls: (
           <TableControls
             point={{ lat, lon }}
