@@ -78,6 +78,10 @@ export const useCurrent = () => {
     handleGetData();
   }, [handleGetData, id, results, t, vote]);
 
+  const isVoting = !!data?.election_questions
+    .map((el) => !!el.chosen_answer_id)
+    .filter((el) => el).length;
+
   return {
     data,
     isLoading: isLoading || voteLoading,
@@ -87,6 +91,7 @@ export const useCurrent = () => {
     results,
     handleSubmit,
     isValid: !results.map((el) => el.variantId).filter((el) => !el).length,
+    isVoting,
     isModalOpen,
     handleCloseModal,
     handleOpenModal,

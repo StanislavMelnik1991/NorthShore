@@ -32,6 +32,7 @@ export default () => {
     handleCloseModal,
     handleOpenModal,
     isModalOpen,
+    isVoting,
   } = useCurrent();
 
   return (
@@ -116,14 +117,16 @@ export default () => {
               </div>
             );
           })}
-          <Button
-            onClick={handleOpenModal}
-            disabled={!isValid}
-            className={styles.submit}
-            size="large"
-          >
-            {t('controls.send')}
-          </Button>
+          {!isVoting && (
+            <Button
+              onClick={handleOpenModal}
+              disabled={!isValid}
+              className={styles.submit}
+              size="large"
+            >
+              {t('controls.send')}
+            </Button>
+          )}
         </CurrentSkeleton>
       )}
     </PageSkeleton>
