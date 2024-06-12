@@ -6,31 +6,14 @@ import {
 } from './security.interface';
 
 export interface IAccessPoint {
-  access_points: {
-    Велобокс: SecurityAccess[];
-    Ворота: SecurityAccess[];
-    Калитка: SecurityAccess[];
-    Колясочная: SecurityAccess[];
-    Лапомойка: SecurityAccess[];
-    'Откатные ворота': SecurityAccess[];
-    Подвал: SecurityAccess[];
-    Шлагбаум: SecurityAccess[];
-    Этаж: SecurityAccess[];
-  };
-  cameras: SecurityCamera[];
-  intercoms: SecurityIntercom[];
-  sls_intercoms: SecuritySlsIntercom[];
-  additional_access_points: {
-    Велобокс: SecurityAccess[];
-    Ворота: SecurityAccess[];
-    Калитка: SecurityAccess[];
-    Колясочная: SecurityAccess[];
-    Лапомойка: SecurityAccess[];
-    'Откатные ворота': SecurityAccess[];
-    Подвал: SecurityAccess[];
-    Шлагбаум: SecurityAccess[];
-    Этаж: SecurityAccess[];
-  };
-  additional_cameras: SecurityCamera[];
-  additional_intercoms: SecuritySlsIntercom[];
+  access_points: Record<string, Array<SecurityAccess>>;
+  cameras: Array<SecurityCamera>;
+  intercoms: Array<SecurityIntercom>;
+  sls_intercoms: Array<SecuritySlsIntercom>;
+  additional_access_points: Record<
+    string,
+    Array<SecurityAccess & { connect_id: number }>
+  >;
+  additional_cameras: Array<SecurityCamera & { connect_id: number }>;
+  additional_intercoms: Array<SecurityIntercom & { connect_id: number }>;
 }

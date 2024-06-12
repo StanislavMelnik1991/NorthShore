@@ -13,13 +13,13 @@ interface ResponseDataType extends PaginationResponse {
   results: Array<IRequest>;
 }
 
-export const useGetCurrentResidentRequests = (id: string) => {
+export const useGetCurrentResidentRequests = (id: string | number) => {
   const { t } = useTranslation();
-  const [isRequestsLoading, setIsRequestsLoading] = useState(false);
-  const [requestsData, setRequestsData] = useState<Array<IRequest>>([]);
-  const [requestsTotal, setRequestsTotal] = useState(0);
+  const [isLoading, setIsRequestsLoading] = useState(false);
+  const [data, setData] = useState<Array<IRequest>>([]);
+  const [total, setRequestsTotal] = useState(0);
 
-  const getRequestsData = useCallback(
+  const getData = useCallback(
     async (params: ListParams) => {
       setIsRequestsLoading(true);
       try {
@@ -28,7 +28,7 @@ export const useGetCurrentResidentRequests = (id: string) => {
           { params },
         );
         if (data?.data.results) {
-          setRequestsData(data.data.results);
+          setData(data.data.results);
           setRequestsTotal(data.data.total_pages);
         } else {
           toast.error(t('errors.getError'));
@@ -44,9 +44,9 @@ export const useGetCurrentResidentRequests = (id: string) => {
   );
 
   return {
-    getRequestsData,
-    requestsData,
-    isRequestsLoading,
-    requestsTotal,
+    getData,
+    data,
+    isLoading,
+    total,
   };
 };

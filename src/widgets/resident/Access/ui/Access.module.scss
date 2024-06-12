@@ -1,0 +1,9 @@
+.wrapper {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+
+  >:nth-child(2n + 1) {
+    background-color: var(--dark-10);
+  }
+}

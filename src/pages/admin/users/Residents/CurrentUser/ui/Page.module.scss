@@ -2,28 +2,6 @@
   position: relative;
 }
 
-.tab1 {
-  margin-top: 42px;
-
-  &__raw_title {
-    padding-right: 50px;
-    color: var(--dark-70);
-    font-size: 14px;
-    font-weight: normal;
-    text-align: left;
-    vertical-align: top;
-    padding-bottom: 16px;
-  }
-
-  &__raw_text {
-    color: var(--dark-100);
-    font-size: 14px;
-    font-weight: 500;
-    text-align: left;
-    padding-bottom: 16px;
-  }
-}
-
 .tab2 {
   margin-top: 42px;
 }

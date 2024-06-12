@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  border-radius: var(--radius-xs);
+}
+
+.row {
+  display: flex;
+}
+
+.title {
+  width: 184px;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  position: relative;
+}
+
+.contentRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inline {
+  display: inline-flex;
+  align-items: center;
+}
+
+.contentTitle {
+  width: 90px;
+  margin-right: 24px;
+}
+
+.contentWrapper {
+  padding: 20px;
+  width: 100%;
+}
+
+.button {
+  width: fit-content;
+}
+
+.add {
+  margin-top: auto;
+}
+
+.edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

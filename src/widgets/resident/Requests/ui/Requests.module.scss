@@ -1,0 +1,61 @@
+.wrapper {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 720px;
+}
+
+.bages {
+  display: flex;
+  gap: 16px;
+}
+
+.request_title {
+  color: var(--dark-100);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.request_subtitle {
+  color: var(--dark-100);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.green {
+  color: var(--green-100);
+}
+
+.primary {
+  color: var(--primary-100);
+}
+
+.orange {
+  color: #f19811;
+}
+
+.gray {
+  color: #878175;
+}
+
+.status_raw {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.controls {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+}

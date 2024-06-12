@@ -13,7 +13,7 @@ interface ResponseDataType extends PaginationResponse {
   notifications: Array<IResidentNotification>;
 }
 
-export const useGetCurrentResidentNotifications = (id: string) => {
+export const useGetCurrentResidentNotifications = (id: string | number) => {
   const { t } = useTranslation();
   const [isNotificationsLoading, setIsNotificationsLoading] = useState(false);
   const [notificationsData, setNotificationsData] = useState<

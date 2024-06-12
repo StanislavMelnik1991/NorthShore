@@ -90,7 +90,9 @@
     "delete": "Delete",
     "greetings": "Good Day",
     "preview": "Preview",
-    "addPhone": "Add Phone Number"
+    "addPhone": "Add Phone Number",
+    "add": "Add",
+    "change": "Change"
   },
   "remove": {
     "title": "Are you sure you want to delete? This action cannot be undone",

@@ -7,26 +7,34 @@ interface Props {
   labels: Array<string | JSX.Element>;
   tabs: Array<string | JSX.Element>;
   selected?: number;
+  disabled?: Array<boolean>;
 }
 
-export const Tab = ({ className, labels, tabs, selected }: Props) => {
+export const Tab = ({
+  className,
+  labels,
+  tabs,
+  selected,
+  disabled = [],
+}: Props) => {
   const { active, setActive } = useTab({ selected });
   return (
     <div className={classNames(styles.wrapper, className)}>
       <div className={styles.labels}>
         {labels.map((el, index) => {
           return (
-            <div
+            <button
               className={classNames(styles.label, {
                 [styles.active]: active === index,
               })}
+              disabled={disabled[index]}
               key={`tab-label-${index}`}
               onClick={() => {
                 setActive(index);
               }}
             >
               {el}
-            </div>
+            </button>
           );
         })}
       </div>

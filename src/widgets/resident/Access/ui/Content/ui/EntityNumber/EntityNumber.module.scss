@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  gap: 4px;
+}
+
+.modalLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.edit {
+  padding: 6px;
+  background-color: var(--gray-20);
+  border-radius: var(--radius-xs);
+}
