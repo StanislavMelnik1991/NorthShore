@@ -22,6 +22,7 @@ export const usePersonalNotification = (id: string) => {
         need_push: needToPush ? 1 : 0,
       });
       toast.success(t('toast.send_notification'));
+      window.location.reload();
     } catch (error) {
       toast.error(t('toast.notificationsError'));
     }
