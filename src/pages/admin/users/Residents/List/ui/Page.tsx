@@ -41,7 +41,7 @@ const Page = () => {
           },
         ]}
       />
-      <div>
+      <div className={styles.total}>
         <Text variant="body14" fontWeight="regular">
           {`${t('info_fields.totalResidents')}:`}
         </Text>{' '}
