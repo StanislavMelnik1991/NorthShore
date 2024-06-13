@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { TableControls, TableText } from '@entities/components';
 import { IEmployee } from '@entities/types';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
-import styles from './tableRows.module.scss';
 
 export const useTableRows = (
   data: Array<IEmployee>,
@@ -17,7 +16,7 @@ export const useTableRows = (
         name: <TableText fontWeight="semibold">{name || '-'}</TableText>,
         phone_number:
           phone_number || work_phone ? (
-            <TableText className={styles.wrap}>
+            <TableText>
               {phone_number}
               {phone_number && !!work_phone ? ';\n' : '\n'}
               {work_phone ? work_phone : ''}

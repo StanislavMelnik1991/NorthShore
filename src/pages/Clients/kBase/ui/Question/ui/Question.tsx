@@ -24,9 +24,9 @@ const Question = ({ className, answer, question }: Props) => {
           onClick={handleToggleShow}
         >
           {isShow ? (
-            <IconMinus width={24} height={24} />
+            <IconMinus className={styles.icon} width={24} height={24} />
           ) : (
-            <IconPlus width={24} height={24} />
+            <IconPlus className={styles.icon} width={24} height={24} />
           )}
         </Button>
       </div>

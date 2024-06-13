@@ -26,7 +26,7 @@ export const ServicesCard = ({
         padding={12}
         flexDirection="row"
         gap={12}
-        className={classNames(className)}
+        className={classNames(styles.wrapper, className)}
       >
         <div className={styles.imageWrapper}>
           <img className={styles.image} src={image} alt={title} />

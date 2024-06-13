@@ -5,12 +5,20 @@
 }
 
 .card {
-  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  min-height: 138px;
+  min-height: calc(138px - 2 * var(--border-width));
+  width: calc(100% - 2 * var(--border-width));
   gap: 4px;
+  margin: var(--border-width);
+
+  &:hover {
+    margin: 0;
+    width: 100%;
+    min-height: 138px;
+    border: var(--border-width) solid var(--dark-20);
+  }
 }
 
 .header__wrapper {

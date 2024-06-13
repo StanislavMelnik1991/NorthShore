@@ -3,12 +3,18 @@
   flex-direction: column;
   border-bottom: var(--border-width) solid var(--dark-20);
   padding: 24px 0 16px;
-  gap: 16px;
+  gap: 11px;
 }
 
 .button {
+  padding: 2.5px;
+
   path {
     fill: var(--dark-100);
+  }
+
+  &:hover {
+    background-color: var(--dark-20) !important;
   }
 }
 
@@ -24,4 +30,9 @@
 
 .show {
   height: unset;
+}
+
+.icon {
+  border-radius: var(--radius-sm);
+  background-color: transparent;
 }

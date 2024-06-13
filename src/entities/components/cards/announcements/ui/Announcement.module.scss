@@ -5,10 +5,16 @@
 }
 
 .card {
+  margin: var(--border-width);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  &:hover {
+    margin: 0;
+    border: var(--border-width) solid var(--dark-20);
+  }
 }
 
 .textContent {

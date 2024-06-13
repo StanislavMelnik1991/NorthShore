@@ -1,3 +1,11 @@
+.wrapper {
+  &:hover {
+    .image {
+      transform: scale(102%);
+    }
+  }
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -29,6 +37,7 @@
   object-fit: cover;
   border-radius: var(--radius-md);
   width: 100%;
+  transition: all calc(var(--animation-duration)) ease;
 }
 
 .timeStamp {

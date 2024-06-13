@@ -34,7 +34,7 @@ export const InvocationCard = ({
       padding={0}
       flexDirection="column"
       gap={0}
-      className={classNames(className)}
+      className={classNames(styles.wrapper, className)}
     >
       <div className={styles.header}>
         <Badge color={badgeConfig[type].color} className={styles.timeStamp}>

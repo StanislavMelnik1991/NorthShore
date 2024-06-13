@@ -1,5 +1,12 @@
 .wrapper {
-  height: 156px;
+  height: calc(156px - 2 * var(--border-width));
+  margin: var(--border-width);
+
+  &:hover {
+    height: 156px;
+    margin: 0;
+    border: var(--border-width) solid var(--dark-20);
+  }
 }
 
 .header {
