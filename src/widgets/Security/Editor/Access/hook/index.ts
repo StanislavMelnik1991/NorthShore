@@ -31,7 +31,7 @@ export const useSecurityAccessEditor = ({
       const initialAddress = initialAccess.map((el) => {
         return {
           id: v1(),
-          entrance_id: el.entrance?.value,
+          entrance: el.entrance?.value,
         };
       });
       setAddress(initialAddress);
@@ -50,7 +50,7 @@ export const useSecurityAccessEditor = ({
           }
         });
         setAddress(newValues);
-      } else {
+      } /* else {
         newValues.splice(index, 1);
         newValues.forEach(({ entrance }) => {
           if (entrance) {
@@ -58,7 +58,7 @@ export const useSecurityAccessEditor = ({
           }
         });
         setAddress(newValues);
-      }
+      } */
       setFieldValue('entrances_ids', entrances);
     },
     [setFieldValue, address],
@@ -80,10 +80,10 @@ export const useSecurityAccessEditor = ({
     [address, setFieldValue],
   );
 
-  const handleAdd = () =>
-    setAddress((value) => {
-      return [...value, { id: v1() }];
-    });
+  const handleAdd = useCallback(() => {
+    const newValues = [...address, { id: v1() }];
+    setAddress(newValues);
+  }, [address]);
 
   return {
     t,

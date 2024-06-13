@@ -43,6 +43,7 @@ export interface SecurityCamera extends BaseEntity {
   rtsp_url: string;
   rtsp_url_small: string;
   entrances: Array<IEntranceFull>;
+  entrances_ids: Array<number>;
   entrance: IEntrance;
   street: IStreet;
   building: IBuilding;

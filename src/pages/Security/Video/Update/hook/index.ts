@@ -105,7 +105,7 @@ export const useCreateCameraPage = () => {
     if (data) {
       setValues({
         point: `${data.lat}, ${data.lon}`,
-        entrances_ids: data.entrances.map((el) => el.id),
+        entrances_ids: data.entrances_ids,
         rtsp_url: data.rtsp_url,
         rtsp_url_small: data.rtsp_url_small,
         type_id: data.type_id,
