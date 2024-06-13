@@ -4,21 +4,28 @@ import { toast } from 'react-toastify';
 import { axiosApi } from '@entities/api';
 import {
   BaseResponse,
-  IResidentNotification,
+  INotification,
   ListParams,
   PaginationResponse,
 } from '@entities/types';
 
 interface ResponseDataType extends PaginationResponse {
-  notifications: Array<IResidentNotification>;
+  notifications: Array<INotification>;
 }
 
-export const useGetCurrentResidentNotifications = (id: string | number) => {
+interface Props {
+  id: string | number;
+  initialData?: INotification[];
+}
+
+export const useGetCurrentResidentNotifications = ({
+  id,
+  initialData = [],
+}: Props) => {
   const { t } = useTranslation();
   const [isNotificationsLoading, setIsNotificationsLoading] = useState(false);
-  const [notificationsData, setNotificationsData] = useState<
-    Array<IResidentNotification>
-  >([]);
+  const [notificationsData, setNotificationsData] =
+    useState<Array<INotification>>(initialData);
   const [notificationsTotal, setNotificationsTotal] = useState(0);
 
   const getNotificationsData = useCallback(

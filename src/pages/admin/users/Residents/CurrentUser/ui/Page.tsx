@@ -12,7 +12,7 @@ import {
   SlsModal,
 } from '@widgets/Security';
 import { PageHeader, PageSkeleton, Tab } from '@entities/components';
-import { AppRoutes, AppRoutesEnum } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum, LanguageEnum } from '@shared/constants';
 import { IconMail } from '@shared/icons';
 import { Button, Card, Text } from '@shared/ui';
 import { useResidentsList } from '../hooks';
@@ -83,6 +83,7 @@ const Page = () => {
       initialData={notificationsData}
       id={id}
       key={'tab4'}
+      lang={data?.lang || LanguageEnum.RU}
     />,
   ];
 

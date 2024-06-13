@@ -10,7 +10,6 @@ export * from './sip.interface';
 export * from './request.interface';
 export * from './engineering.interface';
 export * from './residents.interface';
-export * from './notification.interface';
 export * from './access_points.interface';
 export * from './employees.interface';
 export * from './localization.interface';

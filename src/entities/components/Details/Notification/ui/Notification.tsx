@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ToggleWithLabel } from '@entities/components';
 import { Badge, Text, Title } from '@shared/ui';
+import { ToggleWithLabel } from '../../../';
 import styles from './Notification.module.scss';
 
 interface Props {
@@ -46,20 +46,22 @@ export const NotificationContent = ({
           </Link>
         </div>
       )}
-      <div className={styles.label}>
-        <Text variant="body14" fontWeight="regular">
-          {t('editor.titles.recipients')}
-        </Text>
-        <div className={styles.groups}>
-          {groups.map((el, index) => {
-            return (
-              <Badge color="white" key={`NotificationContent-badge-${index}`}>
-                {el}
-              </Badge>
-            );
-          })}
+      {!!groups.length && (
+        <div className={styles.label}>
+          <Text variant="body14" fontWeight="regular">
+            {t('editor.titles.recipients')}
+          </Text>
+          <div className={styles.groups}>
+            {groups.map((el, index) => {
+              return (
+                <Badge color="white" key={`NotificationContent-badge-${index}`}>
+                  {el}
+                </Badge>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       <ToggleWithLabel
         label={t('editor.push.label')}

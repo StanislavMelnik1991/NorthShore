@@ -108,11 +108,7 @@ export const ResidentRequests = ({
           </div>
         )}
       </Modal>
-      <Table
-        config={tableRequestsHeader}
-        items={tableRequestsData}
-        handler={(val: string) => setOpenedRequest(val)}
-      />
+      <Table config={tableRequestsHeader} items={tableRequestsData} />
       <div className={styles.controls}>
         <PerPage active={perPage} setActive={handleSetPerPage} />
         <Pagination page={page} total={total} onChange={handleSetPage} />

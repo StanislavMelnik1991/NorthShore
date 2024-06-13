@@ -13,10 +13,18 @@ interface ResponseDataType extends PaginationResponse {
   results: Array<IRequest>;
 }
 
-export const useGetCurrentResidentRequests = (id: string | number) => {
+interface Props {
+  id: string | number;
+  initialData?: Array<IRequest>;
+}
+
+export const useGetCurrentResidentRequests = ({
+  id,
+  initialData = [],
+}: Props) => {
   const { t } = useTranslation();
   const [isLoading, setIsRequestsLoading] = useState(false);
-  const [data, setData] = useState<Array<IRequest>>([]);
+  const [data, setData] = useState<Array<IRequest>>(initialData);
   const [total, setRequestsTotal] = useState(0);
 
   const getData = useCallback(

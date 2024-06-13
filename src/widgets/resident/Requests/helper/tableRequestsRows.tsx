@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { TableText } from '@entities/components';
+import { TableControls, TableText } from '@entities/components';
 import { IRequest } from '@entities/types';
 import {
   IconNew,
@@ -11,7 +11,12 @@ import {
 } from '@shared/icons';
 import styles from './tableRequestsRows.module.scss';
 
-export const useTableRequestsRows = (data: Array<IRequest>) => {
+interface Props {
+  data: Array<IRequest>;
+  getDetails: (id?: string | number) => void;
+}
+
+export const useTableRequestsRows = ({ data, getDetails }: Props) => {
   const { i18n } = useTranslation('residents');
   return data.map(({ id, status, data_add, theme, title, comment }) => {
     return {
@@ -47,6 +52,7 @@ export const useTableRequestsRows = (data: Array<IRequest>) => {
       topic: <TableText>{String(theme.name)}</TableText>,
       title: <TableText>{title ? String(title) : ''}</TableText>,
       comment: <TableText>{comment}</TableText>,
+      controls: <TableControls getDetails={() => getDetails(id)} id={id} />,
     };
   });
 };

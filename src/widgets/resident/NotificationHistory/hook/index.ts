@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useGetCurrentResidentNotifications } from '@features/Admin';
-import { IResidentNotification } from '@entities/types';
+import { INotification } from '@entities/types';
 import { INITIAL_PER_PAGE } from '@shared/constants';
 import {
   useTableNotificationsHeader,
@@ -10,7 +10,7 @@ import {
 
 interface Props {
   id: string | number;
-  initialData?: IResidentNotification[];
+  initialData?: INotification[];
 }
 
 export const useNotificationHistory = ({ id, initialData = [] }: Props) => {
@@ -22,25 +22,20 @@ export const useNotificationHistory = ({ id, initialData = [] }: Props) => {
     getNotificationsData,
     isNotificationsLoading: isLoading,
     notificationsData,
-  } = useGetCurrentResidentNotifications(id);
+  } = useGetCurrentResidentNotifications({ id, initialData });
 
-  const [openedRequest, setOpenedRequest] = useState<IResidentNotification>();
+  const [active, setActive] = useState<INotification>();
 
-  const tableHeader = useTableNotificationsHeader();
-  const tableData = useTableNotificationsRows(
-    notificationsData.length ? notificationsData : initialData,
-  );
-
-  const handleSetOpened = (id?: string) => {
+  const handleSetActive = (id?: string | number) => {
     if (id) {
       const item = notificationsData.find((el) => el.id === +id);
       if (item) {
-        setOpenedRequest(item);
+        setActive(item);
       } else {
-        setOpenedRequest(undefined);
+        setActive(undefined);
       }
     } else {
-      setOpenedRequest(undefined);
+      setActive(undefined);
     }
   };
 
@@ -73,6 +68,12 @@ export const useNotificationHistory = ({ id, initialData = [] }: Props) => {
     [handleGetData],
   );
 
+  const tableHeader = useTableNotificationsHeader();
+  const tableData = useTableNotificationsRows({
+    data: notificationsData.length ? notificationsData : initialData,
+    getDetails: handleSetActive,
+  });
+
   return {
     tableHeader,
     tableData,
@@ -83,7 +84,7 @@ export const useNotificationHistory = ({ id, initialData = [] }: Props) => {
     handleSetPerPage,
     t,
     i18n,
-    setOpened: handleSetOpened,
-    openedRequest,
+    setActive: handleSetActive,
+    active,
   };
 };

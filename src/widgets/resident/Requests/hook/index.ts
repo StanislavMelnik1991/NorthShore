@@ -12,20 +12,16 @@ interface Props {
 
 export const useRequests = ({ id, initialData = [] }: Props) => {
   const { t, i18n } = useTranslation('residents');
-  const { getData, data } = useGetCurrentResidentRequests(id);
+  const { getData, data } = useGetCurrentResidentRequests({ id, initialData });
   const [openedRequest, setOpenedRequest] = useState<IRequest>();
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(INITIAL_PER_PAGE);
 
-  const tableRequestsHeader = useTableRequestsHeader();
-  const tableRequestsData = useTableRequestsRows(
-    data.length ? data : initialData,
-  );
-
-  const handleSetOpenedRequest = (id?: string) => {
+  const handleSetOpenedRequest = (id?: string | number) => {
     if (id) {
-      const item = data.find((el) => el.id === +id);
+      const item = data.find((el) => Number(el.id) === Number(id));
       if (item) {
+        console.log(item);
         setOpenedRequest(item);
       } else {
         setOpenedRequest(undefined);
@@ -63,6 +59,12 @@ export const useRequests = ({ id, initialData = [] }: Props) => {
     },
     [handleGetData],
   );
+
+  const tableRequestsHeader = useTableRequestsHeader();
+  const tableRequestsData = useTableRequestsRows({
+    data: data.length ? data : initialData,
+    getDetails: handleSetOpenedRequest,
+  });
 
   return {
     tableRequestsHeader,

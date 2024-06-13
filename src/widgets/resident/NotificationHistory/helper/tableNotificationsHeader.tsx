@@ -40,5 +40,9 @@ export const useTableNotificationsHeader: () => Array<ConfigItemType> = () => {
         </Text>
       ),
     },
+    {
+      name: 'controls',
+      width: 52,
+    },
   ];
 };

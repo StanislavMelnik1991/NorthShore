@@ -36,13 +36,13 @@ export const useResidentsList = () => {
     isLoading: isRequestsLoading,
     data: requests,
     total: requestsTotal,
-  } = useGetCurrentResidentRequests(id);
+  } = useGetCurrentResidentRequests({ id });
   const {
     getNotificationsData,
     isNotificationsLoading,
     notificationsTotal,
     notificationsData,
-  } = useGetCurrentResidentNotifications(id);
+  } = useGetCurrentResidentNotifications({ id });
 
   useEffect(() => {
     getData();

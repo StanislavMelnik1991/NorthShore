@@ -59,5 +59,9 @@ export const useTableRequestsHeader: () => Array<ConfigItemType> = () => {
       ),
       width: 275,
     },
+    {
+      name: 'controls',
+      width: 52,
+    },
   ];
 };

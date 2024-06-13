@@ -1,6 +1,10 @@
-import { NotificationContent } from '@widgets/Content';
 import { formatAddress } from '@features/utils';
-import { PageHeader, PageSkeleton, Tab } from '@entities/components';
+import {
+  NotificationContent,
+  PageHeader,
+  PageSkeleton,
+  Tab,
+} from '@entities/components';
 import {
   ACCEPTED_LANGUAGES,
   AppRoutes,

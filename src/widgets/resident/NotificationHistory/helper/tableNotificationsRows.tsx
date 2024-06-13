@@ -1,13 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { extractTextFromHtml } from '@features/utils';
-import { TableText } from '@entities/components';
-import { IResidentNotification } from '@entities/types';
+import { TableControls, TableText } from '@entities/components';
+import { INotification } from '@entities/types';
 import { LanguageEnum } from '@shared/constants';
 import styles from './tableNotificationsRows.module.scss';
 
-export const useTableNotificationsRows = (
-  data: Array<IResidentNotification>,
-) => {
+interface Props {
+  data: Array<INotification>;
+  getDetails: (id?: string | number) => void;
+}
+
+export const useTableNotificationsRows = ({ data, getDetails }: Props) => {
   const { i18n } = useTranslation('residents');
   const lang = i18n.language as LanguageEnum;
   return data.map(({ id, data_add, title, body }) => {
@@ -29,10 +32,11 @@ export const useTableNotificationsRows = (
         <div
           className={styles.htmlContent}
           dangerouslySetInnerHTML={{
-            __html: extractTextFromHtml(body[lang]),
+            __html: extractTextFromHtml(body[lang] || ''),
           }}
         />
       ),
+      controls: <TableControls getDetails={() => getDetails(id)} id={id} />,
     };
   });
 };
