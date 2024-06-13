@@ -29,15 +29,14 @@ interface Props {
 export const SecurityAccessEditor = ({
   // values,
   setFieldValue,
-  // errors,
+  errors,
   title,
   initialAccess,
 }: Props) => {
-  const { t, onAdd, onChange, onClear, address, isDisabled } =
-    useSecurityAccessEditor({
-      setFieldValue,
-      initialAccess,
-    });
+  const { t, onAdd, onChange, onClear, address } = useSecurityAccessEditor({
+    setFieldValue,
+    initialAccess,
+  });
   return (
     <div className={styles.wrapper}>
       <Title fontWeight="semibold" className={styles.title}>
@@ -66,7 +65,7 @@ export const SecurityAccessEditor = ({
         variant="text"
         onClick={onAdd}
         className={styles.add}
-        disabled={isDisabled}
+        disabled={!!errors.entrances_ids}
       >
         <IconPlusRounded width={20} height={20} />
         <Text>{t('actions.addAddress')}</Text>

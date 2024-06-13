@@ -91,6 +91,5 @@ export const useSecurityAccessEditor = ({
     onChange: handleUpdateValues,
     onClear: handleClear,
     onAdd: handleAdd,
-    isDisabled: !address[address.length - 1]?.entrance,
   };
 };
