@@ -72,7 +72,8 @@
     "sliding_gates": "Sliding gates",
     "sls": "video eyes",
     "floor": "Floor",
-    "add": "Add"
+    "add": "Add",
+    "totalResidents": "Total registered"
   },
   "modal": {
     "request": "Request",

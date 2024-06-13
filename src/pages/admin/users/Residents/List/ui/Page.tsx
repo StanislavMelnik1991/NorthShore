@@ -7,7 +7,7 @@ import {
   PerPage,
 } from '@entities/components';
 import { IconLoupe } from '@shared/icons';
-import { Card, TextField } from '@shared/ui';
+import { Card, Text, TextField } from '@shared/ui';
 import { Table } from '@shared/ui/Table';
 import { useResidentsList } from '../hooks';
 import styles from './Page.module.scss';
@@ -37,10 +37,18 @@ const Page = () => {
         breadcrumbs={[
           {
             href: location.pathname,
-            title: `${t('routes.residents')}${totalUsers ? ` (${totalUsers})` : ''}`,
+            title: t('routes.residents'),
           },
         ]}
       />
+      <div>
+        <Text variant="body14" fontWeight="regular">
+          {`${t('info_fields.totalResidents')}:`}
+        </Text>{' '}
+        <Text variant="body16" fontWeight="semibold">
+          {totalUsers}
+        </Text>
+      </div>
       <Card padding={12} gap={20} loaderSize={32}>
         <div className={styles.filters__wrapper}>
           <div className={styles.filters__inner}>
