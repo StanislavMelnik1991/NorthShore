@@ -16,6 +16,7 @@ export const useTableRows = (data: IEngineeringFull[]) => {
       current_value,
       apartment,
       building,
+      name,
       // ...address
     }) => {
       const location = formatAddress({
@@ -23,6 +24,7 @@ export const useTableRows = (data: IEngineeringFull[]) => {
       });
       return {
         id: <TableText>{String(id)}</TableText>,
+        name: <TableText>{name}</TableText>,
         type: <TableText>{type?.name}</TableText>,
         address: <TableText title={location}>{location}</TableText>,
         state: (

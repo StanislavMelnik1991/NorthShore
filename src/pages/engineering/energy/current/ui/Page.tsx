@@ -33,7 +33,6 @@ export default () => {
   return (
     <PageSkeleton>
       <PageHeader
-        hideTitle
         breadcrumbs={[
           {
             href: AppRoutes[AppRoutesEnum.ENGINEERING_ENERGY](),

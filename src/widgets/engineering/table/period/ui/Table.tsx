@@ -15,7 +15,7 @@ interface Props {
   measures: string;
   results: IEngineeringResults['results'];
   isLoading?: boolean;
-  total?: number;
+  total?: number | string;
 }
 
 export const PeriodDetailsTable = ({

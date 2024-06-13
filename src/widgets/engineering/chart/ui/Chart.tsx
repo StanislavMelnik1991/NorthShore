@@ -18,7 +18,7 @@ interface Props {
   setFrom: (val: Date | null) => void;
   setTo: (val: Date | null) => void;
   isLoading?: boolean;
-  total: number;
+  total: number | string;
 }
 
 export const EngineeringChart = ({

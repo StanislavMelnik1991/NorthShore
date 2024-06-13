@@ -63,6 +63,7 @@ export const SecurityAccessEditor = ({
       })}
       <Button
         variant="text"
+        type="button"
         onClick={onAdd}
         className={styles.add}
         disabled={!!errors.entrances_ids}

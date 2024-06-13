@@ -57,7 +57,7 @@ export const useCurrentEnergy = () => {
     setFrom: handleSetFrom,
     setTo: handleSetTo,
     to,
-    title: `${data?.type?.name} №${id}`,
+    title: data ? `${data?.type?.name} №${data.name || id}` : '',
     measures: data?.type.measures || '',
     location,
     results: data?.results || [],
@@ -67,7 +67,7 @@ export const useCurrentEnergy = () => {
     voltage: data?.voltage,
     id: id as string,
     month,
-    total: total as number,
+    total: total ? total.toFixed(2) : '',
     isShowMonth,
   };
 };
