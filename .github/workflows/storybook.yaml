@@ -25,7 +25,7 @@ jobs:
       run: pnpm install --frozen-lockfile
 
     - name: Build project
-      run: npm run build:prod
+      run: npm run storybook:build
 
     - name: Install Netlify CLI
       run: npm install netlify-cli -g
@@ -35,7 +35,7 @@ jobs:
       run: echo "::set-output name=message::$(git log --format=%B -n 1)"
 
     - name: Deploy to Netlify
-      run: netlify deploy --dir=build --prod --message "${{ steps.commit.outputs.message }}"
+      run: netlify deploy --dir=storybook-static --prod --message "${{ steps.commit.outputs.message }}"
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_STORYBOOK_ID }}
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
