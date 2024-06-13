@@ -21,7 +21,7 @@ export const useResidentsList = () => {
     search,
     setSearch,
   } = usePagination();
-  const { getData, isLoading, total, data } = useGetResidentsList();
+  const { getData, isLoading, total, data, totalUsers } = useGetResidentsList();
   const [lang, setActiveLang] = useState<Options | null>(null);
   const [open, setOpen] = useState(false);
   const [popUpId, setPopUpId] = useState<string>();
@@ -79,5 +79,6 @@ export const useResidentsList = () => {
     setOpen,
     popUpId,
     setPopUpId,
+    totalUsers,
   };
 };

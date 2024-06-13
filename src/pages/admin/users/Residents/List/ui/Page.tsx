@@ -28,13 +28,17 @@ const Page = () => {
     open,
     setOpen,
     popUpId,
+    totalUsers,
   } = useResidentsList();
   return (
     <PageSkeleton>
       <PersonalNotification id={popUpId || '1'} open={open} setOpen={setOpen} />
       <PageHeader
         breadcrumbs={[
-          { href: location.pathname, title: t('routes.residents') },
+          {
+            href: location.pathname,
+            title: `${t('routes.residents')}${totalUsers ? ` (${totalUsers})` : ''}`,
+          },
         ]}
       />
       <Card padding={12} gap={20} loaderSize={32}>

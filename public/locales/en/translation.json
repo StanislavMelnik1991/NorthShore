@@ -129,8 +129,9 @@
     "to": "To"
   },
   "footer": {
-    "northWaterfront": "OOO «Managing Organization North Waterfront»",
-    "address": "g. Minsk, ul. Sverdlova 11, of.329",
+    "northWaterfront": "OOO «Managing Company North Waterfront»",
+    "actualAddress": "g. Minsk, ul. Sverdlova 11, of.329",
+    "legalAddress": "g. Minsk, ul. Sverdlova 11, of.329",
     "advertisement": "Buy an apartment in 'North Waterfront'",
     "therms": "Terms of Use",
     "privacy": "Privacy Policy"
