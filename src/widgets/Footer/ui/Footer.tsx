@@ -6,7 +6,7 @@ import {
   IconMail,
   IconPhone,
   IconTelegram,
-  IconViber,
+  // IconViber,
 } from '@shared/icons';
 import { Button, Divider, Text, Title } from '@shared/ui';
 import styles from './Footer.module.scss';
@@ -83,11 +83,11 @@ export const Footer = ({ className }: Props) => {
               <IconTelegram className={styles.icon} width={24} height={24} />
             </Button>
           </Link>
-          <Link to={''} target="_blank">
+          {/* <Link to={''} target="_blank">
             <Button className={styles.button} variant="light">
               <IconViber className={styles.icon} width={24} height={24} />
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <Divider className={styles.divider} />
