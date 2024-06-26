@@ -47,9 +47,10 @@ export const useGetCurrentEnergyConsumer = () => {
               };
             }
           });
-          const total = data.data.results.reduce((prev, current) => {
-            return prev + (current?.current_value || 0);
-          }, 0);
+          const resultsArr = data.data.results.filter((el) => !!el);
+          const total =
+            resultsArr[resultsArr.length - 1].current_value -
+            resultsArr[0].current_value;
           setTotal(total);
           setData(result);
         } else {

@@ -26,6 +26,8 @@ export const useVotingList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetVotingList();
   const { deleteVoting } = useDeleteVoting();
@@ -38,7 +40,6 @@ export const useVotingList = () => {
   } = useVotingStatusList();
   const [from, setFrom] = useState<Date | null>(null);
   const [to, setTo] = useState<Date | null>(null);
-  const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
   const { update: updateVoting } = useUpdateVoting();
@@ -47,14 +48,23 @@ export const useVotingList = () => {
     const params: Params = {
       page,
       perPage,
-      searchValue: debounced.length ? debounced : undefined,
+      searchValue: debounced,
       from: to && from ? from : undefined,
       to: to || undefined,
       status_id: selected?.value,
-      is_deleted: isDeleted,
+      is_deleted,
     };
     getData(params);
-  }, [debounced, from, getData, isDeleted, page, perPage, selected?.value, to]);
+  }, [
+    debounced,
+    from,
+    getData,
+    is_deleted,
+    page,
+    perPage,
+    selected?.value,
+    to,
+  ]);
 
   useEffect(() => {
     getVotingList();
@@ -112,17 +122,13 @@ export const useVotingList = () => {
     onMarkAsFailed: handleMarkAsFailed,
   });
 
-  const handleToggleIsDeleted = useCallback(() => {
-    setIsDeleted((val) => !val);
-  }, []);
-
   return {
     search,
     setSearch,
     isLoading,
     setPage: handleSetPage,
-    handleToggleIsDeleted,
-    isDeleted,
+    handleToggleIsDeleted: toggleIsDeleted,
+    isDeleted: is_deleted,
     perPage,
     setPerPage: handleSetPerPage,
     handleDelete,

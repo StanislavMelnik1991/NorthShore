@@ -4,12 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useGetUserEventsList } from '@features/events';
 import { usePagination } from '@features/pagination';
 import { ListParams } from '@entities/types';
-import { AppRoutes, AppRoutesEnum, NewsStatusEnum } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
-
-interface Params extends ListParams {
-  status?: keyof typeof NewsStatusEnum;
-}
 
 export const useEventsList = () => {
   const { t } = useTranslation('events');
@@ -21,6 +17,8 @@ export const useEventsList = () => {
     debounced,
     setSearch,
     search,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetUserEventsList();
   const [open, setOpen] = useState(false);
@@ -36,18 +34,17 @@ export const useEventsList = () => {
       title: '',
     },
   });
-  const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
   const navigate = useNavigate();
 
   const handleGetData = useCallback(async () => {
-    const params: Params = {
+    const params: ListParams = {
       page,
       perPage,
       searchValue: debounced,
-      status,
+      is_deleted,
     };
     getData(params);
-  }, [debounced, getData, page, perPage, status]);
+  }, [debounced, getData, page, perPage, is_deleted]);
 
   useEffect(() => {
     handleGetData();
@@ -56,10 +53,6 @@ export const useEventsList = () => {
   const handleCreateClick = useCallback(() => {
     navigate(AppRoutes[AppRoutesEnum.CREATE_EVENT]());
   }, [navigate]);
-
-  const handleToggleStatusFilter = useCallback(() => {
-    setStatus((val) => (val ? undefined : 2));
-  }, []);
 
   const handleOpenModal = useCallback(
     (id: string | number) => () => {
@@ -96,11 +89,11 @@ export const useEventsList = () => {
     setPerPage: handleSetPerPage,
     total,
     t,
-    status,
+    status: is_deleted,
     tableHeader,
     page,
     tableData,
-    toggleStatusFilter: handleToggleStatusFilter,
+    toggleStatusFilter: toggleIsDeleted,
     config,
     open,
     setOpen,

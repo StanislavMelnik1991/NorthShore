@@ -48,7 +48,7 @@ export const ResidentRequests = ({
           <div className={styles.modal}>
             <div className={styles.bages}>
               <Badge color="white">
-                {new Date(openedRequest.data_add).toLocaleDateString(
+                {new Date(openedRequest.data_add * 1000).toLocaleDateString(
                   i18n.language,
                   {
                     day: 'numeric',

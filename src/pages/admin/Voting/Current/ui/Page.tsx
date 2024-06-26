@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { VotingContent } from '@widgets/Content';
 import {
+  AnswerDetails,
   CurrentSkeleton,
   LanguageTab,
+  Modal,
   PageHeader,
   PageSkeleton,
 } from '@entities/components';
@@ -12,13 +14,44 @@ import { Button } from '@shared/ui';
 import { usePage } from '../hook';
 
 export default () => {
-  const { isLoading, data, t, id } = usePage();
+  const {
+    isLoading,
+    data,
+    t,
+    id,
+    handleShowAnswerDetails,
+    answer,
+    handleCloseModal,
+    userLanguage,
+  } = usePage();
   const tabs = {
-    en: <VotingContent language={LanguageEnum.EN} data={data} />,
-    ru: <VotingContent language={LanguageEnum.RU} data={data} />,
+    en: (
+      <VotingContent
+        onAnswerClick={handleShowAnswerDetails}
+        showPercent
+        language={LanguageEnum.EN}
+        data={data}
+      />
+    ),
+    ru: (
+      <VotingContent
+        onAnswerClick={handleShowAnswerDetails}
+        showPercent
+        language={LanguageEnum.RU}
+        data={data}
+      />
+    ),
   };
   return (
     <PageSkeleton>
+      <Modal isOpen={!!answer} onClose={handleCloseModal}>
+        {answer && (
+          <AnswerDetails
+            answerText={answer.body[userLanguage] || ''}
+            users={answer.users}
+          />
+        )}
+      </Modal>
       <PageHeader
         breadcrumbs={[
           {

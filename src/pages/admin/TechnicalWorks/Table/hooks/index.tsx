@@ -29,6 +29,8 @@ export const useVotingList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetTechnicalWorksList();
   const { handleDelete } = useDeleteTechnicalWork();
@@ -56,7 +58,6 @@ export const useVotingList = () => {
 
   const [from, setFrom] = useState<Date | null>(null);
   const [to, setTo] = useState<Date | null>(null);
-  const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
 
@@ -64,20 +65,20 @@ export const useVotingList = () => {
     const params: Params = {
       page,
       perPage,
-      searchValue: debounced.length ? debounced : undefined,
+      searchValue: debounced,
       from: from ? Math.ceil(from.getTime() / 1000) : undefined,
       to: to ? Math.ceil(to.getTime() / 1000) : undefined,
       status_id: selectedStatus?.value,
       nature_id: selectedNature?.value,
       type_id: selectedType?.value,
-      is_deleted: isDeleted || undefined,
+      is_deleted,
     };
     getData(params);
   }, [
     debounced,
     from,
     getData,
-    isDeleted,
+    is_deleted,
     page,
     perPage,
     selectedNature?.value,
@@ -152,17 +153,13 @@ export const useVotingList = () => {
     onDelete: handleOpenModal,
   });
 
-  const handleToggleIsDeleted = useCallback(() => {
-    setIsDeleted((val) => !val);
-  }, []);
-
   return {
     search,
     setSearch,
     isLoading,
     setPage: handleSetPage,
-    handleToggleIsDeleted,
-    isDeleted,
+    handleToggleIsDeleted: toggleIsDeleted,
+    isDeleted: is_deleted,
     perPage,
     setPerPage: handleSetPerPage,
     handleDelete: handleDeleteActive,

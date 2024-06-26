@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import { format } from 'date-fns';
+import { MouseEventHandler } from 'react';
 import { formatAddress } from '@features/utils';
 import { Answers } from '@entities/components';
-import { IVoting } from '@entities/types';
+import { IAnswer, IVoting } from '@entities/types';
 import { LanguageEnum } from '@shared/constants';
 import { IconCalendar } from '@shared/icons';
 import { Badge, CheckBox, Text, Title, Toggle } from '@shared/ui';
@@ -13,9 +14,17 @@ interface Props {
   className?: string;
   data?: IVoting;
   language: LanguageEnum;
+  showPercent?: boolean;
+  onAnswerClick?: (answer: IAnswer) => MouseEventHandler;
 }
 
-export const VotingContent = ({ className, data, language }: Props) => {
+export const VotingContent = ({
+  className,
+  data,
+  language,
+  showPercent,
+  onAnswerClick,
+}: Props) => {
   const { t, dateLocale } = useVoting();
   const publishDate = new Date(data ? data.date_add * 1000 : Date.now());
   const deadlineDate = new Date(data ? data.date_finish * 1000 : Date.now());
@@ -82,7 +91,8 @@ export const VotingContent = ({ className, data, language }: Props) => {
               fontWeight="semibold"
             >{`${index + 1}. ${el?.body[language]}`}</Text>
             <Answers
-              showPercent={data.status.id !== 1}
+              onAnswerClick={onAnswerClick}
+              showPercent={showPercent || data.status.id !== 1}
               answers={el.answer_variants}
               language={language}
               questionId={el.id}

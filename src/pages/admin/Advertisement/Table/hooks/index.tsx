@@ -24,13 +24,14 @@ export const useVotingList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetAdvertisementsList();
   const { handleDelete } = useDeleteAdvertisement();
   const [from, setFrom] = useState<Date | null>(null);
   const [to, setTo] = useState<Date | null>(null);
 
-  const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
 
@@ -38,13 +39,13 @@ export const useVotingList = () => {
     const params: Params = {
       page,
       perPage,
-      searchValue: debounced.length ? debounced : undefined,
-      is_deleted: isDeleted || undefined,
+      searchValue: debounced,
+      is_deleted,
       from: from ? convertToSeconds(from) : undefined,
       to: to ? convertToSeconds(to) : undefined,
     };
     getData(params);
-  }, [debounced, from, getData, isDeleted, page, perPage, to]);
+  }, [debounced, from, getData, is_deleted, page, perPage, to]);
 
   useEffect(() => {
     handleGetData();
@@ -85,17 +86,13 @@ export const useVotingList = () => {
     onDelete: handleOpenModal,
   });
 
-  const handleToggleIsDeleted = useCallback(() => {
-    setIsDeleted((val) => !val);
-  }, []);
-
   return {
     search,
     setSearch,
     isLoading,
     setPage: handleSetPage,
-    handleToggleIsDeleted,
-    isDeleted,
+    handleToggleIsDeleted: toggleIsDeleted,
+    isDeleted: is_deleted,
     perPage,
     setPerPage: handleSetPerPage,
     handleDelete: handleDeleteActive,

@@ -1,27 +1,21 @@
 import classNames from 'classnames';
+import { MouseEventHandler } from 'react';
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { IAnswer } from '@entities/types';
 import { LanguageEnum } from '@shared/constants';
 import { Progress, Radio } from '@shared/ui';
 import styles from './Answers.module.scss';
 
-type Answer = {
-  id: number;
-  body: Record<LanguageEnum, string | null>;
-  percent_result: number;
-  image?: {
-    id: number;
-    url: string;
-  };
-};
-
 interface Props {
   className?: string;
   language: LanguageEnum;
-  answers: Array<Answer>;
+  answers: Array<IAnswer>;
   showPercent?: boolean;
   questionId: number;
   selectedId?: number;
   disabled?: boolean;
   onChange?: (val: number) => void | Promise<void>;
+  onAnswerClick?: (answer: IAnswer) => MouseEventHandler;
 }
 
 export const Answers = ({
@@ -33,8 +27,9 @@ export const Answers = ({
   selectedId,
   disabled,
   onChange,
+  onAnswerClick,
 }: Props) => {
-  const isHasImage = !!answers.filter((el) => el.image).length;
+  const isHasImage = !!answers.filter((el) => el[`image_${language}`]).length;
   if (showPercent) {
     return (
       <div
@@ -50,14 +45,15 @@ export const Answers = ({
                 [styles.withImage]: isHasImage,
               })}
             >
-              {el.image && (
+              {el[`image_${language}`] && (
                 <img
-                  src={el.image.url}
+                  src={el[`image_${language}`]?.url}
                   alt={el.body[language] || ''}
                   className={styles.image}
                 />
               )}
               <Progress
+                onLabelClick={onAnswerClick && onAnswerClick(el)}
                 label={el.body[language] || ''}
                 percent={el.percent_result}
                 key={`answers-progress-${questionId}-${el.id}`}
@@ -82,9 +78,9 @@ export const Answers = ({
               [styles.withImage]: isHasImage,
             })}
           >
-            {el.image && (
+            {el[`image_${language}`] && (
               <img
-                src={el.image.url}
+                src={el[`image_${language}`]?.url}
                 alt={el.body[language] || ''}
                 className={styles.image}
               />

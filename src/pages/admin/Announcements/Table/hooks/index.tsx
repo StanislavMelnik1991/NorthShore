@@ -18,10 +18,11 @@ export const useNewsList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetAnnouncementsList();
   const { handleRemove } = useRemoveAnnouncement();
-  const [isDeleted, setIsDeleted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | number>();
 
@@ -30,18 +31,14 @@ export const useNewsList = () => {
       page,
       perPage,
       searchValue: debounced !== '' ? debounced : undefined,
-      is_deleted: isDeleted || undefined,
+      is_deleted,
     };
     getData(params);
-  }, [debounced, getData, isDeleted, page, perPage]);
+  }, [debounced, getData, is_deleted, page, perPage]);
 
   useEffect(() => {
     handleGetData();
   }, [handleGetData]);
-
-  const handleToggleIsDeleted = useCallback(() => {
-    setIsDeleted((val) => !val);
-  }, []);
 
   const handleDelete = useCallback(async () => {
     if (activeId) {
@@ -78,8 +75,8 @@ export const useNewsList = () => {
     tableHeader,
     page,
     tableData,
-    isDeleted,
-    toggleIsDeleted: handleToggleIsDeleted,
+    isDeleted: is_deleted,
+    toggleIsDeleted,
     handleCloseModal,
     isModalOpen,
     handleDelete,

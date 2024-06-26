@@ -2,12 +2,14 @@ import { IRecipientAddressGroup } from './address.interface';
 import { BaseEntity } from './global.interface';
 import { IFile } from './image.interface';
 import { ILocalizedData } from './localization.interface';
+import { IUser } from './user.interface';
 
 export interface IAnswer extends BaseEntity {
   body: ILocalizedData;
   question_id: IQuestion['id'];
   votes_count: number;
   percent_result: number;
+  users: Array<IUser>;
   image_en?: IFile;
   image_en_id?: IFile['id'];
   image_ru?: IFile;

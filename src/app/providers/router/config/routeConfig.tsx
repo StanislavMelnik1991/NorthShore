@@ -72,6 +72,11 @@ import {
   UserCurrentLoyaltyPage,
   UserLoyaltyListPage,
   KBasePage,
+  CreateRequestPage,
+  CurrentRequestPage,
+  RequestMainPage,
+  ApplicationsMainPage,
+  CreateApplicationPage,
 } from '@pages/Clients';
 import { TechnicalWorks } from '@pages/Clients';
 import {
@@ -85,13 +90,6 @@ import {
   UpdateElevatorPage,
 } from '@pages/engineering';
 import { ForbiddenPage } from '@pages/Forbidden';
-import {
-  CreateRequestPage,
-  CurrentRequestPage,
-  RequestMainPage,
-  ApplicationsMainPage,
-  CreateApplicationPage,
-} from '@pages/invocation';
 import { NotFoundPage } from '@pages/NotFound';
 import { PassportPage } from '@pages/Passport';
 import {

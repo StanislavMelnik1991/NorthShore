@@ -3,7 +3,8 @@
     "list": "Voting",
     "edit": "Editing a vote",
     "create": "Creating a vote",
-    "voting": "Voting"
+    "voting": "Voting",
+    "answerDetails": "Details of the answer"
   },
   "controls": {
     "publish": "Publish",
@@ -54,11 +55,11 @@
       "placeholder": "Notification Text"
     },
     "question": {
-      "label": "question",
+      "label": "Question",
       "placeholder": "Enter a question"
     },
     "answer": {
-      "label": "answer",
+      "label": "Answer",
       "placeholder": "Enter an answer choice"
     }
   },

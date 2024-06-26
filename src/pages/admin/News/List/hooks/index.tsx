@@ -21,6 +21,8 @@ export const useNewsList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { getData, isLoading, total, data } = useGetUserNewsList();
   const [open, setOpen] = useState(false);
@@ -36,7 +38,6 @@ export const useNewsList = () => {
       title: '',
     },
   });
-  const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
   const navigate = useNavigate();
 
   const handleGetData = useCallback(async () => {
@@ -44,10 +45,10 @@ export const useNewsList = () => {
       page,
       perPage,
       searchValue: debounced,
-      status,
+      is_deleted,
     };
     getData(params);
-  }, [debounced, getData, page, perPage, status]);
+  }, [debounced, getData, page, perPage, is_deleted]);
 
   useEffect(() => {
     handleGetData();
@@ -56,10 +57,6 @@ export const useNewsList = () => {
   const handleCreateClick = useCallback(() => {
     navigate(AppRoutes[AppRoutesEnum.CREATE_NEWS]());
   }, [navigate]);
-
-  const handleToggleStatusFilter = useCallback(() => {
-    setStatus((val) => (val ? undefined : 2));
-  }, []);
 
   const handleOpenModal = useCallback(
     (id: string | number) => () => {
@@ -96,11 +93,11 @@ export const useNewsList = () => {
     setPerPage: handleSetPerPage,
     total,
     t,
-    status,
+    status: is_deleted,
     tableHeader,
     page,
     tableData,
-    toggleStatusFilter: handleToggleStatusFilter,
+    toggleStatusFilter: toggleIsDeleted,
     config,
     open,
     setOpen,

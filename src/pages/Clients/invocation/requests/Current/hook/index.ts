@@ -11,7 +11,7 @@ export const useCurrentEvent = () => {
   const { t, i18n } = useTranslation('invocation');
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigate();
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>() as { id: string };
   const [data, setData] = useState<IRequest>();
 
   useEffect(() => {
@@ -34,5 +34,5 @@ export const useCurrentEvent = () => {
         setIsLoading(false);
       });
   }, [id, navigation, t]);
-  return { data, isLoading, t, i18n };
+  return { data, isLoading, t, i18n, id };
 };

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { MouseEventHandler } from 'react';
 import styles from './Progress.module.scss';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
   barClassName?: string;
   progressClassName?: string;
   percent: number;
+  onLabelClick?: MouseEventHandler<HTMLParagraphElement>;
 }
 
 export const Progress = ({
@@ -15,10 +17,20 @@ export const Progress = ({
   progressClassName,
   label,
   percent,
+  onLabelClick,
 }: Props) => {
   return (
     <label className={classNames(styles.wrapper, wrapperClassName)}>
-      {label && <p className={classNames(styles.label)}>{label}</p>}
+      {label && (
+        <p
+          onClick={onLabelClick}
+          className={classNames(styles.label, {
+            [styles.clickable]: onLabelClick,
+          })}
+        >
+          {label}
+        </p>
+      )}
       <div className={classNames(styles.bar, barClassName)}>
         <div
           className={classNames(styles.progress, progressClassName)}

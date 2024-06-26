@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import {
   Modal,
+  ModalDelete,
   PageHeader,
   PageSkeleton,
   Pagination,
   PerPage,
 } from '@entities/components';
-import { ModalDelete } from '@entities/components/ModalDelete';
 import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { IconPlus } from '@shared/icons';
 import { Button, Card } from '@shared/ui';

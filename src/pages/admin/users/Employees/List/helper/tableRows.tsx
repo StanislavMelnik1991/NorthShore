@@ -9,7 +9,16 @@ export const useTableRows = (
 ) => {
   const { t } = useTranslation('employees');
   return data.map(
-    ({ id, name, phone_number, department, job_title, work_phone, id_1c }) => {
+    ({
+      id,
+      name,
+      phone_number,
+      department,
+      job_title,
+      work_phone,
+      id_1c,
+      login,
+    }) => {
       return {
         id: <TableText>{String(id)}</TableText>,
         id_1c: <TableText>{id_1c || '-'}</TableText>,
@@ -30,6 +39,7 @@ export const useTableRows = (
           </TableText>
         ),
         role: <TableText>{job_title || '-'}</TableText>,
+        login: <TableText>{login || '-'}</TableText>,
         controls: (
           <TableControls
             getDetailsRoute={AppRoutes[AppRoutesEnum.EMPLOYEES_CURRENT]}

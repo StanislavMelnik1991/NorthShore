@@ -44,7 +44,6 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = () => {
           {t('header.fullName')}
         </Text>
       ),
-      width: 200,
     },
     {
       name: 'phone_number',
@@ -62,13 +61,20 @@ export const useTableHeader: (props: Props) => Array<ConfigItemType> = () => {
           {t('header.department')}
         </Text>
       ),
-      width: 180,
     },
     {
       name: 'role',
       label: (
         <Text fontWeight="regular" variant="body14">
           {t('header.role')}
+        </Text>
+      ),
+    },
+    {
+      name: 'login',
+      label: (
+        <Text fontWeight="regular" variant="body14">
+          {t('header.login')}
         </Text>
       ),
     },

@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  gap: 16px;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 50vh;
+  overflow: auto;
+  padding-right: 16px;
+
+  >:nth-child(n) {
+    border-bottom: 1px solid var(--dark-20);
+  }
+
+  >:nth-last-child(1) {
+    border-bottom: none;
+  }
+}

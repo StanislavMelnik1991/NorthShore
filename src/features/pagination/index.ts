@@ -13,12 +13,16 @@ export const usePagination = () => {
     useCallback(
       ({ selected }) => {
         const perPage = searchParams.get('perPage') || String(INITIAL_PER_PAGE);
+        const is_deleted = searchParams.get('is_deleted') || undefined;
         const params: Partial<Record<keyof ListParams, string>> = {
           page: String(selected + 1),
           perPage,
         };
         if (debounced !== '') {
           params.searchValue = debounced;
+        }
+        if (is_deleted) {
+          params.is_deleted = 'true';
         }
         setSearchParams(params);
       },
@@ -27,6 +31,7 @@ export const usePagination = () => {
 
   const handleSetPerPage = useCallback(
     (val: number) => {
+      const is_deleted = searchParams.get('is_deleted') || undefined;
       const params: Partial<Record<keyof ListParams, string>> = {
         page: '1',
         perPage: String(val),
@@ -34,18 +39,45 @@ export const usePagination = () => {
       if (debounced !== '') {
         params.searchValue = debounced;
       }
+      if (is_deleted) {
+        params.is_deleted = 'true';
+      }
       setSearchParams(params);
     },
-    [debounced, setSearchParams],
+    [debounced, searchParams, setSearchParams],
   );
+  const handleToggleIsDeleted = useCallback(() => {
+    const perPage = searchParams.get('perPage') || String(INITIAL_PER_PAGE);
+    const page = searchParams.get('page') || '1';
+    const is_deleted = searchParams.get('is_deleted') || undefined;
+    const params: Partial<Record<keyof ListParams, string>> = {
+      page,
+      perPage,
+    };
+    if (debounced !== '') {
+      setSearch(debounced);
+      params.searchValue = debounced;
+    }
+    if (!is_deleted) {
+      params.is_deleted = 'true';
+    }
+    setSearchParams(params);
+  }, [debounced, searchParams, setSearchParams]);
 
   useEffect(() => {
     const perPage = searchParams.get('perPage') || String(INITIAL_PER_PAGE);
     const page = searchParams.get('page') || '1';
-    const params: Partial<Record<keyof ListParams, string>> = { page, perPage };
+    const is_deleted = searchParams.get('is_deleted') || undefined;
+    const params: Partial<Record<keyof ListParams, string>> = {
+      page,
+      perPage,
+    };
     if (debounced !== '') {
       setSearch(debounced);
       params.searchValue = debounced;
+    }
+    if (is_deleted) {
+      params.is_deleted = 'true';
     }
     setSearchParams(params);
   }, [debounced, searchParams, setSearchParams]);
@@ -53,7 +85,9 @@ export const usePagination = () => {
   return {
     perPage: Number(searchParams.get('perPage')) || INITIAL_PER_PAGE,
     page: Number(searchParams.get('page')) || 1,
-    debounced,
+    is_deleted: searchParams.get('is_deleted') ? true : undefined,
+    toggleIsDeleted: handleToggleIsDeleted,
+    debounced: debounced !== '' ? debounced : undefined,
     search,
     setSearch,
     handleSetPage,

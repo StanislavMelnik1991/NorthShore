@@ -50,7 +50,7 @@ const Page = () => {
         </Button>
         <Button variant="light" onClick={toggleStatusFilter}>
           <IconBriefcase width={24} height={24} />
-          {t(status === 2 ? 'controls.actual' : 'controls.archive')}
+          {t(status ? 'controls.actual' : 'controls.archive')}
         </Button>
         <TextField
           value={search}

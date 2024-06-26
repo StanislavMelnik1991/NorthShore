@@ -4,12 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useGetUserMeetingsList } from '@features/meetings';
 import { usePagination } from '@features/pagination';
 import { ListParams } from '@entities/types';
-import { AppRoutes, AppRoutesEnum, NewsStatusEnum } from '@shared/constants';
+import { AppRoutes, AppRoutesEnum } from '@shared/constants';
 import { useTableHeader, useTableRows } from '../helper';
-
-interface Params extends ListParams {
-  status?: keyof typeof NewsStatusEnum;
-}
 
 export const useMeetingsList = () => {
   const { getData, isLoading, total, data } = useGetUserMeetingsList();
@@ -21,6 +17,8 @@ export const useMeetingsList = () => {
     debounced,
     search,
     setSearch,
+    is_deleted,
+    toggleIsDeleted,
   } = usePagination();
   const { t } = useTranslation('meetings');
   const [open, setOpen] = useState(false);
@@ -36,18 +34,17 @@ export const useMeetingsList = () => {
       title: '',
     },
   });
-  const [status, setStatus] = useState<keyof typeof NewsStatusEnum>();
   const navigate = useNavigate();
 
   const handleGetData = useCallback(async () => {
-    const params: Params = {
+    const params: ListParams = {
       page,
       perPage,
       searchValue: debounced,
-      status,
+      is_deleted,
     };
     getData(params);
-  }, [debounced, getData, page, perPage, status]);
+  }, [debounced, getData, page, perPage, is_deleted]);
 
   useEffect(() => {
     handleGetData();
@@ -56,10 +53,6 @@ export const useMeetingsList = () => {
   const handleCreateClick = useCallback(() => {
     navigate(AppRoutes[AppRoutesEnum.CREATE_MEETINGS]());
   }, [navigate]);
-
-  const handleToggleStatusFilter = useCallback(() => {
-    setStatus((val) => (val ? undefined : 2));
-  }, []);
 
   const handleOpenModal = useCallback(
     (id: string | number) => () => {
@@ -100,7 +93,7 @@ export const useMeetingsList = () => {
     tableHeader,
     page,
     tableData,
-    toggleStatusFilter: handleToggleStatusFilter,
+    toggleStatusFilter: toggleIsDeleted,
     config,
     open,
     setOpen,

@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  padding: 8px 0 16px;
+  align-items: center;
+  gap: 16px;
+
+  &:hover {
+    color: var(--primary-100);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}

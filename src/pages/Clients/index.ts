@@ -7,3 +7,4 @@ export * from './news';
 export * from './services';
 export * from './loyalty';
 export * from './kBase';
+export * from './invocation';

@@ -29,7 +29,7 @@ export const useMeetingsList = () => {
     const params: Params = {
       page,
       perPage,
-      searchValue: debounced.length ? debounced : undefined,
+      searchValue: debounced,
       from: to && from ? from : undefined,
       to: to || undefined,
     };
